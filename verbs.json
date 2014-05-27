@@ -1,0 +1,33 @@
+[
+  { "infinitive": "falar" },
+  { "infinitive": "comer" },
+  {
+    "infinitive": "abrir",
+    "pastParticiple": "aberto"
+  },
+  {
+    "infinitive": "ser",
+    "present": {
+      "firstSingular": "sou",
+      "thirdSingular": "é",
+      "firstPlural":   "somos",
+      "thirdPlural":   "são"
+    },
+    "perfect": {
+    },
+    "imperfect": {
+    },
+    "pluperfect": {
+    },
+    "future": {
+    },
+    "conditional": {
+    },
+    "subjunctivePresent": {
+    },
+    "subjunctivePast": {
+    },
+    "subjunctiveFuture": {
+    }
+  }
+]
