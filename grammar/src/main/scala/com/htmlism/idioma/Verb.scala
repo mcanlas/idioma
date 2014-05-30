@@ -1,5 +1,9 @@
 package com.htmlism.idioma
 
+object Verb {
+  def apply(json: Any) = ???
+}
+
 case class Verb(
   infinitive:         InflectedForm,
   present:            Tense,
