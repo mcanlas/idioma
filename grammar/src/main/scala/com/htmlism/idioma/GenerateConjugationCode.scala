@@ -19,4 +19,15 @@ object GenerateConjugationCode extends App {
       printf(s"lazy val %-${maximumLength}s = root + ???\n", v)
     }
   }
+
+  for (tense <- tenses) {
+    println(s"""\nprintln("\\n$tense:")""")
+
+    for {
+      number <- numbers
+      person <- persons
+    } {
+      println(s"""println(${person}Person$number$tense)""")
+    }
+  }
 }

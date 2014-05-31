@@ -10,7 +10,11 @@ object Main extends App {
 
   for (JArray(verbs) <- json) {
     for (json <- verbs) {
-      println(Verb(json))
+//      println(Verb(json))
     }
   }
+
+  Conjugation("falar").print()
+  Conjugation("comer").print()
+  Conjugation("assistir").print()
 }

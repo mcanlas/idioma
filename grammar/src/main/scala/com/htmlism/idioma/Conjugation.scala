@@ -1,31 +1,39 @@
 package com.htmlism.idioma
 
+object Conjugation {
+  private val RootPattern = "(.*)([aei])r".r
+
+  def apply(infinitive: String) = infinitive match {
+    case RootPattern(root, vowel) => vowel match {
+      case "a" => new FirstConjugation(root)
+      case "e" => new SecondConjugation(root)
+      case "i" => new ThirdConjugation(root)
+      case _   => throw new IllegalArgumentException(s"could not determine root for infinitive '$infinitive'")
+    }
+  }
+}
+
 trait Conjugation {
   protected val root: String
   protected val vowel: String
 
-  val secondPersonSingularPresentSuffix: String
-  val thirdPersonSingularPresentSuffix:  String
-  val secondPersonPluralPresentSuffix:   String
-  val thirdPersonPluralPresentSuffix:    String
-
   lazy val rootVowel = root + vowel
 
   // Present
-  lazy val firstPersonSingularPresent  = root + "o"
-  lazy val secondPersonSingularPresent = root + secondPersonSingularPresentSuffix
-  lazy val thirdPersonSingularPresent  = root + thirdPersonSingularPresentSuffix
-  lazy val firstPersonPluralPresent    = rootVowel + "mos"
-  lazy val secondPersonPluralPresent   = root + secondPersonPluralPresentSuffix
-  lazy val thirdPersonPluralPresent    = root + thirdPersonPluralPresentSuffix
+  lazy val firstPersonSingularPresent   = root + "o"
+       val secondPersonSingularPresent: String
+       val thirdPersonSingularPresent:  String
+  lazy val firstPersonPluralPresent     = rootVowel + "mos"
+       val secondPersonPluralPresent:   String
+       val thirdPersonPluralPresent:    String
 
   // Perfect
-  lazy val firstPersonSingularPerfect  = root + ???
-  lazy val secondPersonSingularPerfect = root + ???
-  lazy val thirdPersonSingularPerfect  = root + ???
-  lazy val firstPersonPluralPerfect    = root + ???
-  lazy val secondPersonPluralPerfect   = root + ???
-  lazy val thirdPersonPluralPerfect    = root + ???
+       val firstPersonSingularPerfect: String
+  lazy val secondPersonSingularPerfect = rootVowel + "ste"
+       val thirdPersonSingularPerfect: String
+  lazy val firstPersonPluralPerfect    = rootVowel + "mos"
+  lazy val secondPersonPluralPerfect   = rootVowel + "stes"
+  lazy val thirdPersonPluralPerfect    = rootVowel + "ram"
 
   // Imperfect
   lazy val firstPersonSingularImperfect  = root + ???
@@ -82,31 +90,64 @@ trait Conjugation {
   lazy val firstPersonPluralFutureSubjunctive    = root + ???
   lazy val secondPersonPluralFutureSubjunctive   = root + ???
   lazy val thirdPersonPluralFutureSubjunctive    = root + ???
+
+  def print() = {
+    println("\nPresent:")
+    println(firstPersonSingularPresent)
+    println(secondPersonSingularPresent)
+    println(thirdPersonSingularPresent)
+    println(firstPersonPluralPresent)
+    println(secondPersonPluralPresent)
+    println(thirdPersonPluralPresent)
+
+    println("\nPerfect:")
+    println(firstPersonSingularPerfect)
+    println(secondPersonSingularPerfect)
+    println(thirdPersonSingularPerfect)
+    println(firstPersonPluralPerfect)
+    println(secondPersonPluralPerfect)
+    println(thirdPersonPluralPerfect)
+  }
 }
 
 class FirstConjugation(protected val root: String) extends Conjugation {
   val vowel = "a"
 
-  val secondPersonSingularPresentSuffix = "as"
-  val thirdPersonSingularPresentSuffix  = "a"
-  val secondPersonPluralPresentSuffix   = "ais"
-  val thirdPersonPluralPresentSuffix    = "am"
+  // Present
+  lazy val secondPersonSingularPresent = root + "as"
+  lazy val thirdPersonSingularPresent  = root + "a"
+  lazy val secondPersonPluralPresent   = root + "ais"
+  lazy val thirdPersonPluralPresent    = root + "am"
+
+  // Perfect
+  lazy val firstPersonSingularPerfect = root + "ei"
+  lazy val thirdPersonSingularPerfect = root + "ou"
 }
 
 class SecondConjugation(protected val root: String) extends Conjugation {
   val vowel = "e"
 
-  val secondPersonSingularPresentSuffix = "es"
-  val thirdPersonSingularPresentSuffix  = "e"
-  val secondPersonPluralPresentSuffix   = "eis"
-  val thirdPersonPluralPresentSuffix    = "em"
+  // Present
+  lazy val secondPersonSingularPresent = root + "es"
+  lazy val thirdPersonSingularPresent  = root + "e"
+  lazy val secondPersonPluralPresent   = root + "eis"
+  lazy val thirdPersonPluralPresent    = root + "em"
+
+  // Perfect
+  lazy val firstPersonSingularPerfect = root + "i"
+  lazy val thirdPersonSingularPerfect = root + "eu"
 }
 
 class ThirdConjugation(protected val root: String) extends Conjugation {
   val vowel = "i"
 
-  val secondPersonSingularPresentSuffix = "es"
-  val thirdPersonSingularPresentSuffix  = "e"
-  val secondPersonPluralPresentSuffix   = "is"
-  val thirdPersonPluralPresentSuffix    = "em"
+  // Present
+  lazy val secondPersonSingularPresent = root + "es"
+  lazy val thirdPersonSingularPresent  = root + "e"
+  lazy val secondPersonPluralPresent   = root + "is"
+  lazy val thirdPersonPluralPresent    = root + "em"
+
+  // Perfect
+  lazy val firstPersonSingularPerfect = root + "i"
+  lazy val thirdPersonSingularPerfect = root + "iu"
 }
