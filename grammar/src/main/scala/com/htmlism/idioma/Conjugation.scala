@@ -52,12 +52,12 @@ trait Conjugation {
   lazy val thirdPersonPluralPluperfect    = rootVowel + "ram"
 
   // Future
-  lazy val firstPersonSingularFuture  = root + ???
-  lazy val secondPersonSingularFuture = root + ???
-  lazy val thirdPersonSingularFuture  = root + ???
-  lazy val firstPersonPluralFuture    = root + ???
-  lazy val secondPersonPluralFuture   = root + ???
-  lazy val thirdPersonPluralFuture    = root + ???
+  lazy val firstPersonSingularFuture  = rootVowel + "rei"
+  lazy val secondPersonSingularFuture = rootVowel + "rás"
+  lazy val thirdPersonSingularFuture  = rootVowel + "rá"
+  lazy val firstPersonPluralFuture    = rootVowel + "remos"
+  lazy val secondPersonPluralFuture   = rootVowel + "reis"
+  lazy val thirdPersonPluralFuture    = rootVowel + "rão"
 
   // Conditional
   lazy val firstPersonSingularConditional  = root + ???
@@ -123,6 +123,14 @@ trait Conjugation {
     println(firstPersonPluralPluperfect)
     println(secondPersonPluralPluperfect)
     println(thirdPersonPluralPluperfect)
+
+    println("\nFuture:")
+    println(firstPersonSingularFuture)
+    println(secondPersonSingularFuture)
+    println(thirdPersonSingularFuture)
+    println(firstPersonPluralFuture)
+    println(secondPersonPluralFuture)
+    println(thirdPersonPluralFuture)
   }
 }
 
