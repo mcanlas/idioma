@@ -19,68 +19,68 @@ trait Conjugation {
   val thirdPersonPluralPresent    = root + thirdPersonPluralPresentSuffix
 
   // Perfect
-  val firstPersonSingularPerfect  = root + ???
-  val secondPersonSingularPerfect = root + ???
-  val thirdPersonSingularPerfect  = root + ???
-  val firstPersonPluralPerfect    = root + ???
-  val secondPersonPluralPerfect   = root + ???
-  val thirdPersonPluralPerfect    = root + ???
+  lazy val firstPersonSingularPerfect  = root + ???
+  lazy val secondPersonSingularPerfect = root + ???
+  lazy val thirdPersonSingularPerfect  = root + ???
+  lazy val firstPersonPluralPerfect    = root + ???
+  lazy val secondPersonPluralPerfect   = root + ???
+  lazy val thirdPersonPluralPerfect    = root + ???
 
   // Imperfect
-  val firstPersonSingularImperfect  = root + ???
-  val secondPersonSingularImperfect = root + ???
-  val thirdPersonSingularImperfect  = root + ???
-  val firstPersonPluralImperfect    = root + ???
-  val secondPersonPluralImperfect   = root + ???
-  val thirdPersonPluralImperfect    = root + ???
+  lazy val firstPersonSingularImperfect  = root + ???
+  lazy val secondPersonSingularImperfect = root + ???
+  lazy val thirdPersonSingularImperfect  = root + ???
+  lazy val firstPersonPluralImperfect    = root + ???
+  lazy val secondPersonPluralImperfect   = root + ???
+  lazy val thirdPersonPluralImperfect    = root + ???
 
   // Pluperfect
-  val firstPersonSingularPluperfect  = root + ???
-  val secondPersonSingularPluperfect = root + ???
-  val thirdPersonSingularPluperfect  = root + ???
-  val firstPersonPluralPluperfect    = root + ???
-  val secondPersonPluralPluperfect   = root + ???
-  val thirdPersonPluralPluperfect    = root + ???
+  lazy val firstPersonSingularPluperfect  = root + ???
+  lazy val secondPersonSingularPluperfect = root + ???
+  lazy val thirdPersonSingularPluperfect  = root + ???
+  lazy val firstPersonPluralPluperfect    = root + ???
+  lazy val secondPersonPluralPluperfect   = root + ???
+  lazy val thirdPersonPluralPluperfect    = root + ???
 
   // Future
-  val firstPersonSingularFuture  = root + ???
-  val secondPersonSingularFuture = root + ???
-  val thirdPersonSingularFuture  = root + ???
-  val firstPersonPluralFuture    = root + ???
-  val secondPersonPluralFuture   = root + ???
-  val thirdPersonPluralFuture    = root + ???
+  lazy val firstPersonSingularFuture  = root + ???
+  lazy val secondPersonSingularFuture = root + ???
+  lazy val thirdPersonSingularFuture  = root + ???
+  lazy val firstPersonPluralFuture    = root + ???
+  lazy val secondPersonPluralFuture   = root + ???
+  lazy val thirdPersonPluralFuture    = root + ???
 
   // Conditional
-  val firstPersonSingularConditional  = root + ???
-  val secondPersonSingularConditional = root + ???
-  val thirdPersonSingularConditional  = root + ???
-  val firstPersonPluralConditional    = root + ???
-  val secondPersonPluralConditional   = root + ???
-  val thirdPersonPluralConditional    = root + ???
+  lazy val firstPersonSingularConditional  = root + ???
+  lazy val secondPersonSingularConditional = root + ???
+  lazy val thirdPersonSingularConditional  = root + ???
+  lazy val firstPersonPluralConditional    = root + ???
+  lazy val secondPersonPluralConditional   = root + ???
+  lazy val thirdPersonPluralConditional    = root + ???
 
   // PresentSubjunctive
-  val firstPersonSingularPresentSubjunctive  = root + ???
-  val secondPersonSingularPresentSubjunctive = root + ???
-  val thirdPersonSingularPresentSubjunctive  = root + ???
-  val firstPersonPluralPresentSubjunctive    = root + ???
-  val secondPersonPluralPresentSubjunctive   = root + ???
-  val thirdPersonPluralPresentSubjunctive    = root + ???
+  lazy val firstPersonSingularPresentSubjunctive  = root + ???
+  lazy val secondPersonSingularPresentSubjunctive = root + ???
+  lazy val thirdPersonSingularPresentSubjunctive  = root + ???
+  lazy val firstPersonPluralPresentSubjunctive    = root + ???
+  lazy val secondPersonPluralPresentSubjunctive   = root + ???
+  lazy val thirdPersonPluralPresentSubjunctive    = root + ???
 
   // ImperfectSubjunctive
-  val firstPersonSingularImperfectSubjunctive  = root + ???
-  val secondPersonSingularImperfectSubjunctive = root + ???
-  val thirdPersonSingularImperfectSubjunctive  = root + ???
-  val firstPersonPluralImperfectSubjunctive    = root + ???
-  val secondPersonPluralImperfectSubjunctive   = root + ???
-  val thirdPersonPluralImperfectSubjunctive    = root + ???
+  lazy val firstPersonSingularImperfectSubjunctive  = root + ???
+  lazy val secondPersonSingularImperfectSubjunctive = root + ???
+  lazy val thirdPersonSingularImperfectSubjunctive  = root + ???
+  lazy val firstPersonPluralImperfectSubjunctive    = root + ???
+  lazy val secondPersonPluralImperfectSubjunctive   = root + ???
+  lazy val thirdPersonPluralImperfectSubjunctive    = root + ???
 
   // FutureSubjunctive
-  val firstPersonSingularFutureSubjunctive  = root + ???
-  val secondPersonSingularFutureSubjunctive = root + ???
-  val thirdPersonSingularFutureSubjunctive  = root + ???
-  val firstPersonPluralFutureSubjunctive    = root + ???
-  val secondPersonPluralFutureSubjunctive   = root + ???
-  val thirdPersonPluralFutureSubjunctive    = root + ???
+  lazy val firstPersonSingularFutureSubjunctive  = root + ???
+  lazy val secondPersonSingularFutureSubjunctive = root + ???
+  lazy val thirdPersonSingularFutureSubjunctive  = root + ???
+  lazy val firstPersonPluralFutureSubjunctive    = root + ???
+  lazy val secondPersonPluralFutureSubjunctive   = root + ???
+  lazy val thirdPersonPluralFutureSubjunctive    = root + ???
 }
 
 class FirstConjugation(protected val root: String) extends Conjugation {

@@ -16,7 +16,7 @@ object GenerateConjugationCode extends App {
     val maximumLength = valueNames.map { _.length }.max
 
     for (v <- valueNames) {
-      printf(s"val %-${maximumLength}s = root + ???\n", v)
+      printf(s"lazy val %-${maximumLength}s = root + ???\n", v)
     }
   }
 }
