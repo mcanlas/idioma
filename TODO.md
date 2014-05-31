@@ -1,6 +1,5 @@
 # Next actions
 
-* verb constructor must use pattern matching to avoid auto None in case class unwrapping
 * regular verbs (falar, comer, assistir)
 * ser, estar
 * can em/no/na

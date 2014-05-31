@@ -1,27 +1,43 @@
 package com.htmlism.idioma
 
-import org.json4s.JsonAST.{ JString, JObject}
+import org.json4s.JsonAST.{ JValue, JString, JObject }
 
 object Verb {
-  def apply(json: JObject): Verb = {
-    val JObject(fields) = json
+  case object FirstConjugation
+  case object SecondConjugation
+  case object ThirdConjugation
 
-    val map = fields.toMap
+  val rootPattern = "(.*)(aei)r".r
 
-    val JString(infinitive) = map("infinitive")
+  def apply(jv: JValue): Verb = jv match {
+    case JObject(fields) =>
+      val map = fields.toMap
 
-    Verb(
-      infinitive,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    )
+      val JString(infinitive) = map("infinitive")
+
+      val conjugation = infinitive match {
+        case rootPattern(root, vowel) => vowel match {
+          case "a" => FirstConjugation
+          case "e" => SecondConjugation
+          case "i" => ThirdConjugation
+
+        } //println(root)
+        case _ => throw new IllegalArgumentException(s"could not find root for infinitive $infinitive")
+      }
+
+      Verb(
+        infinitive,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      )
+    case _ => throw new IllegalArgumentException("verb constructor needs a jObject")
   }
 }
 

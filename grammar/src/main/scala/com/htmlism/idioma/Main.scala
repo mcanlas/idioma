@@ -9,8 +9,8 @@ object Main extends App {
   val json = parse(new java.io.File("verbs.json"))
 
   for (JArray(verbs) <- json) {
-    for (JObject(v) <- verbs) {
-      println(v.toMap)
+    for (json <- verbs) {
+      println(Verb(json))
     }
   }
 }
