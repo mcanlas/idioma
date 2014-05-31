@@ -3,20 +3,21 @@ package com.htmlism.idioma
 trait Conjugation {
   protected val root: String
   protected val vowel: String
-  protected val rootVowel = root + vowel
 
   val secondPersonSingularPresentSuffix: String
   val thirdPersonSingularPresentSuffix:  String
   val secondPersonPluralPresentSuffix:   String
   val thirdPersonPluralPresentSuffix:    String
 
+  lazy val rootVowel = root + vowel
+
   // Present
-  val firstPersonSingularPresent  = root + "o"
-  val secondPersonSingularPresent = root + secondPersonSingularPresentSuffix
-  val thirdPersonSingularPresent  = root + thirdPersonSingularPresentSuffix
-  val firstPersonPluralPresent    = rootVowel + "mos"
-  val secondPersonPluralPresent   = root + secondPersonPluralPresentSuffix
-  val thirdPersonPluralPresent    = root + thirdPersonPluralPresentSuffix
+  lazy val firstPersonSingularPresent  = root + "o"
+  lazy val secondPersonSingularPresent = root + secondPersonSingularPresentSuffix
+  lazy val thirdPersonSingularPresent  = root + thirdPersonSingularPresentSuffix
+  lazy val firstPersonPluralPresent    = rootVowel + "mos"
+  lazy val secondPersonPluralPresent   = root + secondPersonPluralPresentSuffix
+  lazy val thirdPersonPluralPresent    = root + thirdPersonPluralPresentSuffix
 
   // Perfect
   lazy val firstPersonSingularPerfect  = root + ???
