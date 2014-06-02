@@ -1,6 +1,6 @@
 package com.htmlism.idioma.portuguese
 
-case class Tense(
+case class InflectedTense(
   firstPersonSingular: InflectedForm,
   thirdPersonSingular: InflectedForm,
   firstPersonPlural:   InflectedForm,

@@ -36,13 +36,13 @@ object Verb {
 
 case class Verb(
   infinitive:         String,
-  present:            Tense,
-  perfect:            Tense,
-  imperfect:          Tense,
-  pluperfect:         Tense,
-  future:             Tense,
-  conditional:        Tense,
-  subjunctivePresent: Tense,
-  subjectivePast:     Tense,
-  subjectiveFuture:   Tense
+  present:            InflectedTense,
+  perfect:            InflectedTense,
+  imperfect:          InflectedTense,
+  pluperfect:         InflectedTense,
+  future:             InflectedTense,
+  conditional:        InflectedTense,
+  subjunctivePresent: InflectedTense,
+  subjectivePast:     InflectedTense,
+  subjectiveFuture:   InflectedTense
 )
