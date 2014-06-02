@@ -1,5 +1,7 @@
 package com.htmlism.idioma.portuguese
 
+import com.htmlism.idioma.portuguese.GrammaticalCategories._
+
 object Conjugation {
   private val RootPattern = "(.*)([aei])r".r
 
@@ -16,8 +18,16 @@ object Conjugation {
 trait Conjugation {
   protected val root: String
   protected val vowel: String
+  protected val regularForms: Map[(Tense, Person, Number), String]
+
+  def apply(tense: Tense, person: Person, number: Number) = regularForms((tense, person, number))
 
   lazy val rootVowel = root + vowel
+
+  lazy val veryRegularForms = Map(
+    (Present, FirstPerson, Singular) -> (root + "o"),
+    (Present, FirstPerson, Plural)   -> (rootVowel + "mos")
+  )
 
   // Present
   lazy val firstPersonSingularPresent   = root + "o"
@@ -145,6 +155,10 @@ trait Conjugation {
 class FirstConjugation(protected val root: String) extends Conjugation {
   val vowel = "a"
 
+  val regularForms = veryRegularForms ++ Map(
+    (Present, SecondPerson, Singular) -> (root + "as")
+  )
+
   // Present
   lazy val secondPersonSingularPresent = root + "as"
   lazy val thirdPersonSingularPresent  = root + "a"
@@ -171,6 +185,8 @@ class FirstConjugation(protected val root: String) extends Conjugation {
 class SecondConjugation(protected val root: String) extends Conjugation {
   val vowel = "e"
 
+  val regularForms = veryRegularForms
+
   // Present
   lazy val secondPersonSingularPresent = root + "es"
   lazy val thirdPersonSingularPresent  = root + "e"
@@ -196,6 +212,8 @@ class SecondConjugation(protected val root: String) extends Conjugation {
 
 class ThirdConjugation(protected val root: String) extends Conjugation {
   val vowel = "i"
+
+  val regularForms = veryRegularForms
 
   // Present
   lazy val secondPersonSingularPresent = root + "es"
