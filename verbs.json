@@ -1,12 +1,20 @@
 [
-  { "infinitive": "falar" },
-  { "infinitive": "comer" },
+  {
+    "infinitive": "falar",
+    "gloss": "talk"
+  },
+  {
+    "infinitive": "comer",
+    "gloss": "eat"
+  },
   {
     "infinitive": "abrir",
-    "pastParticiple": "aberto"
+    "pastParticiple": "aberto",
+    "gloss": "open"
   },
   {
     "infinitive": "ser",
+    "gloss": "be",
     "present": {
       "firstSingular": "sou",
       "thirdSingular": "é",
