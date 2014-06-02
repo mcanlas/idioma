@@ -1,4 +1,4 @@
-package com.htmlism.idioma
+package com.htmlism.idioma.portuguese
 
 import org.json4s._
 import org.json4s.native.JsonMethods._

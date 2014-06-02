@@ -1,4 +1,4 @@
-package com.htmlism.idioma
+package com.htmlism.idioma.portuguese
 
 import org.json4s.JsonAST.{ JValue, JString, JObject }
 

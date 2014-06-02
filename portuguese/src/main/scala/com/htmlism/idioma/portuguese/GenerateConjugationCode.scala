@@ -1,4 +1,4 @@
-package com.htmlism.idioma
+package com.htmlism.idioma.portuguese
 
 object GenerateConjugationCode extends App {
   val persons = List("first", "second", "third")

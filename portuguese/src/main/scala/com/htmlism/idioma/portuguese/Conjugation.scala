@@ -1,4 +1,4 @@
-package com.htmlism.idioma
+package com.htmlism.idioma.portuguese
 
 object Conjugation {
   private val RootPattern = "(.*)([aei])r".r

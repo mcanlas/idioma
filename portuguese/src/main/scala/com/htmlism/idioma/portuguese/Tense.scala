@@ -1,4 +1,4 @@
-package com.htmlism.idioma
+package com.htmlism.idioma.portuguese
 
 case class Tense(
   firstPersonSingular: InflectedForm,
