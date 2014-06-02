@@ -18,6 +18,10 @@ object GrammaticalCategories {
 
   val Singular  = Number("singular")
   val Plural    = Number("plural")
+
+  val Tenses  = List(Present, Perfect, Imperfect, Pluperfect, Future, Conditional, PresentSubjunctive, ImperfectSubjunctive, FutureSubjunctive)
+  val Persons = List(FirstPerson, SecondPerson, ThirdPerson)
+  val Numbers = List(Singular, Plural)
 }
 
 case class Tense(tense: String)
