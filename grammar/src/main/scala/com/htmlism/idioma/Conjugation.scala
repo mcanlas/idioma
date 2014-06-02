@@ -60,12 +60,12 @@ trait Conjugation {
   lazy val thirdPersonPluralFuture    = rootVowel + "rão"
 
   // Conditional
-  lazy val firstPersonSingularConditional  = root + ???
-  lazy val secondPersonSingularConditional = root + ???
-  lazy val thirdPersonSingularConditional  = root + ???
-  lazy val firstPersonPluralConditional    = root + ???
-  lazy val secondPersonPluralConditional   = root + ???
-  lazy val thirdPersonPluralConditional    = root + ???
+  lazy val firstPersonSingularConditional  = rootVowel + "ria"
+  lazy val secondPersonSingularConditional = rootVowel + "rias"
+  lazy val thirdPersonSingularConditional  = rootVowel + "ria"
+  lazy val firstPersonPluralConditional    = rootVowel + "ríamos"
+  lazy val secondPersonPluralConditional   = rootVowel + "ríeis"
+  lazy val thirdPersonPluralConditional    = rootVowel + "riam"
 
   // PresentSubjunctive
   lazy val firstPersonSingularPresentSubjunctive  = root + ???
@@ -131,6 +131,14 @@ trait Conjugation {
     println(firstPersonPluralFuture)
     println(secondPersonPluralFuture)
     println(thirdPersonPluralFuture)
+
+    println("\nConditional:")
+    println(firstPersonSingularConditional)
+    println(secondPersonSingularConditional)
+    println(thirdPersonSingularConditional)
+    println(firstPersonPluralConditional)
+    println(secondPersonPluralConditional)
+    println(thirdPersonPluralConditional)
   }
 }
 
