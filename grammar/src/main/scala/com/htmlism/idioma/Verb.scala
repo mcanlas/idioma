@@ -15,15 +15,8 @@ object Verb {
 
       val JString(infinitive) = map("infinitive")
 
-      val conjugation = infinitive match {
-        case rootPattern(root, vowel) => vowel match {
-          case "a" => FirstConjugation
-          case "e" => SecondConjugation
-          case "i" => ThirdConjugation
-
-        } //println(root)
-        case _ => throw new IllegalArgumentException(s"could not find root for infinitive $infinitive")
-      }
+      val conjugation = Conjugation(infinitive)
+      println(conjugation)
 
       Verb(
         infinitive,

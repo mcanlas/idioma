@@ -10,7 +10,7 @@ object Main extends App {
 
   for (JArray(verbs) <- json) {
     for (json <- verbs) {
-//      println(Verb(json))
+      println(Verb(json))
     }
   }
 
