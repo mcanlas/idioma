@@ -3,12 +3,6 @@ package com.htmlism.idioma.portuguese
 import org.json4s.JsonAST.{ JValue, JString, JObject }
 
 object Verb {
-  case object FirstConjugation
-  case object SecondConjugation
-  case object ThirdConjugation
-
-  val rootPattern = "(.*)(aei)r".r
-
   def apply(jv: JValue): Verb = jv match {
     case JObject(fields) =>
       val map = fields.toMap
