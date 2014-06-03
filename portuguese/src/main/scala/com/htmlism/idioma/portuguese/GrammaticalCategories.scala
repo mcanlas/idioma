@@ -12,12 +12,12 @@ object GrammaticalCategories {
   val ImperfectSubjunctive = Tense("imperfectSubjunctive", "IMPSUB")
   val FutureSubjunctive    = Tense("futureSubjunctive",    "FUTSUB")
 
-  val FirstPerson  = Person("first", "1")
+  val FirstPerson  = Person("first",  "1")
   val SecondPerson = Person("second", "2")
-  val ThirdPerson  = Person("third", "3")
+  val ThirdPerson  = Person("third",  "3")
 
   val Singular  = Number("singular", "S")
-  val Plural    = Number("plural", "P")
+  val Plural    = Number("plural",   "P")
 
   val Tenses  = List(Present, Perfect, Imperfect, Pluperfect, Future, Conditional, PresentSubjunctive, ImperfectSubjunctive, FutureSubjunctive)
   val Persons = List(FirstPerson, SecondPerson, ThirdPerson)
