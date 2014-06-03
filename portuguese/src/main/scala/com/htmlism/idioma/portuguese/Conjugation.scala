@@ -18,15 +18,15 @@ object Conjugation {
 trait Conjugation {
   protected val root: String
   protected val vowel: String
-  protected val regularForms: Map[(Tense, Person, Number), String]
+  protected val regularForms: Map[(Tense, Person, Number), InflectedForm]
 
   def apply(tense: Tense, person: Person, number: Number) = regularForms((tense, person, number))
 
   lazy val rootVowel = root + vowel
 
   lazy val veryRegularForms = Map(
-    (Present, FirstPerson, Singular) -> (root + "o"),
-    (Present, FirstPerson, Plural)   -> (rootVowel + "mos")
+    (Present, FirstPerson, Singular) -> r(root + "o"),
+    (Present, FirstPerson, Plural)   -> r(rootVowel + "mos")
   )
 
   // Present
@@ -150,13 +150,17 @@ trait Conjugation {
     println(secondPersonPluralConditional)
     println(thirdPersonPluralConditional)
   }
+
+  private def r(form: String) = InflectedForm(form, Regular)
+
+  protected def s(form: String) = InflectedForm(form, SemiRegular)
 }
 
 class FirstConjugation(protected val root: String) extends Conjugation {
   val vowel = "a"
 
   val regularForms = veryRegularForms ++ Map(
-    (Present, SecondPerson, Singular) -> (root + "as")
+    (Present, SecondPerson, Singular) -> s(root + "as")
   )
 
   // Present
