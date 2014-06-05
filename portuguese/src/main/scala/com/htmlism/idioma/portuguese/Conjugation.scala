@@ -15,7 +15,7 @@ object Conjugation {
   }
 }
 
-trait Conjugation {
+trait Conjugation extends CanConjugate {
   protected val root: String
   protected val vowel: String
   protected val regularForms: Map[(Tense, Person, Number), InflectedForm]
