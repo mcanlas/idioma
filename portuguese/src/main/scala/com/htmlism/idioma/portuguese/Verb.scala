@@ -1,6 +1,6 @@
 package com.htmlism.idioma.portuguese
 
-import org.json4s.JsonAST.{ JValue, JString, JObject }
+import org.json4s.JsonAST.{ JNothing, JValue, JString, JObject }
 import GrammaticalCategories.Numbers
 
 object Verb {
@@ -16,7 +16,14 @@ object Verb {
       val forms = List(GrammaticalCategories.Present).flatMap { case t =>
         List(GrammaticalCategories.FirstPerson).flatMap { case p =>
           Numbers.map { case n =>
-            ((t, p, n), conjugation(t, p, n))
+            val maybeIrregularForm = jv \ t.tense \ (p.person + n.number.capitalize)
+
+            val form = maybeIrregularForm match {
+              case JString(s) => InflectedForm(s, Irregular)
+              case JNothing   => conjugation(t, p, n)
+            }
+
+            ((t, p, n), form)
           }
         }
       }
