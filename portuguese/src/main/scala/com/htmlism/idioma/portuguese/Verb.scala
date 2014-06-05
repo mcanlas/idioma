@@ -1,6 +1,7 @@
 package com.htmlism.idioma.portuguese
 
 import org.json4s.JsonAST.{ JValue, JString, JObject }
+import GrammaticalCategories.Numbers
 
 object Verb {
   def apply(jv: JValue): Verb = jv match {
@@ -12,31 +13,19 @@ object Verb {
       val conjugation = Conjugation(infinitive)
       println(conjugation)
 
-      Verb(
-        infinitive,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      )
+      val forms = List(GrammaticalCategories.Present).flatMap { case t =>
+        List(GrammaticalCategories.FirstPerson).flatMap { case p =>
+          Numbers.map { case n =>
+            ((t, p, n), conjugation(t, p, n))
+          }
+        }
+      }
+
+      new Verb(forms.toMap)
     case _ => throw new IllegalArgumentException("verb constructor needs a jObject")
   }
 }
 
-case class Verb(
-  infinitive:         String,
-  present:            InflectedTense,
-  perfect:            InflectedTense,
-  imperfect:          InflectedTense,
-  pluperfect:         InflectedTense,
-  future:             InflectedTense,
-  conditional:        InflectedTense,
-  subjunctivePresent: InflectedTense,
-  subjectivePast:     InflectedTense,
-  subjectiveFuture:   InflectedTense
-)
+case class Verb(private val forms: Map[(Tense, Person, Number), InflectedForm]) extends CanConjugate {
+  def apply(tense: Tense, person: Person, number: Number) = forms((tense, person, number))
+}
