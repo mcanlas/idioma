@@ -29,18 +29,10 @@ trait Conjugation extends CanConjugate {
     (Present, FirstPerson, Plural)   -> r(rootVowel + "mos"),
 
     (Perfect, SecondPerson, Singular) -> r(rootVowel + "ste"),
-    (Perfect, FirstPerson, Plural)    -> r(rootVowel + "mos"),
+    (Perfect, FirstPerson,  Plural)   -> r(rootVowel + "mos"),
     (Perfect, SecondPerson, Plural)   -> r(rootVowel + "stes"),
-    (Perfect, ThirdPerson, Plural)    -> r(rootVowel + "ram")
+    (Perfect, ThirdPerson,  Plural)   -> r(rootVowel + "ram")
   )
-
-  // Imperfect
-       val firstPersonSingularImperfect:  String
-       val secondPersonSingularImperfect: String
-       val thirdPersonSingularImperfect:  String
-       val firstPersonPluralImperfect:    String
-       val secondPersonPluralImperfect:   String
-       val thirdPersonPluralImperfect:    String
 
   // Pluperfect
   lazy val firstPersonSingularPluperfect  = rootVowel + "ra"
@@ -91,14 +83,6 @@ trait Conjugation extends CanConjugate {
   lazy val thirdPersonPluralFutureSubjunctive    = root + ???
 
   def print() = {
-    println("\nImperfect:")
-    println(firstPersonSingularImperfect)
-    println(secondPersonSingularImperfect)
-    println(thirdPersonSingularImperfect)
-    println(firstPersonPluralImperfect)
-    println(secondPersonPluralImperfect)
-    println(thirdPersonPluralImperfect)
-
     println("\nPluperfect:")
     println(firstPersonSingularPluperfect)
     println(secondPersonSingularPluperfect)
@@ -139,16 +123,15 @@ class FirstConjugation(protected val root: String) extends Conjugation {
     (Present, ThirdPerson,  Plural)   -> s(root + "am"),
 
     (Perfect, FirstPerson, Singular) -> s(root + "ei"),
-    (Perfect, ThirdPerson, Singular) -> s(root + "ou")
-  )
+    (Perfect, ThirdPerson, Singular) -> s(root + "ou"),
 
-  // Imperfect
-  lazy val firstPersonSingularImperfect  = root + "ava"
-  lazy val secondPersonSingularImperfect = root + "avas"
-  lazy val thirdPersonSingularImperfect  = root + "ava"
-  lazy val firstPersonPluralImperfect    = root + "ávamos"
-  lazy val secondPersonPluralImperfect   = root + "áveis"
-  lazy val thirdPersonPluralImperfect    = root + "avam"
+    (Imperfect, FirstPerson,  Singular) -> s(root + "ava"),
+    (Imperfect, SecondPerson, Singular) -> s(root + "avas"),
+    (Imperfect, ThirdPerson,  Singular) -> s(root + "ava"),
+    (Imperfect, FirstPerson,  Plural)   -> s(root + "ávamos"),
+    (Imperfect, SecondPerson, Plural)   -> s(root + "áveis"),
+    (Imperfect, ThirdPerson,  Plural)   -> s(root + "avam")
+  )
 
   // Pluperfect
   lazy val firstPersonPluralPluperfect  = root + "áramos"
@@ -165,16 +148,15 @@ class SecondConjugation(protected val root: String) extends Conjugation {
     (Present, ThirdPerson,  Plural)   -> s(root + "em"),
 
     (Perfect, FirstPerson, Singular) -> s(root + "i"),
-    (Perfect, ThirdPerson, Singular) -> s(root + "eu")
-  )
+    (Perfect, ThirdPerson, Singular) -> s(root + "eu"),
 
-  // Imperfect
-  lazy val firstPersonSingularImperfect  = root + "ia"
-  lazy val secondPersonSingularImperfect = root + "ias"
-  lazy val thirdPersonSingularImperfect  = root + "ia"
-  lazy val firstPersonPluralImperfect    = root + "íamos"
-  lazy val secondPersonPluralImperfect   = root + "íeis"
-  lazy val thirdPersonPluralImperfect    = root + "iam"
+    (Imperfect, FirstPerson,  Singular) -> s(root + "ia"),
+    (Imperfect, SecondPerson, Singular) -> s(root + "ias"),
+    (Imperfect, ThirdPerson,  Singular) -> s(root + "ia"),
+    (Imperfect, FirstPerson,  Plural)   -> s(root + "íamos"),
+    (Imperfect, SecondPerson, Plural)   -> s(root + "íeis"),
+    (Imperfect, ThirdPerson,  Plural)   -> s(root + "iam")
+  )
 
   // Pluperfect
   lazy val firstPersonPluralPluperfect  = root + "êramos"
@@ -186,21 +168,20 @@ class ThirdConjugation(protected val root: String) extends Conjugation {
 
   val regularForms = veryRegularForms ++ Map(
     (Present, SecondPerson, Singular) -> s(root + "es"),
-    (Present, ThirdPerson, Singular)  -> s(root + "e"),
+    (Present, ThirdPerson,  Singular) -> s(root + "e"),
     (Present, SecondPerson, Plural)   -> s(root + "is"),
-    (Present, ThirdPerson, Plural)    -> s(root + "em"),
+    (Present, ThirdPerson,  Plural)   -> s(root + "em"),
 
     (Perfect, FirstPerson, Singular) -> s(root + "i"),
-    (Perfect, ThirdPerson, Singular) -> s(root + "iu")
-  )
+    (Perfect, ThirdPerson, Singular) -> s(root + "iu"),
 
-  // Imperfect
-  lazy val firstPersonSingularImperfect  = root + "ia"
-  lazy val secondPersonSingularImperfect = root + "ias"
-  lazy val thirdPersonSingularImperfect  = root + "ia"
-  lazy val firstPersonPluralImperfect    = root + "íamos"
-  lazy val secondPersonPluralImperfect   = root + "íeis"
-  lazy val thirdPersonPluralImperfect    = root + "iam"
+    (Imperfect, FirstPerson,  Singular) -> s(root + "ia"),
+    (Imperfect, SecondPerson, Singular) -> s(root + "ias"),
+    (Imperfect, ThirdPerson,  Singular) -> s(root + "ia"),
+    (Imperfect, FirstPerson,  Plural)   -> s(root + "íamos"),
+    (Imperfect, SecondPerson, Plural)   -> s(root + "íeis"),
+    (Imperfect, ThirdPerson,  Plural)   -> s(root + "iam")
+  )
 
   // Pluperfect
   lazy val firstPersonPluralPluperfect  = root + "íramos"
