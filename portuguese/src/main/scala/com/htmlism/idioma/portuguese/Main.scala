@@ -16,8 +16,13 @@ object Main extends App {
   }
 
   val sentences = verbs.flatMap { verb =>
-    List(Present, Perfect).flatMap { t =>
-      val time = if (t == Perfect) List("ontem,") else Nil
+    List(Present, Perfect, Imperfect).flatMap { t =>
+      val timePhrases = t match {
+        case Present   => Nil :: Nil
+        case Perfect   => List("ontem") :: Nil
+        case Imperfect => List("antigamente") :: List("no", "passado") :: Nil
+        case _ => throw new UnsupportedOperationException
+      }
 
       val phrases = Persons.flatMap { p =>
         Numbers.flatMap { n =>
@@ -44,7 +49,9 @@ object Main extends App {
         }
       }
 
-      phrases.map { p => time ::: p }
+      timePhrases.flatMap { t =>
+        phrases.map { p => t ::: p }
+      }
     }
   }
 
