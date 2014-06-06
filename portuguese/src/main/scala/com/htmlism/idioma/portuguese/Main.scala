@@ -9,33 +9,46 @@ object Main extends App {
 
   val json = parse(new java.io.File("data/portuguese/verbs.json"))
 
-  for (JArray(verbs) <- json) {
-    for (json <- verbs) {
-      val verb = Verb(json)
+  val verbs = json match {
+    case JArray(jsonVerbs) =>
+      for (json <- jsonVerbs) yield Verb(json)
+    case _ => throw new IllegalArgumentException
+  }
 
-      List(Present, Perfect).flatMap { t =>
-        Persons.flatMap { p =>
-          Numbers.map { n =>
-            val form = verb(t, p, n).word
+  val sentences = verbs.flatMap { verb =>
+    List(Present, Perfect).flatMap { t =>
+      val time = if (t == Perfect) List("ontem,") else Nil
 
-            (p, n) match {
-              case (FirstPerson, Singular) =>
-                println(s"eu $form")
-              case (ThirdPerson, Singular) =>
-                println(s"você $form")
-                println(s"ele $form")
-                println(s"ela $form")
-                println(s"a gente $form")
-              case (FirstPerson, Plural) =>
-                println(s"nós $form")
-              case (ThirdPerson, Plural) =>
-                println(s"eles $form")
-                println(s"elas $form")
-              case _ =>
-            }
+      val phrases = Persons.flatMap { p =>
+        Numbers.flatMap { n =>
+          val form = verb(t, p, n).word
+
+          (p, n) match {
+            case (FirstPerson, Singular) =>
+              List("eu", form) :: Nil
+            case (ThirdPerson, Singular) =>
+              List("você", form) ::
+                List("ele", form) ::
+                List("ela", form) ::
+                List("a", "gente", form) ::
+                Nil
+            case (FirstPerson, Plural) =>
+              List("nós", form) :: Nil
+            case (ThirdPerson, Plural) =>
+              List("vocês", form) ::
+              List("eles", form) ::
+              List("elas", form) :: Nil
+            case _ =>
+              Nil
           }
         }
       }
+
+      phrases.map { p => time ::: p }
     }
   }
+
+  for (s <- sentences) printSentence(s)
+
+  def printSentence(words: List[String]) = println(words.mkString(" "))
 }
