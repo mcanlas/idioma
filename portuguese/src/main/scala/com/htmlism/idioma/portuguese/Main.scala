@@ -13,7 +13,7 @@ object Main extends App {
     for (json <- verbs) {
       val verb = Verb(json)
 
-      List(GrammaticalCategories.Present).flatMap { t =>
+      List(Present, Perfect).flatMap { t =>
         Persons.flatMap { p =>
           Numbers.map { n =>
             val form = verb(t, p, n).word
