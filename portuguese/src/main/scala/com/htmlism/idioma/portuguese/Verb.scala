@@ -21,6 +21,7 @@ object Verb {
             val form = maybeIrregularForm match {
               case JString(s) => InflectedForm(s, Irregular)
               case JNothing   => conjugation(t, p, n)
+              case _          => throw new RuntimeException(s"unexpected jvalue instance $maybeIrregularForm")
             }
 
             ((t, p, n), form)
