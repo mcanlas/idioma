@@ -1,7 +1,7 @@
 package com.htmlism.idioma.portuguese
 
 import org.json4s.JsonAST.{ JNothing, JValue, JString, JObject }
-import GrammaticalCategories.Numbers
+import GrammaticalCategories.{ Numbers, Persons }
 
 object Verb {
   def apply(jv: JValue): Verb = jv match {
@@ -14,7 +14,7 @@ object Verb {
       println(conjugation)
 
       val forms = List(GrammaticalCategories.Present).flatMap { case t =>
-        List(GrammaticalCategories.FirstPerson).flatMap { case p =>
+        Persons.flatMap { case p =>
           Numbers.map { case n =>
             val maybeIrregularForm = jv \ t.tense \ (p.person + n.number.capitalize)
 

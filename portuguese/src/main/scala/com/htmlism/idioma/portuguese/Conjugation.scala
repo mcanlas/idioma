@@ -29,14 +29,6 @@ trait Conjugation extends CanConjugate {
     (Present, FirstPerson, Plural)   -> r(rootVowel + "mos")
   )
 
-  // Present
-  lazy val firstPersonSingularPresent   = root + "o"
-       val secondPersonSingularPresent: String
-       val thirdPersonSingularPresent:  String
-  lazy val firstPersonPluralPresent     = rootVowel + "mos"
-       val secondPersonPluralPresent:   String
-       val thirdPersonPluralPresent:    String
-
   // Perfect
        val firstPersonSingularPerfect: String
   lazy val secondPersonSingularPerfect = rootVowel + "ste"
@@ -102,14 +94,6 @@ trait Conjugation extends CanConjugate {
   lazy val thirdPersonPluralFutureSubjunctive    = root + ???
 
   def print() = {
-    println("\nPresent:")
-    println(firstPersonSingularPresent)
-    println(secondPersonSingularPresent)
-    println(thirdPersonSingularPresent)
-    println(firstPersonPluralPresent)
-    println(secondPersonPluralPresent)
-    println(thirdPersonPluralPresent)
-
     println("\nPerfect:")
     println(firstPersonSingularPerfect)
     println(secondPersonSingularPerfect)
@@ -160,14 +144,11 @@ class FirstConjugation(protected val root: String) extends Conjugation {
   val vowel = "a"
 
   val regularForms = veryRegularForms ++ Map(
-    (Present, SecondPerson, Singular) -> s(root + "as")
+    (Present, SecondPerson, Singular) -> s(root + "as"),
+    (Present, ThirdPerson,  Singular) -> s(root + "a"),
+    (Present, SecondPerson, Plural)   -> s(root + "ais"),
+    (Present, ThirdPerson,  Plural)   -> s(root + "am")
   )
-
-  // Present
-  lazy val secondPersonSingularPresent = root + "as"
-  lazy val thirdPersonSingularPresent  = root + "a"
-  lazy val secondPersonPluralPresent   = root + "ais"
-  lazy val thirdPersonPluralPresent    = root + "am"
 
   // Perfect
   lazy val firstPersonSingularPerfect = root + "ei"
@@ -189,13 +170,12 @@ class FirstConjugation(protected val root: String) extends Conjugation {
 class SecondConjugation(protected val root: String) extends Conjugation {
   val vowel = "e"
 
-  val regularForms = veryRegularForms
-
-  // Present
-  lazy val secondPersonSingularPresent = root + "es"
-  lazy val thirdPersonSingularPresent  = root + "e"
-  lazy val secondPersonPluralPresent   = root + "eis"
-  lazy val thirdPersonPluralPresent    = root + "em"
+  val regularForms = veryRegularForms ++ Map(
+    (Present, SecondPerson, Singular) -> s(root + "es"),
+    (Present, ThirdPerson,  Singular) -> s(root + "e"),
+    (Present, SecondPerson, Plural)   -> s(root + "eis"),
+    (Present, ThirdPerson,  Plural)   -> s(root + "em")
+  )
 
   // Perfect
   lazy val firstPersonSingularPerfect = root + "i"
@@ -217,13 +197,12 @@ class SecondConjugation(protected val root: String) extends Conjugation {
 class ThirdConjugation(protected val root: String) extends Conjugation {
   val vowel = "i"
 
-  val regularForms = veryRegularForms
-
-  // Present
-  lazy val secondPersonSingularPresent = root + "es"
-  lazy val thirdPersonSingularPresent  = root + "e"
-  lazy val secondPersonPluralPresent   = root + "is"
-  lazy val thirdPersonPluralPresent    = root + "em"
+  val regularForms = veryRegularForms ++ Map(
+    (Present, SecondPerson, Singular) -> s(root + "es"),
+    (Present, ThirdPerson, Singular)  -> s(root + "e"),
+    (Present, SecondPerson, Plural)   -> s(root + "is"),
+    (Present, ThirdPerson, Plural)    -> s(root + "em")
+  )
 
   // Perfect
   lazy val firstPersonSingularPerfect = root + "i"
