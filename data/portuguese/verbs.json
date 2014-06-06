@@ -16,6 +16,17 @@
     "gloss": "drink"
   },
   {
+    "infinitive": "ler",
+    "gloss": "read",
+    "present": {
+      "firstSingular":  "leio",
+      "secondSingular": "lês",
+      "thirdSingular":  "lê",
+      "secondPlural":   "ledes",
+      "thirdPlural":    "leem"
+    }
+  },
+  {
     "infinitive": "escrever",
     "gloss": "write"
   },
