@@ -13,9 +13,9 @@ object Verb {
       val conjugation = Conjugation(infinitive)
       println(conjugation)
 
-      val forms = List(GrammaticalCategories.Present).flatMap { case t =>
-        Persons.flatMap { case p =>
-          Numbers.map { case n =>
+      val forms = List(GrammaticalCategories.Present).flatMap { t =>
+        Persons.flatMap { p =>
+          Numbers.map { n =>
             val maybeIrregularForm = jv \ t.tense \ (p.person + n.number.capitalize)
 
             val form = maybeIrregularForm match {
