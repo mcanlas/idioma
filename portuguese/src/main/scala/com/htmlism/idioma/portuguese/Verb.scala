@@ -11,7 +11,6 @@ object Verb {
       val JString(infinitive) = map("infinitive")
 
       val conjugation = Conjugation(infinitive)
-      println(conjugation)
 
       val forms = List(GrammaticalCategories.Present).flatMap { t =>
         Persons.flatMap { p =>
