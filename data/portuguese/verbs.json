@@ -22,6 +22,10 @@
       "thirdPlural":   "são"
     },
     "perfect": {
+      "firstSingular": "fui",
+      "thirdSingular": "foi",
+      "firstPlural":   "fomos",
+      "thirdPlural":   "foram"
     },
     "imperfect": {
     },
