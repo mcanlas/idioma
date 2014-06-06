@@ -83,6 +83,16 @@ trait Conjugation extends CanConjugate {
   lazy val thirdPersonPluralFutureSubjunctive    = root + ???
 
   def print() = {
+    for (t <- List(Present, Perfect, Imperfect)) {
+      println("\n" + t.tense.capitalize + ":")
+
+      for (n <- Numbers) {
+        for (p <- Persons) {
+          println(apply(t, p, n).word)
+        }
+      }
+    }
+
     println("\nPluperfect:")
     println(firstPersonSingularPluperfect)
     println(secondPersonSingularPluperfect)
