@@ -2,7 +2,7 @@ package com.htmlism.idioma.portuguese
 
 object PhraseGenerator {
   // TODO one constructor for simple lists (January, February, March ...)
-  def apply(words: Word*) = ??? : SimplePhraseGenerator
+  def apply(phrases: Seq[Phrase]) = new SimplePhraseGenerator(phrases)
 
   // TODO one constructor for hybrid lists (blue, $animal)
 
