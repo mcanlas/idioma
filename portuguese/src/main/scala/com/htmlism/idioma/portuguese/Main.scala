@@ -92,7 +92,8 @@ object Main extends App {
 
   val sentences = verbalPhrases ++ progressivePhrases
 
-  for (s <- sentences) printSentence(s)
-
-  def printSentence(words: List[String]) = println(words.mkString(" "))
+  for (s <- sentences) {
+    val sentence = new Sentence(s)
+    println(sentence.render)
+  }
 }
