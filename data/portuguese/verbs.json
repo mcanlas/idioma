@@ -39,6 +39,14 @@
       "thirdSingular":  "tem",
       "secondPlural":   "tendes",
       "thirdPlural":    "têm"
+    },
+    "perfect": {
+      "firstSingular":  "tive",
+      "secondSingular": "tiveste",
+      "thirdSingular":  "teve",
+      "firstPlural":    "tivemos",
+      "secondPlural":   "tivestes",
+      "thirdPlural":    "tiveram"
     }
   },
   {
