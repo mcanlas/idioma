@@ -96,6 +96,14 @@
       "secondSingular": "estás",
       "thirdSingular":  "está",
       "thirdPlural":    "estão"
+    },
+    "perfect": {
+      "firstSingular":  "estive",
+      "secondSingular": "estiveste",
+      "thirdSingular":  "esteve",
+      "firstPlural":    "estivemos",
+      "secondPlural":   "estivestes",
+      "thirdPlural":    "estiveram"
     }
   }
 ]
