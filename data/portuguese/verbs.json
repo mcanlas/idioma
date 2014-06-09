@@ -32,7 +32,14 @@
   },
   {
     "infinitive": "ter",
-    "gloss": "have"
+    "gloss": "have",
+    "present": {
+      "firstSingular":  "tenho",
+      "secondSingular": "tens",
+      "thirdSingular":  "tem",
+      "secondPlural":   "tendes",
+      "thirdPlural":    "têm"
+    }
   },
   {
     "infinitive": "abrir",
