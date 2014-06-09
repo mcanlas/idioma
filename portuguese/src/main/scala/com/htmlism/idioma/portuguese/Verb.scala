@@ -28,11 +28,13 @@ object Verb {
         }
       }
 
-      new Verb(infinitive, forms.toMap)
+      val gerund = conjugation.gerund
+
+      new Verb(infinitive, gerund, forms.toMap)
     case _ => throw new IllegalArgumentException("verb constructor needs a jObject")
   }
 }
 
-case class Verb(infinitive: String, private val forms: Map[(Tense, Person, Number), InflectedForm]) extends CanConjugate {
+case class Verb(infinitive: String, gerund: String, private val forms: Map[(Tense, Person, Number), InflectedForm]) extends CanConjugate {
   def apply(tense: Tense, person: Person, number: Number) = forms((tense, person, number))
 }
