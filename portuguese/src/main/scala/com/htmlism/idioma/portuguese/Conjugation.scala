@@ -24,6 +24,8 @@ trait Conjugation extends CanConjugate {
 
   lazy val rootVowel = root + vowel
 
+  lazy val gerund = rootVowel + "ndo"
+
   lazy val veryRegularForms = Map(
     (Present, FirstPerson, Singular) -> r(root + "o"),
     (Present, FirstPerson, Plural)   -> r(rootVowel + "mos"),
@@ -83,6 +85,8 @@ trait Conjugation extends CanConjugate {
   lazy val thirdPersonPluralFutureSubjunctive    = root + ???
 
   def print() = {
+    println("\nGerund: " + gerund)
+
     for (t <- List(Present, Perfect, Imperfect)) {
       println("\n" + t.tense.capitalize + ":")
 
