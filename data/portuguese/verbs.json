@@ -58,10 +58,12 @@
     "infinitive": "ser",
     "gloss": "be",
     "present": {
-      "firstSingular": "sou",
-      "thirdSingular": "é",
-      "firstPlural":   "somos",
-      "thirdPlural":   "são"
+      "firstSingular":  "sou",
+      "secondSingular": "és",
+      "thirdSingular":  "é",
+      "firstPlural":    "somos",
+      "secondPlural":   "sois",
+      "thirdPlural":    "são"
     },
     "perfect": {
       "firstSingular": "fui",
