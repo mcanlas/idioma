@@ -75,5 +75,15 @@
     },
     "subjunctiveFuture": {
     }
+  },
+  {
+    "infinitive": "estar",
+    "gloss": "be",
+    "present": {
+      "firstSingular":  "estou",
+      "secondSingular": "estás",
+      "thirdSingular":  "está",
+      "thirdPlural":    "estão"
+    }
   }
 ]
