@@ -1,7 +1,6 @@
 # Next actions
 
-* regular verbs (falar, comer, assistir)
-* ser, estar
+* remove phrase generator from portuguese (language agnostic)
 * can em/no/na
 * can de/do/da
 * syllable count
