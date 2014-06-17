@@ -48,6 +48,14 @@
       "secondPlural":   "tivestes",
       "thirdPlural":    "tiveram"
     }
+    "imperfect": {
+      "firstSingular":  "tinha",
+      "secondSingular": "tinhas",
+      "thirdSingular":  "tinha",
+      "firstPlural":    "tínhamos",
+      "secondPlural":   "tinheis",
+      "thirdPlural":    "tinham"
+    },
   },
   {
     "infinitive": "abrir",
