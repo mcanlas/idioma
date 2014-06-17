@@ -74,6 +74,12 @@
       "thirdPlural":    "foram"
     },
     "imperfect": {
+      "firstSingular":  "era",
+      "secondSingular": "eras",
+      "thirdSingular":  "era",
+      "firstPlural":    "éramos",
+      "secondPlural":   "éreis",
+      "thirdPlural":    "eram"
     },
     "pluperfect": {
     },
