@@ -47,7 +47,7 @@
       "firstPlural":    "tivemos",
       "secondPlural":   "tivestes",
       "thirdPlural":    "tiveram"
-    }
+    },
     "imperfect": {
       "firstSingular":  "tinha",
       "secondSingular": "tinhas",
@@ -64,7 +64,7 @@
   },
   {
     "infinitive": "ir",
-    "gloss": "go"
+    "gloss": "go",
     "present": {
       "firstSingular":  "vou",
       "secondSingular": "vais",
