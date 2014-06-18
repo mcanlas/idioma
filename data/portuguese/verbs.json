@@ -63,6 +63,26 @@
     "gloss": "open"
   },
   {
+    "infinitive": "ir",
+    "gloss": "go"
+    "present": {
+      "firstSingular":  "vou",
+      "secondSingular": "vais",
+      "thirdSingular":  "vai",
+      "firstPlural":    "vamos",
+      "secondPlural":   "ides",
+      "thirdPlural":    "vão"
+    },
+    "perfect": {
+      "firstSingular":  "fui",
+      "secondSingular": "foste",
+      "thirdSingular":  "foi",
+      "firstPlural":    "fomos",
+      "secondPlural":   "fostes",
+      "thirdPlural":    "foram"
+    },
+  },
+  {
     "infinitive": "ser",
     "gloss": "be",
     "present": {
