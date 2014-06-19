@@ -1,4 +1,4 @@
-package com.htmlism.idioma.portuguese
+package com.htmlism.idioma
 
 class SimplePhraseGenerator(phrases: Seq[Phrase]) extends PhraseGenerator {
   def iterator = phrases.iterator

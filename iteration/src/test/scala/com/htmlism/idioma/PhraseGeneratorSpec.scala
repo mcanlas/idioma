@@ -1,4 +1,4 @@
-package com.htmlism.idioma.portuguese
+package com.htmlism.idioma
 
 import org.specs2.mutable.Specification
 

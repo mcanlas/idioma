@@ -4,6 +4,9 @@ val testingFramework = "org.specs2" %% "specs2" % "2.3.12" % "test"
 
 val grammar = project
 
+val iteration = project
+  .settings(libraryDependencies += testingFramework)
+
 val portuguese = project
-  .dependsOn(grammar)
+  .dependsOn(grammar, iteration)
   .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))

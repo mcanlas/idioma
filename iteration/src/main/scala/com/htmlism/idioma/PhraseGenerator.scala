@@ -1,4 +1,4 @@
-package com.htmlism.idioma.portuguese
+package com.htmlism.idioma
 
 object PhraseGenerator {
   // TODO one constructor for simple lists (January, February, March ...)
