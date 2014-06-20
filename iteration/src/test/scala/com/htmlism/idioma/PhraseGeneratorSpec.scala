@@ -39,5 +39,12 @@ class PhraseGeneratorSpec extends Specification {
     "iterate the right elements" in {
       generator.iterator.toList must containTheSameElementsAs(phrases)
     }
+
+    "append a simple phrase" in {
+      val newPhrase = "dance with me".split(" ").toList
+      val newGenerator = generator + newPhrase
+
+      newGenerator.sample must contain(allOf(newPhrase: _*))
+    }
   }
 }
