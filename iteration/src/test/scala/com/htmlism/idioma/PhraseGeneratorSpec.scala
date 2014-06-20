@@ -4,7 +4,7 @@ import org.specs2.mutable.Specification
 
 class PhraseGeneratorSpec extends Specification {
   "A phrase generator of one word" should {
-    val phrase = List("the", "world", "is", "square")
+    val phrase = "the world is square".split(" ").toList
     val generator = PhraseGenerator(Seq(phrase))
 
     "have a sample equal to its source" in {
