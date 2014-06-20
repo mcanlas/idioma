@@ -1,6 +1,6 @@
 package com.htmlism.idioma
 
-class SimplePhraseGenerator(phrases: Seq[Phrase]) extends PhraseGenerator {
+class SimplePhraseGenerator(val phrases: Seq[Phrase]) extends PhraseGenerator {
   def iterator = phrases.iterator
 
   def sample = {

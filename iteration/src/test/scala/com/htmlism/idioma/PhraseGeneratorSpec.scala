@@ -7,6 +7,10 @@ class PhraseGeneratorSpec extends Specification {
     val phrase = "the world is square".split(" ").toList
     val generator = PhraseGenerator(Seq(phrase))
 
+    "expose its sources" in {
+      generator.phrases === phrase :: Nil
+    }
+
     "have a sample equal to its source" in {
       generator.sample === phrase
     }
@@ -31,6 +35,10 @@ class PhraseGeneratorSpec extends Specification {
       Nil
 
     val generator = PhraseGenerator(phrases)
+
+    "expose its sources" in {
+      generator.phrases === phrases
+    }
 
     "have a sample from its source" in {
       phrases.contains(generator.sample)
