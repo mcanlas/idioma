@@ -8,4 +8,12 @@ class SimplePhraseGenerator(phrases: Seq[Phrase]) extends PhraseGenerator {
 
     phrases(randomIndex)
   }
+
+  def +(phrase: Phrase) = {
+    val newPhrases = phrases.map { p => p ::: phrase }
+
+    PhraseGenerator(newPhrases)
+  }
+
+  def +(generator: PhraseGenerator) = ???
 }

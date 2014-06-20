@@ -13,4 +13,6 @@ trait PhraseGenerator {
   // TODO should turn an abstract Phraseable type? phrase and phrase generator should share a type?
   def iterator: Iterator[Phrase]
   def sample: Phrase
+  def +(phrase: Phrase): PhraseGenerator
+  def +(generator: PhraseGenerator): PhraseGenerator
 }

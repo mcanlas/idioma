@@ -14,6 +14,13 @@ class PhraseGeneratorSpec extends Specification {
     "have a simple iterator" in {
       generator.iterator.toList === phrase :: Nil
     }
+
+    "append a simple phrase" in {
+      val newPhrase = "dance with me".split(" ").toList
+      val newGenerator = generator + newPhrase
+
+      newGenerator.sample === phrase ::: newPhrase
+    }
   }
 
   "A phrase generator of many words" should {
