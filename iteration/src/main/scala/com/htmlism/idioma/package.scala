@@ -1,5 +1,7 @@
 package com.htmlism
 
+import scala.language.implicitConversions
+
 package object idioma {
   type Word = String
   type Phrase = List[Word]
