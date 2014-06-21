@@ -18,8 +18,6 @@ class CompoundPhraseGeneratorSpec extends Specification {
 
     val generator = PhraseGenerator(left, right)
 
-//    "have the right magnitude" in {
-//      generator.iterator.length === 9
-//    }
+    // TODO not a great test
   }
 }
