@@ -14,6 +14,4 @@ class SimplePhraseGenerator(val phrases: Seq[Phrase]) extends PhraseGenerator {
 
     PhraseGenerator(newPhrases)
   }
-
-  def +(generator: PhraseGenerator) = ???
 }

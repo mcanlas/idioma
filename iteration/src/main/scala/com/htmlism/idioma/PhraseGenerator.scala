@@ -4,6 +4,8 @@ object PhraseGenerator {
   // TODO one constructor for simple lists (January, February, March ...)
   def apply(phrases: Seq[Phrase]) = new SimplePhraseGenerator(phrases)
 
+  def apply(left: PhraseGenerator, right: PhraseGenerator) = left + right
+
   // TODO one constructor for hybrid lists (blue, $animal)
 
   // TODO one constructor for multiple generators ($color, $animal)
@@ -14,5 +16,5 @@ trait PhraseGenerator {
   def iterator: Iterator[Phrase]
   def sample: Phrase
   def +(phrase: Phrase): PhraseGenerator
-  def +(generator: PhraseGenerator): PhraseGenerator
+  def +(generator: PhraseGenerator) = new CompoundPhraseGenerator(this, generator)
 }
