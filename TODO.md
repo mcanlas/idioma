@@ -1,6 +1,6 @@
 # Next actions
 
-* remove phrase generator from portuguese (language agnostic)
+* implement falar with a language and phrase generators
 * can em/no/na
 * can de/do/da
 * syllable count
