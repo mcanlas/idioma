@@ -4,7 +4,7 @@ import org.specs2.mutable.Specification
 
 class PhraseGeneratorSpec extends Specification {
   "A phrase generator of one word" should {
-    val phrase = "the world is square".split(" ").toList
+    val phrase = "the world is square" : Phrase
     val generator = PhraseGenerator(Seq(phrase))
 
     "expose its sources" in {
@@ -20,7 +20,7 @@ class PhraseGeneratorSpec extends Specification {
     }
 
     "append a simple phrase" in {
-      val newPhrase = "dance with me".split(" ").toList
+      val newPhrase = "dance with me" : Phrase
       val newGenerator = generator + newPhrase
 
       newGenerator.sample === phrase ::: newPhrase
@@ -28,10 +28,10 @@ class PhraseGeneratorSpec extends Specification {
   }
 
   "A phrase generator of many words" should {
-    val phrases = List("earth", "is", "hard") ::
-      List("fire", "is", "hot") ::
-      List("wind", "is", "soft") ::
-      List("water", "is", "wet") ::
+    val phrases = ("earth is hard" : Phrase) ::
+      ("fire is hot" : Phrase) ::
+      ("wind is soft" : Phrase) ::
+      ("water is wet" : Phrase) ::
       Nil
 
     val generator = PhraseGenerator(phrases)
@@ -49,7 +49,7 @@ class PhraseGeneratorSpec extends Specification {
     }
 
     "append a simple phrase" in {
-      val newPhrase = "dance with me".split(" ").toList
+      val newPhrase = "dance with me" : Phrase
       val newGenerator = generator + newPhrase
 
       newGenerator.sample must contain(allOf(newPhrase: _*))

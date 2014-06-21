@@ -5,15 +5,15 @@ import org.specs2.mutable.Specification
 class PhraseIteratorSpec extends Specification {
   "A compound generator of two simple generators" should {
     val left = PhraseGenerator(List(
-      List("i", "hate"),
-      List("you", "love"),
-      List("we", "eat")
+      "i hate",
+      "you love",
+      "we eat"
     ))
 
     val right = PhraseGenerator(List(
-      List("chocolate", "bunnies"),
-      List("vanilla", "beans"),
-      List("strawberry", "ice", "cream")
+      "chocolate bunnies",
+      "vanilla beans",
+      "strawberry ice cream"
     ))
 
     val iterator = new PhraseIterator(left, right)
