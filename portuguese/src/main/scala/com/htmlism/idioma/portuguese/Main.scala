@@ -6,8 +6,6 @@ import org.json4s.native.JsonMethods._
 import GrammaticalCategories._
 
 object Main extends App {
-  val input = org.json4s.file2JsonInput(new java.io.File("verbs.json"))
-
   val json = parse(new java.io.File("data/portuguese/verbs.json"))
 
   val verbs = json match {
