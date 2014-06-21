@@ -4,10 +4,4 @@ class CompoundPhraseGenerator(left: PhraseGenerator, right: PhraseGenerator) ext
   def iterator = new PhraseIterator(left, right)
 
   def sample = left.sample ::: right.sample
-
-  def +(phrase: Phrase) = {
-    val generator = PhraseGenerator(phrase :: Nil)
-
-    new CompoundPhraseGenerator(this, generator)
-  }
 }
