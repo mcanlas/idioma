@@ -16,8 +16,8 @@ class CompoundPhraseGeneratorSpec extends Specification {
       List("strawberry", "ice", "cream")
     ))
 
-    val generator = PhraseGenerator(left, right)
-
-    // TODO not a great test
+    "have the right magnitude" in {
+      (left.optional + right).iterator.length === 12
+    }
   }
 }

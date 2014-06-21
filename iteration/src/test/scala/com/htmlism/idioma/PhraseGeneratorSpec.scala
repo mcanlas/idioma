@@ -55,4 +55,12 @@ class PhraseGeneratorSpec extends Specification {
       newGenerator.sample must contain(allOf(newPhrase: _*))
     }
   }
+
+  "An optional phrase generator" should {
+    "have the right magnitude" in {
+      val generator = PhraseGenerator(List(List("something")))
+
+      generator.optional.iterator.length === 2
+    }
+  }
 }

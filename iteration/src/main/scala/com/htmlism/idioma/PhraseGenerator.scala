@@ -23,4 +23,6 @@ trait PhraseGenerator {
   }
 
   def +(generator: PhraseGenerator) = new CompoundPhraseGenerator(this, generator)
+
+  def optional = new OptionalPhraseGenerator(this)
 }
