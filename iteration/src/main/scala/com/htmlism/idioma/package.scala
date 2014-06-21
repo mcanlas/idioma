@@ -4,7 +4,6 @@ import scala.language.implicitConversions
 
 package object idioma {
   type Word = String
-  type Phrase = List[Word]
 
-  implicit def stringToPhrase(string: String) = string.split(" ").toList
+  implicit def stringToPhrase(string: String) = Phrase(string.split(" ").toList)
 }

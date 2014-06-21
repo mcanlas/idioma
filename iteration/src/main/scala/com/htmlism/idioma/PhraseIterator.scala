@@ -20,6 +20,6 @@ class PhraseIterator(left: PhraseGenerator, right: PhraseGenerator) extends Iter
       rightIterator     = right.iterator
     }
 
-    leftPhrase ::: rightPhrase
+    leftPhrase + rightPhrase
   } else throw new RuntimeException("cannot generate phrases with an exhausted iterator")
 }

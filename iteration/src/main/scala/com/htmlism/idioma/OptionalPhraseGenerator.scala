@@ -5,7 +5,7 @@ import scala.util.Random
 class OptionalPhraseGenerator(generator: PhraseGenerator) extends PhraseGenerator {
   def iterator = new OptionalPhraseIterator(generator.iterator)
 
-  def sample = if ((new Random).nextBoolean()) Nil else generator.sample
+  def sample = if ((new Random).nextBoolean()) Phrase.empty else generator.sample
 }
 
 class OptionalPhraseIterator(iterator: Iterator[Phrase]) extends Iterator[Phrase] {
@@ -16,6 +16,6 @@ class OptionalPhraseIterator(iterator: Iterator[Phrase]) extends Iterator[Phrase
   def next() = if (hasOption) {
     hasOption = false
 
-    Nil
+    Phrase.empty
   } else iterator.next()
 }

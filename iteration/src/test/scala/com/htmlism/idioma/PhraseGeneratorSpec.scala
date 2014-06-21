@@ -23,7 +23,7 @@ class PhraseGeneratorSpec extends Specification {
       val newPhrase = "dance with me" : Phrase
       val newGenerator = generator + newPhrase
 
-      newGenerator.sample === phrase ::: newPhrase
+      newGenerator.sample === phrase + newPhrase
     }
   }
 
@@ -52,13 +52,13 @@ class PhraseGeneratorSpec extends Specification {
       val newPhrase = "dance with me" : Phrase
       val newGenerator = generator + newPhrase
 
-      newGenerator.sample must contain(allOf(newPhrase: _*))
+      newGenerator.sample.words must contain(allOf(newPhrase.words: _*))
     }
   }
 
   "An optional phrase generator" should {
     "have the right magnitude" in {
-      val generator = PhraseGenerator(List(List("something")))
+      val generator = PhraseGenerator(List("something"))
 
       generator.optional.iterator.length === 2
     }
