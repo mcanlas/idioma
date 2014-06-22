@@ -6,6 +6,6 @@ object Phrase {
   def apply(words: String): Phrase = Phrase(words.split(" ").toList)
 }
 
-case class Phrase(words: List[String]) {
-  def +(that: Phrase) = Phrase(words ::: that.words)
+case class Phrase(words: Seq[String]) {
+  def +(that: Phrase) = Phrase(words ++ that.words)
 }

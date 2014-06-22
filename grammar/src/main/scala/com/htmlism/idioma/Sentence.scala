@@ -1,5 +1,5 @@
 package com.htmlism.idioma
 
-class Sentence(words: List[String]) {
-  def render = (words.head.capitalize :: words.tail).mkString(" ") + "."
+class Sentence(words: Seq[String]) {
+  def render = (words.head.capitalize +: words.tail).mkString(" ") + "."
 }
