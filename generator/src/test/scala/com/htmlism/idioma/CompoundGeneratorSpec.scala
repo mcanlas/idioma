@@ -22,5 +22,13 @@ class CompoundGeneratorSpec extends Specification {
       elements.contains(element) must beTrue
       magi.contains(mage)        must beTrue
     }
+
+    "support nesting" in {
+      val ozzie = Generator(Seq('ozzie))
+      val slash = Generator(Seq('slash))
+      val flea  = Generator(Seq('flea))
+
+      (ozzie + slash + flea).sample === (('ozzie, 'slash), 'flea)
+    }
   }
 }
