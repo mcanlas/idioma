@@ -16,4 +16,14 @@ trait Generator[A] {
     def iterator = outer.iterator.map { f }
     def sample   = f(outer.sample)
   }
+
+  def flatMap[B](f: A => Generator[B]) = new Generator[B] {
+    def iterator = {
+      val iterators = outer.iterator.map { f(_).iterator }
+
+      iterators.fold(Iterator.empty)((acc, g) => acc ++ g)
+    }
+
+    def sample = f(outer.sample).sample
+  }
 }
