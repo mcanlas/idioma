@@ -16,8 +16,8 @@ object Falar extends App {
     case 'perfect   => Phrase(verb(Perfect, person, number).word)
     case 'imperfect => Phrase(verb(Imperfect, person, number).word)
     case 'future    => Phrase(Seq(auxiliary(Present, person, number).word, verb.infinitive))
-    case 'presentProgressive => Phrase.empty
-    case 'pastProgressive => Phrase.empty
+    case 'presentProgressive => Phrase(Seq(copula(Present, person, number).word,   verb.gerund))
+    case 'pastProgressive    => Phrase(Seq(copula(Imperfect, person, number).word, verb.gerund))
   }
 
   (tenses + verbForms + Data.idiomas).iterator.map { case ((tense, (number, person)), language) =>
