@@ -7,6 +7,9 @@ lazy val grammar = project
 lazy val iteration = project
   .settings(libraryDependencies += testingFramework)
 
+lazy val generator = project
+  .settings(libraryDependencies += testingFramework)
+
 lazy val portuguese = project
   .dependsOn(grammar, iteration)
   .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))
