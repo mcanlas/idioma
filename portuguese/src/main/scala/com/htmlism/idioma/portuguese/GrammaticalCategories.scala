@@ -23,6 +23,9 @@ object GrammaticalCategories {
   val Feminine  = Gender("feminine",  "f")
   val Either    = Gender("either",    "mf")
 
+  val Definite   = Definiteness("definite",   "d")
+  val Indefinite = Definiteness("indefinite", "i")
+
   val Tenses  = List(Present, Perfect, Imperfect, Pluperfect, Future, Conditional, PresentSubjunctive, ImperfectSubjunctive, FutureSubjunctive)
   val Persons = List(FirstPerson, SecondPerson, ThirdPerson)
   val Numbers = List(Singular, Plural)
@@ -36,3 +39,5 @@ case class Person(person: String, code: String)
 case class Number(number: String, code: String)
 
 case class Gender(gender: String, code: String)
+
+case class Definiteness(definiteness: String, code: String)

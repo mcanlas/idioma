@@ -28,5 +28,11 @@ object Nouns extends App {
   declensions.foreach { d =>
     println(d(Singular))
     println(d(Plural))
+
+    println(d(Singular, Indefinite))
+    println(d(Plural, Indefinite))
+
+    println(d(Singular, Definite))
+    println(d(Plural, Definite))
   }
 }
