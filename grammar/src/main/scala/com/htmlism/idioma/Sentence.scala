@@ -1,5 +1,7 @@
 package com.htmlism.idioma
 
 class Sentence(words: Seq[String]) {
-  def render = (words.head.capitalize +: words.tail).mkString(" ") + "."
+  lazy val nonEmptyWords = words.filter { _.nonEmpty }
+
+  def render = (nonEmptyWords.head.capitalize +: nonEmptyWords.tail).mkString(" ") + "."
 }

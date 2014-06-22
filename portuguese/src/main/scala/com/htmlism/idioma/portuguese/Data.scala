@@ -4,6 +4,7 @@ import org.json4s._
 import org.json4s.native.JsonMethods._
 
 import com.htmlism.idioma._
+import com.htmlism.idioma.portuguese.GrammaticalCategories._
 
 object Data {
   lazy val verbs = {
@@ -27,4 +28,18 @@ object Data {
 
     Generator(phrases)
   }
+
+  lazy val pronouns = Map(
+    (Singular, FirstPerson) -> Seq("eu"),
+    (Singular, ThirdPerson) -> Seq("você", "ele", "ela", "a gente"),
+    (Plural,   FirstPerson) -> Seq("nós"),
+    (Plural, ThirdPerson)   -> Seq("vocês", "eles", "elas")
+  ).mapValues { s => Generator(s.map { Phrase(_) }) }
+
+  lazy val timeHints = Map(
+    Present   -> Seq(""),
+    Perfect   -> Seq("ontem"),
+    Imperfect -> Seq("antigamente", "no passado"),
+    Future    -> Seq("amanhã")
+  ).mapValues { s => Generator(s.map { Phrase(_) }) }
 }

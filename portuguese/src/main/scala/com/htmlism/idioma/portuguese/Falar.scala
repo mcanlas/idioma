@@ -20,9 +20,25 @@ object Falar extends App {
     case 'pastProgressive    => Phrase(Seq(copula(Imperfect, person, number).word, verb.gerund))
   }
 
-  (tenses + verbForms + Data.idiomas).iterator.map { case ((tense, (number, person)), language) =>
-    val verb = conjugate(tense, number, person)
+  def adverb(tense: Symbol) = tense match {
+    case 'present   => Data.timeHints(Present)
+    case 'perfect   => Data.timeHints(Perfect)
+    case 'imperfect => Data.timeHints(Imperfect)
+    case 'future    => Data.timeHints(Future)
+    case 'presentProgressive => Generator(Seq(Phrase.empty))
+    case 'pastProgressive    => Generator(Seq(Phrase.empty))
+  }
 
-    verb + language
-  }.foreach { p => println(new Sentence(p.words).render) }
+  val verbPhraseTuples = (tenses + verbForms).flatMap { case (tense, (number, person)) =>
+    val verb = conjugate(tense, number, person)
+    val pronouns = Data.pronouns(number, person)
+
+    adverb(tense) + pronouns + Generator(Seq(verb))
+  }
+
+  val phrases = (verbPhraseTuples + Data.idiomas).map {
+    case ((((tense, pronoun)), form), idioma) => tense + pronoun + form + idioma
+  }
+
+  phrases.iterator.foreach { p => println(new Sentence(p.words).render) }
 }
