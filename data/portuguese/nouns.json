@@ -1,0 +1,22 @@
+[
+  {
+    "lemma":  "homem",
+    "gender": "m",
+    "gloss":  "man"
+  },
+  {
+    "lemma":  "mulher",
+    "gender": "f",
+    "gloss":  "woman"
+  },
+  {
+    "lemma":  "menino",
+    "gender": "m",
+    "gloss":  "boy"
+  },
+  {
+    "lemma":  "menina",
+    "gender": "f",
+    "gloss":  "girl"
+  }
+]

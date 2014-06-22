@@ -19,9 +19,14 @@ object GrammaticalCategories {
   val Singular  = Number("singular", "S")
   val Plural    = Number("plural",   "P")
 
+  val Masculine = Gender("masculine", "m")
+  val Feminine  = Gender("feminine",  "f")
+  val Either    = Gender("either",    "mf")
+
   val Tenses  = List(Present, Perfect, Imperfect, Pluperfect, Future, Conditional, PresentSubjunctive, ImperfectSubjunctive, FutureSubjunctive)
   val Persons = List(FirstPerson, SecondPerson, ThirdPerson)
   val Numbers = List(Singular, Plural)
+  val Genders = List(Masculine, Feminine, Either)
 }
 
 case class Tense(tense: String, code: String)
@@ -29,3 +34,5 @@ case class Tense(tense: String, code: String)
 case class Person(person: String, code: String)
 
 case class Number(number: String, code: String)
+
+case class Gender(gender: String, code: String)
