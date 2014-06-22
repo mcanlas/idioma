@@ -10,6 +10,7 @@ object Declension {
     "o" -> "os",
     "a" -> "as",
     "ã" -> "ãs",
+    "i" -> "is",
     "l" -> "is"
   )
 }

@@ -39,5 +39,30 @@
     "lemma":  "água",
     "gender": "f",
     "gloss":  "water"
+  },
+  {
+    "lemma":  "cerveja",
+    "gender": "f",
+    "gloss":  "beer"
+  },
+  {
+    "lemma":  "livro",
+    "gender": "m",
+    "gloss":  "book"
+  },
+  {
+    "lemma":  "carta",
+    "gender": "f",
+    "gloss":  "letter"
+  },
+  {
+    "lemma":  "jornal",
+    "gender": "m",
+    "gloss":  "newspaper"
+  },
+  {
+    "lemma":  "abacaxi",
+    "gender": "m",
+    "gloss":  "pineapple"
   }
 ]
