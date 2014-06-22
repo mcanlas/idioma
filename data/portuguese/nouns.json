@@ -18,5 +18,26 @@
     "lemma":  "menina",
     "gender": "f",
     "gloss":  "girl"
+  },
+  {
+    "lemma":  "pão",
+    "gender": "m",
+    "plural": "pães",
+    "gloss":  "bread"
+  },
+  {
+    "lemma":  "maçã",
+    "gender": "f",
+    "gloss":  "apple"
+  },
+  {
+    "lemma":  "leite",
+    "gender": "m",
+    "gloss":  "milk"
+  },
+  {
+    "lemma":  "água",
+    "gender": "f",
+    "gloss":  "water"
   }
 ]

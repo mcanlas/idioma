@@ -14,7 +14,7 @@ object Declension {
   )
 }
 
-case class Declension(lemma: String, gender: Gender) {
+case class Declension(lemma: String, gender: Gender, plural: Option[String] = None) {
   def apply(number: Number) = number match {
     case Singular => lemma
     case Plural   => pluralForm
@@ -31,12 +31,14 @@ case class Declension(lemma: String, gender: Gender) {
     case (Feminine,  Plural,   Indefinite) => s"umas $pluralForm"
   }
 
-  private def pluralForm = {
-    val substitution = Declension.substitutions.find { case (ending, _) => lemma.endsWith(ending) }
+  private def pluralForm = plural match {
+    case Some(form) => form
+    case None =>
+      val substitution = Declension.substitutions.find { case (ending, _) => lemma.endsWith(ending)}
 
-    substitution match {
-      case Some((ending, replacement)) => lemma.replaceFirst(s"$ending$$", replacement)
-      case None => throw new RuntimeException
-    }
+      substitution match {
+        case Some((ending, replacement)) => lemma.replaceFirst(s"$ending$$", replacement)
+        case None => throw new RuntimeException
+      }
   }
 }

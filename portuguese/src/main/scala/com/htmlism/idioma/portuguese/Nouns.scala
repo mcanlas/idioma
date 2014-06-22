@@ -14,13 +14,18 @@ object Nouns extends App {
         val JString(lemma)  = jsonLemma \ "lemma"
         val JString(genderString) = jsonLemma \ "gender"
 
+        val plural = jsonLemma \ "plural" match {
+          case JString(form) => Some(form)
+          case JNothing      => None
+        }
+
         val gender = genderString match {
           case "m" => Masculine
           case "f" => Feminine
           case _   => throw new RuntimeException
         }
 
-        Declension(lemma, gender)
+        Declension(lemma, gender, plural)
       }
     case _ => throw new IllegalArgumentException
   }
