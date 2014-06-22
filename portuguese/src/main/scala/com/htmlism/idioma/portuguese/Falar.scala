@@ -15,7 +15,7 @@ object Falar extends App {
     } yield Phrase(palavra)
   }
 
-  val geradorDeIdioma = PhraseGenerator(idiomas)
+  val geradorDeIdioma = Generator(idiomas)
 
   geradorDeIdioma.iterator.foreach { println }
 }
