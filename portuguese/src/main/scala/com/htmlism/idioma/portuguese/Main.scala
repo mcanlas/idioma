@@ -1,20 +1,10 @@
 package com.htmlism.idioma.portuguese
 
 import com.htmlism.idioma._
-import org.json4s._
-import org.json4s.native.JsonMethods._
 import GrammaticalCategories._
 
 object Main extends App {
-  val json = parse(new java.io.File("data/portuguese/verbs.json"))
-
-  val verbs = json match {
-    case JArray(jsonVerbs) =>
-      for (json <- jsonVerbs) yield Verb(json)
-    case _ => throw new IllegalArgumentException
-  }
-
-  val verbalPhrases = verbs.flatMap { verb =>
+  val verbalPhrases = Data.verbs.flatMap { verb =>
     List(Present, Perfect, Imperfect).flatMap { t =>
       val timePhrases = t match {
         case Present   => Nil :: Nil
@@ -55,9 +45,9 @@ object Main extends App {
   }
 
   val progressivePhrases = {
-    val copula = verbs.filter{ v => v.infinitive == "estar" }.head
+    val copula = Data.verbs.filter{ v => v.infinitive == "estar" }.head
 
-    verbs.flatMap { verb =>
+    Data.verbs.flatMap { verb =>
       val phrases = List(Present, Imperfect).flatMap { t =>
         Persons.flatMap { p =>
           Numbers.flatMap { n =>
