@@ -5,6 +5,7 @@ lazy val testingFramework = "org.specs2" %% "specs2" % "2.3.12" % "test"
 lazy val grammar = project
 
 lazy val iteration = project
+  .dependsOn(grammar)
   .settings(libraryDependencies += testingFramework)
 
 lazy val generator = project
