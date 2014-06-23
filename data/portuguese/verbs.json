@@ -66,6 +66,24 @@
     },
   },
   {
+    "infinitive": "ver",
+    "gloss": "see",
+    "present": {
+      "firstSingular":  "vejo",
+      "secondSingular": "vês",
+      "thirdSingular":  "vê",
+      "secondPlural":   "vedes",
+      "thirdPlural":    "veem"
+    },
+    "perfect": {
+      "secondSingular": "viste",
+      "thirdSingular":  "viu",
+      "firstPlural":    "vimos",
+      "secondPlural":   "vistes",
+      "thirdPlural":    "viram"
+    }
+  },
+  {
     "infinitive": "abrir",
     "pastParticiple": "aberto",
     "gloss": "open"
@@ -89,6 +107,33 @@
       "secondPlural":   "fostes",
       "thirdPlural":    "foram"
     },
+  },
+  {
+    "infinitive": "vir",
+    "gloss": "come",
+    "present": {
+      "firstSingular":  "venho",
+      "secondSingular": "vens",
+      "thirdSingular":  "vem",
+      "secondPlural":   "vindes",
+      "thirdPlural":    "vêm"
+    },
+    "perfect": {
+      "firstSingular":  "vim",
+      "secondSingular": "vieste",
+      "thirdSingular":  "veio",
+      "firstPlural":    "viemos",
+      "secondPlural":   "viestes",
+      "thirdPlural":    "vieram"
+    },
+    "imperfect": {
+      "firstSingular":  "vinha",
+      "secondSingular": "vinhas",
+      "thirdSingular":  "vinha",
+      "firstPlural":    "vínhamos",
+      "secondPlural":   "vínheis",
+      "thirdPlural":    "vinham"
+    }
   },
   {
     "infinitive": "ser",
