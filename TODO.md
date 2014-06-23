@@ -11,19 +11,6 @@
 * need topics/associations/high collocations
   * maybe classify nouns into topical groups (person place thing activty idea)
 
-# Phrase generator
-* yields multiple possibilities of List[Words] ("a gente" being one option)
-  * Phrase == List[Words], yields Iterator[Phrases]
-* could include another phrase generator
-  * e.g. (bingo book,book bag,bean machine) or ($color ++ $animal)
-* always yields iterator (do not manifest into list for large/complex sentences)
-* has sample function (picks random iterator at each level, not truly a random distribution of all possible phrases)
-* constructor takes list of phrases, like a set?
-  * Phrase(Jan, Feb, Mar), or of bottom type phrase
-* Phrase($color, $animal)
-* Phrase("my", $animal)
-* may need PhraseAnd() and PhraseOr() constructors?
-
 # UI Epic
 
 * JS/drag word parts generator. like madlibs/duolingo. automatically creates generators
