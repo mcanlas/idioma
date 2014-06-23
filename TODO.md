@@ -1,6 +1,5 @@
 # Next actions
 
-* implement falar with a language and phrase generators
 * can em/no/na
 * can de/do/da
 * syllable count
