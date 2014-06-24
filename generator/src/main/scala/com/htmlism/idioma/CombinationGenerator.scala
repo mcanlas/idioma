@@ -7,8 +7,8 @@ class CombinationGenerator[A, B](left: Generator[A], right: Generator[B]) extend
 }
 
 class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Generator[B]) extends Iterator[(A, B)] {
-  private var currentLeftElement = null.asInstanceOf[A]
-  private var rightIterator      = rightGenerator.iterator
+  private var currentLeftElement: A = _
+  private var rightIterator         = rightGenerator.iterator
 
   private var firstTime = true
 
