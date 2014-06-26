@@ -1,0 +1,36 @@
+[
+  {
+    "infinitive": "falar",
+    "gloss": "talk"
+  },
+  {
+    "infinitive": "gostar",
+    "gloss": "like"
+  },
+  {
+    "infinitive": "esperar",
+    "gloss": "wait/hope"
+  },
+  {
+    "infinitive": "desejar",
+    "gloss": "wish"
+  },
+  {
+    "infinitive": "estar",
+    "gloss": "be",
+    "present": {
+      "firstSingular":  "estou",
+      "secondSingular": "estás",
+      "thirdSingular":  "está",
+      "thirdPlural":    "estão"
+    },
+    "perfect": {
+      "firstSingular":  "estive",
+      "secondSingular": "estiveste",
+      "thirdSingular":  "esteve",
+      "firstPlural":    "estivemos",
+      "secondPlural":   "estivestes",
+      "thirdPlural":    "estiveram"
+    }
+  }
+]

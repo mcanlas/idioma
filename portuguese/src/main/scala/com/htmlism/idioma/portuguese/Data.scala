@@ -7,15 +7,7 @@ import com.htmlism.idioma._
 import com.htmlism.idioma.portuguese.GrammaticalCategories._
 
 object Data {
-  lazy val verbs = {
-    val json = parse(new java.io.File("data/portuguese/verbs.json"))
-
-    json match {
-      case JArray(jsonVerbs) =>
-        for (json <- jsonVerbs) yield Verb(json)
-      case _ => throw new IllegalArgumentException
-    }
-  }
+  lazy val verbs = Seq("a", "e", "i").flatMap(parseVerbs)
 
   lazy val idiomas = {
     val json = parse(new java.io.File("data/portuguese/nouns.languages.json"))
@@ -42,4 +34,14 @@ object Data {
     Imperfect -> Seq("antigamente", "no passado"),
     Future    -> Seq("amanhã")
   ).mapValues { s => Generator(s.map { Phrase(_) }) }
+
+  private def parseVerbs(letter: String) = {
+    val json = parse(new java.io.File(s"data/portuguese/verbs.${letter}r.json"))
+
+    json match {
+      case JArray(jsonVerbs) =>
+        for (json <- jsonVerbs) yield Verb(json)
+      case _ => throw new IllegalArgumentException
+    }
+  }
 }

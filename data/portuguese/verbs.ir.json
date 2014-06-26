@@ -1,0 +1,54 @@
+[
+  {
+    "infinitive": "abrir",
+    "pastParticiple": "aberto",
+    "gloss": "open"
+  },
+  {
+    "infinitive": "ir",
+    "gloss": "go",
+    "present": {
+      "firstSingular":  "vou",
+      "secondSingular": "vais",
+      "thirdSingular":  "vai",
+      "firstPlural":    "vamos",
+      "secondPlural":   "ides",
+      "thirdPlural":    "vão"
+    },
+    "perfect": {
+      "firstSingular":  "fui",
+      "secondSingular": "foste",
+      "thirdSingular":  "foi",
+      "firstPlural":    "fomos",
+      "secondPlural":   "fostes",
+      "thirdPlural":    "foram"
+    },
+  },
+  {
+    "infinitive": "vir",
+    "gloss": "come",
+    "present": {
+      "firstSingular":  "venho",
+      "secondSingular": "vens",
+      "thirdSingular":  "vem",
+      "secondPlural":   "vindes",
+      "thirdPlural":    "vêm"
+    },
+    "perfect": {
+      "firstSingular":  "vim",
+      "secondSingular": "vieste",
+      "thirdSingular":  "veio",
+      "firstPlural":    "viemos",
+      "secondPlural":   "viestes",
+      "thirdPlural":    "vieram"
+    },
+    "imperfect": {
+      "firstSingular":  "vinha",
+      "secondSingular": "vinhas",
+      "thirdSingular":  "vinha",
+      "firstPlural":    "vínhamos",
+      "secondPlural":   "vínheis",
+      "thirdPlural":    "vinham"
+    }
+  }
+]

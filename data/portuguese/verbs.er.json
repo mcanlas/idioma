@@ -1,0 +1,92 @@
+[
+  {
+    "infinitive": "comer",
+    "gloss": "eat"
+  },
+  {
+    "infinitive": "beber",
+    "gloss": "drink"
+  },
+  {
+    "infinitive": "ler",
+    "gloss": "read",
+    "present": {
+      "firstSingular":  "leio",
+      "secondSingular": "lês",
+      "thirdSingular":  "lê",
+      "secondPlural":   "ledes",
+      "thirdPlural":    "leem"
+    }
+  },
+  {
+    "infinitive": "escrever",
+    "gloss": "write"
+  },
+  {
+    "infinitive": "ter",
+    "gloss": "have",
+    "present": {
+      "firstSingular":  "tenho",
+      "secondSingular": "tens",
+      "thirdSingular":  "tem",
+      "secondPlural":   "tendes",
+      "thirdPlural":    "têm"
+    },
+    "perfect": {
+      "firstSingular":  "tive",
+      "secondSingular": "tiveste",
+      "thirdSingular":  "teve",
+      "firstPlural":    "tivemos",
+      "secondPlural":   "tivestes",
+      "thirdPlural":    "tiveram"
+    },
+    "imperfect": {
+      "firstSingular":  "tinha",
+      "secondSingular": "tinhas",
+      "thirdSingular":  "tinha",
+      "firstPlural":    "tínhamos",
+      "secondPlural":   "tinheis",
+      "thirdPlural":    "tinham"
+    },
+  },
+  {
+    "infinitive": "ser",
+    "gloss": "be",
+    "present": {
+      "firstSingular":  "sou",
+      "secondSingular": "és",
+      "thirdSingular":  "é",
+      "firstPlural":    "somos",
+      "secondPlural":   "sois",
+      "thirdPlural":    "são"
+    },
+    "perfect": {
+      "firstSingular":  "fui",
+      "secondSingular": "foste",
+      "thirdSingular":  "foi",
+      "firstPlural":    "fomos",
+      "secondPlural":   "fostes",
+      "thirdPlural":    "foram"
+    },
+    "imperfect": {
+      "firstSingular":  "era",
+      "secondSingular": "eras",
+      "thirdSingular":  "era",
+      "firstPlural":    "éramos",
+      "secondPlural":   "éreis",
+      "thirdPlural":    "eram"
+    },
+    "pluperfect": {
+    },
+    "future": {
+    },
+    "conditional": {
+    },
+    "subjunctivePresent": {
+    },
+    "subjunctivePast": {
+    },
+    "subjunctiveFuture": {
+    }
+  }
+]
