@@ -50,6 +50,22 @@
     },
   },
   {
+    "infinitive": "fazer",
+    "gloss": "do",
+    "present": {
+      "firstSingular":  "faço",
+      "thirdSingular":  "faz"
+    },
+    "perfect": {
+      "firstSingular":  "fiz",
+      "secondSingular": "fizeste",
+      "thirdSingular":  "fez",
+      "firstPlural":    "fizemos",
+      "secondPlural":   "fizestes",
+      "thirdPlural":    "fizeram"
+    },
+  },
+  {
     "infinitive": "ser",
     "gloss": "be",
     "present": {
