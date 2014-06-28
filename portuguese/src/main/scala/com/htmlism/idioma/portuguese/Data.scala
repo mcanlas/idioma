@@ -22,10 +22,12 @@ object Data {
   }
 
   lazy val pronouns = Map(
-    (Singular, FirstPerson) -> Seq("eu"),
-    (Singular, ThirdPerson) -> Seq("você", "ele", "ela", "a gente"),
-    (Plural,   FirstPerson) -> Seq("nós"),
-    (Plural, ThirdPerson)   -> Seq("vocês", "eles", "elas")
+    (Singular, FirstPerson)  -> Seq("eu"),
+    (Singular, SecondPerson) -> Seq("tu"),
+    (Singular, ThirdPerson)  -> Seq("você", "ele", "ela", "a gente"),
+    (Plural,   FirstPerson)  -> Seq("nós"),
+    (Plural,   SecondPerson) -> Seq("vós"),
+    (Plural,   ThirdPerson)  -> Seq("vocês", "eles", "elas")
   ).mapValues { s => Generator(s.map { Phrase(_) }) }
 
   lazy val timeHints = Map(
