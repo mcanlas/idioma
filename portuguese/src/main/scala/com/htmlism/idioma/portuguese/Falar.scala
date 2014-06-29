@@ -40,5 +40,5 @@ object Falar extends App {
     case ((((tense, pronoun)), form), idioma) => tense + pronoun + form + idioma
   }
 
-  phrases.iterator.foreach { p => println(new Sentence(p.words).render) }
+  for (_ <- 1 to 30) { println(new Sentence(phrases.sample.words).render) }
 }
