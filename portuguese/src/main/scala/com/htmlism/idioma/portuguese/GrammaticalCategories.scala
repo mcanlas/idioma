@@ -1,14 +1,14 @@
 package com.htmlism.idioma.portuguese
 
 object GrammaticalCategories {
-  val Present     = Tense("present",     "PRES")
+  val Present     = Tense("present",     "PRS")
   val Past        = Tense("perfect",     "PST")
   val Imperfect   = Tense("imperfect",   "IMP")
   val Pluperfect  = Tense("pluperfect",  "PLU")
   val Future      = Tense("future",      "FUT")
   val Conditional = Tense("conditional", "CND")
 
-  val PresentSubjunctive   = Tense("presentSubjunctive",   "PRESSUB")
+  val PresentSubjunctive   = Tense("presentSubjunctive",   "PRSSUB")
   val ImperfectSubjunctive = Tense("imperfectSubjunctive", "IMPSUB")
   val FutureSubjunctive    = Tense("futureSubjunctive",    "FUTSUB")
 
