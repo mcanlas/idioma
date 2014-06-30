@@ -10,3 +10,7 @@ lazy val generator = project
 lazy val portuguese = project
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))
+
+lazy val tagalog = project
+  .dependsOn(grammar, generator)
+  .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))
