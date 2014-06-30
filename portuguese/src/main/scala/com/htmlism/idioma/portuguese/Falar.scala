@@ -13,7 +13,7 @@ object Falar extends App {
 
   def conjugate(tense: Symbol, number: Number, person: Person) = tense match {
     case 'present   => Phrase(verb(Present, person, number).word)
-    case 'perfect   => Phrase(verb(Perfect, person, number).word)
+    case 'perfect   => Phrase(verb(Past, person, number).word)
     case 'imperfect => Phrase(verb(Imperfect, person, number).word)
     case 'future    => Phrase(Seq(auxiliary(Present, person, number).word, verb.infinitive))
     case 'presentProgressive => Phrase(Seq(copula(Present, person, number).word,   verb.gerund))
@@ -22,7 +22,7 @@ object Falar extends App {
 
   def adverb(tense: Symbol) = tense match {
     case 'present   => Data.timeHints(Present)
-    case 'perfect   => Data.timeHints(Perfect)
+    case 'perfect   => Data.timeHints(Past)
     case 'imperfect => Data.timeHints(Imperfect)
     case 'future    => Data.timeHints(Future)
     case 'presentProgressive => Generator(Seq(Phrase.empty))

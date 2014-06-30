@@ -5,10 +5,10 @@ import GrammaticalCategories._
 
 object Main extends App {
   val verbalPhrases = Data.verbs.flatMap { verb =>
-    List(Present, Perfect, Imperfect).flatMap { t =>
+    List(Present, Past, Imperfect).flatMap { t =>
       val timePhrases = t match {
         case Present   => Nil :: Nil
-        case Perfect   => List("ontem") :: Nil
+        case Past   => List("ontem") :: Nil
         case Imperfect => List("antigamente") :: List("no", "passado") :: Nil
         case _ => throw new UnsupportedOperationException
       }

@@ -30,10 +30,10 @@ trait Conjugation extends CanConjugate {
     (Present, FirstPerson, Singular) -> r(root + "o"),
     (Present, FirstPerson, Plural)   -> r(rootVowel + "mos"),
 
-    (Perfect, SecondPerson, Singular) -> r(rootVowel + "ste"),
-    (Perfect, FirstPerson,  Plural)   -> r(rootVowel + "mos"),
-    (Perfect, SecondPerson, Plural)   -> r(rootVowel + "stes"),
-    (Perfect, ThirdPerson,  Plural)   -> r(rootVowel + "ram")
+    (Past, SecondPerson, Singular) -> r(rootVowel + "ste"),
+    (Past, FirstPerson,  Plural)   -> r(rootVowel + "mos"),
+    (Past, SecondPerson, Plural)   -> r(rootVowel + "stes"),
+    (Past, ThirdPerson,  Plural)   -> r(rootVowel + "ram")
   )
 
   // Pluperfect
@@ -87,7 +87,7 @@ trait Conjugation extends CanConjugate {
   def print() = {
     println("\nGerund: " + gerund)
 
-    for (t <- List(Present, Perfect, Imperfect)) {
+    for (t <- List(Present, Past, Imperfect)) {
       println("\n" + t.tense.capitalize + ":")
 
       for (n <- Numbers) {
@@ -136,8 +136,8 @@ class FirstConjugation(protected val root: String) extends Conjugation {
     (Present, SecondPerson, Plural)   -> s(root + "ais"),
     (Present, ThirdPerson,  Plural)   -> s(root + "am"),
 
-    (Perfect, FirstPerson, Singular) -> s(root + "ei"),
-    (Perfect, ThirdPerson, Singular) -> s(root + "ou"),
+    (Past, FirstPerson, Singular) -> s(root + "ei"),
+    (Past, ThirdPerson, Singular) -> s(root + "ou"),
 
     (Imperfect, FirstPerson,  Singular) -> s(root + "ava"),
     (Imperfect, SecondPerson, Singular) -> s(root + "avas"),
@@ -161,8 +161,8 @@ class SecondConjugation(protected val root: String) extends Conjugation {
     (Present, SecondPerson, Plural)   -> s(root + "eis"),
     (Present, ThirdPerson,  Plural)   -> s(root + "em"),
 
-    (Perfect, FirstPerson, Singular) -> s(root + "i"),
-    (Perfect, ThirdPerson, Singular) -> s(root + "eu"),
+    (Past, FirstPerson, Singular) -> s(root + "i"),
+    (Past, ThirdPerson, Singular) -> s(root + "eu"),
 
     (Imperfect, FirstPerson,  Singular) -> s(root + "ia"),
     (Imperfect, SecondPerson, Singular) -> s(root + "ias"),
@@ -186,8 +186,8 @@ class ThirdConjugation(protected val root: String) extends Conjugation {
     (Present, SecondPerson, Plural)   -> s(root + "is"),
     (Present, ThirdPerson,  Plural)   -> s(root + "em"),
 
-    (Perfect, FirstPerson, Singular) -> s(root + "i"),
-    (Perfect, ThirdPerson, Singular) -> s(root + "iu"),
+    (Past, FirstPerson, Singular) -> s(root + "i"),
+    (Past, ThirdPerson, Singular) -> s(root + "iu"),
 
     (Imperfect, FirstPerson,  Singular) -> s(root + "ia"),
     (Imperfect, SecondPerson, Singular) -> s(root + "ias"),

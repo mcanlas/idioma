@@ -32,7 +32,7 @@ object Data {
 
   lazy val timeHints = Map(
     Present   -> Seq(""),
-    Perfect   -> Seq("ontem"),
+    Past   -> Seq("ontem"),
     Imperfect -> Seq("antigamente", "no passado"),
     Future    -> Seq("amanhã")
   ).mapValues { s => Generator(s.map { Phrase(_) }) }
