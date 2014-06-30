@@ -1,0 +1,26 @@
+[
+  {
+    "group": "edible",
+    "nouns": [
+      "pão",
+      "maça",
+      "abacaxi"
+    ]
+  },
+  {
+    "group": "drinkable",
+    "nouns": [
+      "leite",
+      "água",
+      "cerveja"
+    ]
+  },
+  {
+    "group": "readable",
+    "nouns": [
+      "livro",
+      "carta",
+      "jornal"
+    ]
+  }
+]
