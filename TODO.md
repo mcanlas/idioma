@@ -31,3 +31,8 @@
   * success on a word increments the success of all related words (based on regularity)
   * next word is a random selection of the words with the least success
   * seeking collection class that implements random updates and constantly sorted
+
+# App
+
+* bilingual dictinary string search (ignore accents)
+  * left side portuguese, right side english (w/e)
