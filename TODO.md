@@ -1,5 +1,6 @@
 # Next actions
 
+* use H2 for querying
 * model verb and noun relationships
 * can em/no/na
 * can de/do/da
