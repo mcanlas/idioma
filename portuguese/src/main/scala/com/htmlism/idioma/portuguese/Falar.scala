@@ -4,8 +4,8 @@ import com.htmlism.idioma._
 import com.htmlism.idioma.portuguese.GrammaticalCategories._
 
 object Falar extends App {
-  val verbForms = Generator(Numbers) + Generator(Seq(FirstPerson, ThirdPerson))
-  val tenses    = Generator(Seq('present, 'perfect, 'imperfect, 'future, 'presentProgressive, 'pastProgressive))
+  private val formasDeVerbos = Generator(Numbers) + Generator(Seq(FirstPerson, ThirdPerson))
+  private val tempos         = Generator(Seq('present, 'perfect, 'imperfect, 'future, 'presentProgressive, 'pastProgressive))
 
   val verb      = Data.verbs.filter{ v => v.infinitive == "falar" }.head
   val copula    = Data.verbs.filter{ v => v.infinitive == "estar" }.head
@@ -29,7 +29,7 @@ object Falar extends App {
     case 'pastProgressive    => Generator(Seq(Phrase.empty))
   }
 
-  val verbPhraseTuples = (tenses + verbForms).flatMap { case (tense, (number, person)) =>
+  private val verbPhraseTuples = (tempos + formasDeVerbos).flatMap { case (tense, (number, person)) =>
     val verb = conjugate(tense, number, person)
     val pronouns = Data.pronouns(number, person)
 
