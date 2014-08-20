@@ -34,7 +34,7 @@ object CategoriasGramaticais {
 
 case class Tense(tempo: String, código: String)
 
-case class Person(person: String, código: String)
+case class Person(pessoa: String, código: String)
 
 case class Number(number: String, código: String)
 
