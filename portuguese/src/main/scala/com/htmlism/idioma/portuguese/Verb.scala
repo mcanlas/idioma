@@ -15,7 +15,7 @@ object Verb {
       val forms = List(Present, Past, Imperfect).flatMap { t =>
         Persons.flatMap { p =>
           Numbers.map { n =>
-            val maybeIrregularForm = jv \ t.tense \ (p.person + n.number.capitalize)
+            val maybeIrregularForm = jv \ t.tempo \ (p.person + n.number.capitalize)
 
             val form = maybeIrregularForm match {
               case JString(s) => InflectedForm(s, Irregular)

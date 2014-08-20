@@ -88,7 +88,7 @@ trait Conjugation extends CanConjugate {
     println("\nGerund: " + gerund)
 
     for (t <- List(Present, Past, Imperfect)) {
-      println("\n" + t.tense.capitalize + ":")
+      println("\n" + t.tempo.capitalize + ":")
 
       for (n <- Numbers) {
         for (p <- Persons) {

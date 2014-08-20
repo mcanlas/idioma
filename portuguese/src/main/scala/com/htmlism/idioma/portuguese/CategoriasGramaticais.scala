@@ -32,7 +32,7 @@ object CategoriasGramaticais {
   val Genders = List(Masculine, Feminine, Either)
 }
 
-case class Tense(tense: String, código: String)
+case class Tense(tempo: String, código: String)
 
 case class Person(person: String, código: String)
 
