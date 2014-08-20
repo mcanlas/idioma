@@ -1,7 +1,7 @@
 package com.htmlism.idioma.portuguese
 
 import com.htmlism.idioma._
-import GrammaticalCategories._
+import CategoriasGramaticais._
 
 object Main extends App {
   val verbalPhrases = Data.verbs.flatMap { verb =>

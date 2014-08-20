@@ -1,7 +1,7 @@
 package com.htmlism.idioma.portuguese
 
 import org.json4s.JsonAST.{ JNothing, JValue, JString, JObject }
-import GrammaticalCategories._
+import CategoriasGramaticais._
 
 object Verb {
   def apply(jv: JValue): Verb = jv match {

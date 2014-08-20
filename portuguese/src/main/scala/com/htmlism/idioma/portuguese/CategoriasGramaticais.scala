@@ -1,6 +1,6 @@
 package com.htmlism.idioma.portuguese
 
-object GrammaticalCategories {
+object CategoriasGramaticais {
   val Present     = Tense("present",     "PRS")
   val Past        = Tense("perfect",     "PST")
   val Imperfect   = Tense("imperfect",   "IMP")

@@ -1,7 +1,7 @@
 package com.htmlism.idioma.portuguese
 
 import com.htmlism.idioma._
-import com.htmlism.idioma.portuguese.GrammaticalCategories._
+import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
 object Falar extends App {
   private val formasDeVerbos = Generator(Numbers) + Generator(Seq(FirstPerson, ThirdPerson))

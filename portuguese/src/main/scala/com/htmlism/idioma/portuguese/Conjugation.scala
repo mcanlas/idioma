@@ -1,6 +1,6 @@
 package com.htmlism.idioma.portuguese
 
-import com.htmlism.idioma.portuguese.GrammaticalCategories._
+import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
 object Conjugation {
   private val RootPattern = "(.*)([aei])r".r

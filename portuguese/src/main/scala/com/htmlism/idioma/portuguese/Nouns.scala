@@ -3,7 +3,7 @@ package com.htmlism.idioma.portuguese
 import org.json4s._
 import org.json4s.native.JsonMethods._
 
-import com.htmlism.idioma.portuguese.GrammaticalCategories._
+import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
 object Nouns extends App {
   val json = parse(new java.io.File("data/portuguese/nouns.json"))
