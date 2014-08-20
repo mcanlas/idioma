@@ -36,7 +36,7 @@ case class Tense(tempo: String, código: String)
 
 case class Person(pessoa: String, código: String)
 
-case class Number(number: String, código: String)
+case class Number(número: String, código: String)
 
 case class Gender(gender: String, código: String)
 
