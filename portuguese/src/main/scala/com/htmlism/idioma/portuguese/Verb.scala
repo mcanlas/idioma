@@ -35,6 +35,6 @@ object Verb {
   }
 }
 
-case class Verb(infinitive: String, gerund: String, private val forms: Map[(Tempo, Pessoa, Number), InflectedForm]) extends CanConjugate {
-  def apply(tense: Tempo, person: Pessoa, number: Number) = forms((tense, person, number))
+case class Verb(infinitive: String, gerund: String, private val forms: Map[(Tempo, Pessoa, Número), InflectedForm]) extends CanConjugate {
+  def apply(tense: Tempo, person: Pessoa, number: Número) = forms((tense, person, number))
 }

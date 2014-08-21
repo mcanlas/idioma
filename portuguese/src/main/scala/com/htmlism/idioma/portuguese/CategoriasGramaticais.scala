@@ -16,8 +16,8 @@ object CategoriasGramaticais {
   val PessoaSegunda   = Pessoa("second", "2")
   val PessoaTerceira  = Pessoa("third",  "3")
 
-  val Singular  = Number("singular", "S")
-  val Plural    = Number("plural",   "P")
+  val Singular  = Número("singular", "S")
+  val Plural    = Número("plural",   "P")
 
   val Masculine = Gender("masculine", "m")
   val Feminine  = Gender("feminine",  "f")
@@ -36,7 +36,7 @@ case class Tempo(tempo: String, código: String)
 
 case class Pessoa(pessoa: String, código: String)
 
-case class Number(número: String, código: String)
+case class Número(número: String, código: String)
 
 case class Gender(gênero: String, código: String)
 
