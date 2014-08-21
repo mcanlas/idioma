@@ -21,7 +21,7 @@ case class Declension(lemma: String, gender: Gender, plural: Option[String] = No
     case Plural   => pluralForm
   }
 
-  def apply(number: Number, definiteness: Definiteness) = (gender, number, definiteness) match {
+  def apply(number: Number, definiteness: Especificação) = (gender, number, definiteness) match {
     case (Masculine, Singular, Definite)   => s"o $lemma"
     case (Masculine, Singular, Indefinite) => s"um $lemma"
     case (Masculine, Plural,   Definite)   => s"os $pluralForm"
