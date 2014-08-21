@@ -8,9 +8,9 @@ object CategoriasGramaticais {
   val Futuro          = Tempo("future",      "FUT")
   val Condicional     = Tempo("conditional", "CND")
 
-  val PresentSubjunctive   = Tempo("presentSubjunctive",   "PRSSUB")
-  val ImperfectSubjunctive = Tempo("imperfectSubjunctive", "IMPSUB")
-  val FutureSubjunctive    = Tempo("futureSubjunctive",    "FUTSUB")
+  val SubjuntivoDoPresente   = Tempo("presentSubjunctive",   "PRSSUB")
+  val SubjuntivoDoImperfeito = Tempo("imperfectSubjunctive", "IMPSUB")
+  val SubjuntivoDoFuturo     = Tempo("futureSubjunctive",    "FUTSUB")
 
   val FirstPerson  = Person("first",  "1")
   val SecondPerson = Person("second", "2")
@@ -26,7 +26,7 @@ object CategoriasGramaticais {
   val Definite   = Especificação("definite",   "d")
   val Indefinite = Especificação("indefinite", "i")
 
-  val Tenses  = List(Presente, Perfeito, Imperfeito, MasQuePerfeito, Futuro, Condicional, PresentSubjunctive, ImperfectSubjunctive, FutureSubjunctive)
+  val Tenses  = List(Presente, Perfeito, Imperfeito, MasQuePerfeito, Futuro, Condicional, SubjuntivoDoPresente, SubjuntivoDoImperfeito, SubjuntivoDoFuturo)
   val Persons = List(FirstPerson, SecondPerson, ThirdPerson)
   val Numbers = List(Singular, Plural)
   val Genders = List(Masculine, Feminine, Either)
