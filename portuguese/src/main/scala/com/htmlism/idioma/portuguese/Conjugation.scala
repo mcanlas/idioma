@@ -18,22 +18,22 @@ object Conjugation {
 trait Conjugation extends CanConjugate {
   protected val root: String
   protected val vowel: String
-  protected val regularForms: Map[(Tempo, Person, Number), InflectedForm]
+  protected val regularForms: Map[(Tempo, Pessoa, Number), InflectedForm]
 
-  def apply(tense: Tempo, person: Person, number: Number) = regularForms((tense, person, number))
+  def apply(tense: Tempo, person: Pessoa, number: Number) = regularForms((tense, person, number))
 
   lazy val rootVowel = root + vowel
 
   lazy val gerund = rootVowel + "ndo"
 
   lazy val veryRegularForms = Map(
-    (Presente, FirstPerson, Singular) -> r(root + "o"),
-    (Presente, FirstPerson, Plural)   -> r(rootVowel + "mos"),
+    (Presente, PessoaPrimeira, Singular) -> r(root + "o"),
+    (Presente, PessoaPrimeira, Plural)   -> r(rootVowel + "mos"),
 
-    (Perfeito, SecondPerson, Singular) -> r(rootVowel + "ste"),
-    (Perfeito, FirstPerson,  Plural)   -> r(rootVowel + "mos"),
-    (Perfeito, SecondPerson, Plural)   -> r(rootVowel + "stes"),
-    (Perfeito, ThirdPerson,  Plural)   -> r(rootVowel + "ram")
+    (Perfeito, PessoaSegunda,  Singular) -> r(rootVowel + "ste"),
+    (Perfeito, PessoaPrimeira, Plural)   -> r(rootVowel + "mos"),
+    (Perfeito, PessoaSegunda,  Plural)   -> r(rootVowel + "stes"),
+    (Perfeito, PessoaTerceira, Plural)   -> r(rootVowel + "ram")
   )
 
   // Pluperfect
@@ -131,20 +131,20 @@ class FirstConjugation(protected val root: String) extends Conjugation {
   val vowel = "a"
 
   val regularForms = veryRegularForms ++ Map(
-    (Presente, SecondPerson, Singular) -> s(root + "as"),
-    (Presente, ThirdPerson,  Singular) -> s(root + "a"),
-    (Presente, SecondPerson, Plural)   -> s(root + "ais"),
-    (Presente, ThirdPerson,  Plural)   -> s(root + "am"),
+    (Presente, PessoaSegunda,  Singular) -> s(root + "as"),
+    (Presente, PessoaTerceira, Singular) -> s(root + "a"),
+    (Presente, PessoaSegunda,  Plural)   -> s(root + "ais"),
+    (Presente, PessoaTerceira, Plural)   -> s(root + "am"),
 
-    (Perfeito, FirstPerson, Singular) -> s(root + "ei"),
-    (Perfeito, ThirdPerson, Singular) -> s(root + "ou"),
+    (Perfeito, PessoaPrimeira, Singular) -> s(root + "ei"),
+    (Perfeito, PessoaTerceira, Singular) -> s(root + "ou"),
 
-    (Imperfeito, FirstPerson,  Singular) -> s(root + "ava"),
-    (Imperfeito, SecondPerson, Singular) -> s(root + "avas"),
-    (Imperfeito, ThirdPerson,  Singular) -> s(root + "ava"),
-    (Imperfeito, FirstPerson,  Plural)   -> s(root + "ávamos"),
-    (Imperfeito, SecondPerson, Plural)   -> s(root + "áveis"),
-    (Imperfeito, ThirdPerson,  Plural)   -> s(root + "avam")
+    (Imperfeito, PessoaPrimeira, Singular) -> s(root + "ava"),
+    (Imperfeito, PessoaSegunda,  Singular) -> s(root + "avas"),
+    (Imperfeito, PessoaTerceira, Singular) -> s(root + "ava"),
+    (Imperfeito, PessoaPrimeira, Plural)   -> s(root + "ávamos"),
+    (Imperfeito, PessoaSegunda,  Plural)   -> s(root + "áveis"),
+    (Imperfeito, PessoaTerceira, Plural)   -> s(root + "avam")
   )
 
   // Pluperfect
@@ -156,20 +156,20 @@ class SecondConjugation(protected val root: String) extends Conjugation {
   val vowel = "e"
 
   val regularForms = veryRegularForms ++ Map(
-    (Presente, SecondPerson, Singular) -> s(root + "es"),
-    (Presente, ThirdPerson,  Singular) -> s(root + "e"),
-    (Presente, SecondPerson, Plural)   -> s(root + "eis"),
-    (Presente, ThirdPerson,  Plural)   -> s(root + "em"),
+    (Presente, PessoaSegunda,  Singular) -> s(root + "es"),
+    (Presente, PessoaTerceira, Singular) -> s(root + "e"),
+    (Presente, PessoaSegunda,  Plural)   -> s(root + "eis"),
+    (Presente, PessoaTerceira, Plural)   -> s(root + "em"),
 
-    (Perfeito, FirstPerson, Singular) -> s(root + "i"),
-    (Perfeito, ThirdPerson, Singular) -> s(root + "eu"),
+    (Perfeito, PessoaPrimeira, Singular) -> s(root + "i"),
+    (Perfeito, PessoaTerceira, Singular) -> s(root + "eu"),
 
-    (Imperfeito, FirstPerson,  Singular) -> s(root + "ia"),
-    (Imperfeito, SecondPerson, Singular) -> s(root + "ias"),
-    (Imperfeito, ThirdPerson,  Singular) -> s(root + "ia"),
-    (Imperfeito, FirstPerson,  Plural)   -> s(root + "íamos"),
-    (Imperfeito, SecondPerson, Plural)   -> s(root + "íeis"),
-    (Imperfeito, ThirdPerson,  Plural)   -> s(root + "iam")
+    (Imperfeito, PessoaPrimeira, Singular) -> s(root + "ia"),
+    (Imperfeito, PessoaSegunda,  Singular) -> s(root + "ias"),
+    (Imperfeito, PessoaTerceira, Singular) -> s(root + "ia"),
+    (Imperfeito, PessoaPrimeira, Plural)   -> s(root + "íamos"),
+    (Imperfeito, PessoaSegunda,  Plural)   -> s(root + "íeis"),
+    (Imperfeito, PessoaTerceira, Plural)   -> s(root + "iam")
   )
 
   // Pluperfect
@@ -181,20 +181,20 @@ class ThirdConjugation(protected val root: String) extends Conjugation {
   val vowel = "i"
 
   val regularForms = veryRegularForms ++ Map(
-    (Presente, SecondPerson, Singular) -> s(root + "es"),
-    (Presente, ThirdPerson,  Singular) -> s(root + "e"),
-    (Presente, SecondPerson, Plural)   -> s(root + "is"),
-    (Presente, ThirdPerson,  Plural)   -> s(root + "em"),
+    (Presente, PessoaSegunda,  Singular) -> s(root + "es"),
+    (Presente, PessoaTerceira, Singular) -> s(root + "e"),
+    (Presente, PessoaSegunda,  Plural)   -> s(root + "is"),
+    (Presente, PessoaTerceira, Plural)   -> s(root + "em"),
 
-    (Perfeito, FirstPerson, Singular) -> s(root + "i"),
-    (Perfeito, ThirdPerson, Singular) -> s(root + "iu"),
+    (Perfeito, PessoaPrimeira, Singular) -> s(root + "i"),
+    (Perfeito, PessoaTerceira, Singular) -> s(root + "iu"),
 
-    (Imperfeito, FirstPerson,  Singular) -> s(root + "ia"),
-    (Imperfeito, SecondPerson, Singular) -> s(root + "ias"),
-    (Imperfeito, ThirdPerson,  Singular) -> s(root + "ia"),
-    (Imperfeito, FirstPerson,  Plural)   -> s(root + "íamos"),
-    (Imperfeito, SecondPerson, Plural)   -> s(root + "íeis"),
-    (Imperfeito, ThirdPerson,  Plural)   -> s(root + "iam")
+    (Imperfeito, PessoaPrimeira, Singular) -> s(root + "ia"),
+    (Imperfeito, PessoaSegunda,  Singular) -> s(root + "ias"),
+    (Imperfeito, PessoaTerceira, Singular) -> s(root + "ia"),
+    (Imperfeito, PessoaPrimeira, Plural)   -> s(root + "íamos"),
+    (Imperfeito, PessoaSegunda,  Plural)   -> s(root + "íeis"),
+    (Imperfeito, PessoaTerceira, Plural)   -> s(root + "iam")
   )
 
   // Pluperfect

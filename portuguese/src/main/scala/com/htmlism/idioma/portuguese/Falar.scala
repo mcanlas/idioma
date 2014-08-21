@@ -4,14 +4,14 @@ import com.htmlism.idioma._
 import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
 object Falar extends App {
-  private val formasDeVerbos = Generator(Numbers) + Generator(Seq(FirstPerson, ThirdPerson))
+  private val formasDeVerbos = Generator(Numbers) + Generator(Seq(PessoaPrimeira, PessoaTerceira))
   private val tempos         = Generator(Seq('present, 'perfect, 'imperfect, 'future, 'presentProgressive, 'pastProgressive))
 
   val verb      = Data.verbs.filter{ v => v.infinitive == "falar" }.head
   val copula    = Data.verbs.filter{ v => v.infinitive == "estar" }.head
   val auxiliary = Data.verbs.filter{ v => v.infinitive == "ir" }.head
 
-  def conjugate(tense: Symbol, number: Number, person: Person) = tense match {
+  def conjugate(tense: Symbol, number: Number, person: Pessoa) = tense match {
     case 'present   => Phrase(verb(Presente, person, number).word)
     case 'perfect   => Phrase(verb(Perfeito, person, number).word)
     case 'imperfect => Phrase(verb(Imperfeito, person, number).word)

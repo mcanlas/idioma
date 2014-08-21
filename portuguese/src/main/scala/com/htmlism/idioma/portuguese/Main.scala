@@ -18,17 +18,17 @@ object Main extends App {
           val form = verb(t, p, n).word
 
           (p, n) match {
-            case (FirstPerson, Singular) =>
+            case (PessoaPrimeira, Singular) =>
               List("eu", form) :: Nil
-            case (ThirdPerson, Singular) =>
+            case (PessoaTerceira, Singular) =>
               List("você", form) ::
                 List("ele", form) ::
                 List("ela", form) ::
                 List("a", "gente", form) ::
                 Nil
-            case (FirstPerson, Plural) =>
+            case (PessoaPrimeira, Plural) =>
               List("nós", form) :: Nil
-            case (ThirdPerson, Plural) =>
+            case (PessoaTerceira, Plural) =>
               List("vocês", form) ::
               List("eles", form) ::
               List("elas", form) :: Nil
@@ -54,17 +54,17 @@ object Main extends App {
             val form = copula(t, p, n).word
 
             (p, n) match {
-              case (FirstPerson, Singular) =>
+              case (PessoaPrimeira, Singular) =>
                 List("eu", form) :: Nil
-              case (ThirdPerson, Singular) =>
+              case (PessoaTerceira, Singular) =>
                 List("você", form) ::
                   List("ele", form) ::
                   List("ela", form) ::
                   List("a", "gente", form) ::
                   Nil
-              case (FirstPerson, Plural) =>
+              case (PessoaPrimeira, Plural) =>
                 List("nós", form) :: Nil
-              case (ThirdPerson, Plural) =>
+              case (PessoaTerceira, Plural) =>
                 List("vocês", form) ::
                   List("eles", form) ::
                   List("elas", form) :: Nil

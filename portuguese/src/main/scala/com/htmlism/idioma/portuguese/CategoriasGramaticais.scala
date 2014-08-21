@@ -12,9 +12,9 @@ object CategoriasGramaticais {
   val SubjuntivoDoImperfeito = Tempo("imperfectSubjunctive", "IMPSUB")
   val SubjuntivoDoFuturo     = Tempo("futureSubjunctive",    "FUTSUB")
 
-  val FirstPerson  = Person("first",  "1")
-  val SecondPerson = Person("second", "2")
-  val ThirdPerson  = Person("third",  "3")
+  val PessoaPrimeira  = Pessoa("first",  "1")
+  val PessoaSegunda   = Pessoa("second", "2")
+  val PessoaTerceira  = Pessoa("third",  "3")
 
   val Singular  = Number("singular", "S")
   val Plural    = Number("plural",   "P")
@@ -27,14 +27,14 @@ object CategoriasGramaticais {
   val Indefinite = Especificação("indefinite", "i")
 
   val Tenses  = List(Presente, Perfeito, Imperfeito, MasQuePerfeito, Futuro, Condicional, SubjuntivoDoPresente, SubjuntivoDoImperfeito, SubjuntivoDoFuturo)
-  val Persons = List(FirstPerson, SecondPerson, ThirdPerson)
+  val Persons = List(PessoaPrimeira, PessoaSegunda, PessoaTerceira)
   val Numbers = List(Singular, Plural)
   val Genders = List(Masculine, Feminine, Either)
 }
 
 case class Tempo(tempo: String, código: String)
 
-case class Person(pessoa: String, código: String)
+case class Pessoa(pessoa: String, código: String)
 
 case class Number(número: String, código: String)
 
