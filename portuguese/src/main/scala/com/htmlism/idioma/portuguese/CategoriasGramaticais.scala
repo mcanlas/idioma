@@ -38,6 +38,6 @@ case class Person(pessoa: String, código: String)
 
 case class Number(número: String, código: String)
 
-case class Gender(gender: String, código: String)
+case class Gender(gênero: String, código: String)
 
 case class Definiteness(definiteness: String, código: String)
