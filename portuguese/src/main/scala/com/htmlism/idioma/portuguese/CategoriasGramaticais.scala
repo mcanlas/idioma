@@ -1,16 +1,16 @@
 package com.htmlism.idioma.portuguese
 
 object CategoriasGramaticais {
-  val Present     = Tense("present",     "PRS")
-  val Past        = Tense("perfect",     "PST")
-  val Imperfect   = Tense("imperfect",   "IMP")
-  val Pluperfect  = Tense("pluperfect",  "PLU")
-  val Future      = Tense("future",      "FUT")
-  val Conditional = Tense("conditional", "CND")
+  val Presente        = Tempo("present",     "PRS")
+  val Perfeito        = Tempo("perfect",     "PST")
+  val Imperfeito      = Tempo("imperfect",   "IMP")
+  val MasQuePerfeito  = Tempo("pluperfect",  "PLU")
+  val Futuro          = Tempo("future",      "FUT")
+  val Condicional     = Tempo("conditional", "CND")
 
-  val PresentSubjunctive   = Tense("presentSubjunctive",   "PRSSUB")
-  val ImperfectSubjunctive = Tense("imperfectSubjunctive", "IMPSUB")
-  val FutureSubjunctive    = Tense("futureSubjunctive",    "FUTSUB")
+  val PresentSubjunctive   = Tempo("presentSubjunctive",   "PRSSUB")
+  val ImperfectSubjunctive = Tempo("imperfectSubjunctive", "IMPSUB")
+  val FutureSubjunctive    = Tempo("futureSubjunctive",    "FUTSUB")
 
   val FirstPerson  = Person("first",  "1")
   val SecondPerson = Person("second", "2")
@@ -26,13 +26,13 @@ object CategoriasGramaticais {
   val Definite   = Especificação("definite",   "d")
   val Indefinite = Especificação("indefinite", "i")
 
-  val Tenses  = List(Present, Past, Imperfect, Pluperfect, Future, Conditional, PresentSubjunctive, ImperfectSubjunctive, FutureSubjunctive)
+  val Tenses  = List(Presente, Perfeito, Imperfeito, MasQuePerfeito, Futuro, Condicional, PresentSubjunctive, ImperfectSubjunctive, FutureSubjunctive)
   val Persons = List(FirstPerson, SecondPerson, ThirdPerson)
   val Numbers = List(Singular, Plural)
   val Genders = List(Masculine, Feminine, Either)
 }
 
-case class Tense(tempo: String, código: String)
+case class Tempo(tempo: String, código: String)
 
 case class Person(pessoa: String, código: String)
 

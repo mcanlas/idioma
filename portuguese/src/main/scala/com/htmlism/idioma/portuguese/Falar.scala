@@ -12,19 +12,19 @@ object Falar extends App {
   val auxiliary = Data.verbs.filter{ v => v.infinitive == "ir" }.head
 
   def conjugate(tense: Symbol, number: Number, person: Person) = tense match {
-    case 'present   => Phrase(verb(Present, person, number).word)
-    case 'perfect   => Phrase(verb(Past, person, number).word)
-    case 'imperfect => Phrase(verb(Imperfect, person, number).word)
-    case 'future    => Phrase(Seq(auxiliary(Present, person, number).word, verb.infinitive))
-    case 'presentProgressive => Phrase(Seq(copula(Present, person, number).word,   verb.gerund))
-    case 'pastProgressive    => Phrase(Seq(copula(Imperfect, person, number).word, verb.gerund))
+    case 'present   => Phrase(verb(Presente, person, number).word)
+    case 'perfect   => Phrase(verb(Perfeito, person, number).word)
+    case 'imperfect => Phrase(verb(Imperfeito, person, number).word)
+    case 'future    => Phrase(Seq(auxiliary(Presente, person, number).word, verb.infinitive))
+    case 'presentProgressive => Phrase(Seq(copula(Presente, person, number).word,   verb.gerund))
+    case 'pastProgressive    => Phrase(Seq(copula(Imperfeito, person, number).word, verb.gerund))
   }
 
   def adverb(tense: Symbol) = tense match {
-    case 'present   => Data.timeHints(Present)
-    case 'perfect   => Data.timeHints(Past)
-    case 'imperfect => Data.timeHints(Imperfect)
-    case 'future    => Data.timeHints(Future)
+    case 'present   => Data.timeHints(Presente)
+    case 'perfect   => Data.timeHints(Perfeito)
+    case 'imperfect => Data.timeHints(Imperfeito)
+    case 'future    => Data.timeHints(Futuro)
     case 'presentProgressive => Generator(Seq(Phrase.empty))
     case 'pastProgressive    => Generator(Seq(Phrase.empty))
   }

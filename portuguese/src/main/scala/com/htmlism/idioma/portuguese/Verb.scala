@@ -12,7 +12,7 @@ object Verb {
 
       val conjugation = Conjugation(infinitive)
 
-      val forms = List(Present, Past, Imperfect).flatMap { t =>
+      val forms = List(Presente, Perfeito, Imperfeito).flatMap { t =>
         Persons.flatMap { p =>
           Numbers.map { n =>
             val maybeIrregularForm = jv \ t.tempo \ (p.pessoa + n.número.capitalize)
@@ -35,6 +35,6 @@ object Verb {
   }
 }
 
-case class Verb(infinitive: String, gerund: String, private val forms: Map[(Tense, Person, Number), InflectedForm]) extends CanConjugate {
-  def apply(tense: Tense, person: Person, number: Number) = forms((tense, person, number))
+case class Verb(infinitive: String, gerund: String, private val forms: Map[(Tempo, Person, Number), InflectedForm]) extends CanConjugate {
+  def apply(tense: Tempo, person: Person, number: Number) = forms((tense, person, number))
 }

@@ -31,10 +31,10 @@ object Data {
   ).mapValues { s => Generator(s.map { Phrase(_) }) }
 
   lazy val timeHints = Map(
-    Present   -> Seq(""),
-    Past   -> Seq("ontem"),
-    Imperfect -> Seq("antigamente", "no passado"),
-    Future    -> Seq("amanhã")
+    Presente   -> Seq(""),
+    Perfeito   -> Seq("ontem"),
+    Imperfeito -> Seq("antigamente", "no passado"),
+    Futuro    -> Seq("amanhã")
   ).mapValues { s => Generator(s.map { Phrase(_) }) }
 
   private def parseVerbs(letter: String) = {

@@ -5,11 +5,11 @@ import CategoriasGramaticais._
 
 object Main extends App {
   val verbalPhrases = Data.verbs.flatMap { verb =>
-    List(Present, Past, Imperfect).flatMap { t =>
+    List(Presente, Perfeito, Imperfeito).flatMap { t =>
       val timePhrases = t match {
-        case Present   => Nil :: Nil
-        case Past   => List("ontem") :: Nil
-        case Imperfect => List("antigamente") :: List("no", "passado") :: Nil
+        case Presente   => Nil :: Nil
+        case Perfeito   => List("ontem") :: Nil
+        case Imperfeito => List("antigamente") :: List("no", "passado") :: Nil
         case _ => throw new UnsupportedOperationException
       }
 
@@ -48,7 +48,7 @@ object Main extends App {
     val copula = Data.verbs.filter{ v => v.infinitive == "estar" }.head
 
     Data.verbs.flatMap { verb =>
-      val phrases = List(Present, Imperfect).flatMap { t =>
+      val phrases = List(Presente, Imperfeito).flatMap { t =>
         Persons.flatMap { p =>
           Numbers.flatMap { n =>
             val form = copula(t, p, n).word
