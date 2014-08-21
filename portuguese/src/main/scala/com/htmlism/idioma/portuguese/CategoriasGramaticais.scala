@@ -19,9 +19,9 @@ object CategoriasGramaticais {
   val Singular  = Número("singular", "S")
   val Plural    = Número("plural",   "P")
 
-  val Masculine = Gender("masculine", "m")
-  val Feminine  = Gender("feminine",  "f")
-  val Either    = Gender("either",    "mf")
+  val Masculine = Gênero("masculine", "m")
+  val Feminine  = Gênero("feminine",  "f")
+  val Either    = Gênero("either",    "mf")
 
   val Definite   = Especificação("definite",   "d")
   val Indefinite = Especificação("indefinite", "i")
@@ -38,6 +38,6 @@ case class Pessoa(pessoa: String, código: String)
 
 case class Número(número: String, código: String)
 
-case class Gender(gênero: String, código: String)
+case class Gênero(gênero: String, código: String)
 
 case class Especificação(especificação: String, código: String)
