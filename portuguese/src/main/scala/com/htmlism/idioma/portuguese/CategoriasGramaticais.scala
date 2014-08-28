@@ -19,9 +19,9 @@ object CategoriasGramaticais {
   val Singular  = Número("singular", "S")
   val Plural    = Número("plural",   "P")
 
-  val Masculine = Gênero("masculine", "m")
-  val Feminine  = Gênero("feminine",  "f")
-  val Either    = Gênero("either",    "mf")
+  val Masculino = Gênero("masculine", "m")
+  val Feminino  = Gênero("feminine",  "f")
+  val Ambos    = Gênero("either",    "mf")
 
   val Definite   = Especificação("definite",   "d")
   val Indefinite = Especificação("indefinite", "i")
@@ -29,7 +29,7 @@ object CategoriasGramaticais {
   val Tenses  = List(Presente, Perfeito, Imperfeito, MasQuePerfeito, Futuro, Condicional, SubjuntivoDoPresente, SubjuntivoDoImperfeito, SubjuntivoDoFuturo)
   val Persons = List(PessoaPrimeira, PessoaSegunda, PessoaTerceira)
   val Numbers = List(Singular, Plural)
-  val Genders = List(Masculine, Feminine, Either)
+  val Genders = List(Masculino, Feminino, Ambos)
 }
 
 case class Tempo(tempo: String, código: String)

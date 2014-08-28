@@ -20,8 +20,8 @@ object Nouns extends App {
         }
 
         val gender = genderString match {
-          case "m" => Masculine
-          case "f" => Feminine
+          case "m" => Masculino
+          case "f" => Feminino
           case _   => throw new RuntimeException
         }
 
