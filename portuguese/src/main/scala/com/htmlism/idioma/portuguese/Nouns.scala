@@ -34,10 +34,10 @@ object Nouns extends App {
     println(d(Singular))
     println(d(Plural))
 
-    println(d(Singular, Indefinite))
-    println(d(Plural, Indefinite))
+    println(d(Singular, Indefinitivo))
+    println(d(Plural, Indefinitivo))
 
-    println(d(Singular, Definite))
-    println(d(Plural, Definite))
+    println(d(Singular, Definitivo))
+    println(d(Plural, Definitivo))
   }
 }

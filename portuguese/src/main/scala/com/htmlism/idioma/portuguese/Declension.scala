@@ -22,14 +22,14 @@ case class Declension(lemma: String, gender: Gênero, plural: Option[String] = N
   }
 
   def apply(number: Número, definiteness: Especificação) = (gender, number, definiteness) match {
-    case (Masculino, Singular, Definite)   => s"o $lemma"
-    case (Masculino, Singular, Indefinite) => s"um $lemma"
-    case (Masculino, Plural,   Definite)   => s"os $pluralForm"
-    case (Masculino, Plural,   Indefinite) => s"uns $pluralForm"
-    case (Feminino,  Singular, Definite)   => s"a $lemma"
-    case (Feminino,  Singular, Indefinite) => s"uma $lemma"
-    case (Feminino,  Plural,   Definite)   => s"as $pluralForm"
-    case (Feminino,  Plural,   Indefinite) => s"umas $pluralForm"
+    case (Masculino, Singular, Definitivo)   => s"o $lemma"
+    case (Masculino, Singular, Indefinitivo) => s"um $lemma"
+    case (Masculino, Plural,   Definitivo)   => s"os $pluralForm"
+    case (Masculino, Plural,   Indefinitivo) => s"uns $pluralForm"
+    case (Feminino,  Singular, Definitivo)   => s"a $lemma"
+    case (Feminino,  Singular, Indefinitivo) => s"uma $lemma"
+    case (Feminino,  Plural,   Definitivo)   => s"as $pluralForm"
+    case (Feminino,  Plural,   Indefinitivo) => s"umas $pluralForm"
   }
 
   private def pluralForm = plural match {

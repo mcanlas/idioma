@@ -23,8 +23,8 @@ object CategoriasGramaticais {
   val Feminino  = Gênero("feminine",  "f")
   val Ambos    = Gênero("either",    "mf")
 
-  val Definite   = Especificação("definite",   "d")
-  val Indefinite = Especificação("indefinite", "i")
+  val Definitivo   = Especificação("definite",   "d")
+  val Indefinitivo = Especificação("indefinite", "i")
 
   val Tenses  = List(Presente, Perfeito, Imperfeito, MasQuePerfeito, Futuro, Condicional, SubjuntivoDoPresente, SubjuntivoDoImperfeito, SubjuntivoDoFuturo)
   val Persons = List(PessoaPrimeira, PessoaSegunda, PessoaTerceira)
