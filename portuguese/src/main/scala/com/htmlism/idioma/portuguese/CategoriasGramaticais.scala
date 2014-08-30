@@ -26,7 +26,7 @@ object CategoriasGramaticais {
   val Definitivo   = Especificação("definite",   "d")
   val Indefinitivo = Especificação("indefinite", "i")
 
-  val Tenses  = List(Presente, Perfeito, Imperfeito, MasQuePerfeito, Futuro, Condicional, SubjuntivoDoPresente, SubjuntivoDoImperfeito, SubjuntivoDoFuturo)
+  val Tempos  = List(Presente, Perfeito, Imperfeito, MasQuePerfeito, Futuro, Condicional, SubjuntivoDoPresente, SubjuntivoDoImperfeito, SubjuntivoDoFuturo)
   val Persons = List(PessoaPrimeira, PessoaSegunda, PessoaTerceira)
   val Numbers = List(Singular, Plural)
   val Genders = List(Masculino, Feminino, Ambos)
