@@ -13,7 +13,7 @@ object Main extends App {
         case _ => throw new UnsupportedOperationException
       }
 
-      val phrases = Persons.flatMap { p =>
+      val phrases = Pessoas.flatMap { p =>
         Numbers.flatMap { n =>
           val form = verb(t, p, n).word
 
@@ -49,7 +49,7 @@ object Main extends App {
 
     Data.verbs.flatMap { verb =>
       val phrases = List(Presente, Imperfeito).flatMap { t =>
-        Persons.flatMap { p =>
+        Pessoas.flatMap { p =>
           Numbers.flatMap { n =>
             val form = copula(t, p, n).word
 

@@ -91,7 +91,7 @@ trait Conjugation extends CanConjugate {
       println("\n" + t.tempo.capitalize + ":")
 
       for (n <- Numbers) {
-        for (p <- Persons) {
+        for (p <- Pessoas) {
           println(apply(t, p, n).word)
         }
       }

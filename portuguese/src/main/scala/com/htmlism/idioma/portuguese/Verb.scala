@@ -13,7 +13,7 @@ object Verb {
       val conjugation = Conjugation(infinitive)
 
       val forms = List(Presente, Perfeito, Imperfeito).flatMap { t =>
-        Persons.flatMap { p =>
+        Pessoas.flatMap { p =>
           Numbers.map { n =>
             val maybeIrregularForm = jv \ t.tempo \ (p.pessoa + n.número.capitalize)
 
