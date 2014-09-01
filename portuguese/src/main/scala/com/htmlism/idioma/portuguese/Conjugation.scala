@@ -90,7 +90,7 @@ trait Conjugation extends CanConjugate {
     for (t <- List(Presente, Perfeito, Imperfeito)) {
       println("\n" + t.tempo.capitalize + ":")
 
-      for (n <- Numbers) {
+      for (n <- Números) {
         for (p <- Pessoas) {
           println(apply(t, p, n).word)
         }

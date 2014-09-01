@@ -28,7 +28,7 @@ object CategoriasGramaticais {
 
   val Tempos  = List(Presente, Perfeito, Imperfeito, MasQuePerfeito, Futuro, Condicional, SubjuntivoDoPresente, SubjuntivoDoImperfeito, SubjuntivoDoFuturo)
   val Pessoas = List(PessoaPrimeira, PessoaSegunda, PessoaTerceira)
-  val Numbers = List(Singular, Plural)
+  val Números = List(Singular, Plural)
   val Genders = List(Masculino, Feminino, Ambos)
 }
 

@@ -14,7 +14,7 @@ object Verb {
 
       val forms = List(Presente, Perfeito, Imperfeito).flatMap { t =>
         Pessoas.flatMap { p =>
-          Numbers.map { n =>
+          Números.map { n =>
             val maybeIrregularForm = jv \ t.tempo \ (p.pessoa + n.número.capitalize)
 
             val form = maybeIrregularForm match {
