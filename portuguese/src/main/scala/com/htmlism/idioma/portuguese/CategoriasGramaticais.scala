@@ -29,7 +29,7 @@ object CategoriasGramaticais {
   val Tempos  = List(Presente, Perfeito, Imperfeito, MasQuePerfeito, Futuro, Condicional, SubjuntivoDoPresente, SubjuntivoDoImperfeito, SubjuntivoDoFuturo)
   val Pessoas = List(PessoaPrimeira, PessoaSegunda, PessoaTerceira)
   val Números = List(Singular, Plural)
-  val Genders = List(Masculino, Feminino, Ambos)
+  val Gêneros = List(Masculino, Feminino, Ambos)
 }
 
 case class Tempo(tempo: String, código: String)
