@@ -1,5 +1,7 @@
 # Next actions
 
+* comma support
+* sentence/exclamation support (spanish)
 * factor out common generator tests (inheritance)
 * use H2 for querying
 * model verb and noun relationships
