@@ -9,10 +9,10 @@ object Lesson4 extends App {
   val foods = Seq("cola", "sandawich", "bitsa", "kebab", "falafel", "shay", "sukar")
 
   for (f <- foods) {
-    println(Statement(Seq(mayIHave, f)).render)
+    println(Question(Seq(mayIHave, f)).render)
   }
 
   for (f <- foods) {
-    println(Statement(Seq(mayIHave, f) ++ please).render)
+    println(Question(Seq(mayIHave, f) ++ please).render)
   }
 }
