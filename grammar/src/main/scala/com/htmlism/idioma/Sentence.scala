@@ -12,3 +12,7 @@ trait Sentence {
 case class Statement(words: Traversable[String]) extends Sentence {
   protected val punctuation = "."
 }
+
+case class Question(words: Traversable[String]) extends Sentence {
+  protected val punctuation = "?"
+}
