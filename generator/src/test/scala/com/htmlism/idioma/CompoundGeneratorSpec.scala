@@ -10,7 +10,7 @@ class CompoundGeneratorSpec extends Specification {
     val elementsGenerator = Generator(elements)
     val magiGenerator     = Generator(magi)
 
-    val generator = elementsGenerator + magiGenerator
+    val generator = elementsGenerator * magiGenerator
 
     "have the right magnitude" in {
       generator.iterator.size === elements.size * magi.size
@@ -28,7 +28,7 @@ class CompoundGeneratorSpec extends Specification {
       val slash = Generator(Seq('slash))
       val flea  = Generator(Seq('flea))
 
-      (ozzie + slash + flea).sample === (('ozzie, 'slash), 'flea)
+      (ozzie * slash * flea).sample === (('ozzie, 'slash), 'flea)
     }
   }
 }
