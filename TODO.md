@@ -1,5 +1,6 @@
 # Next actions
 
+* gut generators for iterators
 * comma support
 * sentence/exclamation support (spanish)
 * factor out common generator tests (inheritance)
