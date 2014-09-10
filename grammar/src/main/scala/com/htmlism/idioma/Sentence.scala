@@ -1,9 +1,14 @@
 package com.htmlism.idioma
 
-trait Sentence
+trait Sentence {
+  protected def words: Traversable[String]
+  protected def punctuation: String
 
-case class Statement(words: Seq[String]) extends Sentence {
-  lazy val nonEmptyWords = words.filter { _.nonEmpty }
+  lazy val nonEmptyWords = words.toSeq.filter { _.nonEmpty }
 
-  def render = (nonEmptyWords.head.capitalize +: nonEmptyWords.tail).mkString(" ") + "."
+  def render = (nonEmptyWords.head.capitalize +: nonEmptyWords.tail).mkString(" ") + punctuation
+}
+
+case class Statement(words: Traversable[String]) extends Sentence {
+  protected val punctuation = "."
 }
