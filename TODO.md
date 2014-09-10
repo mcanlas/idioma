@@ -1,6 +1,7 @@
 # Next actions
 
 * gut generators for iterators
+ * add implicit iterator => can sample/multiply 
 * comma support
 * sentence/exclamation support (spanish)
 * factor out common generator tests (inheritance)
