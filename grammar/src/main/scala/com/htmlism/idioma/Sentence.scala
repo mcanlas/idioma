@@ -1,6 +1,8 @@
 package com.htmlism.idioma
 
-class Sentence(words: Seq[String]) {
+trait Sentence
+
+case class Statement(words: Seq[String]) extends Sentence {
   lazy val nonEmptyWords = words.filter { _.nonEmpty }
 
   def render = (nonEmptyWords.head.capitalize +: nonEmptyWords.tail).mkString(" ") + "."

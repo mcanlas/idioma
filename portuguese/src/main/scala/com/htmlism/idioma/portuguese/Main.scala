@@ -82,7 +82,7 @@ object Main extends App {
   val sentences = verbalPhrases ++ progressivePhrases
 
   for (s <- sentences) {
-    val sentence = new Sentence(s)
+    val sentence = Statement(s)
     println(sentence.render)
   }
 }
