@@ -18,7 +18,7 @@ object Data {
       JField("noun", JString(palavra)) <- objeto
     } yield Phrase(palavra)
 
-    Generator(phrases)
+    phrases
   }
 
   lazy val pronouns = Map(
@@ -28,7 +28,7 @@ object Data {
     (Plural,   PessoaPrimeira) -> Seq("nós"),
     (Plural,   PessoaSegunda)  -> Seq("vós"),
     (Plural,   PessoaTerceira) -> Seq("vocês", "eles", "elas")
-  ).mapValues { s => Generator(s.map { Phrase(_) }) }
+  ).mapValues { s => s.map { Phrase(_) } }
 
   lazy val timeHints = Map(
     Presente   -> Seq(""),

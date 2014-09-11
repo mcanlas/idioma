@@ -14,6 +14,6 @@ object Data {
       JField("lemma", JString(lemma)) <- obj
     } yield new Phrase(lemma :: Nil)
 
-    Generator(phrases)
+    phrases
   }
 }
