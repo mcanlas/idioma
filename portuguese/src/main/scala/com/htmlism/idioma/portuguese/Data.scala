@@ -35,7 +35,7 @@ object Data {
     Perfeito   -> Seq("ontem"),
     Imperfeito -> Seq("antigamente", "no passado"),
     Futuro    -> Seq("amanhã")
-  ).mapValues { s => Generator(s.map { Phrase(_) }) }
+  ).mapValues { s => s.map { Phrase(_) } }
 
   private def parseVerbs(letter: String) = {
     val json = parse(new java.io.File(s"data/portuguese/verbs.${letter}r.json"))
