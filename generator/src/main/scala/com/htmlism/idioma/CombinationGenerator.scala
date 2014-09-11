@@ -1,12 +1,12 @@
 package com.htmlism.idioma
 
-class CombinationGenerator[A, B](left: Generator[A], right: Generator[B]) extends Generator[(A, B)] {
+class CombinationGenerator[A, B](left: Iterable[A], right: Iterable[B]) extends Iterable[(A, B)] with CanSample[(A, B)] {
   def iterator = new CombinationIterator(left.iterator, right)
 
   def sample = (left.sample, right.sample)
 }
 
-class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Generator[B]) extends Iterator[(A, B)] {
+class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Iterable[B]) extends Iterator[(A, B)] {
   private var currentLeftElement: A = _
   private var rightIterator         = rightGenerator.iterator
 

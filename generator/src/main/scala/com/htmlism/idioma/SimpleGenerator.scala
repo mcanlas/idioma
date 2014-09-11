@@ -1,6 +1,6 @@
 package com.htmlism.idioma
 
-class SimpleGenerator[A](val elements: Seq[A]) extends Generator[A] {
+class SimpleGenerator[A](val elements: Seq[A]) extends Iterable[A] with CanSample[A] {
   def iterator = elements.iterator
 
   def sample = {
