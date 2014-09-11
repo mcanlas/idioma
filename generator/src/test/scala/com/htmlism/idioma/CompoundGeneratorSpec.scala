@@ -7,10 +7,7 @@ class CompoundGeneratorSpec extends Specification {
     val elements = Seq('earth, 'fire, 'wind, 'water)
     val magi     = Seq('belthasar, 'gaspar, 'melchior)
 
-    val elementsGenerator = Generator(elements)
-    val magiGenerator     = Generator(magi)
-
-    val generator = elementsGenerator * magiGenerator
+    val generator = elements * magi
 
     "have the right magnitude" in {
       generator.iterator.size === elements.size * magi.size
@@ -24,9 +21,9 @@ class CompoundGeneratorSpec extends Specification {
     }
 
     "support nesting" in {
-      val ozzie = Generator(Seq('ozzie))
-      val slash = Generator(Seq('slash))
-      val flea  = Generator(Seq('flea))
+      val ozzie = Seq('ozzie)
+      val slash = Seq('slash)
+      val flea  = Seq('flea)
 
       (ozzie * slash * flea).sample === (('ozzie, 'slash), 'flea)
     }
