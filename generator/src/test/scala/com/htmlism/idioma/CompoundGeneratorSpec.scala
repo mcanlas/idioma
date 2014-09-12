@@ -16,8 +16,8 @@ class CompoundGeneratorSpec extends Specification {
     "yield samples within its sources" in {
       val (element, mage) = generator.sample
 
-      elements.contains(element) must beTrue
-      magi.contains(mage)        must beTrue
+      elements must contain(element)
+      magi must contain(mage)
     }
 
     "support nesting" in {
