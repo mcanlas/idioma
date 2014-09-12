@@ -10,7 +10,7 @@ class CompoundGeneratorSpec extends Specification {
     val generator = elements * magi
 
     "have the right magnitude" in {
-      generator.iterator.size === elements.size * magi.size
+      generator.size === elements.size * magi.size
     }
 
     "yield samples within its sources" in {
