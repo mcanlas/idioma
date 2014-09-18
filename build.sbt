@@ -1,6 +1,6 @@
 lazy val jsonFramework = "org.json4s" %% "json4s-native" % "3.2.10"
 
-lazy val testingFramework = "org.specs2" %% "specs2" % "2.4.1" % "test"
+lazy val testingFramework = "org.specs2" %% "specs2" % "2.4.2" % "test"
 
 lazy val grammar = project
 
