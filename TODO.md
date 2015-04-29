@@ -1,5 +1,7 @@
 # Next actions
 
+* add weighted sources
+  * implictly convert iterables into evently weighted sources?
 * time hints
   * next/last week/day/month/year
   * on months
