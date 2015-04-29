@@ -1,5 +1,9 @@
 # Next actions
 
+* time hints
+  * next/last week/day/month/year
+  * on months
+  * on days
 * add bracket style for simple generators
   * based off a set? <apple|orange|banana>
   * based off of a concept? <simple verb|verb phrase>
