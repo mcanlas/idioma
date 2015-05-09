@@ -21,7 +21,7 @@ object CategoriasGramaticais {
 
   val Masculino = Gênero("masculine", "m")
   val Feminino  = Gênero("feminine",  "f")
-  val Ambos    = Gênero("either",    "mf")
+  val Ambos     = Gênero("either",    "mf")
 
   val Definitivo   = Especificação("definite",   "d")
   val Indefinitivo = Especificação("indefinite", "i")
