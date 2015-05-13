@@ -7,9 +7,9 @@ object Conjugação {
 
   def apply(infinitive: String) = infinitive match {
     case RootPattern(root, vowel) => vowel match {
-      case "a" => new FirstConjugation(root)
-      case "e" => new SecondConjugation(root)
-      case "i" => new ThirdConjugation(root)
+      case "a" => new ConjugaçãoPrimeira(root)
+      case "e" => new ConjugaçãoSegunda(root)
+      case "i" => new ConjugaçãoTerceira(root)
       case _   => throw new IllegalArgumentException(s"could not determine root for infinitive '$infinitive'")
     }
   }
@@ -127,7 +127,7 @@ trait Conjugação extends CanConjugate {
   protected def s(form: String) = InflectedForm(form, SemiRegular)
 }
 
-class FirstConjugation(protected val root: String) extends Conjugação {
+class ConjugaçãoPrimeira(protected val root: String) extends Conjugação {
   val vowel = "a"
 
   val regularForms = veryRegularForms ++ Map(
@@ -152,7 +152,7 @@ class FirstConjugation(protected val root: String) extends Conjugação {
   lazy val secondPersonPluralPluperfect = root + "áreis"
 }
 
-class SecondConjugation(protected val root: String) extends Conjugação {
+class ConjugaçãoSegunda(protected val root: String) extends Conjugação {
   val vowel = "e"
 
   val regularForms = veryRegularForms ++ Map(
@@ -177,7 +177,7 @@ class SecondConjugation(protected val root: String) extends Conjugação {
   lazy val secondPersonPluralPluperfect = root + "êreis"
 }
 
-class ThirdConjugation(protected val root: String) extends Conjugação {
+class ConjugaçãoTerceira(protected val root: String) extends Conjugação {
   val vowel = "i"
 
   val regularForms = veryRegularForms ++ Map(
