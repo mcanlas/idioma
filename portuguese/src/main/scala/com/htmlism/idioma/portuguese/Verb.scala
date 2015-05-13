@@ -10,7 +10,7 @@ object Verb {
 
       val JString(infinitive) = map("infinitive")
 
-      val conjugation = Conjugação(infinitive)
+      val conjugation = Conjugação(infinitive).getOrElse(throw new RuntimeException(s"could not conjugate infinitive $infinitive"))
 
       val forms = List(Presente, Perfeito, Imperfeito).flatMap { t =>
         Pessoas.flatMap { p =>

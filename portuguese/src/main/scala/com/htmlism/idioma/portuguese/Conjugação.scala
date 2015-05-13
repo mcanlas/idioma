@@ -5,13 +5,16 @@ import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 object Conjugação {
   private val RootPattern = "(.*)([aei])r".r
 
-  def apply(infinitive: String) = infinitive match {
-    case RootPattern(root, vowel) => vowel match {
-      case "a" => new ConjugaçãoPrimeira(root)
-      case "e" => new ConjugaçãoSegunda(root)
-      case "i" => new ConjugaçãoTerceira(root)
-      case _   => throw new IllegalArgumentException(s"could not determine root for infinitive '$infinitive'")
-    }
+  def apply(infinitive: String): Option[Conjugação] = infinitive match {
+    case RootPattern(root, vowel) =>
+      val conjugação = vowel match {
+        case "a" => new ConjugaçãoPrimeira(root)
+        case "e" => new ConjugaçãoSegunda(root)
+        case "i" => new ConjugaçãoTerceira(root)
+      }
+
+      Some(conjugação)
+    case _ => None
   }
 }
 
