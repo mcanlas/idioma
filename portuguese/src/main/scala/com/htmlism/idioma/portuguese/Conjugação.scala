@@ -2,7 +2,7 @@ package com.htmlism.idioma.portuguese
 
 import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
-object Conjugation {
+object Conjugação {
   private val RootPattern = "(.*)([aei])r".r
 
   def apply(infinitive: String) = infinitive match {
@@ -15,7 +15,7 @@ object Conjugation {
   }
 }
 
-trait Conjugation extends CanConjugate {
+trait Conjugação extends CanConjugate {
   protected val root: String
   protected val vowel: String
   protected val regularForms: Map[(Tempo, Pessoa, Número), InflectedForm]
@@ -127,7 +127,7 @@ trait Conjugation extends CanConjugate {
   protected def s(form: String) = InflectedForm(form, SemiRegular)
 }
 
-class FirstConjugation(protected val root: String) extends Conjugation {
+class FirstConjugation(protected val root: String) extends Conjugação {
   val vowel = "a"
 
   val regularForms = veryRegularForms ++ Map(
@@ -152,7 +152,7 @@ class FirstConjugation(protected val root: String) extends Conjugation {
   lazy val secondPersonPluralPluperfect = root + "áreis"
 }
 
-class SecondConjugation(protected val root: String) extends Conjugation {
+class SecondConjugation(protected val root: String) extends Conjugação {
   val vowel = "e"
 
   val regularForms = veryRegularForms ++ Map(
@@ -177,7 +177,7 @@ class SecondConjugation(protected val root: String) extends Conjugation {
   lazy val secondPersonPluralPluperfect = root + "êreis"
 }
 
-class ThirdConjugation(protected val root: String) extends Conjugation {
+class ThirdConjugation(protected val root: String) extends Conjugação {
   val vowel = "i"
 
   val regularForms = veryRegularForms ++ Map(
