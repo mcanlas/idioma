@@ -130,7 +130,7 @@ trait Conjugação extends CanConjugate {
   protected def s(form: String) = InflectedForm(form, SemiRegular)
 }
 
-class ConjugaçãoPrimeira(protected val root: String) extends Conjugação {
+case class ConjugaçãoPrimeira(root: String) extends Conjugação {
   val vowel = "a"
 
   val regularForms = veryRegularForms ++ Map(
@@ -155,7 +155,7 @@ class ConjugaçãoPrimeira(protected val root: String) extends Conjugação {
   lazy val secondPersonPluralPluperfect = root + "áreis"
 }
 
-class ConjugaçãoSegunda(protected val root: String) extends Conjugação {
+case class ConjugaçãoSegunda(root: String) extends Conjugação {
   val vowel = "e"
 
   val regularForms = veryRegularForms ++ Map(
@@ -180,7 +180,7 @@ class ConjugaçãoSegunda(protected val root: String) extends Conjugação {
   lazy val secondPersonPluralPluperfect = root + "êreis"
 }
 
-class ConjugaçãoTerceira(protected val root: String) extends Conjugação {
+case class ConjugaçãoTerceira(root: String) extends Conjugação {
   val vowel = "i"
 
   val regularForms = veryRegularForms ++ Map(
