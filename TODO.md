@@ -1,5 +1,7 @@
 # Next actions
 
+* conjugation dumper (via implicit)
+  * columnar, summable, iterators?
 * add weighted sources
   * implictly convert iterables into evently weighted sources?
 * time hints
