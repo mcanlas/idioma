@@ -8,9 +8,7 @@ class ConjugationPrinter(conjugation: Conjugação) {
   def print() = {
     val tempos = Seq(Presente, Imperfeito, Perfeito)
 
-    for (t <- tempos) {
-      println(t)
-
+    val tenseBlocks = for (t <- tempos) yield {
       val pronomes =
         for (n <- Números; p <- Pessoas) yield
           Pronomes(n, p).mkString("/")
@@ -19,10 +17,12 @@ class ConjugationPrinter(conjugation: Conjugação) {
         for (n <- Números; p <- Pessoas) yield
           conjugation(t, p, n).word
 
-      Padder.zip(
+      t.toString :: Padder.zip(
         Padder.alignRight(pronomes),
-        Padder.alignLeft(formas)).foreach(println)
+        Padder.alignLeft(formas))
     }
+
+    tenseBlocks.reduce(Padder.zip).foreach(println)
   }
 }
 
