@@ -15,7 +15,13 @@ class ConjugationPrinter(conjugation: Conjugação) {
         for (n <- Números; p <- Pessoas) yield
           Pronomes(n, p).mkString("/")
 
-      Padder.zip(Padder.alignRight(pronomes), Padder.alignLeft(pronomes)).foreach(println)
+      val formas =
+        for (n <- Números; p <- Pessoas) yield
+          conjugation(t, p, n).word
+
+      Padder.zip(
+        Padder.alignRight(pronomes),
+        Padder.alignLeft(formas)).foreach(println)
     }
   }
 }
