@@ -28,13 +28,13 @@ class ConjugationPrinter(conjugation: Conjugação) {
 
 object Padder {
   def alignLeft(strings: Traversable[String]): List[String] = {
-    val length = strings.view.map(_.length).max
+    val length = maximumLength(strings)
 
     strings.map(x => s"%-${length}s".format(x))(breakOut)
   }
 
   def alignRight(strings: Traversable[String]): List[String] = {
-    val length = strings.view.map(_.length).max
+    val length = maximumLength(strings)
 
     strings.map(x => s"%${length}s".format(x))(breakOut)
   }
@@ -58,4 +58,6 @@ object Padder {
 
     lines.reverse
   }
+
+  def maximumLength(strings: TraversableOnce[String]) = strings.foldLeft(0)((acc, e) => if (acc > e.length) acc else e.length)
 }
