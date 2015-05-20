@@ -22,7 +22,7 @@ class ConjugationPrinter(conjugation: Conjugação) {
         Padder.alignLeft(formas))
     }
 
-    tenseBlocks.reduce(Padder.zip).foreach(println)
+    tenseBlocks.reduce(Padder.zip(2)).foreach(println)
   }
 }
 
@@ -39,14 +39,16 @@ object Padder {
     strings.map(x => s"%${length}s".format(x))(breakOut)
   }
 
-  def zip(left: Iterable[String], right: Iterable[String]): List[String] = {
+  def zip(left: Iterable[String], right: Iterable[String]): List[String] = zip(1)(left, right)
+
+  def zip(length: Int)(left: Iterable[String], right: Iterable[String]): List[String] = {
     val leftIterator  = left.iterator
     val rightIterator = right.iterator
 
     var lines = List[String]()
 
     while (leftIterator.hasNext) {
-      val newLine = leftIterator.next + (if (rightIterator.hasNext) " " + rightIterator.next else "")
+      val newLine = leftIterator.next + (if (rightIterator.hasNext) (" " * length) + rightIterator.next else "")
 
       lines = newLine :: lines
     }
