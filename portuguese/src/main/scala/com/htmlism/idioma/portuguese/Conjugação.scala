@@ -87,44 +87,6 @@ trait Conjugação extends CanConjugate {
   lazy val secondPersonPluralFutureSubjunctive   = root + ???
   lazy val thirdPersonPluralFutureSubjunctive    = root + ???
 
-  def print() = {
-    println("\nGerund: " + gerund)
-
-    for (t <- List(Presente, Perfeito, Imperfeito)) {
-      println("\n" + t.tempo.capitalize + ":")
-
-      for (n <- Números) {
-        for (p <- Pessoas) {
-          println(apply(t, p, n).word)
-        }
-      }
-    }
-
-    println("\nPluperfect:")
-    println(firstPersonSingularPluperfect)
-    println(secondPersonSingularPluperfect)
-    println(thirdPersonSingularPluperfect)
-    println(firstPersonPluralPluperfect)
-    println(secondPersonPluralPluperfect)
-    println(thirdPersonPluralPluperfect)
-
-    println("\nFuture:")
-    println(firstPersonSingularFuture)
-    println(secondPersonSingularFuture)
-    println(thirdPersonSingularFuture)
-    println(firstPersonPluralFuture)
-    println(secondPersonPluralFuture)
-    println(thirdPersonPluralFuture)
-
-    println("\nConditional:")
-    println(firstPersonSingularConditional)
-    println(secondPersonSingularConditional)
-    println(thirdPersonSingularConditional)
-    println(firstPersonPluralConditional)
-    println(secondPersonPluralConditional)
-    println(thirdPersonPluralConditional)
-  }
-
   private def r(form: String) = InflectedForm(form, Regular)
 
   protected def s(form: String) = InflectedForm(form, SemiRegular)
