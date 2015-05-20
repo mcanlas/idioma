@@ -48,7 +48,10 @@ object Padder {
     var lines = List[String]()
 
     while (leftIterator.hasNext) {
-      val newLine = leftIterator.next + (if (rightIterator.hasNext) (" " * length) + rightIterator.next else "")
+      val leftCell  = leftIterator.next
+      val rightCell = if (rightIterator.hasNext) (" " * length) + rightIterator.next else ""
+
+      val newLine = leftCell + rightCell
 
       lines = newLine :: lines
     }
