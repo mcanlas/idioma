@@ -47,8 +47,10 @@ object Padder {
 
     var lines = List[String]()
 
+    val width = maximumLength(left)
+
     while (leftIterator.hasNext) {
-      val leftCell  = leftIterator.next
+      val leftCell  = s"%-${width}s".format(leftIterator.next)
       val rightCell = if (rightIterator.hasNext) (" " * length) + rightIterator.next else ""
 
       val newLine = leftCell + rightCell
