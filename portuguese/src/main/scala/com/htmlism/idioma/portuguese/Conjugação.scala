@@ -3,7 +3,7 @@ package com.htmlism.idioma.portuguese
 import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
 object Conjugação {
-  private val RootPattern = "(.*)([aei])r".r
+  private val RootPattern = "(.*)([aeiô])r".r
 
   def apply(infinitive: String): Option[Conjugação] = infinitive match {
     case RootPattern(root, vowel) =>
@@ -11,6 +11,7 @@ object Conjugação {
         case "a" => new ConjugaçãoPrimeira(root)
         case "e" => new ConjugaçãoSegunda(root)
         case "i" => new ConjugaçãoTerceira(root)
+        case "ô" => new ConjugaçãoQuarta(root)
       }
 
       Some(conjugação)
@@ -165,4 +166,13 @@ case class ConjugaçãoTerceira(root: String) extends Conjugação {
   // Pluperfect
   protected lazy val firstPersonPluralPluperfect  = root + "íramos"
   protected lazy val secondPersonPluralPluperfect = root + "íreis"
+}
+
+case class ConjugaçãoQuarta(root: String) extends Conjugação {
+  protected def vowel = "o"
+
+  protected def regularForms = veryRegularForms
+
+  protected lazy val secondPersonPluralPluperfect: String = ???
+  protected lazy val firstPersonPluralPluperfect: String = ???
 }
