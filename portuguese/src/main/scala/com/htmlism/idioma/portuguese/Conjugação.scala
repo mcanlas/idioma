@@ -43,8 +43,8 @@ trait Conjugação extends CanConjugate {
   lazy val firstPersonSingularPluperfect  = rootVowel + "ra"
   lazy val secondPersonSingularPluperfect = rootVowel + "ras"
   lazy val thirdPersonSingularPluperfect  = rootVowel + "ra"
-       val firstPersonPluralPluperfect:   String
-       val secondPersonPluralPluperfect:  String
+  protected val firstPersonPluralPluperfect:  String
+  protected val secondPersonPluralPluperfect: String
   lazy val thirdPersonPluralPluperfect    = rootVowel + "ram"
 
   // Future
@@ -113,8 +113,8 @@ case class ConjugaçãoPrimeira(root: String) extends Conjugação {
   )
 
   // Pluperfect
-  lazy val firstPersonPluralPluperfect  = root + "áramos"
-  lazy val secondPersonPluralPluperfect = root + "áreis"
+  protected lazy val firstPersonPluralPluperfect  = root + "áramos"
+  protected lazy val secondPersonPluralPluperfect = root + "áreis"
 }
 
 case class ConjugaçãoSegunda(root: String) extends Conjugação {
@@ -138,8 +138,8 @@ case class ConjugaçãoSegunda(root: String) extends Conjugação {
   )
 
   // Pluperfect
-  lazy val firstPersonPluralPluperfect  = root + "êramos"
-  lazy val secondPersonPluralPluperfect = root + "êreis"
+  protected lazy val firstPersonPluralPluperfect  = root + "êramos"
+  protected lazy val secondPersonPluralPluperfect = root + "êreis"
 }
 
 case class ConjugaçãoTerceira(root: String) extends Conjugação {
@@ -163,6 +163,6 @@ case class ConjugaçãoTerceira(root: String) extends Conjugação {
   )
 
   // Pluperfect
-  lazy val firstPersonPluralPluperfect  = root + "íramos"
-  lazy val secondPersonPluralPluperfect = root + "íreis"
+  protected lazy val firstPersonPluralPluperfect  = root + "íramos"
+  protected lazy val secondPersonPluralPluperfect = root + "íreis"
 }
