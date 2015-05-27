@@ -19,9 +19,9 @@ object Conjugação {
 }
 
 trait Conjugação extends CanConjugate {
-  protected val root: String
-  protected val vowel: String
-  protected val regularForms: Map[(Tempo, Pessoa, Número), InflectedForm]
+  protected def root: String
+  protected def vowel: String
+  protected def regularForms: Map[(Tempo, Pessoa, Número), InflectedForm]
 
   def apply(tense: Tempo, person: Pessoa, number: Número) = regularForms((tense, person, number))
 
