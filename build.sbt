@@ -1,6 +1,6 @@
 scalaVersion := "2.11.6"
 
-crossScalaVersions := Seq("2.10.5", "2.11.6")
+crossScalaVersions := Seq("2.10.5", "2.11.7")
 
 lazy val jsonFramework = "org.json4s" %% "json4s-native" % "3.2.10"
 
