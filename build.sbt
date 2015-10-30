@@ -6,7 +6,7 @@ lazy val jsonFramework = "org.json4s" %% "json4s-native" % "3.2.10"
 
 resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases" // for specs2
 
-lazy val testingFramework = "org.specs2" %% "specs2" % "2.4.15" % "test"
+lazy val testingFramework = "org.specs2" %% "specs2-core" % "3.6.5" % "test"
 
 lazy val grammar = project
 
