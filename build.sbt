@@ -2,7 +2,7 @@ scalaVersion := "2.11.7"
 
 crossScalaVersions := Seq("2.10.5", "2.11.7")
 
-lazy val jsonFramework = "org.json4s" %% "json4s-native" % "3.2.10"
+lazy val jsonFramework = "org.json4s" %% "json4s-native" % "3.3.0"
 
 resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases" // for specs2
 
