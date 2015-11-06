@@ -5,7 +5,7 @@ import scala.collection.breakOut
 import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
 class ConjugationPrinter(conjugation: Conjugação) {
-  def print() = {
+  def print(): Unit = {
     val tempos = Seq(Presente, Imperfeito, Perfeito)
 
     val tenseBlocks = for (t <- tempos) yield {

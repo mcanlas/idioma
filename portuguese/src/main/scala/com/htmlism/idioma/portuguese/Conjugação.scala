@@ -24,7 +24,7 @@ trait Conjugação extends CanConjugate {
   protected def vowel: String
   protected def regularForms: Map[(Tempo, Pessoa, Número), InflectedForm]
 
-  def apply(tense: Tempo, person: Pessoa, number: Número) = regularForms((tense, person, number))
+  def apply(tense: Tempo, person: Pessoa, number: Número): InflectedForm = regularForms((tense, person, number))
 
   lazy val rootVowel = root + vowel
 
