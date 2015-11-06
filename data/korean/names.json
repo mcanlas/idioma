@@ -1,4 +1,11 @@
 [
+  { "gloss": "Jaebum",   "name": "재범" },
+  { "gloss": "Taecyeon", "name": "택연" },
+  { "gloss": "Wooyoung", "name": "우영" },
+  { "gloss": "Junho",    "name": "준호" },
+  { "gloss": "Chansung", "name": "찬성" },
+  { "gloss": "Nichkhun", "name": "닉쿤" },
+  { "gloss": "Junsu",    "name": "준수" },
   { "gloss": "Annie",    "name": "" },
   { "gloss": "Mark",     "name": "마크" },
   { "gloss": "JB",       "name": "제이비" },
