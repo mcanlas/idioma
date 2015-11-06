@@ -44,8 +44,8 @@ trait Conjugação extends CanConjugate {
   lazy val firstPersonSingularPluperfect  = rootVowel + "ra"
   lazy val secondPersonSingularPluperfect = rootVowel + "ras"
   lazy val thirdPersonSingularPluperfect  = rootVowel + "ra"
-  protected val firstPersonPluralPluperfect:  String
-  protected val secondPersonPluralPluperfect: String
+  protected def firstPersonPluralPluperfect:  String
+  protected def secondPersonPluralPluperfect: String
   lazy val thirdPersonPluralPluperfect    = rootVowel + "ram"
 
   // Future
