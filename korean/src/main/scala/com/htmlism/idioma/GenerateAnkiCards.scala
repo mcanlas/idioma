@@ -5,6 +5,9 @@ import scala.io.Source
 object GenerateAnkiCards extends App {
   val consonants = Source.fromFile("data/korean/consonants.csv").getLines()
 
+  // skip the header
+  consonants.next()
+
   consonants.foreach(println)
 }
 
