@@ -16,7 +16,10 @@ object GenerateAnkiCards extends App {
     .map { s =>
       val Array(n, name) = s.split(",")
 
-      AnkiCardValue(s"What is the name of this consonant?<div>$n</div>", name)
+      AnkiCardValue(
+        s"""<div id="preface">What is the name of this consonant?</div>""" +
+          s"""<div id="heroic-character">$n</div>""",
+        s"""<div id="heroic-answer">$name</div>""")
     }
     .map(_.serialize)
     .foreach(out.println)
