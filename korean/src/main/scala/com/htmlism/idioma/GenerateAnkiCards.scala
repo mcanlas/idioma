@@ -7,6 +7,9 @@ import scala.io.Source
 object GenerateAnkiCards extends App {
   val out = new PrintWriter(args(0))
 
+  // write header
+  out.println("front\tback")
+
   val consonants = Source.fromFile("data/korean/consonants.csv").getLines()
 
   // skip the header
