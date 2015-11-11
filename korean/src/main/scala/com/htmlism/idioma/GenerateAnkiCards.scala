@@ -1,14 +1,20 @@
 package com.htmlism.idioma
 
+import java.io.PrintWriter
+
 import scala.io.Source
 
 object GenerateAnkiCards extends App {
+  val out = new PrintWriter(args(0))
+
   val consonants = Source.fromFile("data/korean/consonants.csv").getLines()
 
   // skip the header
   consonants.next()
 
-  consonants.foreach(println)
+  consonants.foreach(out.println)
+
+  out.close()
 }
 
 trait AnkiCard {
