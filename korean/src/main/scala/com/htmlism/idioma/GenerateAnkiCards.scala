@@ -2,6 +2,8 @@ package com.htmlism.idioma
 
 import java.io.PrintWriter
 
+import com.htmlism.hangul.Hangul
+
 import scala.io.Source
 
 object GenerateAnkiCards extends App {
@@ -16,9 +18,11 @@ object GenerateAnkiCards extends App {
     .map { s =>
       val Array(n, name) = s.split(",")
 
+      val character = (Hangul.initialOriginCodePoint + n.toInt - 1).toChar
+
       AnkiCardValue(
         s"""<div id="preface">What is the name of this consonant?</div>""" +
-          s"""<div id="heroic-character">$n</div>""",
+          s"""<div id="heroic-character">$character</div>""",
         s"""<div id="heroic-answer">$name</div>""")
     }
     .map(_.serialize)
