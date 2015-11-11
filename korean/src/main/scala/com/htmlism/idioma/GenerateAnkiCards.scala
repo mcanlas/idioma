@@ -21,6 +21,7 @@ object GenerateAnkiCards extends App {
       val character = (Hangul.initialOriginCodePoint + n.toInt - 1).toChar
 
       AnkiCardValue(
+        "name-consonant-" + n,
         s"""<div id="preface">What is the name of this consonant?</div>""" +
           s"""<div id="heroic-character">$character</div>""",
         s"""<div id="heroic-answer">$name</div>""")
@@ -32,11 +33,13 @@ object GenerateAnkiCards extends App {
 }
 
 trait AnkiCard {
+  def id: String
+
   def front: String
 
   def back: String
 
-  def serialize: String = front + "\t" + back
+  def serialize: String = id + "\t" + front + "\t" + back
 }
 
-case class AnkiCardValue(front: String, back: String) extends AnkiCard
+case class AnkiCardValue(id: String, front: String, back: String) extends AnkiCard
