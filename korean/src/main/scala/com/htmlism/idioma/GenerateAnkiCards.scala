@@ -5,7 +5,8 @@ import java.io.PrintWriter
 object GenerateAnkiCards extends App {
   val out = new PrintWriter(args(0))
 
-  ConsonantCards.iterator
+  (ConsonantCards.iterator ++
+    VowelCards.iterator)
     .map(_.serialize)
     .foreach(out.println)
 
