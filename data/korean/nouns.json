@@ -1,0 +1,6 @@
+[
+  { "gloss": "child",    "filename": "child.png",    "word": "아이" },
+  { "gloss": "cucumber", "filename": "cucumber.jpg", "word": "오이" },
+  { "gloss": "milk",     "filename": "milk.jpg",     "word": "우유" },
+  { "gloss": "fox",      "filename": "fox.jpg",      "word": "여우" }
+]
