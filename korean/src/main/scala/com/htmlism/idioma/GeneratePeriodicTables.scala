@@ -5,37 +5,41 @@ import com.htmlism.hangul.Hangul
 import scala.io.Source
 
 object GeneratePeriodicTables extends App {
-  private val consonants = {
-    val lines = Source.fromFile("data/korean/consonants.csv").getLines()
+  printConsonants()
 
-    lines.next()
+  private def printConsonants() = {
+    val consonants = {
+      val lines = Source.fromFile("data/korean/consonants.csv").getLines()
 
-    lines
-      .map { s =>
-        val Array(n, hangul) = s.split(",")
+      lines.next()
 
-        n.toInt -> hangul
-      }
-      .toMap
-  }
+      lines
+        .map { s =>
+          val Array(n, hangul) = s.split(",")
 
-  val rows = {
-    val lines = Source.fromFile("data/korean/periodic-consonants.tsv").getLines()
+          n.toInt -> hangul
+        }
+        .toMap
+    }
 
-    lines.next()
+    val rows = {
+      val lines = Source.fromFile("data/korean/periodic-consonants.tsv").getLines()
 
-    lines
-  }
+      lines.next()
 
-  for (row <- rows) {
-    val rowInKorean = row
-      .split("\t")
-      .map {
-        case "" => ""
-        case i => (Hangul.initialOriginCodePoint + i.toInt - 1).toChar
-      }
-      .mkString("\t")
+      lines
+    }
 
-    println(rowInKorean)
+    for (row <- rows) {
+      val rowInKorean = row
+        .split("\t")
+        .map {
+          case "" => ""
+          case i => (Hangul.initialOriginCodePoint + i.toInt - 1).toChar
+        }
+        .mkString("\t")
+
+      println(rowInKorean)
+    }
   }
 }
