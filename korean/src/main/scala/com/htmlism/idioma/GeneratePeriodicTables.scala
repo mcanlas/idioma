@@ -75,24 +75,50 @@ object GeneratePeriodicTables extends App {
   }
 
   private def printVowels() = {
-    val rows = {
-      val lines = Source.fromFile("data/korean/periodic-vowels.tsv").getLines()
+    val html = {
+      val firstRowCellsHtml = Seq("", "A", "B", "C", "D", "E", "F")
+        .map(c => s"<th>$c</th>")
 
-      lines.next()
+      val bodyRowsCellsHtml = {
+        val rows = {
+          val lines = Source.fromFile("data/korean/periodic-vowels.tsv").getLines()
 
-      lines
-    }
+          lines.next()
 
-    for (row <- rows) {
-      val rowInKorean = row
-        .split("\t")
-        .map {
-          case "" => ""
-          case i => (Hangul.medialOriginCodePoint + i.toInt - 1).toChar
+          lines
         }
-        .mkString("\t")
 
-      println(rowInKorean)
+        val bodyCellsHtml = rows
+          .map { row =>
+            row
+              .split("\t", -1) // negative means keep trailing empty cells
+              .map {
+                case "" => """<td class="vowel-empty"></td>"""
+                case nStr =>
+                  val n = nStr.toInt
+
+                  val character = (Hangul.medialOriginCodePoint + n - 1).toChar
+
+                  """<td class="vowel">""" +
+                    s"""<div class="vowel-sort">$n</div>""" +
+                    s"""<div class="vowel-character">$character</div>""" +
+                    """</td>"""
+              }
+              .toSeq
+          }
+        .toSeq
+
+        for (i <- bodyCellsHtml.indices) yield {
+          s"""<th>${romanNumerals(i)}</th>""" +: bodyCellsHtml(i)
+        }
+      }
+
+      (firstRowCellsHtml +: bodyRowsCellsHtml)
+        .map(r => r.mkString("\n"))
+        .map(r => s"<tr>$r</tr>")
+        .mkString("\n")
     }
+
+    println(s"<table>$html</table>")
   }
 }
