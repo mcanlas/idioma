@@ -5,6 +5,8 @@ import com.htmlism.hangul.Hangul
 import scala.io.Source
 
 object GeneratePeriodicTables extends App {
+  val romanNumerals = Seq("I", "II", "III", "IV", "V", "VI")
+
   printConsonants()
   printVowels()
 
@@ -23,25 +25,53 @@ object GeneratePeriodicTables extends App {
         .toMap
     }
 
-    val rows = {
-      val lines = Source.fromFile("data/korean/periodic-consonants.tsv").getLines()
+    val lines = Source.fromFile("data/korean/periodic-consonants.tsv").getLines()
 
-      lines.next()
+    val html = {
+      val firstRowCellsHtml = {
+        val headerCellsHtml = lines
+          .next()
+          .split("\t")
+          .map(_.toUpperCase)
 
-      lines
-    }
+        ("" +: headerCellsHtml)
+          .map(h => s"""<th>$h</th>""")
+      }
 
-    for (row <- rows) {
-      val rowInKorean = row
-        .split("\t")
-        .map {
-          case "" => ""
-          case i => (Hangul.initialOriginCodePoint + i.toInt - 1).toChar
+      val bodyRowsCellsHtml = {
+        val bodyCellsHtml = lines
+          .map { row =>
+            row
+              .split("\t", -1) // negative means keep trailing empty cells
+              .map {
+                case "" => """<td class="consonant-empty"></td>"""
+                case nStr =>
+                  val n = nStr.toInt
+
+                  val character = (Hangul.initialOriginCodePoint + n - 1).toChar
+                  val name = consonants(n)
+
+                  """<td class="consonant">""" +
+                    s"""<div class="consonant-sort">$n</div>""" +
+                    s"""<div class="consonant-character">$character</div>""" +
+                    s"""<div class="consonant-name">$name</div>""" +
+                    """</td>"""
+              }
+          }
+          .toSeq
+
+        for (i <- bodyCellsHtml.indices) yield {
+          s"""<th>${romanNumerals(i)}</th>""" +: bodyCellsHtml(i)
         }
-        .mkString("\t")
+      }
 
-      println(rowInKorean)
+      (firstRowCellsHtml +: bodyRowsCellsHtml)
+        .map(r => r.mkString("\n"))
+        .map(r => s"<tr>$r</tr>")
+        .mkString("\n")
     }
+
+    println(s"<table>$html</table>")
   }
 
   private def printVowels() = {
