@@ -51,11 +51,11 @@ object GeneratePeriodicTables extends App {
                   val character = (Hangul.initialOriginCodePoint + n - 1).toChar
                   val name = consonants(n)
 
-                  """<td class="consonant">""" +
+                  """<td class="consonant"><div class="consonant-cell">""" +
                     s"""<div class="consonant-sort">$n</div>""" +
                     s"""<div class="consonant-character">$character</div>""" +
                     s"""<div class="consonant-name">$name</div>""" +
-                    """</td>"""
+                    """</div></td>"""
               }
           }
           .toSeq
@@ -99,10 +99,10 @@ object GeneratePeriodicTables extends App {
 
                   val character = (Hangul.medialOriginCodePoint + n - 1).toChar
 
-                  """<td class="vowel">""" +
+                  """<td class="vowel"><div class="vowel-cell">""" +
                     s"""<div class="vowel-sort">$n</div>""" +
                     s"""<div class="vowel-character">$character</div>""" +
-                    """</td>"""
+                    """</div></td>"""
               }
               .toSeq
           }
