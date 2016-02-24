@@ -4,7 +4,7 @@ import Keys._
 object IdiomaBuild extends Build {
   lazy val jsonFramework = "org.json4s" %% "json4s-native" % "3.3.0"
 
-  lazy val testingFramework = "org.specs2" %% "specs2-core" % "3.6.5" % "test"
+  lazy val testingFramework = "org.specs2" %% "specs2-core" % "3.7.1" % "test"
 
   lazy val hangul = "com.htmlism" %% "hangul-model" % "0.0.1-SNAPSHOT"
 
