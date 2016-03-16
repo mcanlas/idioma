@@ -14,20 +14,22 @@ class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Itera
 
   def hasNext = leftIterator.hasNext || rightIterator.hasNext
 
-  def next() = if (hasNext) {
-    if (firstTime) {
-      currentLeftElement = leftIterator.next()
-      firstTime = false
-    }
+  def next() =
+    if (hasNext) {
+      if (firstTime) {
+        currentLeftElement = leftIterator.next()
+        firstTime = false
+      }
 
-    val leftElement  = currentLeftElement
-    val rightElement = rightIterator.next()
+      val leftElement  = currentLeftElement
+      val rightElement = rightIterator.next()
 
-    if (!rightIterator.hasNext && leftIterator.hasNext) {
-      currentLeftElement = leftIterator.next()
-      rightIterator      = rightGenerator.iterator
-    }
+      if (!rightIterator.hasNext && leftIterator.hasNext) {
+        currentLeftElement = leftIterator.next()
+        rightIterator      = rightGenerator.iterator
+      }
 
-    (leftElement, rightElement)
-  } else throw new RuntimeException("cannot generate combinations with an exhausted iterator")
+      (leftElement, rightElement)
+    } else
+      throw new RuntimeException("cannot generate combinations with an exhausted iterator")
 }
