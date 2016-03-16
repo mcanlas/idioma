@@ -6,6 +6,7 @@ object GenerateAnkiCards extends App {
   val out = new PrintWriter(args(0))
 
   (ConsonantCards.iterator ++
+    VerbCards.iterator ++
     PrepositionCards.iterator ++
     MonthCards.iterator ++
     NounCards.iterator ++
