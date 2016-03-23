@@ -1,0 +1,16 @@
+{
+	labels: ["country"],
+	words: {
+		"US": { hangul: "미국" },
+		"China": { hangul: "중국" },
+		"Japan": { hangul: "일본" },
+		"India": { hangul: "인도", loan: true },
+		"Australia": { hangul: "호주" },
+		"UK": { hangul: "영국" },
+		"Germany": { hangul: "독일" },
+		"France": { hangul: "프랑스", loan: true },
+		"Canada": { hangul: "캐나다" },
+		"Korea": { hangul: "한국" },
+		"Russia": { hangul: "라시아", loan: true },
+	}
+}
