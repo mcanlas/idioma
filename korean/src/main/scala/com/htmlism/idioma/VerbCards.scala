@@ -22,15 +22,7 @@ object VerbCards {
 
         val korean = (json \ "korean").extract[String]
 
-        Seq(
-          AnkiCardValue(
-            "eng2kor-" + english,
-            s"""<div id="preface">$english</div>""",
-            s"""<div id="heroic-answer">$korean</div>"""),
-          AnkiCardValue(
-            "kor2eng-" + english,
-            s"""<div id="heroic-answer">$korean</div>""",
-            s"""<div id="preface">$english</div>"""))
+        GenerateAnkiCards.translationCards(english, "to " + english, korean)
       }
   }
 }
