@@ -1,6 +1,6 @@
-scalaVersion := "2.11.7"
+scalaVersion := twoEleven
 
-crossScalaVersions := Seq("2.10.5", "2.11.7")
+crossScalaVersions := Seq("2.10.6", twoEleven)
 
 lazy val grammar = project
 

@@ -8,9 +8,11 @@ object IdiomaBuild extends Build {
 
   lazy val hangul = "com.htmlism" %% "hangul-model" % "0.0.1-SNAPSHOT"
 
+  val twoEleven = "2.11.8"
+
   resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases" // for specs2
 
-  scalaVersion := "2.11.7"
+  scalaVersion := twoEleven
 
   lazy val korean = Project("korean", file("korean"),
     settings = Seq(
