@@ -1,0 +1,13 @@
+.card {
+  font-family: arial;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  background-color: white;
+}
+
+#heroic-character { font-size: 200px }
+
+#heroic-answer { font-size: 100px }
+
+#preface { font-style: italic }
