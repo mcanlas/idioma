@@ -8,6 +8,9 @@
 
 #heroic-character { font-size: 200px }
 
-#heroic-answer { font-size: 100px }
+#heroic-answer,
+#heroic-prompt {
+  font-size: 100px
+}
 
 #preface { font-style: italic }
