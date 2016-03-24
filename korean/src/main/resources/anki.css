@@ -8,8 +8,12 @@
 
 #heroic-character { font-size: 200px }
 
+#heroic-prompt-english {
+  font-size: 80px
+}
+
 #heroic-answer,
-#heroic-prompt {
+#heroic-prompt-korean {
   font-size: 100px
 }
 

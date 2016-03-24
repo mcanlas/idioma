@@ -7,11 +7,13 @@ object GenerateAnkiCards extends App {
     Seq(
       AnkiCardValue(
         "eng2kor-" + keyFragment,
-        s"""<div id="preface">How do you say "$english" in Korean?</div>""",
+        s"""<div id="preface">How do you say this in Korean?</div>""" +
+          s"""<div id="heroic-prompt-english">[$english]</div>""",
         s"""<div id="heroic-answer">$korean</div>"""),
       AnkiCardValue(
         "kor2eng-" + keyFragment,
-        s"""<div id="heroic-answer">$korean</div>""",
+        s"""<div id="preface">What does this mean??</div>""" +
+          s"""<div id="heroic-prompt-korean">$korean</div>""",
         s"""<div id="preface">$english</div>"""))
 
   val out = new PrintWriter(args(0))
