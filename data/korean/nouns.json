@@ -1,4 +1,13 @@
 {
+  "lake": { "hangul": "호수" },
+  "pants": { "hangul": "바지" },
+  "baby": { "hangul": "아기" },
+  "singer": { "hangul": "가수" },
+  "banana": { "hangul": "바나나", "loan": true },
+  "radio": { "hangul": "라디오", "loan": true },
+  "shoes": { "hangul": "구두" },
+  "tree": { "hangul": "나무" },
+  "furniture": { "hangul": "가구" },
   "child": { "img": "child.png", "hangul": "아이" },
   "cucumber": { "img": "cucumber.jpg", "hangul": "오이" },
   "milk": { "img": "milk.jpg", "hangul": "우유" },
