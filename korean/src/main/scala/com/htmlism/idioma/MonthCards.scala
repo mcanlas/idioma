@@ -2,18 +2,18 @@ package com.htmlism.idioma
 
 import scala.io.Source
 
-object MonthCards {
-  val iterator: Iterator[AnkiCard] = {
+object MonthCards extends TranslationCardIterator {
+  def partsIterator: Iterator[(String, String, String)] = {
     val months = Source.fromFile("data/korean/months.tsv").getLines()
 
     // skip the header
     months.next()
 
     months
-      .flatMap { s =>
+      .map { s =>
         val Array(english, korean) = s.split("\t")
 
-        GenerateAnkiCards.translationCards(english, english, korean)
+        (english, english, korean)
       }
   }
 }

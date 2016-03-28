@@ -5,8 +5,8 @@ import scala.io.Source
 import org.json4s._
 import org.json4s.native.JsonMethods._
 
-object NounCards {
-  val iterator: Iterator[AnkiCard] = {
+object NounCards extends TranslationCardIterator {
+  def partsIterator: Iterator[(String, String, String)] = {
     val json = Source.fromFile("data/korean/nouns.json").mkString
 
     val nouns = parse(json) match {
@@ -15,12 +15,12 @@ object NounCards {
 
     nouns
       .iterator
-      .flatMap { case (english, jvalue) =>
+      .map { case (english, jvalue) =>
         implicit val formats = DefaultFormats
 
         val hangul = (jvalue \ "hangul").extract[String]
 
-        GenerateAnkiCards.translationCards(english, english, hangul)
+        (english, english, hangul)
       }
   }
 }
