@@ -1,6 +1,6 @@
-[
-  { "gloss": "child",    "filename": "child.png",    "word": "아이" },
-  { "gloss": "cucumber", "filename": "cucumber.jpg", "word": "오이" },
-  { "gloss": "milk",     "filename": "milk.jpg",     "word": "우유" },
-  { "gloss": "fox",      "filename": "fox.jpg",      "word": "여우" }
-]
+{
+  "child": { "img": "child.png", "hangul": "아이" },
+  "cucumber": { "img": "cucumber.jpg", "hangul": "오이" },
+  "milk": { "img": "milk.jpg", "hangul": "우유" },
+  "fox": { "img": "fox.jpg", "hangul": "여우" }
+}
