@@ -12,7 +12,7 @@ object GenerateAnkiCards extends App {
         s"""<div id="heroic-answer">$korean</div>"""),
       AnkiCardValue(
         "kor2eng-" + keyFragment,
-        s"""<div id="preface">What does this mean??</div>""" +
+        s"""<div id="preface">What does this mean?</div>""" +
           s"""<div id="heroic-prompt-korean">$korean</div>""",
         s"""<div id="preface">$english</div>"""))
 
