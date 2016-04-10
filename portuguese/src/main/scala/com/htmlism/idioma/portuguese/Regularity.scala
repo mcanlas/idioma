@@ -1,6 +1,6 @@
 package com.htmlism.idioma.portuguese
 
-abstract class Regularity
+sealed trait Regularity
 
 case object Regular extends Regularity
 case object SemiRegular extends Regularity
