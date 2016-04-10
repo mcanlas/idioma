@@ -1,5 +1,33 @@
 [
   {
+    "infinitive": "trazer",
+    "gloss": "bring"
+  },
+  {
+    "infinitive": "saber",
+    "gloss": "know"
+  },
+  {
+    "infinitive": "querer",
+    "gloss": "want"
+  },
+  {
+    "infinitive": "poder",
+    "gloss": "can"
+  },
+  {
+    "infinitive": "haver",
+    "gloss": "exist"
+  },
+  {
+    "infinitive": "dizer",
+    "gloss": "say"
+  },
+  {
+    "infinitive": "ver",
+    "gloss": "see"
+  },
+  {
     "infinitive": "comer",
     "gloss": "eat"
   },
