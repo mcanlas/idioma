@@ -16,6 +16,6 @@ object IdiomaBuild extends Build {
 
   lazy val korean = Project("korean", file("korean"),
     settings = Seq(
-      scalaVersion := "2.11.7",
+      scalaVersion := twoEleven,
       libraryDependencies ++= Seq(hangul, jsonFramework, testingFramework)))
 }
