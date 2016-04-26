@@ -1,9 +1,6 @@
 package com.htmlism.idioma.portuguese
 
 object CategoriasGramaticais {
-  val Singular  = Número("singular", "S")
-  val Plural    = Número("plural",   "P")
-
   val Masculino = Gênero("masculine", "m")
   val Feminino  = Gênero("feminine",  "f")
   val Ambos     = Gênero("either",    "mf")
@@ -24,8 +21,6 @@ object CategoriasGramaticais {
     (Plural, PessoaSegunda)    -> Seq("vós"),
     (Plural, PessoaTerceira)   -> Seq("eles", "elas"))
 }
-
-case class Número(número: String, código: String)
 
 case class Gênero(gênero: String, código: String)
 
