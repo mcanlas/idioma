@@ -1,10 +1,6 @@
 package com.htmlism.idioma.portuguese
 
 object CategoriasGramaticais {
-  val PessoaPrimeira  = Pessoa("first",  "1")
-  val PessoaSegunda   = Pessoa("second", "2")
-  val PessoaTerceira  = Pessoa("third",  "3")
-
   val Singular  = Número("singular", "S")
   val Plural    = Número("plural",   "P")
 
@@ -28,8 +24,6 @@ object CategoriasGramaticais {
     (Plural, PessoaSegunda)    -> Seq("vós"),
     (Plural, PessoaTerceira)   -> Seq("eles", "elas"))
 }
-
-case class Pessoa(pessoa: String, código: String)
 
 case class Número(número: String, código: String)
 
