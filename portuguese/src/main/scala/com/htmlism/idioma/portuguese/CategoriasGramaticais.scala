@@ -18,6 +18,4 @@ object CategoriasGramaticais {
     (Plural, PessoaTerceira)   -> Seq("eles", "elas"))
 }
 
-case class Gênero(gênero: String, código: String)
-
 case class Especificação(especificação: String, código: String)
