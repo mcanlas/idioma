@@ -4,7 +4,6 @@ import org.json4s._
 import org.json4s.native.JsonMethods._
 
 import com.htmlism.idioma._
-import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
 object Data {
   lazy val verbs = Seq("a", "e", "i").flatMap(parseVerbs)
