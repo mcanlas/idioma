@@ -86,9 +86,9 @@ trait Conjugação extends CanConjugate {
   lazy val secondPersonPluralFutureSubjunctive   = root + ???
   lazy val thirdPersonPluralFutureSubjunctive    = root + ???
 
-  private def r(form: String) = InflectedForm(form, Regular)
+  private def r(form: String) = RegularForm(form)
 
-  protected def s(form: String) = InflectedForm(form, SemiRegular)
+  protected def s(form: String) = SemiRegularForm(form)
 }
 
 case class ConjugaçãoPrimeira(root: String) extends Conjugação {
@@ -173,4 +173,38 @@ case class ConjugaçãoQuarta(root: String) extends Conjugação {
 
   protected lazy val secondPersonPluralPluperfect: String = ???
   protected lazy val firstPersonPluralPluperfect: String = ???
+}
+
+trait Conjugation {
+  def vowel: String
+
+  def gerund(root: String): InflectedForm = RegularForm(root + vowel + "ndo")
+
+  def pastParticiple(root: String): InflectedForm
+
+  def apply(root: String, tense: Tempo, person: Pessoa, number: Número): InflectedForm
+}
+
+object FirstConjugation extends Conjugation {
+  val vowel: String = "a"
+
+  def pastParticiple(root: String) = RegularForm(root + "ado")
+
+  def apply(root: String, tense: Tempo, person: Pessoa, number: Número) = ???
+}
+
+object SecondConjugation extends Conjugation {
+  val vowel = "e"
+
+  def pastParticiple(root: String) = RegularForm(root + "ido")
+
+  def apply(root: String, tense: Tempo, person: Pessoa, number: Número) = ???
+}
+
+object ThirdConjugation extends Conjugation {
+  val vowel = "i"
+
+  def pastParticiple(root: String) = RegularForm(root + "ido")
+
+  def apply(root: String, tense: Tempo, person: Pessoa, number: Número) = ???
 }

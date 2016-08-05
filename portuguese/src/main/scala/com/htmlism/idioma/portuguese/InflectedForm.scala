@@ -1,3 +1,9 @@
 package com.htmlism.idioma.portuguese
 
-case class InflectedForm(word: String, regularity: Regularity)
+sealed trait InflectedForm {
+  def word: String
+}
+
+case class RegularForm(word: String) extends InflectedForm
+case class SemiRegularForm(word: String) extends InflectedForm
+case class IrregularForm(word: String) extends InflectedForm

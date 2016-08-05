@@ -18,7 +18,7 @@ object Verb {
             val maybeIrregularForm = jv \ t.key \ (p.pessoa + n.número.capitalize)
 
             val form = maybeIrregularForm match {
-              case JString(s) => InflectedForm(s, Irregular)
+              case JString(s) => IrregularForm(s)
               case JNothing   => conjugation(t, p, n)
               case _          => throw new RuntimeException(s"unexpected jvalue instance $maybeIrregularForm")
             }
@@ -36,5 +36,5 @@ object Verb {
 }
 
 case class Verb(infinitive: String, gerund: String, private val forms: Map[(Tempo, Pessoa, Número), InflectedForm]) extends CanConjugate {
-  def apply(tense: Tempo, person: Pessoa, number: Número) = forms((tense, person, number))
+  def apply(tense: Tempo, person: Pessoa, number: Número): InflectedForm = forms((tense, person, number))
 }
