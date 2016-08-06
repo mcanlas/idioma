@@ -88,7 +88,7 @@ trait Conjugação extends CanConjugate {
 
   private def r(form: String) = RegularForm(form)
 
-  protected def s(form: String) = SemiRegularForm(form)
+  protected def s(form: String) = ConjugationForm(form)
 }
 
 case class ConjugaçãoPrimeira(root: String) extends Conjugação {
