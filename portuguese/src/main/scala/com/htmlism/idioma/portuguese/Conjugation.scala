@@ -175,22 +175,70 @@ case class ConjugaçãoQuarta(root: String) extends Conjugação {
   protected lazy val firstPersonPluralPluperfect: String = ???
 }
 
+object Conjugation {
+  val regularEndings: Map[(Tempo, Pessoa, Número), String] = Map(
+    (Presente, PessoaPrimeira, Plural)   -> "mos",
+
+    (Perfeito, PessoaSegunda,  Singular) -> "ste",
+    (Perfeito, PessoaPrimeira, Plural)   -> "mos",
+    (Perfeito, PessoaSegunda,  Plural)   -> "stes",
+    (Perfeito, PessoaTerceira, Plural)   -> "ram",
+
+    (MasQuePerfeito, PessoaPrimeira, Singular) -> "ra",
+    (MasQuePerfeito, PessoaSegunda,  Singular) -> "ras",
+    (MasQuePerfeito, PessoaTerceira, Singular) -> "ramos",
+    (MasQuePerfeito, PessoaTerceira, Plural)   -> "ram",
+
+    (Futuro, PessoaPrimeira, Singular) -> "rei",
+    (Futuro, PessoaSegunda,  Singular) -> "rás",
+    (Futuro, PessoaTerceira, Singular) -> "rá",
+    (Futuro, PessoaPrimeira, Plural)   -> "remos",
+    (Futuro, PessoaSegunda,  Plural)   -> "reis",
+    (Futuro, PessoaTerceira, Plural)   -> "rão")
+
+  def regularForms(root: String, vowel: String): Map[(Tempo, Pessoa, Número), RegularForm] = {
+    val firstForm = (Presente, PessoaPrimeira, Singular) -> (root + "o")
+
+    val regularEndingsWithVowel =
+      Conjugation.regularEndings.mapValues { e => root + vowel + e }
+
+    (regularEndingsWithVowel + firstForm)
+      .mapValues(RegularForm)
+  }
+}
+
 trait Conjugation {
   def vowel: String
 
-  def gerund(root: String): InflectedForm = RegularForm(root + vowel + "ndo")
-
   def pastParticiple(root: String): InflectedForm
+
+  def gerund(root: String): InflectedForm = RegularForm(root + vowel + "ndo")
 
   def apply(root: String, tense: Tempo, person: Pessoa, number: Número): InflectedForm
 }
 
 object FirstConjugation extends Conjugation {
+  val conjugationEndings = Map(
+    (Perfeito, PessoaPrimeira, Singular) -> "ei",
+    (Perfeito, PessoaTerceira, Singular) -> "ou",
+
+    (Imperfeito, PessoaPrimeira, Singular) -> "ava",
+    (Imperfeito, PessoaSegunda,  Singular) -> "avas",
+    (Imperfeito, PessoaTerceira, Singular) -> "ava",
+    (Imperfeito, PessoaPrimeira, Plural)   -> "ávamos",
+    (Imperfeito, PessoaSegunda,  Plural)   -> "áveis",
+    (Imperfeito, PessoaTerceira, Plural)   -> "avam"): Map[(Tempo, Pessoa, Número), String]
+
   val vowel: String = "a"
 
   def pastParticiple(root: String) = RegularForm(root + "ado")
 
-  def apply(root: String, tense: Tempo, person: Pessoa, number: Número) = ???
+  def apply(root: String, tense: Tempo, person: Pessoa, number: Número) = {
+    val conjugationForms =
+      conjugationEndings.mapValues(e => ConjugationForm(root + conjugationEndings))
+
+    (Conjugation.regularForms(root, vowel) ++ conjugationForms)(tense, person, number)
+  }
 }
 
 object SecondConjugation extends Conjugation {
@@ -198,7 +246,8 @@ object SecondConjugation extends Conjugation {
 
   def pastParticiple(root: String) = RegularForm(root + "ido")
 
-  def apply(root: String, tense: Tempo, person: Pessoa, number: Número) = ???
+  def apply(root: String, tense: Tempo, person: Pessoa, number: Número) =
+    Conjugation.regularForms(root, vowel)(tense, person, number)
 }
 
 object ThirdConjugation extends Conjugation {
@@ -206,5 +255,6 @@ object ThirdConjugation extends Conjugation {
 
   def pastParticiple(root: String) = RegularForm(root + "ido")
 
-  def apply(root: String, tense: Tempo, person: Pessoa, number: Número) = ???
+  def apply(root: String, tense: Tempo, person: Pessoa, number: Número) =
+    Conjugation.regularForms(root, vowel)(tense, person, number)
 }
