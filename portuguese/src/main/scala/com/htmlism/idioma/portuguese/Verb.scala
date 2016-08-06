@@ -3,8 +3,8 @@ package com.htmlism.idioma.portuguese
 import org.json4s.JsonAST.{ JNothing, JValue, JString, JObject }
 import CategoriasGramaticais._
 
-object Verb {
-  def apply(jv: JValue): Verb = jv match {
+object OldVerb {
+  def apply(jv: JValue): OldVerb = jv match {
     case JObject(fields) =>
       val map = fields.toMap
 
@@ -30,11 +30,11 @@ object Verb {
 
       val gerund = conjugation.gerund
 
-      new Verb(infinitive, gerund, forms.toMap)
-    case _ => throw new IllegalArgumentException("verb constructor needs a jObject")
+      new OldVerb(infinitive, gerund, forms.toMap)
+    case _ => throw new IllegalArgumentException("OldVerb constructor needs a jObject")
   }
 }
 
-case class Verb(infinitive: String, gerund: String, private val forms: Map[(Tempo, Pessoa, Número), InflectedForm]) extends CanConjugate {
+case class OldVerb(infinitive: String, gerund: String, private val forms: Map[(Tempo, Pessoa, Número), InflectedForm]) extends CanConjugate {
   def apply(tense: Tempo, person: Pessoa, number: Número): InflectedForm = forms((tense, person, number))
 }
