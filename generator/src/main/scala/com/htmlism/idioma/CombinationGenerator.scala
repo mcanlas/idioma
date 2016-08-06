@@ -31,5 +31,5 @@ class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Itera
 
       (leftElement, rightElement)
     } else
-      throw new RuntimeException("cannot generate combinations with an exhausted iterator")
+      throw new RuntimeException("cannot generate combinations with exhausted sources")
 }
