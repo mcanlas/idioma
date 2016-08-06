@@ -10,16 +10,12 @@ class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Itera
   private var currentLeftElement: A = _
   private var rightIterator         = rightGenerator.iterator
 
-  private var firstTime = true
-
   def hasNext = leftIterator.hasNext || rightIterator.hasNext
 
   def next() =
     if (hasNext) {
-      if (firstTime) {
+      if (currentLeftElement == null)
         currentLeftElement = leftIterator.next()
-        firstTime = false
-      }
 
       val leftElement  = currentLeftElement
       val rightElement = rightIterator.next()
