@@ -16,12 +16,12 @@ object Declension {
 }
 
 case class Declension(lemma: String, gender: Gênero, plural: Option[String] = None) {
-  def apply(number: Número) = number match {
+  def apply(number: Number) = number match {
     case Singular => lemma
     case Plural   => pluralForm
   }
 
-  def apply(number: Número, definiteness: Especificação) = (gender, number, definiteness) match {
+  def apply(number: Number, definiteness: Especificação) = (gender, number, definiteness) match {
     case (Masculino, Singular, Definitivo)   => s"o $lemma"
     case (Masculino, Singular, Indefinitivo) => s"um $lemma"
     case (Masculino, Plural,   Definitivo)   => s"os $pluralForm"

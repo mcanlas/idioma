@@ -35,6 +35,6 @@ object OldVerb {
   }
 }
 
-case class OldVerb(infinitive: String, gerund: String, private val forms: Map[(Tempo, Pessoa, Número), InflectedForm]) extends CanConjugate {
-  def apply(tense: Tempo, person: Pessoa, number: Número): InflectedForm = forms((tense, person, number))
+case class OldVerb(infinitive: String, gerund: String, private val forms: Map[(Tempo, Pessoa, Number), InflectedForm]) extends CanConjugate {
+  def apply(tense: Tempo, person: Pessoa, number: Number): InflectedForm = forms((tense, person, number))
 }

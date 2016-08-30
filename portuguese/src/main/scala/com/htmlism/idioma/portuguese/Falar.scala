@@ -11,7 +11,7 @@ object Falar extends App {
   val copula    = Data.verbs.filter{ v => v.infinitive == "estar" }.head
   val auxiliary = Data.verbs.filter{ v => v.infinitive == "ir" }.head
 
-  def conjugate(tense: Symbol, number: Número, person: Pessoa) = tense match {
+  def conjugate(tense: Symbol, number: Number, person: Pessoa) = tense match {
     case 'present   => Phrase(verb(Presente, person, number).word)
     case 'perfect   => Phrase(verb(Perfeito, person, number).word)
     case 'imperfect => Phrase(verb(Imperfeito, person, number).word)
