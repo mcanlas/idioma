@@ -10,11 +10,11 @@ class ConjugationPrinter(conjugation: Conjugação) {
 
     val tenseBlocks = for (t <- tempos) yield {
       val pronomes =
-        for (n <- Números; p <- Pessoas) yield
+        for (n <- Numeros; p <- Pessoas) yield
           Pronomes(n, p).mkString("/")
 
       val formas =
-        for (n <- Números; p <- Pessoas) yield
+        for (n <- Numeros; p <- Pessoas) yield
           conjugation(t, p, n).word
 
       t.toString :: Padder.zip(

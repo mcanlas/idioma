@@ -6,8 +6,8 @@ object CategoriasGramaticais {
 
   val Tempos  = List(Presente, Perfeito, Imperfeito, MasQuePerfeito, Futuro, Condicional, SubjuntivoDoPresente, SubjuntivoDoImperfeito, SubjuntivoDoFuturo)
   val Pessoas = List(PessoaPrimeira, PessoaSegunda, PessoaTerceira)
-  val Números = List(Singular, Plural)
-  val Gêneros = List(Masculino, Feminino, Ambos)
+  val Numeros = List(Singular, Plural)
+  val Generos = List(Masculino, Feminino, Ambos)
 
   val Pronomes = Map(
     (Singular, PessoaPrimeira) -> Seq("eu"),

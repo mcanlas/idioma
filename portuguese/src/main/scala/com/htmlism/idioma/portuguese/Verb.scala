@@ -14,7 +14,7 @@ object OldVerb {
 
       val forms = List(Presente, Perfeito, Imperfeito).flatMap { t =>
         Pessoas.flatMap { p =>
-          Números.map { n =>
+          Numeros.map { n =>
             val maybeIrregularForm = jv \ t.key \ (p.pessoa + n.número.capitalize)
 
             val form = maybeIrregularForm match {

@@ -14,7 +14,7 @@ object Main extends App {
       }
 
       val phrases = Pessoas.flatMap { p =>
-        Números.flatMap { n =>
+        Numeros.flatMap { n =>
           val form = verb(t, p, n).word
 
           (p, n) match {
@@ -50,7 +50,7 @@ object Main extends App {
     Data.verbs.flatMap { verb =>
       val phrases = List(Presente, Imperfeito).flatMap { t =>
         Pessoas.flatMap { p =>
-          Números.flatMap { n =>
+          Numeros.flatMap { n =>
             val form = copula(t, p, n).word
 
             (p, n) match {

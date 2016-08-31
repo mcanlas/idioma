@@ -4,7 +4,7 @@ import com.htmlism.idioma._
 import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
 object Falar extends App {
-  private val formasDeVerbos = Números * Seq(PessoaPrimeira, PessoaTerceira)
+  private val formasDeVerbos = Numeros * Seq(PessoaPrimeira, PessoaTerceira)
   private val tempos         = Seq('present, 'perfect, 'imperfect, 'future, 'presentProgressive, 'pastProgressive)
 
   val verb      = Data.verbs.filter{ v => v.infinitive == "falar" }.head
