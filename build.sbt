@@ -16,6 +16,7 @@ lazy val root = (project in file("."))
     grammar,
     generator,
     portuguese,
+    spanish,
     tagalog,
     arabic,
     japanese,
@@ -30,6 +31,11 @@ lazy val generator = project
   .settings(libraryDependencies += testingFramework)
 
 lazy val portuguese = project
+  .settings(commonSettings: _*)
+  .dependsOn(grammar, generator)
+  .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))
+
+lazy val spanish = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))
