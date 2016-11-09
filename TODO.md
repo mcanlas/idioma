@@ -1,6 +1,5 @@
 # Next actions
 
-* scala 2.12 blocked by json4s
 * conjugation dumper (via implicit)
   * columnar, summable, iterators?
 * add weighted sources
