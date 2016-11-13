@@ -1,6 +1,14 @@
 conjugation	tense	person	number	expression
 _	present	first	singular	o
+first|second	present	second	singular	{v}s
+third	present	second	singular	es
+first	present	third	singular	{v}
+second|third	present	third	singular	e
 _	present	first	plural	{v}mos
+first|second	present	second	plural	{v}is
+third	present	second	plural	{v}s
+first|second	present	third	plural	{v}m
+third	present	third	plural	em
 _	perfect	second	singular	{v}ste
 _	perfect	first	plural	{v}mos
 _	perfect	second	plural	{v}stes
