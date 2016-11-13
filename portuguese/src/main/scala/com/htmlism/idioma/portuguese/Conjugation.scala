@@ -6,10 +6,10 @@ object Conjugação {
   def apply(infinitive: String): Option[Conjugação] = infinitive match {
     case RootPattern(root, vowel) =>
       val conjugação = vowel match {
-        case "a" => new ConjugaçãoPrimeira(root)
-        case "e" => new ConjugaçãoSegunda(root)
-        case "i" => new ConjugaçãoTerceira(root)
-        case "ô" => new ConjugaçãoQuarta(root)
+        case "a" => ConjugaçãoPrimeira(root)
+        case "e" => ConjugaçãoSegunda(root)
+        case "i" => ConjugaçãoTerceira(root)
+        case "ô" => ConjugaçãoQuarta(root)
       }
 
       Some(conjugação)
