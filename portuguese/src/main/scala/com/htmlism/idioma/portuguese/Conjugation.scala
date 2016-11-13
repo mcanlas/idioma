@@ -175,38 +175,6 @@ case class ConjugaçãoQuarta(root: String) extends Conjugação {
   protected lazy val firstPersonPluralPluperfect: String = ???
 }
 
-object Conjugation {
-  val regularEndings: Map[(Tempo, Pessoa, Number), String] = Map(
-    (Presente, PessoaPrimeira, Plural)   -> "mos",
-
-    (Perfeito, PessoaSegunda,  Singular) -> "ste",
-    (Perfeito, PessoaPrimeira, Plural)   -> "mos",
-    (Perfeito, PessoaSegunda,  Plural)   -> "stes",
-    (Perfeito, PessoaTerceira, Plural)   -> "ram",
-
-    (MasQuePerfeito, PessoaPrimeira, Singular) -> "ra",
-    (MasQuePerfeito, PessoaSegunda,  Singular) -> "ras",
-    (MasQuePerfeito, PessoaTerceira, Singular) -> "ramos",
-    (MasQuePerfeito, PessoaTerceira, Plural)   -> "ram",
-
-    (Futuro, PessoaPrimeira, Singular) -> "rei",
-    (Futuro, PessoaSegunda,  Singular) -> "rás",
-    (Futuro, PessoaTerceira, Singular) -> "rá",
-    (Futuro, PessoaPrimeira, Plural)   -> "remos",
-    (Futuro, PessoaSegunda,  Plural)   -> "reis",
-    (Futuro, PessoaTerceira, Plural)   -> "rão")
-
-  def regularForms(root: String, vowel: String): Map[(Tempo, Pessoa, Number), RegularForm] = {
-    val firstForm = (Presente, PessoaPrimeira, Singular) -> (root + "o")
-
-    val regularEndingsWithVowel =
-      Conjugation.regularEndings.mapValues { e => root + vowel + e }
-
-    (regularEndingsWithVowel + firstForm)
-      .mapValues(RegularForm)
-  }
-}
-
 trait Conjugation {
   def vowel: String
 
