@@ -16,4 +16,13 @@ package object resources {
       case None =>
         Seq(s)
     }
+
+  def getResourceLines(path: String): Iterator[String] = {
+    val iterator = scala.io.Source.fromInputStream(getClass.getResourceAsStream(path)).getLines
+
+    // skip the header row
+    iterator.next()
+
+    iterator
+  }
 }
