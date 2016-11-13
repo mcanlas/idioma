@@ -17,6 +17,16 @@ second|third	perfect	third	singular	{v}u
 _	perfect	first	plural	{v}mos
 _	perfect	second	plural	{v}stes
 _	perfect	third	plural	{v}ram
+first	imperfect	first|third	singular	{v}va
+first	imperfect	second	singular	{v}vas
+first	imperfect	first	plural	ávamos
+first	imperfect	second	plural	áveis
+first	imperfect	third	plural	{v}vam
+second|third	imperfect	first|third	singular	ia
+second|third	imperfect	second	singular	ias
+second|third	imperfect	first	plural	íamos
+second|third	imperfect	second	plural	íeis
+second|third	imperfect	third	plural	iam
 _	pluperfect	first	singular	{inf}a
 _	pluperfect	second	singular	{inf}as
 _	pluperfect	third	singular	{inf}amos
