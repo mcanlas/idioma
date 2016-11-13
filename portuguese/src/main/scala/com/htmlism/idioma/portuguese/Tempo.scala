@@ -1,10 +1,12 @@
 package com.htmlism.idioma.portuguese
 
 object Tempo {
-  def apply = CategoriasGramaticais
+  lazy val lookup = CategoriasGramaticais
     .Tempos
     .map { t => t.key -> t }
-    .toMap: String => Tempo
+    .toMap
+
+  def apply(s: String) = lookup(s)
 }
 
 sealed abstract class Tempo(val key: String)

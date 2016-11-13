@@ -1,10 +1,12 @@
 package com.htmlism.idioma.portuguese
 
 object Number {
-  def apply = CategoriasGramaticais
+  lazy val lookup = CategoriasGramaticais
     .Numeros
     .map { n => n.número -> n }
-    .toMap: String => Number
+    .toMap
+
+  def apply(s: String) = lookup(s)
 }
 
 sealed abstract class Number(val número: String)
