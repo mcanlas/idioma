@@ -1,5 +1,12 @@
 package com.htmlism.idioma.portuguese
 
+object Tempo {
+  def apply = CategoriasGramaticais
+    .Tempos
+    .map { t => t.key -> t }
+    .toMap: String => Tempo
+}
+
 sealed abstract class Tempo(val key: String)
 
 object Presente extends Tempo("present")
