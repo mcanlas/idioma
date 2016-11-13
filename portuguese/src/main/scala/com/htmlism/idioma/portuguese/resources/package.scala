@@ -8,10 +8,10 @@ package object resources {
   def expandAlternation(s: String): Traversable[String] =
     matchAlternation.findFirstIn(s) match {
       case Some(altExpr) =>
-        val possibilities = altExpr.split('|')
+        val elements = altExpr.split('|')
 
-        for (p <- possibilities) yield
-          s.replace(altExpr, p)
+        for (e <- elements) yield
+          s.replace(altExpr, e)
 
       case None =>
         Seq(s)
