@@ -9,7 +9,11 @@ first|second	present	second	plural	{v}is
 third	present	second	plural	{v}s
 first|second	present	third	plural	{v}m
 third	present	third	plural	em
+first	perfect	first	singular	ei
+second|third	perfect	first	singular	i
 _	perfect	second	singular	{v}ste
+first	perfect	third	singular	ou
+second|third	perfect	third	singular	{v}u
 _	perfect	first	plural	{v}mos
 _	perfect	second	plural	{v}stes
 _	perfect	third	plural	{v}ram
