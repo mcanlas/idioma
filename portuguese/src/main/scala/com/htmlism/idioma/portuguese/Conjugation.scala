@@ -214,7 +214,7 @@ trait Conjugation {
 
   def gerund(root: String): InflectedForm = RegularForm(root + vowel + "ndo")
 
-  def apply(root: String, tense: Tempo, person: Pessoa, number: Number): InflectedForm
+  def apply(root: String, key: (Tempo, Pessoa, Number)): InflectedForm
 }
 
 object FirstConjugation extends Conjugation {
@@ -233,11 +233,11 @@ object FirstConjugation extends Conjugation {
 
   def pastParticiple(root: String) = RegularForm(root + "ado")
 
-  def apply(root: String, tense: Tempo, person: Pessoa, number: Number) = {
+  def apply(root: String, key: (Tempo, Pessoa, Number)) = {
     val conjugationForms =
       conjugationEndings.mapValues(e => ConjugationForm(root + conjugationEndings))
 
-    (Conjugation.regularForms(root, vowel) ++ conjugationForms)(tense, person, number)
+    (Conjugation.regularForms(root, vowel) ++ conjugationForms)(key)
   }
 }
 
@@ -246,8 +246,8 @@ object SecondConjugation extends Conjugation {
 
   def pastParticiple(root: String) = RegularForm(root + "ido")
 
-  def apply(root: String, tense: Tempo, person: Pessoa, number: Number) =
-    Conjugation.regularForms(root, vowel)(tense, person, number)
+  def apply(root: String, key: (Tempo, Pessoa, Number)) =
+    Conjugation.regularForms(root, vowel)(key)
 }
 
 object ThirdConjugation extends Conjugation {
@@ -255,6 +255,6 @@ object ThirdConjugation extends Conjugation {
 
   def pastParticiple(root: String) = RegularForm(root + "ido")
 
-  def apply(root: String, tense: Tempo, person: Pessoa, number: Number) =
-    Conjugation.regularForms(root, vowel)(tense, person, number)
+  def apply(root: String, key: (Tempo, Pessoa, Number)) =
+    Conjugation.regularForms(root, vowel)(key)
 }
