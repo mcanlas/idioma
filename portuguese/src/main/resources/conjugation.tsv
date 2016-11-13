@@ -1,0 +1,17 @@
+conjugation	tense	person	number	expression
+_	present	first	singular	o
+_	present	first	plural	{v}mos
+_	perfect	second	singular	{v}ste
+_	perfect	first	plural	{v}mos
+_	perfect	second	plural	{v}stes
+_	perfect	third	plural	{v}ram
+_	pluperfect	first	singular	{inf}a
+_	pluperfect	second	singular	{inf}as
+_	pluperfect	third	singular	{inf}amos
+_	pluperfect	third	plural	{inf}am
+_	future	first	singular	{inf}ei
+_	future	second	singular	{inf}ás
+_	future	third	singular	{inf}á
+_	future	first	plural	{inf}emos
+_	future	second	plural	{inf}eis
+_	future	third	plural	{inf}ão
