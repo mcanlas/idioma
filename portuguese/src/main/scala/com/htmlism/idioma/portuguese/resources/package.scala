@@ -9,17 +9,18 @@ package object resources {
 
   def interpretUnderscore(s: String): String = s.replace("_", "first|second|third")
 
-  def expandAlternation(s: String): Traversable[String] =
-    matchAlternation.findFirstIn(s) match {
-      case Some(altExpr) =>
-        val elements = altExpr.split('|')
+  def expandAlternation(s: String): Traversable[String] = {
+    val alternationExpressions = matchAlternation.findAllIn(s)
 
+    alternationExpressions.foldLeft(Seq(s)) { (acc, altExpr) =>
+      val elements = altExpr.split('|')
+
+      acc.flatMap { cur =>
         for (e <- elements) yield
-          s.replace(altExpr, e)
-
-      case None =>
-        Seq(s)
+          cur.replace(altExpr, e)
+      }
     }
+  }
 
   def getResourceLines(path: String): Iterator[String] = {
     val iterator = scala.io.Source.fromInputStream(getClass.getResourceAsStream(path)).getLines

@@ -11,5 +11,7 @@ class PackageSpec extends Specification {
     expandAlternation("apple") === Seq("apple")
 
     expandAlternation("a|b|c apple") === Seq("a apple", "b apple", "c apple")
+
+    expandAlternation("a|b c|d") === Seq("a c", "a d", "b c", "b d")
   }
 }
