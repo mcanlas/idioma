@@ -4,28 +4,6 @@ import scala.collection.breakOut
 
 import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
-class ConjugationPrinter(conjugation: Conjugação) {
-  def print(): Unit = {
-    val tempos = Seq(Presente, Imperfeito, Perfeito)
-
-    val tenseBlocks = for (t <- tempos) yield {
-      val pronomes =
-        for (n <- Numeros; p <- Pessoas) yield
-          Pronomes(n, p).mkString("/")
-
-      val formas =
-        for (n <- Numeros; p <- Pessoas) yield
-          conjugation(t, p, n).word
-
-      t.toString :: Padder.zip(
-        Padder.alignRight(pronomes),
-        Padder.alignLeft(formas))
-    }
-
-    tenseBlocks.reduce(Padder.zip(2)).foreach(println)
-  }
-}
-
 object Padder {
   def alignLeft(strings: Traversable[String]): List[String] = {
     val length = maximumLength(strings)
