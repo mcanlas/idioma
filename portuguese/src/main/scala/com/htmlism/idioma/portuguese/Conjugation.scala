@@ -3,16 +3,15 @@ package com.htmlism.idioma.portuguese
 object Conjugação {
   private val RootPattern = "(.*)([aeiô])r".r
 
-  def apply(infinitive: String): Option[Conjugação] = infinitive match {
+  def apply(infinitive: String): Option[(String, Conjugation)] = infinitive match {
     case RootPattern(root, vowel) =>
       val conjugação = vowel match {
-        case "a" => ConjugaçãoPrimeira(root)
-        case "e" => ConjugaçãoSegunda(root)
-        case "i" => ConjugaçãoTerceira(root)
-        case "ô" => ConjugaçãoQuarta(root)
+        case "a" => resources.firstConjugation
+        case "e" => resources.secondConjugation
+        case "i" => resources.thirdConjugation
       }
 
-      Some(conjugação)
+      Some((root, conjugação))
     case _ => None
   }
 }

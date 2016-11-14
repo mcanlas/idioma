@@ -10,7 +10,8 @@ object OldVerb {
 
       val JString(infinitive) = map("infinitive")
 
-      val conjugation = Conjugação(infinitive).getOrElse(throw new RuntimeException(s"could not conjugate infinitive $infinitive"))
+      val (root, conjugation) = Conjugação(infinitive)
+        .getOrElse(throw new RuntimeException(s"could not conjugate infinitive $infinitive"))
 
       val forms = List(Presente, Perfeito, Imperfeito).flatMap { t =>
         Pessoas.flatMap { p =>
@@ -19,7 +20,7 @@ object OldVerb {
 
             val form = maybeIrregularForm match {
               case JString(s) => IrregularForm(s)
-              case JNothing   => conjugation(t, p, n)
+              case JNothing   => conjugation(root, (t, p, n))
               case _          => throw new RuntimeException(s"unexpected jvalue instance $maybeIrregularForm")
             }
 
@@ -28,7 +29,7 @@ object OldVerb {
         }
       }
 
-      val gerund = conjugation.gerund
+      val gerund = conjugation.gerund(root).word
 
       new OldVerb(infinitive, gerund, forms.toMap)
     case _ => throw new IllegalArgumentException("OldVerb constructor needs a jObject")
