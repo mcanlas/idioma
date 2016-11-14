@@ -2,8 +2,6 @@ package com.htmlism.idioma.portuguese
 
 import scala.collection.breakOut
 
-import com.htmlism.idioma.portuguese.CategoriasGramaticais._
-
 object Padder {
   def alignLeft(strings: Traversable[String]): List[String] = {
     val length = maximumLength(strings)
