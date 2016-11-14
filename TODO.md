@@ -1,6 +1,5 @@
 # Next actions
 
-* make conjugations load from data instead of code
 * move data files into resource directories
 * conjugation dumper (via implicit)
   * columnar, summable, iterators?
