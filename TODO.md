@@ -1,6 +1,5 @@
 # Next actions
 
-* move data files into resource directories
 * conjugation dumper (via implicit)
   * columnar, summable, iterators?
 * add weighted sources
