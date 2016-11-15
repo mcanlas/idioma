@@ -9,7 +9,7 @@ object Data {
   lazy val verbs = Seq("a", "e", "i").flatMap(parseVerbs)
 
   lazy val idiomas = {
-    val json = parse(new java.io.File("data/portuguese/nouns.languages.json"))
+    val json = parse(getClass.getResourceAsStream("/nouns.languages.json"))
 
     val phrases: Seq[Phrase] = for {
       JArray(objetos) <- json
@@ -37,7 +37,7 @@ object Data {
   ).mapValues { s => s.map { Phrase(_) } }
 
   private def parseVerbs(letter: String) = {
-    val json = parse(new java.io.File(s"data/portuguese/verbs.${letter}r.json"))
+    val json = parse(getClass.getResourceAsStream(s"/verbs.${letter}r.json"))
 
     json match {
       case JArray(jsonVerbs) =>

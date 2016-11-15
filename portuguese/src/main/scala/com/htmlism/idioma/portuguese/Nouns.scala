@@ -6,7 +6,7 @@ import org.json4s.native.JsonMethods._
 import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
 object Nouns extends App {
-  val json = parse(new java.io.File("data/portuguese/nouns.json"))
+  val json = parse(getClass.getResourceAsStream("/nouns.json"))
 
   val declensions = json match {
     case JArray(jsonLemmas) =>
