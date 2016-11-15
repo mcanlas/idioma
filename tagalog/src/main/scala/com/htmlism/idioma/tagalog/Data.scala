@@ -6,7 +6,7 @@ import org.json4s.native.JsonMethods._
 
 object Data {
   lazy val periods = {
-    val json = parse(new java.io.File("data/tagalog/nouns.json"))
+    val json = parse(getClass.getResourceAsStream("/nouns.json"))
 
     val phrases: Seq[Phrase] = for {
       JArray(objects) <- json
