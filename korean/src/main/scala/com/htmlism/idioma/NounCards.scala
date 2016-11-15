@@ -7,7 +7,7 @@ import org.json4s.native.JsonMethods._
 
 object NounCards extends TranslationCardIterator {
   def partsIterator: Iterator[(String, String, String)] = {
-    val json = Source.fromFile("data/korean/nouns.json").mkString
+    val json = Source.fromInputStream(getClass.getResourceAsStream("/nouns.json")).mkString
 
     val nouns = parse(json) match {
       case JObject(jsValues) => jsValues

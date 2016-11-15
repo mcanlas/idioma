@@ -4,7 +4,7 @@ import scala.io.Source
 
 object MonthCards extends TranslationCardIterator {
   def partsIterator: Iterator[(String, String, String)] = {
-    val months = Source.fromFile("data/korean/months.tsv").getLines()
+    val months = Source.fromInputStream(getClass.getResourceAsStream("/months.tsv")).getLines()
 
     // skip the header
     months.next()

@@ -6,7 +6,7 @@ import com.htmlism.hangul.Hangul
 
 object VowelCards {
   val iterator: Iterator[AnkiCard] = {
-    val vowels = Source.fromFile("data/korean/vowels.csv").getLines()
+    val vowels = Source.fromInputStream(getClass.getResourceAsStream("/vowels.csv")).getLines()
 
     // skip the header
     vowels.next()

@@ -7,7 +7,7 @@ import org.json4s.native.JsonMethods._
 
 object VerbCards extends TranslationCardIterator {
   def partsIterator: Iterator[(String, String, String)] = {
-    val verbs = Source.fromFile("data/korean/verbs.json").mkString
+    val verbs = Source.fromInputStream(getClass.getResourceAsStream("/verbs.json")).mkString
 
     // : Iterable[(String, JValue)]
 
