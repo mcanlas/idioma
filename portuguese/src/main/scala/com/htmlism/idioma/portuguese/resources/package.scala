@@ -37,7 +37,7 @@ package object resources {
       .map { case Array(name, vowel) => name -> vowel }
       .toMap
 
-    val conjugations= getResourceLines("/inflections.tsv")
+    val conjugations = getResourceLines("/inflections.tsv")
       .map(interpretUnderscore)
       .flatMap(expandAlternation)
       .map(_.split('\t'))
