@@ -7,7 +7,7 @@ package object resources {
     .replace("{v}", vowel)
     .replace("{inf}", vowel + "r")
 
-  def interpretUnderscore(s: String): String = s.replace("_", "first|second|third")
+  def expandUnderscore(s: String): String = s.replace("_", "first|second|third")
 
   def expandAlternation(s: String): Traversable[String] = {
     val alternationExpressions = matchAlternation.findAllIn(s)
@@ -38,7 +38,7 @@ package object resources {
       .toMap
 
     val conjugations = getResourceLines("/inflections.tsv")
-      .map(interpretUnderscore)
+      .map(expandUnderscore)
       .flatMap(expandAlternation)
       .map(_.split('\t'))
       .toList

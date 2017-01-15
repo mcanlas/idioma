@@ -4,7 +4,7 @@ import org.specs2.mutable.Specification
 
 class PackageSpec extends Specification {
   "interpret underscore" >> {
-    interpretUnderscore("_") === "first|second|third"
+    expandUnderscore("_") === "first|second|third"
   }
 
   "expand alternation" >> {
