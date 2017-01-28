@@ -10,7 +10,7 @@ lazy val hangul = "com.htmlism" %% "hangul-model" % "0.0.1-SNAPSHOT"
 
 resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases" // for specs2
 
-lazy val root = (project in file("."))
+lazy val idioma = (project in file("."))
   .settings(commonSettings: _*)
   .aggregate(
     grammar,
