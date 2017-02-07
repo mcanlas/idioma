@@ -21,7 +21,8 @@ lazy val idioma = (project in file("."))
     arabic,
     japanese,
     german,
-    korean)
+    korean,
+    pinyin)
 
 lazy val grammar = project
   .settings(commonSettings: _*)
