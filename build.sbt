@@ -63,6 +63,7 @@ lazy val german = project
 
 lazy val korean = project
   .settings(commonSettings: _*)
+  .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(hangul, jsonFramework, testingFramework))
 
 lazy val pinyin = project
