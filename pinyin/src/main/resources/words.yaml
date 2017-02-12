@@ -1,0 +1,45 @@
+-
+  zh: 你
+  py: nǐ
+  en: you
+  key: YOU
+-
+  zh: 你們
+  py: nǐmen
+  en: you (pl)
+  key: YOU-PL
+-
+  zh: 您
+  py: nín
+  en: you (formal)
+  key: YOU-FORMAL
+-
+  zh: 我
+  py: wǒ
+  en: i
+  key: I
+-
+  zh: 我們
+  py: wǒmen
+  en: we
+  key: WE
+-
+  zh: 他
+  py: tā
+  en: he
+  key: HE
+-
+  zh: 他們
+  py: tāmen
+  en: they
+  key: THEY
+-
+  zh: 好
+  py: hǎo
+  en: good
+  key: GOOD
+-
+  zh: 吗
+  py: ma
+  en: question particle
+  key: MA
