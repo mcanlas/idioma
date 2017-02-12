@@ -4,6 +4,8 @@ val commonSettings = Seq(
 
 lazy val jsonFramework = "org.json4s" %% "json4s-native" % "3.5.0"
 
+lazy val yamlFramework = "org.yaml" % "snakeyaml" % "1.17"
+
 lazy val testingFramework = "org.specs2" %% "specs2-core" % "3.8.8" % "test"
 
 lazy val hangul = "com.htmlism" %% "hangul-model" % "0.0.1-SNAPSHOT"
@@ -69,4 +71,4 @@ lazy val korean = project
 lazy val pinyin = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
-  .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))
+  .settings(libraryDependencies ++= Seq(yamlFramework, jsonFramework, testingFramework))
