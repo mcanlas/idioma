@@ -5,8 +5,7 @@ import scala.collection.JavaConverters._
 
 object GenerateWordCards extends AnkiCardGenerator {
   def cards: Iterator[AnkiCard] =
-    ChineseWordProvider.iterator.map(ChineseToEnglish) ++
-      ChineseWordProvider.iterator.map(ChineseToPinyin) ++
+    ChineseWordProvider.iterator.map(ReadChinese) ++
       ChineseWordProvider.iterator.map(PinyinToChinese) ++
       ChineseWordProvider.iterator.map(EnglishToPinyin) ++
       ChineseWordProvider.iterator.map(PinyinToEnglish)

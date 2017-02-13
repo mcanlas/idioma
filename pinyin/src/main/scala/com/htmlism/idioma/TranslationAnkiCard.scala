@@ -12,22 +12,14 @@ case class EnglishToChinese(word: ChineseWord) extends TranslationAnkiCard {
   def back: String = ???
 }
 
-case class ChineseToEnglish(word: ChineseWord) extends TranslationAnkiCard {
+case class ReadChinese(word: ChineseWord) extends TranslationAnkiCard {
   def front: String =
-    s"""<div id="preface">What does this mean?</div>""" +
-      s"""<div id="heroic-prompt-korean">${word.chinese}</div>"""
+    s"""<div id="preface">How do you read ths?</div>""" +
+      s"""<div id="heroic-hanzi">${word.chinese}</div>"""
 
   def back: String =
-    s"""<div id="heroic-prompt-english">${word.english}</div>"""
-}
-
-case class ChineseToPinyin(word: ChineseWord) extends TranslationAnkiCard {
-  def front: String =
-    s"""<div id="preface">How do you pronounce this?</div>""" +
-      s"""<div id="heroic-prompt-korean">${word.chinese}</div>"""
-
-  def back: String =
-    s"""<div id="heroic-prompt-korean">${word.pinyin}</div>"""
+    s"""<div id="heroic-prompt-english">${word.pinyin}</div>""" +
+    s"""<div>${word.english}</div>"""
 }
 
 case class PinyinToChinese(word: ChineseWord) extends TranslationAnkiCard {
