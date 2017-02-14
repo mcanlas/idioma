@@ -8,7 +8,7 @@
 
 #heroic-character { font-size: 200px }
 
-#heroic-hanzi { font-size: 250px }
+#heroic-hanzi { font-size: 170px }
 
 #heroic-prompt-english {
   font-size: 60px
@@ -20,3 +20,16 @@
 }
 
 #preface { font-style: italic }
+
+.annotated-hanzi {
+  display: inline-block
+}
+
+.annotated-hanzi .hanzi {
+  font-size: 170px
+}
+
+.annotated-hanzi .pinyin {
+  text-align: center;
+  font-size: 50px
+}

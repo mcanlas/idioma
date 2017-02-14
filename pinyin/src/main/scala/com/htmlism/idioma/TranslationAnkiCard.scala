@@ -18,7 +18,7 @@ case class ReadChinese(word: ChineseWord) extends TranslationAnkiCard {
       s"""<div id="heroic-hanzi">${word.chinese}</div>"""
 
   def back: String =
-    s"""<div id="heroic-prompt-english">${word.pinyin}</div>""" +
+    s"""<div class="annotated-hanzi"><div class="hanzi">${word.chinese}</div><div class="pinyin">${word.pinyin}</div></div>"""
     s"""<div>${word.english}</div>"""
 }
 
