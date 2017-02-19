@@ -24,7 +24,7 @@ lazy val idioma = (project in file("."))
     japanese,
     german,
     korean,
-    pinyin)
+    mandarin)
 
 lazy val grammar = project
   .settings(commonSettings: _*)
@@ -68,7 +68,7 @@ lazy val korean = project
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(hangul, jsonFramework, testingFramework))
 
-lazy val pinyin = project
+lazy val mandarin = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(yamlFramework, jsonFramework, testingFramework))
