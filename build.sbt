@@ -1,6 +1,6 @@
 val commonSettings = Seq(
   scalaVersion := "2.12.1",
-  crossScalaVersions := Seq("2.10.6", "2.11.8", "2.12.1"))
+  crossScalaVersions := Seq("2.10.6", "2.11.9", "2.12.1"))
 
 lazy val jsonFramework = "org.json4s" %% "json4s-native" % "3.5.0"
 
