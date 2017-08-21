@@ -2,7 +2,7 @@ val commonSettings = Seq(
   scalaVersion := "2.12.3",
   crossScalaVersions := Seq("2.10.6", "2.11.11", "2.12.3"))
 
-lazy val jsonFramework = "org.json4s" %% "json4s-native" % "3.5.2"
+lazy val jsonFramework = "org.json4s" %% "json4s-native" % "3.5.3"
 
 lazy val yamlFramework = "org.yaml" % "snakeyaml" % "1.18"
 
