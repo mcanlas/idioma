@@ -6,7 +6,7 @@ lazy val jsonFramework = "org.json4s" %% "json4s-native" % "3.5.3"
 
 lazy val yamlFramework = "org.yaml" % "snakeyaml" % "1.21"
 
-lazy val testingFramework = "org.specs2" %% "specs2-core" % "4.3.2" % "test"
+lazy val testingFramework = "org.specs2" %% "specs2-core" % "4.3.3" % "test"
 
 lazy val hangul = "com.htmlism" %% "hangul-model" % "0.0.1-SNAPSHOT"
 
