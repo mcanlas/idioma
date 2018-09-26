@@ -72,3 +72,5 @@ lazy val mandarin = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(yamlFramework, jsonFramework, testingFramework))
+
+scalafmtOnCompile := true
