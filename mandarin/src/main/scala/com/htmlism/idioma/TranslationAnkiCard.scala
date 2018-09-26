@@ -19,7 +19,7 @@ case class ReadChinese(word: ChineseWord) extends TranslationAnkiCard {
 
   def back: String =
     s"""<div class="annotated-hanzi"><div class="hanzi">${word.chinese}</div><div class="pinyin">${word.pinyin}</div></div>"""
-    s"""<div>${word.english}</div>"""
+  s"""<div>${word.english}</div>"""
 }
 
 case class PinyinToChinese(word: ChineseWord) extends TranslationAnkiCard {
@@ -36,7 +36,6 @@ case class EnglishToPinyin(word: ChineseWord) extends TranslationAnkiCard {
     s"""<div id="preface">How do you write this in Pinyin?</div>""" +
       s"""<div id="heroic-prompt-english">${word.english}</div>"""
 
-
   def back: String =
     s"""<div id="heroic-prompt-korean">${word.pinyin}</div>"""
 }
@@ -44,8 +43,7 @@ case class EnglishToPinyin(word: ChineseWord) extends TranslationAnkiCard {
 case class PinyinToEnglish(word: ChineseWord) extends TranslationAnkiCard {
   def front: String =
     s"""<div id="preface">What does this mean?</div>""" +
-    s"""<div id="heroic-prompt-korean">${word.pinyin}</div>"""
-
+      s"""<div id="heroic-prompt-korean">${word.pinyin}</div>"""
 
   def back: String =
     s"""<div id="heroic-prompt-english">${word.english}</div>"""

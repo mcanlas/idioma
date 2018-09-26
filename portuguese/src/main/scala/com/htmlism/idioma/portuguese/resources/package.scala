@@ -3,9 +3,9 @@ package com.htmlism.idioma.portuguese
 package object resources {
   val matchAlternation = """(\S+\|[\S|]+)""".r
 
-  def interpretInflection(vowel: String, s: String): String = s
-    .replace("{v}", vowel)
-    .replace("{inf}", vowel + "r")
+  def interpretInflection(vowel: String, s: String): String =
+    s.replace("{v}", vowel)
+      .replace("{inf}", vowel + "r")
 
   def expandUnderscore(s: String): String = s.replace("_", "first|second|third")
 
@@ -16,14 +16,15 @@ package object resources {
       val elements = altExpr.split('|')
 
       acc.flatMap { cur =>
-        for (e <- elements) yield
-          cur.replace(altExpr, e)
+        for (e <- elements) yield cur.replace(altExpr, e)
       }
     }
   }
 
   def getResourceLines(path: String): Iterator[String] = {
-    val iterator = scala.io.Source.fromInputStream(getClass.getResourceAsStream(path)).getLines
+    val iterator = scala.io.Source
+      .fromInputStream(getClass.getResourceAsStream(path))
+      .getLines
 
     // skip the header row
     iterator.next()
@@ -43,22 +44,23 @@ package object resources {
       .map(_.split('\t'))
       .toList
       .groupBy(_(0))
-      .map { case (conjugationName, inflectionRows) =>
-        val vowel = vowelLookup(conjugationName)
+      .map {
+        case (conjugationName, inflectionRows) =>
+          val vowel = vowelLookup(conjugationName)
 
-        val inflections = inflectionRows
-          .map { case Array(_, tense, person, number, expression) =>
-            val interpolatedInflection = interpretInflection(vowel, expression)
+          val inflections = inflectionRows.map {
+            case Array(_, tense, person, number, expression) =>
+              val interpolatedInflection =
+                interpretInflection(vowel, expression)
 
-            (Tempo(tense), Pessoa(person), Number(number)) -> interpolatedInflection
-          }
-          .toMap
+              (Tempo(tense), Pessoa(person), Number(number)) -> interpolatedInflection
+          }.toMap
 
-        vowel -> inflections
+          vowel -> inflections
       }
 
     (new FunctionConjugation("a", conjugations("a")): Conjugation,
-      new FunctionConjugation("e", conjugations("e")): Conjugation,
-      new FunctionConjugation("i", conjugations("i")): Conjugation)
+     new FunctionConjugation("e", conjugations("e")): Conjugation,
+     new FunctionConjugation("i", conjugations("i")): Conjugation)
   }
 }

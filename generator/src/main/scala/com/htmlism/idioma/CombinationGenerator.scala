@@ -1,12 +1,16 @@
 package com.htmlism.idioma
 
-class CombinationGenerator[A, B](left: Iterable[A], right: Iterable[B]) extends Iterable[(A, B)] with CanSample[(A, B)] {
+class CombinationGenerator[A, B](left: Iterable[A], right: Iterable[B])
+    extends Iterable[(A, B)]
+    with CanSample[(A, B)] {
   def iterator = new CombinationIterator(left.iterator, right)
 
   def sample = (left.sample, right.sample)
 }
 
-class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Iterable[B]) extends Iterator[(A, B)] {
+class CombinationIterator[A, B](leftIterator: Iterator[A],
+                                rightGenerator: Iterable[B])
+    extends Iterator[(A, B)] {
   private var currentLeftElement: A = _
   private var rightIterator         = rightGenerator.iterator
 
@@ -22,10 +26,11 @@ class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Itera
 
       if (!rightIterator.hasNext && leftIterator.hasNext) {
         currentLeftElement = leftIterator.next()
-        rightIterator      = rightGenerator.iterator
+        rightIterator = rightGenerator.iterator
       }
 
       (leftElement, rightElement)
     } else
-      throw new RuntimeException("cannot generate combinations with exhausted sources")
+      throw new RuntimeException(
+        "cannot generate combinations with exhausted sources")
 }

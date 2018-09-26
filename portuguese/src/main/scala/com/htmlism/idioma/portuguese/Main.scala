@@ -10,7 +10,7 @@ object Main extends App {
         case Presente   => Nil :: Nil
         case Perfeito   => List("ontem") :: Nil
         case Imperfeito => List("antigamente") :: List("no", "passado") :: Nil
-        case _ => throw new UnsupportedOperationException
+        case _          => throw new UnsupportedOperationException
       }
 
       val phrases = Pessoas.flatMap { p =>
@@ -30,8 +30,8 @@ object Main extends App {
               List("nós", form) :: Nil
             case (PessoaTerceira, Plural) =>
               List("vocês", form) ::
-              List("eles", form) ::
-              List("elas", form) :: Nil
+                List("eles", form) ::
+                List("elas", form) :: Nil
             case _ =>
               Nil
           }
@@ -39,13 +39,17 @@ object Main extends App {
       }
 
       timePhrases.flatMap { t =>
-        phrases.map { p => t ::: p }
+        phrases.map { p =>
+          t ::: p
+        }
       }
     }
   }
 
   val progressivePhrases = {
-    val copula = Data.verbs.filter{ v => v.infinitive == "estar" }.head
+    val copula = Data.verbs.filter { v =>
+      v.infinitive == "estar"
+    }.head
 
     Data.verbs.flatMap { verb =>
       val phrases = List(Presente, Imperfeito).flatMap { t =>
@@ -75,7 +79,9 @@ object Main extends App {
         }
       }
 
-      phrases.map { p => p :+ verb.gerund }
+      phrases.map { p =>
+        p :+ verb.gerund
+      }
     }
   }
 

@@ -1,4 +1,5 @@
 val commonSettings = Seq(
+  scalafmtOnCompile := true,
   scalaVersion := "2.12.6",
   crossScalaVersions := Seq("2.11.12", "2.12.6"))
 
@@ -72,5 +73,3 @@ lazy val mandarin = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(yamlFramework, jsonFramework, testingFramework))
-
-scalafmtOnCompile := true

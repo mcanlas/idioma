@@ -10,4 +10,5 @@ trait AnkiCard {
   def serialize(tag: String): String = Seq(id, front, back, tag).mkString("\t")
 }
 
-case class AnkiCardValue(id: String, front: String, back: String) extends AnkiCard
+case class AnkiCardValue(id: String, front: String, back: String)
+    extends AnkiCard

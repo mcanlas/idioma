@@ -12,20 +12,22 @@ object GeneratePeriodicTables extends App {
 
   private def printConsonants() = {
     val consonants = {
-      val lines = Source.fromInputStream(getClass.getResourceAsStream("/consonants.csv")).getLines()
+      val lines = Source
+        .fromInputStream(getClass.getResourceAsStream("/consonants.csv"))
+        .getLines()
 
       lines.next()
 
-      lines
-        .map { s =>
-          val Array(n, hangul) = s.split(",")
+      lines.map { s =>
+        val Array(n, hangul) = s.split(",")
 
-          n.toInt -> hangul
-        }
-        .toMap
+        n.toInt -> hangul
+      }.toMap
     }
 
-    val lines = Source.fromInputStream(getClass.getResourceAsStream("/periodic-consonants.tsv")).getLines()
+    val lines = Source
+      .fromInputStream(getClass.getResourceAsStream("/periodic-consonants.tsv"))
+      .getLines()
 
     val html = {
       val firstRowCellsHtml = {
@@ -39,26 +41,24 @@ object GeneratePeriodicTables extends App {
       }
 
       val bodyRowsCellsHtml = {
-        val bodyCellsHtml = lines
-          .map { row =>
-            row
-              .split("\t", -1) // negative means keep trailing empty cells
-              .map {
-                case "" => """<td class="consonant-empty"></td>"""
-                case nStr =>
-                  val n = nStr.toInt
+        val bodyCellsHtml = lines.map { row =>
+          row
+            .split("\t", -1) // negative means keep trailing empty cells
+            .map {
+              case "" => """<td class="consonant-empty"></td>"""
+              case nStr =>
+                val n = nStr.toInt
 
-                  val character = (Hangul.initialOriginCodePoint + n - 1).toChar
-                  val name = consonants(n)
+                val character = (Hangul.initialOriginCodePoint + n - 1).toChar
+                val name      = consonants(n)
 
-                  """<td class="consonant"><div class="consonant-cell">""" +
-                    s"""<div class="consonant-sort">$n</div>""" +
-                    s"""<div class="consonant-character">$character</div>""" +
-                    s"""<div class="consonant-name">$name</div>""" +
-                    """</div></td>"""
-              }
-          }
-          .toSeq
+                """<td class="consonant"><div class="consonant-cell">""" +
+                  s"""<div class="consonant-sort">$n</div>""" +
+                  s"""<div class="consonant-character">$character</div>""" +
+                  s"""<div class="consonant-name">$name</div>""" +
+                  """</div></td>"""
+            }
+        }.toSeq
 
         for (i <- bodyCellsHtml.indices) yield {
           s"""<th>${romanNumerals(i)}</th>""" +: bodyCellsHtml(i)
@@ -81,32 +81,33 @@ object GeneratePeriodicTables extends App {
 
       val bodyRowsCellsHtml = {
         val rows = {
-          val lines = Source.fromInputStream(getClass.getResourceAsStream("/periodic-vowels.tsv")).getLines()
+          val lines = Source
+            .fromInputStream(
+              getClass.getResourceAsStream("/periodic-vowels.tsv"))
+            .getLines()
 
           lines.next()
 
           lines
         }
 
-        val bodyCellsHtml = rows
-          .map { row =>
-            row
-              .split("\t", -1) // negative means keep trailing empty cells
-              .map {
-                case "" => """<td class="vowel-empty"></td>"""
-                case nStr =>
-                  val n = nStr.toInt
+        val bodyCellsHtml = rows.map { row =>
+          row
+            .split("\t", -1) // negative means keep trailing empty cells
+            .map {
+              case "" => """<td class="vowel-empty"></td>"""
+              case nStr =>
+                val n = nStr.toInt
 
-                  val character = (Hangul.medialOriginCodePoint + n - 1).toChar
+                val character = (Hangul.medialOriginCodePoint + n - 1).toChar
 
-                  """<td class="vowel"><div class="vowel-cell">""" +
-                    s"""<div class="vowel-sort">$n</div>""" +
-                    s"""<div class="vowel-character">$character</div>""" +
-                    """</div></td>"""
-              }
-              .toSeq
-          }
-        .toSeq
+                """<td class="vowel"><div class="vowel-cell">""" +
+                  s"""<div class="vowel-sort">$n</div>""" +
+                  s"""<div class="vowel-character">$character</div>""" +
+                  """</div></td>"""
+            }
+            .toSeq
+        }.toSeq
 
         for (i <- bodyCellsHtml.indices) yield {
           s"""<th>${romanNumerals(i)}</th>""" +: bodyCellsHtml(i)

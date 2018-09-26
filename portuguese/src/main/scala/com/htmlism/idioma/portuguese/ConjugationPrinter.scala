@@ -15,9 +15,11 @@ object Padder {
     strings.map(x => s"%${length}s".format(x))(breakOut)
   }
 
-  def zip(left: Iterable[String], right: Iterable[String]): List[String] = zip(1)(left, right)
+  def zip(left: Iterable[String], right: Iterable[String]): List[String] =
+    zip(1)(left, right)
 
-  def zip(length: Int)(left: Iterable[String], right: Iterable[String]): List[String] = {
+  def zip(length: Int)(left: Iterable[String],
+                       right: Iterable[String]): List[String] = {
     val leftIterator  = left.iterator
     val rightIterator = right.iterator
 
@@ -26,8 +28,9 @@ object Padder {
     val width = maximumLength(left)
 
     while (leftIterator.hasNext) {
-      val leftCell  = s"%-${width}s".format(leftIterator.next)
-      val rightCell = if (rightIterator.hasNext) (" " * length) + rightIterator.next else ""
+      val leftCell = s"%-${width}s".format(leftIterator.next)
+      val rightCell =
+        if (rightIterator.hasNext) (" " * length) + rightIterator.next else ""
 
       val newLine = leftCell + rightCell
 
@@ -37,5 +40,6 @@ object Padder {
     lines.reverse
   }
 
-  def maximumLength(strings: TraversableOnce[String]) = strings.foldLeft(0)((acc, e) => if (acc > e.length) acc else e.length)
+  def maximumLength(strings: TraversableOnce[String]) =
+    strings.foldLeft(0)((acc, e) => if (acc > e.length) acc else e.length)
 }

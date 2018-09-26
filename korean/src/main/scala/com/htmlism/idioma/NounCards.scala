@@ -7,20 +7,22 @@ import org.json4s.native.JsonMethods._
 
 object NounCards extends TranslationCardIterator {
   def partsIterator: Iterator[(String, String, String)] = {
-    val json = Source.fromInputStream(getClass.getResourceAsStream("/nouns.json")).mkString
+    val json = Source
+      .fromInputStream(getClass.getResourceAsStream("/nouns.json"))
+      .mkString
 
     val nouns = parse(json) match {
       case JObject(jsValues) => jsValues
     }
 
-    nouns
-      .iterator
-      .map { case (english, jvalue) =>
-        implicit val formats = DefaultFormats
+    nouns.iterator
+      .map {
+        case (english, jvalue) =>
+          implicit val formats = DefaultFormats
 
-        val hangul = (jvalue \ "hangul").extract[String]
+          val hangul = (jvalue \ "hangul").extract[String]
 
-        (english, english, hangul)
+          (english, english, hangul)
       }
   }
 }

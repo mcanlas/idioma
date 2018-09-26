@@ -7,7 +7,9 @@ import org.json4s.native.JsonMethods._
 
 object VerbCards extends TranslationCardIterator {
   def partsIterator: Iterator[(String, String, String)] = {
-    val verbs = Source.fromInputStream(getClass.getResourceAsStream("/verbs.json")).mkString
+    val verbs = Source
+      .fromInputStream(getClass.getResourceAsStream("/verbs.json"))
+      .mkString
 
     // : Iterable[(String, JValue)]
 
@@ -15,14 +17,14 @@ object VerbCards extends TranslationCardIterator {
       case JObject(jsValues) => jsValues
     }
 
-    nouns
-      .iterator
-      .map { case (english, json) =>
-        implicit val formats = DefaultFormats
+    nouns.iterator
+      .map {
+        case (english, json) =>
+          implicit val formats = DefaultFormats
 
-        val korean = (json \ "korean").extract[String]
+          val korean = (json \ "korean").extract[String]
 
-        (english, "to " + english, korean)
+          (english, "to " + english, korean)
       }
   }
 }

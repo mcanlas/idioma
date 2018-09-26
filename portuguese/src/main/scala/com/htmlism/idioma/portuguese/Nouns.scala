@@ -11,7 +11,7 @@ object Nouns extends App {
   val declensions = json match {
     case JArray(jsonLemmas) =>
       for (jsonLemma <- jsonLemmas) yield {
-        val JString(lemma)  = jsonLemma \ "lemma"
+        val JString(lemma)        = jsonLemma \ "lemma"
         val JString(genderString) = jsonLemma \ "gender"
 
         val plural = jsonLemma \ "plural" match {

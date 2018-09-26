@@ -6,7 +6,9 @@ import com.htmlism.hangul.Hangul
 
 object VowelCards {
   val iterator: Iterator[AnkiCard] = {
-    val vowels = Source.fromInputStream(getClass.getResourceAsStream("/vowels.csv")).getLines()
+    val vowels = Source
+      .fromInputStream(getClass.getResourceAsStream("/vowels.csv"))
+      .getLines()
 
     // skip the header
     vowels.next()
@@ -21,7 +23,8 @@ object VowelCards {
           "name-vowel-" + n,
           s"""<div id="preface">How do you pronounce this vowel?</div>""" +
             s"""<div id="heroic-character">$character</div>""",
-          s"""<div id="heroic-answer">$pronunciation</div>""")
+          s"""<div id="heroic-answer">$pronunciation</div>"""
+        )
       }
   }
 }

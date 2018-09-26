@@ -6,7 +6,9 @@ import com.htmlism.hangul.Hangul
 
 object ConsonantCards {
   val iterator: Iterator[AnkiCard] = {
-    val consonants = Source.fromInputStream(getClass.getResourceAsStream("/consonants.csv")).getLines()
+    val consonants = Source
+      .fromInputStream(getClass.getResourceAsStream("/consonants.csv"))
+      .getLines()
 
     // skip the header
     consonants.next()
@@ -21,7 +23,8 @@ object ConsonantCards {
           "name-consonant-" + n,
           s"""<div id="preface">What is the name of this consonant?</div>""" +
             s"""<div id="heroic-character">$character</div>""",
-          s"""<div id="heroic-answer">$name</div>""")
+          s"""<div id="heroic-answer">$name</div>"""
+        )
       }
   }
 }

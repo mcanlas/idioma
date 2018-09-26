@@ -6,7 +6,9 @@ trait Sentence {
 
   lazy val nonEmptyWords = words.toSeq.filter { _.nonEmpty }
 
-  def render = (nonEmptyWords.head.capitalize +: nonEmptyWords.tail).mkString(" ") + punctuation
+  def render =
+    (nonEmptyWords.head.capitalize +: nonEmptyWords.tail)
+      .mkString(" ") + punctuation
 }
 
 case class Statement(words: Traversable[String]) extends Sentence {
