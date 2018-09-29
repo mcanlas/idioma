@@ -8,9 +8,7 @@ class CombinationGenerator[A, B](left: Iterable[A], right: Iterable[B])
   def sample = (left.sample, right.sample)
 }
 
-class CombinationIterator[A, B](leftIterator: Iterator[A],
-                                rightGenerator: Iterable[B])
-    extends Iterator[(A, B)] {
+class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Iterable[B]) extends Iterator[(A, B)] {
   private var currentLeftElement: A = _
   private var rightIterator         = rightGenerator.iterator
 
@@ -31,6 +29,5 @@ class CombinationIterator[A, B](leftIterator: Iterator[A],
 
       (leftElement, rightElement)
     } else
-      throw new RuntimeException(
-        "cannot generate combinations with exhausted sources")
+      throw new RuntimeException("cannot generate combinations with exhausted sources")
 }

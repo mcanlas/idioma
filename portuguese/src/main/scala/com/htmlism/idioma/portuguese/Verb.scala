@@ -11,9 +11,7 @@ object OldVerb {
       val JString(infinitive) = map("infinitive")
 
       val (root, conjugation) = Conjugação(infinitive)
-        .getOrElse(
-          throw new RuntimeException(
-            s"could not conjugate infinitive $infinitive"))
+        .getOrElse(throw new RuntimeException(s"could not conjugate infinitive $infinitive"))
 
       val forms = List(Presente, Perfeito, Imperfeito).flatMap { t =>
         Pessoas.flatMap { p =>
@@ -24,8 +22,7 @@ object OldVerb {
               case JString(s) => IrregularForm(s)
               case JNothing   => conjugation(root, (t, p, n))
               case _ =>
-                throw new RuntimeException(
-                  s"unexpected jvalue instance $maybeIrregularForm")
+                throw new RuntimeException(s"unexpected jvalue instance $maybeIrregularForm")
             }
 
             ((t, p, n), form)
@@ -41,10 +38,7 @@ object OldVerb {
   }
 }
 
-case class OldVerb(
-    infinitive: String,
-    gerund: String,
-    private val forms: Map[(Tempo, Pessoa, Number), InflectedForm])
+case class OldVerb(infinitive: String, gerund: String, private val forms: Map[(Tempo, Pessoa, Number), InflectedForm])
     extends CanConjugate {
   def apply(tense: Tempo, person: Pessoa, number: Number): InflectedForm =
     forms((tense, person, number))

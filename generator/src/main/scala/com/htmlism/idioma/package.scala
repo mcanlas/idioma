@@ -12,7 +12,6 @@ package object idioma {
       }
     }
 
-  implicit def addCombinationOperator[A](
-      iterable: Iterable[A]): IterableCombiner[A] =
+  implicit def addCombinationOperator[A](iterable: Iterable[A]): IterableCombiner[A] =
     new IterableCombiner(iterable)
 }

@@ -15,9 +15,7 @@ object Declension {
   )
 }
 
-case class Declension(lemma: String,
-                      gender: Gênero,
-                      plural: Option[String] = None) {
+case class Declension(lemma: String, gender: Gênero, plural: Option[String] = None) {
   def apply(number: Number) = number match {
     case Singular => lemma
     case Plural   => pluralForm

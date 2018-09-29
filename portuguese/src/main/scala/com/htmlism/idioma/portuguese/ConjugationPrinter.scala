@@ -18,8 +18,7 @@ object Padder {
   def zip(left: Iterable[String], right: Iterable[String]): List[String] =
     zip(1)(left, right)
 
-  def zip(length: Int)(left: Iterable[String],
-                       right: Iterable[String]): List[String] = {
+  def zip(length: Int)(left: Iterable[String], right: Iterable[String]): List[String] = {
     val leftIterator  = left.iterator
     val rightIterator = right.iterator
 

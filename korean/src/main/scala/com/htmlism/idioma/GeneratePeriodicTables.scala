@@ -82,8 +82,7 @@ object GeneratePeriodicTables extends App {
       val bodyRowsCellsHtml = {
         val rows = {
           val lines = Source
-            .fromInputStream(
-              getClass.getResourceAsStream("/periodic-vowels.tsv"))
+            .fromInputStream(getClass.getResourceAsStream("/periodic-vowels.tsv"))
             .getLines()
 
           lines.next()

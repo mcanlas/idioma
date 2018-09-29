@@ -27,9 +27,7 @@ trait Conjugation {
   def apply(root: String, key: (Tempo, Pessoa, Number)): InflectedForm
 }
 
-class FunctionConjugation(val vowel: String,
-                          f: ((Tempo, Pessoa, Number)) => String)
-    extends Conjugation {
+class FunctionConjugation(val vowel: String, f: ((Tempo, Pessoa, Number)) => String) extends Conjugation {
   def pastParticiple(root: String): InflectedForm = ???
 
   def apply(root: String, key: (Tempo, Pessoa, Number)): InflectedForm =
