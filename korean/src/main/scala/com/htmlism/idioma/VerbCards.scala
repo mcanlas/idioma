@@ -15,6 +15,7 @@ object VerbCards extends TranslationCardIterator {
 
     val nouns = parse(verbs) match {
       case JObject(jsValues) => jsValues
+      case _                 => Nil
     }
 
     nouns.iterator

@@ -13,6 +13,7 @@ object NounCards extends TranslationCardIterator {
 
     val nouns = parse(json) match {
       case JObject(jsValues) => jsValues
+      case _                 => Nil
     }
 
     nouns.iterator
