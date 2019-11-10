@@ -45,3 +45,15 @@
 #japanese-romaji-answer {
   font-size: 50px
 }
+
+#hiragana {
+  background-color: #FDC7C9
+}
+
+#katakana {
+  background-color: #C5E4EA
+}
+
+#kanji {
+  background-color: #FEE8BD
+}
