@@ -1,6 +1,5 @@
-val commonSettings = Seq(scalafmtOnCompile := true,
-                         scalaVersion := "2.12.10",
-                         crossScalaVersions := Seq("2.11.12", "2.12.10"))
+val commonSettings =
+  Seq(scalafmtOnCompile := true, scalaVersion := "2.12.10", crossScalaVersions := Seq("2.11.12", "2.12.10"))
 
 lazy val jsonFramework = "org.json4s" %% "json4s-native" % "3.5.3"
 
@@ -14,16 +13,7 @@ resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases" //
 
 lazy val idioma = (project in file("."))
   .settings(commonSettings: _*)
-  .aggregate(grammar,
-             generator,
-             portuguese,
-             spanish,
-             tagalog,
-             arabic,
-             japanese,
-             german,
-             korean,
-             mandarin)
+  .aggregate(grammar, generator, portuguese, spanish, tagalog, arabic, japanese, german, korean, mandarin)
 
 lazy val grammar = project
   .settings(commonSettings: _*)
@@ -65,11 +55,9 @@ lazy val german = project
 lazy val korean = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
-  .settings(
-    libraryDependencies ++= Seq(hangul, jsonFramework, testingFramework))
+  .settings(libraryDependencies ++= Seq(hangul, jsonFramework, testingFramework))
 
 lazy val mandarin = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
-  .settings(
-    libraryDependencies ++= Seq(yamlFramework, jsonFramework, testingFramework))
+  .settings(libraryDependencies ++= Seq(yamlFramework, jsonFramework, testingFramework))
