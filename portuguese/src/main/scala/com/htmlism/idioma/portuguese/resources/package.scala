@@ -59,8 +59,10 @@ package object resources {
           vowel -> inflections
       }
 
-    (new FunctionConjugation("a", conjugations("a")): Conjugation,
-     new FunctionConjugation("e", conjugations("e")): Conjugation,
-     new FunctionConjugation("i", conjugations("i")): Conjugation)
+    (
+      new FunctionConjugation("a", conjugations("a")): Conjugation,
+      new FunctionConjugation("e", conjugations("e")): Conjugation,
+      new FunctionConjugation("i", conjugations("i")): Conjugation
+    )
   }
 }

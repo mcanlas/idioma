@@ -4,15 +4,17 @@ object CategoriasGramaticais {
   val Definitivo   = Especificação("definite", "d")
   val Indefinitivo = Especificação("indefinite", "i")
 
-  val Tempos = Seq(Presente,
-                   Perfeito,
-                   Imperfeito,
-                   MasQuePerfeito,
-                   Futuro,
-                   Condicional,
-                   SubjuntivoDoPresente,
-                   SubjuntivoDoImperfeito,
-                   SubjuntivoDoFuturo)
+  val Tempos = Seq(
+    Presente,
+    Perfeito,
+    Imperfeito,
+    MasQuePerfeito,
+    Futuro,
+    Condicional,
+    SubjuntivoDoPresente,
+    SubjuntivoDoImperfeito,
+    SubjuntivoDoFuturo
+  )
   val Pessoas = Seq(PessoaPrimeira, PessoaSegunda, PessoaTerceira)
   val Numeros = Seq(Singular, Plural)
   val Generos = Seq(Masculino, Feminino, Ambos)
