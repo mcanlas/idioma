@@ -17,6 +17,7 @@ object Nouns extends App {
         val plural = jsonLemma \ "plural" match {
           case JString(form) => Some(form)
           case JNothing      => None
+          case _             => throw new NotImplementedError
         }
 
         val gender = genderString match {

@@ -31,6 +31,7 @@ case class Declension(lemma: String, gender: Gênero, plural: Option[String] = N
       case (Feminino, Singular, Indefinitivo)  => s"uma $lemma"
       case (Feminino, Plural, Definitivo)      => s"as $pluralForm"
       case (Feminino, Plural, Indefinitivo)    => s"umas $pluralForm"
+      case _                                   => throw new NotImplementedError
     }
 
   private def pluralForm = plural match {
