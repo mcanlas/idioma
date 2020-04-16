@@ -25,7 +25,7 @@ class CompoundGeneratorSpec extends Specification {
       val slash = Seq('slash)
       val flea  = Seq('flea)
 
-      (ozzie * slash * flea).sample === (('ozzie, 'slash), 'flea)
+      (ozzie * slash * flea).sample === ((('ozzie, 'slash), 'flea))
     }
   }
 }
