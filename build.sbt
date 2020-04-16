@@ -3,7 +3,7 @@ val commonSettings =
 
 lazy val jsonFramework = "org.json4s" %% "json4s-native" % "3.5.3"
 
-lazy val yamlFramework = "org.yaml" % "snakeyaml" % "1.21"
+lazy val yamlFramework = "org.yaml" % "snakeyaml" % "1.26"
 
 lazy val testingFramework = "org.specs2" %% "specs2-core" % "4.8.1" % "test"
 
