@@ -41,7 +41,7 @@ object Falar extends App {
   private val verbPhraseTuples = (tempos * formasDeVerbos).flatMap {
     case (tense, (number, person)) =>
       val verb     = conjugate(tense, number, person)
-      val pronouns = Data.pronouns(number, person)
+      val pronouns = Data.pronouns((number, person))
 
       adverb(tense) * pronouns * Seq(verb)
   }
