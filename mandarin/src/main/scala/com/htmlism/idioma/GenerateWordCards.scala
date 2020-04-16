@@ -30,7 +30,7 @@ object ChineseWordProvider extends Iterable[ChineseWord] {
 
   def iterator: Iterator[ChineseWord] = {
     val is  = getClass.getResourceAsStream("/words.yaml")
-    val doc = (new Yaml).load(is)
+    val doc = (new Yaml).load(is): Object
 
     val words = asSeq(asMap(asString, asString))(doc)
 
