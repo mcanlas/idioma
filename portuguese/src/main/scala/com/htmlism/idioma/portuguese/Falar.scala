@@ -17,26 +17,28 @@ object Falar extends App {
     v.infinitive == "ir"
   }.head
 
-  def conjugate(tense: Symbol, number: Number, person: Pessoa) = tense match {
-    case 'present   => Phrase(verb(Presente, person, number).word)
-    case 'perfect   => Phrase(verb(Perfeito, person, number).word)
-    case 'imperfect => Phrase(verb(Imperfeito, person, number).word)
-    case 'future =>
-      Phrase(Seq(auxiliary(Presente, person, number).word, verb.infinitive))
-    case 'presentProgressive =>
-      Phrase(Seq(copula(Presente, person, number).word, verb.gerund))
-    case 'pastProgressive =>
-      Phrase(Seq(copula(Imperfeito, person, number).word, verb.gerund))
-  }
+  def conjugate(tense: Symbol, number: Number, person: Pessoa) =
+    tense match {
+      case 'present   => Phrase(verb(Presente, person, number).word)
+      case 'perfect   => Phrase(verb(Perfeito, person, number).word)
+      case 'imperfect => Phrase(verb(Imperfeito, person, number).word)
+      case 'future =>
+        Phrase(Seq(auxiliary(Presente, person, number).word, verb.infinitive))
+      case 'presentProgressive =>
+        Phrase(Seq(copula(Presente, person, number).word, verb.gerund))
+      case 'pastProgressive =>
+        Phrase(Seq(copula(Imperfeito, person, number).word, verb.gerund))
+    }
 
-  def adverb(tense: Symbol) = tense match {
-    case 'present            => Data.timeHints(Presente)
-    case 'perfect            => Data.timeHints(Perfeito)
-    case 'imperfect          => Data.timeHints(Imperfeito)
-    case 'future             => Data.timeHints(Futuro)
-    case 'presentProgressive => Seq(Phrase.empty)
-    case 'pastProgressive    => Seq(Phrase.empty)
-  }
+  def adverb(tense: Symbol) =
+    tense match {
+      case 'present            => Data.timeHints(Presente)
+      case 'perfect            => Data.timeHints(Perfeito)
+      case 'imperfect          => Data.timeHints(Imperfeito)
+      case 'future             => Data.timeHints(Futuro)
+      case 'presentProgressive => Seq(Phrase.empty)
+      case 'pastProgressive    => Seq(Phrase.empty)
+    }
 
   private val verbPhraseTuples = (tempos * formasDeVerbos).flatMap {
     case (tense, (number, person)) =>

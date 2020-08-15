@@ -14,19 +14,21 @@ object GenerateWordCards extends AnkiCardGenerator {
 case class ChineseWord(pinyin: String, english: String, chinese: String)
 
 object ChineseWordProvider extends Iterable[ChineseWord] {
-  def asSeq[A](f: Any => A)(x: Any): Seq[A] = x match {
-    case xs: java.util.ArrayList[_] =>
-      xs.asScala.map { y =>
-        f(y)
-      }
-  }
+  def asSeq[A](f: Any => A)(x: Any): Seq[A] =
+    x match {
+      case xs: java.util.ArrayList[_] =>
+        xs.asScala.map { y =>
+          f(y)
+        }
+    }
 
   def asString(x: Any): String = x match { case s: String => s }
 
-  def asMap[A, B](f: Any => A, g: Any => B)(x: Any): Map[A, B] = x match {
-    case xs: java.util.LinkedHashMap[_, _] =>
-      xs.asScala.iterator.map { case (a, b) => f(a) -> g(b) }.toMap
-  }
+  def asMap[A, B](f: Any => A, g: Any => B)(x: Any): Map[A, B] =
+    x match {
+      case xs: java.util.LinkedHashMap[_, _] =>
+        xs.asScala.iterator.map { case (a, b) => f(a) -> g(b) }.toMap
+    }
 
   def iterator: Iterator[ChineseWord] = {
     val is  = getClass.getResourceAsStream("/words.yaml")

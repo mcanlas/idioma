@@ -16,10 +16,11 @@ object Declension {
 }
 
 case class Declension(lemma: String, gender: Gênero, plural: Option[String] = None) {
-  def apply(number: Number) = number match {
-    case Singular => lemma
-    case Plural   => pluralForm
-  }
+  def apply(number: Number) =
+    number match {
+      case Singular => lemma
+      case Plural   => pluralForm
+    }
 
   def apply(number: Number, definiteness: Especificação) =
     (gender, number, definiteness) match {
@@ -34,17 +35,18 @@ case class Declension(lemma: String, gender: Gênero, plural: Option[String] = N
       case _                                   => throw new NotImplementedError
     }
 
-  private def pluralForm = plural match {
-    case Some(form) => form
-    case None =>
-      val substitution = Declension.substitutions.find {
-        case (ending, _) => lemma.endsWith(ending)
-      }
+  private def pluralForm =
+    plural match {
+      case Some(form) => form
+      case None =>
+        val substitution = Declension.substitutions.find {
+          case (ending, _) => lemma.endsWith(ending)
+        }
 
-      substitution match {
-        case Some((ending, replacement)) =>
-          lemma.replaceFirst(s"$ending$$", replacement)
-        case None => throw new RuntimeException
-      }
-  }
+        substitution match {
+          case Some((ending, replacement)) =>
+            lemma.replaceFirst(s"$ending$$", replacement)
+          case None => throw new RuntimeException
+        }
+    }
 }

@@ -12,8 +12,10 @@ object DumpRegularConjugations extends App {
 
     val columns = for (t <- Seq(Presente, Perfeito, Imperfeito)) yield {
       val inflections =
-        for (n <- CategoriasGramaticais.Numeros;
-             p <- CategoriasGramaticais.Pessoas)
+        for (
+          n <- CategoriasGramaticais.Numeros;
+          p <- CategoriasGramaticais.Pessoas
+        )
           yield conjugation(root, (t, p, n)).word
 
       t.key +: inflections
