@@ -1,8 +1,8 @@
 package com.htmlism.idioma
 
-import com.htmlism.hangul.Hangul
-
 import scala.io.Source
+
+import com.htmlism.hangul.Hangul
 
 object GeneratePeriodicTables extends App {
   val romanNumerals = Seq("I", "II", "III", "IV", "V", "VI")

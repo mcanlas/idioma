@@ -1,8 +1,9 @@
 package com.htmlism.idioma.tagalog
 
-import com.htmlism.idioma._
 import org.json4s._
 import org.json4s.native.JsonMethods._
+
+import com.htmlism.idioma._
 
 object Data {
   lazy val periods = {

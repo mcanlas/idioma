@@ -1,7 +1,11 @@
 package com.htmlism.idioma.portuguese
 
-import org.json4s.JsonAST.{JNothing, JValue, JString, JObject}
-import CategoriasGramaticais._
+import org.json4s.JsonAST.JNothing
+import org.json4s.JsonAST.JObject
+import org.json4s.JsonAST.JString
+import org.json4s.JsonAST.JValue
+
+import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
 object OldVerb {
   def apply(jv: JValue): OldVerb =

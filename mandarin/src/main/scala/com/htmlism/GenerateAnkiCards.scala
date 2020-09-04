@@ -1,6 +1,7 @@
 package com.htmlism
 
 import java.io.PrintWriter
+
 import scala.io.Source
 
 object GenerateAnkiCards {

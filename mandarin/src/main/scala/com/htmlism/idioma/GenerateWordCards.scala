@@ -1,7 +1,8 @@
 package com.htmlism.idioma
 
-import org.yaml.snakeyaml.Yaml
 import scala.collection.JavaConverters._
+
+import org.yaml.snakeyaml.Yaml
 
 object GenerateWordCards extends AnkiCardGenerator {
   def cards: Iterator[AnkiCard] =
