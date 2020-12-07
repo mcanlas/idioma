@@ -39,8 +39,8 @@ case class Declension(lemma: String, gender: Gênero, plural: Option[String] = N
     plural match {
       case Some(form) => form
       case None =>
-        val substitution = Declension.substitutions.find {
-          case (ending, _) => lemma.endsWith(ending)
+        val substitution = Declension.substitutions.find { case (ending, _) =>
+          lemma.endsWith(ending)
         }
 
         substitution match {

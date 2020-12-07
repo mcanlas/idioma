@@ -19,13 +19,12 @@ object VerbCards extends TranslationCardIterator {
     }
 
     nouns.iterator
-      .map {
-        case (english, json) =>
-          implicit val formats = DefaultFormats
+      .map { case (english, json) =>
+        implicit val formats = DefaultFormats
 
-          val korean = (json \ "korean").extract[String]
+        val korean = (json \ "korean").extract[String]
 
-          (english, "to " + english, korean)
+        (english, "to " + english, korean)
       }
   }
 }

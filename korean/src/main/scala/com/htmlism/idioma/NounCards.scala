@@ -17,13 +17,12 @@ object NounCards extends TranslationCardIterator {
     }
 
     nouns.iterator
-      .map {
-        case (english, jvalue) =>
-          implicit val formats = DefaultFormats
+      .map { case (english, jvalue) =>
+        implicit val formats = DefaultFormats
 
-          val hangul = (jvalue \ "hangul").extract[String]
+        val hangul = (jvalue \ "hangul").extract[String]
 
-          (english, english, hangul)
+        (english, english, hangul)
       }
   }
 }

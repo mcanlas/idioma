@@ -40,16 +40,15 @@ object Falar extends App {
       case 'pastProgressive    => Seq(Phrase.empty)
     }
 
-  private val verbPhraseTuples = (tempos * formasDeVerbos).flatMap {
-    case (tense, (number, person)) =>
-      val verb     = conjugate(tense, number, person)
-      val pronouns = Data.pronouns((number, person))
+  private val verbPhraseTuples = (tempos * formasDeVerbos).flatMap { case (tense, (number, person)) =>
+    val verb     = conjugate(tense, number, person)
+    val pronouns = Data.pronouns((number, person))
 
-      adverb(tense) * pronouns * Seq(verb)
+    adverb(tense) * pronouns * Seq(verb)
   }
 
-  val phrases = (verbPhraseTuples * Data.idiomas).map {
-    case ((((tense, pronoun)), form), idioma) => tense + pronoun + form + idioma
+  val phrases = (verbPhraseTuples * Data.idiomas).map { case ((((tense, pronoun)), form), idioma) =>
+    tense + pronoun + form + idioma
   }
 
   for (_ <- 1 to 30) { println(Statement(phrases.sample.words).render) }

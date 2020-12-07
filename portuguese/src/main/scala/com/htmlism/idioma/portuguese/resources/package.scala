@@ -44,19 +44,17 @@ package object resources {
       .map(_.split('\t'))
       .toList
       .groupBy(_(0))
-      .map {
-        case (conjugationName, inflectionRows) =>
-          val vowel = vowelLookup(conjugationName)
+      .map { case (conjugationName, inflectionRows) =>
+        val vowel = vowelLookup(conjugationName)
 
-          val inflections = inflectionRows.map {
-            case Array(_, tense, person, number, expression) =>
-              val interpolatedInflection =
-                interpretInflection(vowel, expression)
+        val inflections = inflectionRows.map { case Array(_, tense, person, number, expression) =>
+          val interpolatedInflection =
+            interpretInflection(vowel, expression)
 
-              (Tempo(tense), Pessoa(person), Number(number)) -> interpolatedInflection
-          }.toMap
+          (Tempo(tense), Pessoa(person), Number(number)) -> interpolatedInflection
+        }.toMap
 
-          vowel -> inflections
+        vowel -> inflections
       }
 
     (
