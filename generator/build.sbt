@@ -1,3 +1,3 @@
-initialCommands in console := """
+console / initialCommands := """
   import com.htmlism.idioma._
 """
