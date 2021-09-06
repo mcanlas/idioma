@@ -11,19 +11,19 @@ object Nouns extends App {
   val declensions = json match {
     case JArray(jsonLemmas) =>
       for (jsonLemma <- jsonLemmas) yield {
-        val JString(lemma)        = jsonLemma \ "lemma"
+        val JString(lemma) = jsonLemma \ "lemma"
         val JString(genderString) = jsonLemma \ "gender"
 
         val plural = jsonLemma \ "plural" match {
           case JString(form) => Some(form)
-          case JNothing      => None
-          case _             => throw new NotImplementedError
+          case JNothing => None
+          case _ => throw new NotImplementedError
         }
 
         val gender = genderString match {
           case "m" => Masculino
           case "f" => Feminino
-          case _   => throw new RuntimeException
+          case _ => throw new RuntimeException
         }
 
         Declension(lemma, gender, plural)

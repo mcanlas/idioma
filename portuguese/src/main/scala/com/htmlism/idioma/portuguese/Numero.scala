@@ -11,4 +11,4 @@ object Number {
 sealed abstract class Number(val número: String)
 
 object Singular extends Number("singular")
-object Plural   extends Number("plural")
+object Plural extends Number("plural")

@@ -10,7 +10,7 @@ class CombinationGenerator[A, B](left: Iterable[A], right: Iterable[B])
 
 class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Iterable[B]) extends Iterator[(A, B)] {
   private var currentLeftElement: A = _
-  private var rightIterator         = rightGenerator.iterator
+  private var rightIterator = rightGenerator.iterator
 
   def hasNext = leftIterator.hasNext || rightIterator.hasNext
 
@@ -19,7 +19,7 @@ class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Itera
       if (currentLeftElement == null)
         currentLeftElement = leftIterator.next()
 
-      val leftElement  = currentLeftElement
+      val leftElement = currentLeftElement
       val rightElement = rightIterator.next()
 
       if (!rightIterator.hasNext && leftIterator.hasNext) {

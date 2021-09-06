@@ -12,8 +12,8 @@ object Data {
     val json = parse(getClass.getResourceAsStream("/nouns.languages.json"))
 
     val phrases: Seq[Phrase] = for {
-      JArray(objetos)                  <- json
-      JObject(objeto)                  <- objetos
+      JArray(objetos) <- json
+      JObject(objeto) <- objetos
       JField("noun", JString(palavra)) <- objeto
     } yield Phrase(palavra)
 
@@ -22,20 +22,20 @@ object Data {
 
   lazy val pronouns = Map(
     (Singular, PessoaPrimeira) -> Seq("eu"),
-    (Singular, PessoaSegunda)  -> Seq("tu"),
+    (Singular, PessoaSegunda) -> Seq("tu"),
     (Singular, PessoaTerceira) -> Seq("você", "ele", "ela", "a gente"),
-    (Plural, PessoaPrimeira)   -> Seq("nós"),
-    (Plural, PessoaSegunda)    -> Seq("vós"),
-    (Plural, PessoaTerceira)   -> Seq("vocês", "eles", "elas")
+    (Plural, PessoaPrimeira) -> Seq("nós"),
+    (Plural, PessoaSegunda) -> Seq("vós"),
+    (Plural, PessoaTerceira) -> Seq("vocês", "eles", "elas")
   ).mapValues { s =>
     s.map { Phrase(_) }
   }
 
   lazy val timeHints = Map(
-    Presente   -> Seq(""),
-    Perfeito   -> Seq("ontem"),
+    Presente -> Seq(""),
+    Perfeito -> Seq("ontem"),
     Imperfeito -> Seq("antigamente", "no passado"),
-    Futuro     -> Seq("amanhã")
+    Futuro -> Seq("amanhã")
   ).mapValues { s =>
     s.map { Phrase(_) }
   }

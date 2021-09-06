@@ -10,8 +10,8 @@ object Data {
     val json = parse(getClass.getResourceAsStream("/nouns.json"))
 
     val phrases: Seq[Phrase] = for {
-      JArray(objects)                 <- json
-      JObject(obj)                    <- objects
+      JArray(objects) <- json
+      JObject(obj) <- objects
       JField("lemma", JString(lemma)) <- obj
     } yield new Phrase(lemma :: Nil)
 

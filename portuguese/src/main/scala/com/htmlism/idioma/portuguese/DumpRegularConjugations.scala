@@ -2,8 +2,8 @@ package com.htmlism.idioma.portuguese
 
 object DumpRegularConjugations extends App {
   val verbs = Seq(
-    "fal"    -> resources.firstConjugation,
-    "com"    -> resources.secondConjugation,
+    "fal" -> resources.firstConjugation,
+    "com" -> resources.secondConjugation,
     "assist" -> resources.thirdConjugation
   )
 

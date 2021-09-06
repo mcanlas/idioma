@@ -50,7 +50,7 @@ object GeneratePeriodicTables extends App {
                 val n = nStr.toInt
 
                 val character = (Hangul.initialOriginCodePoint + n - 1).toChar
-                val name      = consonants(n)
+                val name = consonants(n)
 
                 """<td class="consonant"><div class="consonant-cell">""" +
                   s"""<div class="consonant-sort">$n</div>""" +

@@ -1,7 +1,7 @@
 package com.htmlism.idioma.portuguese
 
 object CategoriasGramaticais {
-  val Definitivo   = Especificação("definite", "d")
+  val Definitivo = Especificação("definite", "d")
   val Indefinitivo = Especificação("indefinite", "i")
 
   val Tempos = Seq(
@@ -21,11 +21,11 @@ object CategoriasGramaticais {
 
   val Pronomes = Map(
     (Singular, PessoaPrimeira) -> Seq("eu"),
-    (Singular, PessoaSegunda)  -> Seq("tu"),
+    (Singular, PessoaSegunda) -> Seq("tu"),
     (Singular, PessoaTerceira) -> Seq("ele", "ela", "gente"),
-    (Plural, PessoaPrimeira)   -> Seq("nós"),
-    (Plural, PessoaSegunda)    -> Seq("vós"),
-    (Plural, PessoaTerceira)   -> Seq("eles", "elas")
+    (Plural, PessoaPrimeira) -> Seq("nós"),
+    (Plural, PessoaSegunda) -> Seq("vós"),
+    (Plural, PessoaTerceira) -> Seq("eles", "elas")
   )
 }
 
