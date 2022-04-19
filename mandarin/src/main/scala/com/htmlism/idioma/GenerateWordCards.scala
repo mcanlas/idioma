@@ -37,7 +37,8 @@ object ChineseWordProvider extends Iterable[ChineseWord] {
 
     val words = asSeq(asMap(asString, asString))(doc)
 
-    words.iterator
+    words
+      .iterator
       .map { fields =>
         val chinese = fields("zh")
         val english = fields("en")

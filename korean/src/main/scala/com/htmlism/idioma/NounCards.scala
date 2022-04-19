@@ -16,7 +16,8 @@ object NounCards extends TranslationCardIterator {
       case _ => Nil
     }
 
-    nouns.iterator
+    nouns
+      .iterator
       .map { case (english, jvalue) =>
         implicit val formats = DefaultFormats
 

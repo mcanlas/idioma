@@ -1,9 +1,12 @@
 package com.htmlism.idioma.portuguese
 
 object Tempo {
-  lazy val lookup = CategoriasGramaticais.Tempos.map { t =>
-    t.key -> t
-  }.toMap
+  lazy val lookup = CategoriasGramaticais
+    .Tempos
+    .map { t =>
+      t.key -> t
+    }
+    .toMap
 
   def apply(s: String) = lookup(s)
 }

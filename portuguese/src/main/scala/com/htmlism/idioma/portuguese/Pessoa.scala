@@ -1,9 +1,12 @@
 package com.htmlism.idioma.portuguese
 
 object Pessoa {
-  lazy val lookup = CategoriasGramaticais.Pessoas.map { p =>
-    p.pessoa -> p
-  }.toMap
+  lazy val lookup = CategoriasGramaticais
+    .Pessoas
+    .map { p =>
+      p.pessoa -> p
+    }
+    .toMap
 
   def apply(s: String) = lookup(s)
 }

@@ -22,7 +22,9 @@ package object resources {
   }
 
   def getResourceLines(path: String): Iterator[String] = {
-    val iterator = scala.io.Source
+    val iterator = scala
+      .io
+      .Source
       .fromInputStream(getClass.getResourceAsStream(path))
       .getLines
 

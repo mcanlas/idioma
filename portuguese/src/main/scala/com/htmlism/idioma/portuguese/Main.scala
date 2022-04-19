@@ -47,9 +47,12 @@ object Main extends App {
   }
 
   val progressivePhrases = {
-    val copula = Data.verbs.filter { v =>
-      v.infinitive == "estar"
-    }.head
+    val copula = Data
+      .verbs
+      .filter { v =>
+        v.infinitive == "estar"
+      }
+      .head
 
     Data.verbs.flatMap { verb =>
       val phrases = List(Presente, Imperfeito).flatMap { t =>

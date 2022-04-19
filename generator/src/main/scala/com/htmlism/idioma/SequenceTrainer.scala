@@ -8,7 +8,8 @@ object SequenceTrainer {
       val first = (xs.head, xs(1))
       val last = (xs(xs.length - 2), xs.last)
 
-      val iter = (0 to xs.length - 3).iterator
+      val iter = (0 to xs.length - 3)
+        .iterator
         .map { i =>
           (xs(i), xs(i + 1), xs(i + 2))
         }

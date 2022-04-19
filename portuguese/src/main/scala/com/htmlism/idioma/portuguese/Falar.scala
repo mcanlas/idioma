@@ -7,15 +7,24 @@ object Falar extends App {
   private val formasDeVerbos = Numeros * Seq(PessoaPrimeira, PessoaTerceira)
   private val tempos = Seq('present, 'perfect, 'imperfect, 'future, 'presentProgressive, 'pastProgressive)
 
-  val verb = Data.verbs.filter { v =>
-    v.infinitive == "falar"
-  }.head
-  val copula = Data.verbs.filter { v =>
-    v.infinitive == "estar"
-  }.head
-  val auxiliary = Data.verbs.filter { v =>
-    v.infinitive == "ir"
-  }.head
+  val verb = Data
+    .verbs
+    .filter { v =>
+      v.infinitive == "falar"
+    }
+    .head
+  val copula = Data
+    .verbs
+    .filter { v =>
+      v.infinitive == "estar"
+    }
+    .head
+  val auxiliary = Data
+    .verbs
+    .filter { v =>
+      v.infinitive == "ir"
+    }
+    .head
 
   def conjugate(tense: Symbol, number: Number, person: Pessoa) =
     tense match {
