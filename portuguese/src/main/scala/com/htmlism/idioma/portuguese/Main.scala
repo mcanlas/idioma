@@ -7,10 +7,10 @@ object Main extends App {
   val verbalPhrases = Data.verbs.flatMap { verb =>
     List(Presente, Perfeito, Imperfeito).flatMap { t =>
       val timePhrases = t match {
-        case Presente => Nil :: Nil
-        case Perfeito => List("ontem") :: Nil
+        case Presente   => Nil :: Nil
+        case Perfeito   => List("ontem") :: Nil
         case Imperfeito => List("antigamente") :: List("no", "passado") :: Nil
-        case _ => throw new UnsupportedOperationException
+        case _          => throw new UnsupportedOperationException
       }
 
       val phrases = Pessoas.flatMap { p =>
@@ -26,13 +26,13 @@ object Main extends App {
                 List("ela", form) ::
                 List("a", "gente", form) ::
                 Nil
-            case (PessoaPrimeira, Plural) =>
+            case (PessoaPrimeira, Plural)   =>
               List("nós", form) :: Nil
-            case (PessoaTerceira, Plural) =>
+            case (PessoaTerceira, Plural)   =>
               List("vocês", form) ::
                 List("eles", form) ::
                 List("elas", form) :: Nil
-            case _ =>
+            case _                          =>
               Nil
           }
         }
@@ -69,13 +69,13 @@ object Main extends App {
                   List("ela", form) ::
                   List("a", "gente", form) ::
                   Nil
-              case (PessoaPrimeira, Plural) =>
+              case (PessoaPrimeira, Plural)   =>
                 List("nós", form) :: Nil
-              case (PessoaTerceira, Plural) =>
+              case (PessoaTerceira, Plural)   =>
                 List("vocês", form) ::
                   List("eles", form) ::
                   List("elas", form) :: Nil
-              case _ =>
+              case _                          =>
                 Nil
             }
           }

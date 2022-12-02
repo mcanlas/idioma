@@ -32,7 +32,7 @@ object ChineseWordProvider extends Iterable[ChineseWord] {
     }
 
   def iterator: Iterator[ChineseWord] = {
-    val is = getClass.getResourceAsStream("/words.yaml")
+    val is  = getClass.getResourceAsStream("/words.yaml")
     val doc = (new Yaml).load(is): Object
 
     val words = asSeq(asMap(asString, asString))(doc)
@@ -42,7 +42,7 @@ object ChineseWordProvider extends Iterable[ChineseWord] {
       .map { fields =>
         val chinese = fields("zh")
         val english = fields("en")
-        val pinyin = fields("py")
+        val pinyin  = fields("py")
 
         ChineseWord(pinyin, english, chinese)
       }

@@ -19,7 +19,7 @@ object Padder {
     zip(1)(left, right)
 
   def zip(length: Int)(left: Iterable[String], right: Iterable[String]): List[String] = {
-    val leftIterator = left.iterator
+    val leftIterator  = left.iterator
     val rightIterator = right.iterator
 
     var lines = List[String]()
@@ -27,7 +27,7 @@ object Padder {
     val width = maximumLength(left)
 
     while (leftIterator.hasNext) {
-      val leftCell = s"%-${width}s".format(leftIterator.next)
+      val leftCell  = s"%-${width}s".format(leftIterator.next)
       val rightCell =
         if (rightIterator.hasNext) (" " * length) + rightIterator.next else ""
 

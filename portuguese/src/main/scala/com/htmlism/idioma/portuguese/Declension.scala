@@ -19,26 +19,26 @@ case class Declension(lemma: String, gender: Gênero, plural: Option[String] = N
   def apply(number: Number) =
     number match {
       case Singular => lemma
-      case Plural => pluralForm
+      case Plural   => pluralForm
     }
 
   def apply(number: Number, definiteness: Especificação) =
     (gender, number, definiteness) match {
-      case (Masculino, Singular, Definitivo) => s"o $lemma"
+      case (Masculino, Singular, Definitivo)   => s"o $lemma"
       case (Masculino, Singular, Indefinitivo) => s"um $lemma"
-      case (Masculino, Plural, Definitivo) => s"os $pluralForm"
-      case (Masculino, Plural, Indefinitivo) => s"uns $pluralForm"
-      case (Feminino, Singular, Definitivo) => s"a $lemma"
-      case (Feminino, Singular, Indefinitivo) => s"uma $lemma"
-      case (Feminino, Plural, Definitivo) => s"as $pluralForm"
-      case (Feminino, Plural, Indefinitivo) => s"umas $pluralForm"
-      case _ => throw new NotImplementedError
+      case (Masculino, Plural, Definitivo)     => s"os $pluralForm"
+      case (Masculino, Plural, Indefinitivo)   => s"uns $pluralForm"
+      case (Feminino, Singular, Definitivo)    => s"a $lemma"
+      case (Feminino, Singular, Indefinitivo)  => s"uma $lemma"
+      case (Feminino, Plural, Definitivo)      => s"as $pluralForm"
+      case (Feminino, Plural, Indefinitivo)    => s"umas $pluralForm"
+      case _                                   => throw new NotImplementedError
     }
 
   private def pluralForm =
     plural match {
       case Some(form) => form
-      case None =>
+      case None       =>
         val substitution = Declension.substitutions.find { case (ending, _) =>
           lemma.endsWith(ending)
         }
@@ -46,7 +46,7 @@ case class Declension(lemma: String, gender: Gênero, plural: Option[String] = N
         substitution match {
           case Some((ending, replacement)) =>
             lemma.replaceFirst(s"$ending$$", replacement)
-          case None => throw new RuntimeException
+          case None                        => throw new RuntimeException
         }
     }
 }
