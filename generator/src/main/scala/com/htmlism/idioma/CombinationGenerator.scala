@@ -24,7 +24,7 @@ class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Itera
 
       if (!rightIterator.hasNext && leftIterator.hasNext) {
         currentLeftElement = leftIterator.next()
-        rightIterator = rightGenerator.iterator
+        rightIterator      = rightGenerator.iterator
       }
 
       (leftElement, rightElement)

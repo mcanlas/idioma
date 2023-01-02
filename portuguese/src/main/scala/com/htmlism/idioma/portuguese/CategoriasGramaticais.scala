@@ -4,7 +4,7 @@ object CategoriasGramaticais {
   val Definitivo   = Especificação("definite", "d")
   val Indefinitivo = Especificação("indefinite", "i")
 
-  val Tempos  = Seq(
+  val Tempos = Seq(
     Presente,
     Perfeito,
     Imperfeito,

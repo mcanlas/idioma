@@ -26,7 +26,7 @@ object GenerateAnkiCards {
     val parts = s.split("\t")
 
     val chineseText = parts(0).capitalize
-    val english     =
+    val english =
       if (parts.length > 1)
         parts(1)
       else

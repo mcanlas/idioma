@@ -13,7 +13,7 @@ object Conjugação {
         }
 
         Some((root, conjugação))
-      case _                        => None
+      case _ => None
     }
 }
 

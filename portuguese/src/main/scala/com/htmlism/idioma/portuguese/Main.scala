@@ -26,13 +26,13 @@ object Main extends App {
                 List("ela", form) ::
                 List("a", "gente", form) ::
                 Nil
-            case (PessoaPrimeira, Plural)   =>
+            case (PessoaPrimeira, Plural) =>
               List("nós", form) :: Nil
-            case (PessoaTerceira, Plural)   =>
+            case (PessoaTerceira, Plural) =>
               List("vocês", form) ::
                 List("eles", form) ::
                 List("elas", form) :: Nil
-            case _                          =>
+            case _ =>
               Nil
           }
         }
@@ -69,13 +69,13 @@ object Main extends App {
                   List("ela", form) ::
                   List("a", "gente", form) ::
                   Nil
-              case (PessoaPrimeira, Plural)   =>
+              case (PessoaPrimeira, Plural) =>
                 List("nós", form) :: Nil
-              case (PessoaTerceira, Plural)   =>
+              case (PessoaTerceira, Plural) =>
                 List("vocês", form) ::
                   List("eles", form) ::
                   List("elas", form) :: Nil
-              case _                          =>
+              case _ =>
                 Nil
             }
           }

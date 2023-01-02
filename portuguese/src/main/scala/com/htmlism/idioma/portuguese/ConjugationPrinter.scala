@@ -27,7 +27,7 @@ object Padder {
     val width = maximumLength(left)
 
     while (leftIterator.hasNext) {
-      val leftCell  = s"%-${width}s".format(leftIterator.next)
+      val leftCell = s"%-${width}s".format(leftIterator.next)
       val rightCell =
         if (rightIterator.hasNext) (" " * length) + rightIterator.next else ""
 

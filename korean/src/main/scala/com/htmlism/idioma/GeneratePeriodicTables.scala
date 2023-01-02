@@ -45,7 +45,7 @@ object GeneratePeriodicTables extends App {
           row
             .split("\t", -1) // negative means keep trailing empty cells
             .map {
-              case ""   => """<td class="consonant-empty"></td>"""
+              case "" => """<td class="consonant-empty"></td>"""
               case nStr =>
                 val n = nStr.toInt
 
@@ -94,7 +94,7 @@ object GeneratePeriodicTables extends App {
           row
             .split("\t", -1) // negative means keep trailing empty cells
             .map {
-              case ""   => """<td class="vowel-empty"></td>"""
+              case "" => """<td class="vowel-empty"></td>"""
               case nStr =>
                 val n = nStr.toInt
 

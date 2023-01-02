@@ -38,7 +38,7 @@ case class Declension(lemma: String, gender: Gênero, plural: Option[String] = N
   private def pluralForm =
     plural match {
       case Some(form) => form
-      case None       =>
+      case None =>
         val substitution = Declension.substitutions.find { case (ending, _) =>
           lemma.endsWith(ending)
         }
@@ -46,7 +46,7 @@ case class Declension(lemma: String, gender: Gênero, plural: Option[String] = N
         substitution match {
           case Some((ending, replacement)) =>
             lemma.replaceFirst(s"$ending$$", replacement)
-          case None                        => throw new RuntimeException
+          case None => throw new RuntimeException
         }
     }
 }

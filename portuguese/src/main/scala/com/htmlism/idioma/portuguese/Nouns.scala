@@ -28,7 +28,7 @@ object Nouns extends App {
 
         Declension(lemma, gender, plural)
       }
-    case _                  => throw new IllegalArgumentException
+    case _ => throw new IllegalArgumentException
   }
 
   declensions.foreach { d =>
