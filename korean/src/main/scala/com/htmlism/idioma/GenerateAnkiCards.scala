@@ -16,7 +16,7 @@ trait TranslationCardIterator extends Iterable[AnkiCard] {
   def iterator: Iterator[AnkiCard] =
     partsIterator
       .flatMap { case (keyFragment, english, korean) =>
-        Seq(
+        List(
           AnkiCardValue(
             "eng2kor-" + keyFragment,
             s"""<div id="preface">How do you say this in Korean?</div>""" +

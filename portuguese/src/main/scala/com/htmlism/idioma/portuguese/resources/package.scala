@@ -12,7 +12,7 @@ package object resources {
   def expandAlternation(s: String): Traversable[String] = {
     val alternationExpressions = matchAlternation.findAllIn(s)
 
-    alternationExpressions.foldLeft(Seq(s)) { (acc, altExpr) =>
+    alternationExpressions.foldLeft(List(s)) { (acc, altExpr) =>
       val elements = altExpr.split('|')
 
       acc.flatMap { cur =>

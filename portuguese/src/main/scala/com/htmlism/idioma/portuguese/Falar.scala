@@ -4,8 +4,8 @@ import com.htmlism.idioma._
 import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
 object Falar extends App {
-  private val formasDeVerbos = Numeros * Seq(PessoaPrimeira, PessoaTerceira)
-  private val tempos         = Seq('present, 'perfect, 'imperfect, 'future, 'presentProgressive, 'pastProgressive)
+  private val formasDeVerbos = Numeros * List(PessoaPrimeira, PessoaTerceira)
+  private val tempos         = List('present, 'perfect, 'imperfect, 'future, 'presentProgressive, 'pastProgressive)
 
   val verb = Data
     .verbs
@@ -32,11 +32,11 @@ object Falar extends App {
       case 'perfect   => Phrase(verb(Perfeito, person, number).word)
       case 'imperfect => Phrase(verb(Imperfeito, person, number).word)
       case 'future =>
-        Phrase(Seq(auxiliary(Presente, person, number).word, verb.infinitive))
+        Phrase(List(auxiliary(Presente, person, number).word, verb.infinitive))
       case 'presentProgressive =>
-        Phrase(Seq(copula(Presente, person, number).word, verb.gerund))
+        Phrase(List(copula(Presente, person, number).word, verb.gerund))
       case 'pastProgressive =>
-        Phrase(Seq(copula(Imperfeito, person, number).word, verb.gerund))
+        Phrase(List(copula(Imperfeito, person, number).word, verb.gerund))
     }
 
   def adverb(tense: Symbol) =
@@ -45,15 +45,15 @@ object Falar extends App {
       case 'perfect            => Data.timeHints(Perfeito)
       case 'imperfect          => Data.timeHints(Imperfeito)
       case 'future             => Data.timeHints(Futuro)
-      case 'presentProgressive => Seq(Phrase.empty)
-      case 'pastProgressive    => Seq(Phrase.empty)
+      case 'presentProgressive => List(Phrase.empty)
+      case 'pastProgressive    => List(Phrase.empty)
     }
 
   private val verbPhraseTuples = (tempos * formasDeVerbos).flatMap { case (tense, (number, person)) =>
     val verb     = conjugate(tense, number, person)
     val pronouns = Data.pronouns((number, person))
 
-    adverb(tense) * pronouns * Seq(verb)
+    adverb(tense) * pronouns * List(verb)
   }
 
   val phrases = (verbPhraseTuples * Data.idiomas).map { case ((((tense, pronoun)), form), idioma) =>

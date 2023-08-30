@@ -6,7 +6,7 @@ package object idioma {
       def sample = {
         val randomIndex = (new util.Random).nextInt(iterable.size)
 
-        iterable.toSeq(randomIndex)
+        iterable.toList(randomIndex)
       }
     }
 

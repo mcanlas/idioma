@@ -6,7 +6,7 @@ import org.json4s.native.JsonMethods._
 import com.htmlism.idioma._
 
 object Data {
-  lazy val verbs = Seq("a", "e", "i").flatMap(parseVerbs)
+  lazy val verbs = List("a", "e", "i").flatMap(parseVerbs)
 
   lazy val idiomas = {
     val json = parse(getClass.getResourceAsStream("/nouns.languages.json"))
@@ -21,21 +21,21 @@ object Data {
   }
 
   lazy val pronouns = Map(
-    (Singular, PessoaPrimeira) -> Seq("eu"),
-    (Singular, PessoaSegunda)  -> Seq("tu"),
-    (Singular, PessoaTerceira) -> Seq("você", "ele", "ela", "a gente"),
-    (Plural, PessoaPrimeira)   -> Seq("nós"),
-    (Plural, PessoaSegunda)    -> Seq("vós"),
-    (Plural, PessoaTerceira)   -> Seq("vocês", "eles", "elas")
+    (Singular, PessoaPrimeira) -> List("eu"),
+    (Singular, PessoaSegunda)  -> List("tu"),
+    (Singular, PessoaTerceira) -> List("você", "ele", "ela", "a gente"),
+    (Plural, PessoaPrimeira)   -> List("nós"),
+    (Plural, PessoaSegunda)    -> List("vós"),
+    (Plural, PessoaTerceira)   -> List("vocês", "eles", "elas")
   ).mapValues { s =>
     s.map { Phrase(_) }
   }
 
   lazy val timeHints = Map(
-    Presente   -> Seq(""),
-    Perfeito   -> Seq("ontem"),
-    Imperfeito -> Seq("antigamente", "no passado"),
-    Futuro     -> Seq("amanhã")
+    Presente   -> List(""),
+    Perfeito   -> List("ontem"),
+    Imperfeito -> List("antigamente", "no passado"),
+    Futuro     -> List("amanhã")
   ).mapValues { s =>
     s.map { Phrase(_) }
   }

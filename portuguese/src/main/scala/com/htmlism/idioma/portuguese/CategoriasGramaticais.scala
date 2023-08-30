@@ -4,7 +4,7 @@ object CategoriasGramaticais {
   val Definitivo   = Especificação("definite", "d")
   val Indefinitivo = Especificação("indefinite", "i")
 
-  val Tempos = Seq(
+  val Tempos = List(
     Presente,
     Perfeito,
     Imperfeito,
@@ -15,17 +15,17 @@ object CategoriasGramaticais {
     SubjuntivoDoImperfeito,
     SubjuntivoDoFuturo
   )
-  val Pessoas = Seq(PessoaPrimeira, PessoaSegunda, PessoaTerceira)
-  val Numeros = Seq(Singular, Plural)
-  val Generos = Seq(Masculino, Feminino, Ambos)
+  val Pessoas = List(PessoaPrimeira, PessoaSegunda, PessoaTerceira)
+  val Numeros = List(Singular, Plural)
+  val Generos = List(Masculino, Feminino, Ambos)
 
   val Pronomes = Map(
-    (Singular, PessoaPrimeira) -> Seq("eu"),
-    (Singular, PessoaSegunda)  -> Seq("tu"),
-    (Singular, PessoaTerceira) -> Seq("ele", "ela", "gente"),
-    (Plural, PessoaPrimeira)   -> Seq("nós"),
-    (Plural, PessoaSegunda)    -> Seq("vós"),
-    (Plural, PessoaTerceira)   -> Seq("eles", "elas")
+    (Singular, PessoaPrimeira) -> List("eu"),
+    (Singular, PessoaSegunda)  -> List("tu"),
+    (Singular, PessoaTerceira) -> List("ele", "ela", "gente"),
+    (Plural, PessoaPrimeira)   -> List("nós"),
+    (Plural, PessoaSegunda)    -> List("vós"),
+    (Plural, PessoaTerceira)   -> List("eles", "elas")
   )
 }
 

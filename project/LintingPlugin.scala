@@ -11,7 +11,7 @@ object LintingPlugin extends AutoPlugin {
       addCommandAlias("fix", "scalafixAll")
 
   override val buildSettings =
-    Seq(
+    List(
       semanticdbEnabled := true,
       semanticdbVersion := scalafixSemanticdb.revision
     )

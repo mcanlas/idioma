@@ -5,7 +5,7 @@ import scala.io.Source
 import com.htmlism.hangul.Hangul
 
 object GeneratePeriodicTables extends App {
-  val romanNumerals = Seq("I", "II", "III", "IV", "V", "VI")
+  val romanNumerals = List("I", "II", "III", "IV", "V", "VI")
 
   printConsonants()
   printVowels()
@@ -76,7 +76,7 @@ object GeneratePeriodicTables extends App {
 
   private def printVowels() = {
     val html = {
-      val firstRowCellsHtml = Seq("", "A", "B", "C", "D", "E", "F")
+      val firstRowCellsHtml = List("", "A", "B", "C", "D", "E", "F")
         .map(c => s"<th>$c</th>")
 
       val bodyRowsCellsHtml = {

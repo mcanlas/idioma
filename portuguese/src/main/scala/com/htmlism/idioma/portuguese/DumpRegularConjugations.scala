@@ -1,7 +1,7 @@
 package com.htmlism.idioma.portuguese
 
 object DumpRegularConjugations extends App {
-  val verbs = Seq(
+  val verbs = List(
     "fal"    -> resources.firstConjugation,
     "com"    -> resources.secondConjugation,
     "assist" -> resources.thirdConjugation
@@ -10,7 +10,7 @@ object DumpRegularConjugations extends App {
   for ((root, conjugation) <- verbs) {
     println
 
-    val columns = for (t <- Seq(Presente, Perfeito, Imperfeito)) yield {
+    val columns = for (t <- List(Presente, Perfeito, Imperfeito)) yield {
       val inflections =
         for (
           n <- CategoriasGramaticais.Numeros;

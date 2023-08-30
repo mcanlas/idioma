@@ -1,12 +1,12 @@
 package com.htmlism.idioma.arabic
 
 object Lesson3 {
-  val englishWords = Seq("bank", "film", "CD", "cola", "cinema")
+  val englishWords = List("bank", "film", "CD", "cola", "cinema")
 
   val loanWords =
-    Seq("sandawich", "bitsa", "subermarket", "telephone", "doctor", "radio")
+    List("sandawich", "bitsa", "subermarket", "telephone", "doctor", "radio")
 
-  val nativeWords = Seq("kebab", "falafel", "bazaar", "souk", "gamel")
+  val nativeWords = List("kebab", "falafel", "bazaar", "souk", "gamel")
 
-  val lessObviousWords = Seq("sukar", "chay")
+  val lessObviousWords = List("sukar", "chay")
 }
