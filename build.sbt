@@ -7,11 +7,9 @@ lazy val yamlFramework = "org.yaml" % "snakeyaml" % "1.26"
 
 lazy val testingFramework = "org.specs2" %% "specs2-core" % "4.10.6" % "test"
 
-lazy val hangul = "com.htmlism" %% "hangul-model" % "0.0.1-SNAPSHOT"
-
 lazy val idioma = (project in file("."))
   .settings(commonSettings: _*)
-  .aggregate(grammar, generator, portuguese, spanish, tagalog, arabic, japanese, german, korean, mandarin)
+  .aggregate(grammar, generator, portuguese, spanish, tagalog, arabic, japanese, german, mandarin)
 
 lazy val grammar = project
   .settings(commonSettings: _*)
@@ -49,11 +47,6 @@ lazy val german = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))
-
-lazy val korean = project
-  .settings(commonSettings: _*)
-  .dependsOn(grammar, generator)
-  .settings(libraryDependencies ++= Seq(hangul, jsonFramework, testingFramework))
 
 lazy val mandarin = project
   .settings(commonSettings: _*)
