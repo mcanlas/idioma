@@ -3,13 +3,13 @@ package com.htmlism.idioma.portuguese
 import scala.collection.breakOut
 
 object Padder {
-  def alignLeft(strings: Traversable[String]): List[String] = {
+  def alignLeft(strings: List[String]): List[String] = {
     val length = maximumLength(strings)
 
     strings.map(x => s"%-${length}s".format(x))(breakOut)
   }
 
-  def alignRight(strings: Traversable[String]): List[String] = {
+  def alignRight(strings: List[String]): List[String] = {
     val length = maximumLength(strings)
 
     strings.map(x => s"%${length}s".format(x))(breakOut)

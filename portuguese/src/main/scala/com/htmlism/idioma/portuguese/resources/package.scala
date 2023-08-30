@@ -9,7 +9,7 @@ package object resources {
 
   def expandUnderscore(s: String): String = s.replace("_", "first|second|third")
 
-  def expandAlternation(s: String): Traversable[String] = {
+  def expandAlternation(s: String): List[String] = {
     val alternationExpressions = matchAlternation.findAllIn(s)
 
     alternationExpressions.foldLeft(List(s)) { (acc, altExpr) =>
