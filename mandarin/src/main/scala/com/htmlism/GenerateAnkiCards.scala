@@ -21,7 +21,7 @@ object GenerateAnkiCards {
   }
 
   def lineToAnki(s: String): String = {
-    val id = s.hashCode
+    val id = s.hashCode.toString
 
     val parts = s.split("\t")
 
@@ -32,7 +32,7 @@ object GenerateAnkiCards {
       else
         ""
 
-    Seq(id, wrap(chineseText), wrap(english), tag).mkString("\t")
+    List(id, wrap(chineseText), wrap(english), tag).mkString("\t")
   }
 
   def wrap(s: String): String = {
