@@ -1,7 +1,5 @@
 package com.htmlism
 
-import scala.language.implicitConversions
-
 package object idioma {
   implicit def addSampleMethod[A](iterable: Iterable[A]): CanSample[A] =
     new CanSample[A] {
