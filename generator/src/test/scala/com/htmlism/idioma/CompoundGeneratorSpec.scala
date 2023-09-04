@@ -4,8 +4,8 @@ import org.specs2.mutable.Specification
 
 class CompoundGeneratorSpec extends Specification {
   "A compound generator" should {
-    val elements = List('earth, 'fire, 'wind, 'water)
-    val magi     = List('belthasar, 'gaspar, 'melchior)
+    val elements = List("earth", "fire", "wind", "water")
+    val magi     = List("belthasar", "gaspar", "melchior")
 
     val generator = elements * magi
 
@@ -21,11 +21,11 @@ class CompoundGeneratorSpec extends Specification {
     }
 
     "support nesting" in {
-      val ozzie = List('ozzie)
-      val slash = List('slash)
-      val flea  = List('flea)
+      val ozzie = List("ozzie")
+      val slash = List("slash")
+      val flea  = List("flea")
 
-      (ozzie * slash * flea).sample === ((('ozzie, 'slash), 'flea))
+      (ozzie * slash * flea).sample === ((("ozzie", "slash"), "flea"))
     }
   }
 }
