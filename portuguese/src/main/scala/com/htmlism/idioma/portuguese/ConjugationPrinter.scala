@@ -1,18 +1,16 @@
 package com.htmlism.idioma.portuguese
 
-import scala.collection.breakOut
-
 object Padder {
   def alignLeft(strings: List[String]): List[String] = {
     val length = maximumLength(strings)
 
-    strings.map(x => s"%-${length}s".format(x))(breakOut)
+    strings.map(x => s"%-${length}s".format(x))
   }
 
   def alignRight(strings: List[String]): List[String] = {
     val length = maximumLength(strings)
 
-    strings.map(x => s"%${length}s".format(x))(breakOut)
+    strings.map(x => s"%${length}s".format(x))
   }
 
   def zip(left: Iterable[String], right: Iterable[String]): List[String] =
