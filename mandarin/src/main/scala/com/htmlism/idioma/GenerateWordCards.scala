@@ -15,10 +15,10 @@ object GenerateWordCards extends AnkiCardGenerator {
 case class ChineseWord(pinyin: String, english: String, chinese: String)
 
 object ChineseWordProvider extends Iterable[ChineseWord] {
-  def asSeq[A](f: Any => A)(x: Any): Seq[A] =
+  def asList[A](f: Any => A)(x: Any): List[A] =
     x match {
       case xs: java.util.ArrayList[_] =>
-        xs.asScala.map { y =>
+        xs.asScala.toList.map { y =>
           f(y)
         }
     }
