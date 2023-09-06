@@ -1,6 +1,6 @@
 package com.htmlism.idioma
 
-import scala.collection.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 import org.yaml.snakeyaml.Yaml
 
