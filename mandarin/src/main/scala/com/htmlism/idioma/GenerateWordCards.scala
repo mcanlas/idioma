@@ -21,6 +21,9 @@ object ChineseWordProvider extends Iterable[ChineseWord] {
         xs.asScala.toList.map { y =>
           f(y)
         }
+
+      case _ =>
+        Nil
     }
 
   def asString(x: Any): String = x match { case s: String => s }
@@ -29,6 +32,9 @@ object ChineseWordProvider extends Iterable[ChineseWord] {
     x match {
       case xs: java.util.LinkedHashMap[_, _] =>
         xs.asScala.iterator.map { case (a, b) => f(a) -> g(b) }.toMap
+
+      case _ =>
+        Map.empty
     }
 
   def iterator: Iterator[ChineseWord] = {
