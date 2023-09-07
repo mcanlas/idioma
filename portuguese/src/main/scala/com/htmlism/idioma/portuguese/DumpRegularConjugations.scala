@@ -8,7 +8,7 @@ object DumpRegularConjugations extends App {
   )
 
   for ((root, conjugation) <- verbs) {
-    println
+    println()
 
     val columns = for (t <- List(Presente, Perfeito, Imperfeito)) yield {
       val inflections =
