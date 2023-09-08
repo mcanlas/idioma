@@ -26,8 +26,6 @@ object ChineseWordProvider extends Iterable[ChineseWord] {
         Nil
     }
 
-  def asString(x: Any): String = x match { case s: String => s }
-
   def asMap[A, B](f: Any => A, g: Any => B)(x: Any): Map[A, B] =
     x match {
       case xs: java.util.LinkedHashMap[_, _] =>
@@ -41,7 +39,7 @@ object ChineseWordProvider extends Iterable[ChineseWord] {
     val is  = getClass.getResourceAsStream("/words.yaml")
     val doc = (new Yaml).load(is): Object
 
-    val words = asList(asMap(asString, asString))(doc)
+    val words = asList(asMap(_.toString, _.toString))(doc)
 
     words
       .iterator
