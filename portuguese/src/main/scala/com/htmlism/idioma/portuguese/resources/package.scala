@@ -26,7 +26,7 @@ package object resources {
       .io
       .Source
       .fromInputStream(getClass.getResourceAsStream(path))
-      .getLines
+      .getLines()
 
     // skip the header row
     iterator.next()
