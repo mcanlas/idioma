@@ -22,7 +22,7 @@ object Padder {
 
     var lines = List[String]()
 
-    val width = maximumLength(left)
+    val width = maximumLength(left.toList)
 
     while (leftIterator.hasNext) {
       val leftCell = s"%-${width}s".format(leftIterator.next())
@@ -37,6 +37,6 @@ object Padder {
     lines.reverse
   }
 
-  def maximumLength(strings: TraversableOnce[String]) =
+  def maximumLength(strings: List[String]) =
     strings.foldLeft(0)((acc, e) => if (acc > e.length) acc else e.length)
 }
