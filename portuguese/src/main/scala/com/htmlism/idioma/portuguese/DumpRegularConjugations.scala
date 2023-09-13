@@ -1,5 +1,8 @@
 package com.htmlism.idioma.portuguese
 
+/**
+  * Prints textual tables demonstrating the ability to programmatically conjugate regular verbs
+  */
 object DumpRegularConjugations extends App {
   val verbs = List(
     "fal"    -> resources.firstConjugation,

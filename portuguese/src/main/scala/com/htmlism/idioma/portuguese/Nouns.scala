@@ -5,6 +5,9 @@ import org.json4s.native.JsonMethods._
 
 import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
+/**
+  * Demonstrates the ability to inflect nouns programmatically
+  */
 object Nouns extends App {
   val json = parse(getClass.getResourceAsStream("/nouns.json"))
 

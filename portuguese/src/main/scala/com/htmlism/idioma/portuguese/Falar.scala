@@ -3,6 +3,9 @@ package com.htmlism.idioma.portuguese
 import com.htmlism.idioma._
 import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
+/**
+  * Prints generated sample sentences about speaking a language
+  */
 object Falar extends App {
   private val formasDeVerbos = Numeros * List(PessoaPrimeira, PessoaTerceira)
 

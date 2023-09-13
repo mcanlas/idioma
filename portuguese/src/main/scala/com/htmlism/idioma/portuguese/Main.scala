@@ -3,6 +3,9 @@ package com.htmlism.idioma.portuguese
 import com.htmlism.idioma._
 import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
+/**
+  * Prints out combinations of verbal phrases
+  */
 object Main extends App {
   val verbalPhrases = Data.verbs.flatMap { verb =>
     List(Presente, Perfeito, Imperfeito).flatMap { t =>
