@@ -13,6 +13,6 @@ object Data:
       JArray(objects)                 <- json
       JObject(obj)                    <- objects
       JField("lemma", JString(lemma)) <- obj
-    } yield new Phrase(lemma :: Nil)
+    } yield Phrase(lemma :: Nil)
 
     phrases
