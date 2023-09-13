@@ -4,19 +4,18 @@ import scala.jdk.CollectionConverters._
 
 import org.yaml.snakeyaml.Yaml
 
-object GenerateWordCards extends AnkiCardGenerator {
+object GenerateWordCards extends AnkiCardGenerator:
   def cards: Iterator[AnkiCard] =
     ChineseWordProvider.iterator.map(ReadChinese) ++
       ChineseWordProvider.iterator.map(PinyinToChinese) ++
       ChineseWordProvider.iterator.map(EnglishToPinyin) ++
       ChineseWordProvider.iterator.map(PinyinToEnglish)
-}
 
 case class ChineseWord(pinyin: String, english: String, chinese: String)
 
-object ChineseWordProvider extends Iterable[ChineseWord] {
+object ChineseWordProvider extends Iterable[ChineseWord]:
   def asList[A](f: Any => A)(x: Any): List[A] =
-    x match {
+    x match
       case xs: java.util.ArrayList[_] =>
         xs.asScala.toList.map { y =>
           f(y)
@@ -24,18 +23,16 @@ object ChineseWordProvider extends Iterable[ChineseWord] {
 
       case _ =>
         Nil
-    }
 
   def asMap[A, B](f: Any => A, g: Any => B)(x: Any): Map[A, B] =
-    x match {
+    x match
       case xs: java.util.LinkedHashMap[_, _] =>
         xs.asScala.iterator.map { case (a, b) => f(a) -> g(b) }.toMap
 
       case _ =>
         Map.empty
-    }
 
-  def iterator: Iterator[ChineseWord] = {
+  def iterator: Iterator[ChineseWord] =
     val is  = getClass.getResourceAsStream("/words.yaml")
     val doc = (new Yaml).load(is): Object
 
@@ -50,9 +47,6 @@ object ChineseWordProvider extends Iterable[ChineseWord] {
 
         ChineseWord(pinyin, english, chinese)
       }
-  }
-}
 
-object Tester extends App {
+object Tester extends App:
   ChineseWordProvider.toList.foreach(println)
-}

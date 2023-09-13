@@ -5,8 +5,8 @@ import org.json4s.native.JsonMethods._
 
 import com.htmlism.idioma._
 
-object Data {
-  lazy val periods = {
+object Data:
+  lazy val periods =
     val json = parse(getClass.getResourceAsStream("/nouns.json"))
 
     val phrases: Seq[Phrase] = for {
@@ -16,5 +16,3 @@ object Data {
     } yield new Phrase(lemma :: Nil)
 
     phrases
-  }
-}

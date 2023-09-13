@@ -4,8 +4,8 @@ import scala.io.Source
 
 import com.htmlism.hangul.Hangul
 
-object VowelCards {
-  val iterator: Iterator[AnkiCard] = {
+object VowelCards:
+  val iterator: Iterator[AnkiCard] =
     val vowels = Source
       .fromInputStream(getClass.getResourceAsStream("/vowels.csv"))
       .getLines()
@@ -26,5 +26,3 @@ object VowelCards {
           s"""<div id="heroic-answer">$pronunciation</div>"""
         )
       }
-  }
-}

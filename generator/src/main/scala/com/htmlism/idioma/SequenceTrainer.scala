@@ -1,10 +1,10 @@
 package com.htmlism.idioma
 
-object SequenceTrainer {
+object SequenceTrainer:
   def train[A](xs: Seq[A]): ((A, A), Iterator[(A, A, A)], (A, A)) =
     if (xs.length < 2)
       throw new IllegalArgumentException("training sequence must have at least two elements")
-    else {
+    else
       val first = (xs.head, xs(1))
       val last  = (xs(xs.length - 2), xs.last)
 
@@ -15,5 +15,3 @@ object SequenceTrainer {
         }
 
       (first, iter, last)
-    }
-}

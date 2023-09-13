@@ -1,6 +1,6 @@
 package com.htmlism.idioma
 
-object GenerateAnkiCards extends AnkiCardGenerator {
+object GenerateAnkiCards extends AnkiCardGenerator:
   def cards =
     ConsonantCards.iterator ++
       VerbCards.iterator ++
@@ -8,9 +8,8 @@ object GenerateAnkiCards extends AnkiCardGenerator {
       MonthCards.iterator ++
       NounCards.iterator ++
       VowelCards.iterator
-}
 
-trait TranslationCardIterator extends Iterable[AnkiCard] {
+trait TranslationCardIterator extends Iterable[AnkiCard]:
   def partsIterator: Iterator[(String, String, String)]
 
   def iterator: Iterator[AnkiCard] =
@@ -31,4 +30,3 @@ trait TranslationCardIterator extends Iterable[AnkiCard] {
           )
         )
       }
-}

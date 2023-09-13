@@ -1,6 +1,6 @@
 package com.htmlism.idioma.arabic
 
-object Lesson3 {
+object Lesson3:
   val englishWords = List("bank", "film", "CD", "cola", "cinema")
 
   val loanWords =
@@ -9,4 +9,3 @@ object Lesson3 {
   val nativeWords = List("kebab", "falafel", "bazaar", "souk", "gamel")
 
   val lessObviousWords = List("sukar", "chay")
-}

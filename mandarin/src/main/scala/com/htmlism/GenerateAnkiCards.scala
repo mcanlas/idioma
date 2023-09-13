@@ -4,10 +4,10 @@ import java.io.PrintWriter
 
 import scala.io.Source
 
-object GenerateAnkiCards {
+object GenerateAnkiCards:
   val tag = util.Random.alphanumeric.take(10).mkString
 
-  def main(args: Array[String]): Unit = {
+  def main(args: Array[String]): Unit =
     val out = new PrintWriter(args(0))
 
     val lines = Source
@@ -18,9 +18,8 @@ object GenerateAnkiCards {
       out.println(lineToAnki(l))
 
     out.close()
-  }
 
-  def lineToAnki(s: String): String = {
+  def lineToAnki(s: String): String =
     val id = s.hashCode.toString
 
     val parts = s.split("\t")
@@ -33,11 +32,8 @@ object GenerateAnkiCards {
         ""
 
     List(id, wrap(chineseText), wrap(english), tag).mkString("\t")
-  }
 
-  def wrap(s: String): String = {
+  def wrap(s: String): String =
     val x = s.replace("<", "&lt;").replace(">", "&gt;")
 
     """<div class="pinyin-phrase">""" + x + "</div>"
-  }
-}

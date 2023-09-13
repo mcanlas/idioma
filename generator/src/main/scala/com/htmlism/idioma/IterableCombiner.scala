@@ -1,5 +1,4 @@
 package com.htmlism.idioma
 
-class IterableCombiner[A](left: Iterable[A]) {
+class IterableCombiner[A](left: Iterable[A]):
   def *[B](right: Iterable[B]) = new CombinationGenerator[A, B](left, right)
-}

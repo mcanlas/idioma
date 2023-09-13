@@ -2,8 +2,8 @@ package com.htmlism.idioma
 
 import scala.io.Source
 
-object MonthCards extends TranslationCardIterator {
-  def partsIterator: Iterator[(String, String, String)] = {
+object MonthCards extends TranslationCardIterator:
+  def partsIterator: Iterator[(String, String, String)] =
     val months = Source
       .fromInputStream(getClass.getResourceAsStream("/months.tsv"))
       .getLines()
@@ -17,5 +17,3 @@ object MonthCards extends TranslationCardIterator {
 
         (english, english, korean)
       }
-  }
-}

@@ -1,5 +1,4 @@
 package com.htmlism.idioma
 
-trait CanSample[A] {
+trait CanSample[A]:
   def sample: A
-}
