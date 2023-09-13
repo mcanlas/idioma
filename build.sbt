@@ -56,6 +56,7 @@ lazy val german = project
 lazy val korean = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
+  .withGitHubPackagesCredentials
   .withResolver("hangul")
   .settings(libraryDependencies ++= Seq(jsonFramework))
   .settings(libraryDependencies += "com.htmlism" %% "hangul-model" % "322-485a82b9")
