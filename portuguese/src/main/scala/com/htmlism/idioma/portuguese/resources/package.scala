@@ -21,18 +21,14 @@ package object resources {
     }
   }
 
-  def getResourceLines(path: String): Iterator[String] = {
-    val iterator = scala
+  def getResourceLines(path: String): List[String] =
+    scala
       .io
       .Source
       .fromInputStream(getClass.getResourceAsStream(path))
       .getLines()
-
-    // skip the header row
-    iterator.next()
-
-    iterator
-  }
+      .toList
+      .tail
 
   lazy val (firstConjugation, secondConjugation, thirdConjugation) = {
     val vowelLookup = getResourceLines("/conjugations.tsv")
@@ -44,7 +40,6 @@ package object resources {
       .map(expandUnderscore)
       .flatMap(expandAlternation)
       .map(_.split('\t'))
-      .toList
       .groupBy(_(0))
       .map { case (conjugationName, inflectionRows) =>
         val vowel = vowelLookup(conjugationName)
