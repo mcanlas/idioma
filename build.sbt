@@ -17,38 +17,46 @@ lazy val grammar = project
 lazy val generator = project
   .settings(commonSettings: _*)
   .settings(libraryDependencies += testingFramework)
+  .withTesting
 
 lazy val portuguese = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))
+  .withTesting
 
 lazy val spanish = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))
+  .withTesting
 
 lazy val tagalog = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))
+  .withTesting
 
 lazy val arabic = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))
+  .withTesting
 
 lazy val japanese = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))
+  .withTesting
 
 lazy val german = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(jsonFramework, testingFramework))
+  .withTesting
 
 lazy val mandarin = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(yamlFramework, jsonFramework, testingFramework))
+  .withTesting
