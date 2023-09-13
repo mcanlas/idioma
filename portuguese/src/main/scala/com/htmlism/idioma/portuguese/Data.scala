@@ -17,7 +17,7 @@ object Data {
       .map { jv => (jv \ ("noun")).toString }
   }
 
-  lazy val pronouns = Map(
+  lazy val pronouns: Map[(Number, Pessoa), List[Phrase]] = Map(
     (Singular, PessoaPrimeira) -> List("eu"),
     (Singular, PessoaSegunda)  -> List("tu"),
     (Singular, PessoaTerceira) -> List("você", "ele", "ela", "a gente"),
@@ -28,7 +28,7 @@ object Data {
     s.map { Phrase(_) }
   }
 
-  lazy val timeHints = Map(
+  lazy val timeHints: Map[Tempo, List[Phrase]] = Map(
     Presente   -> List(""),
     Perfeito   -> List("ontem"),
     Imperfeito -> List("antigamente", "no passado"),
