@@ -58,8 +58,8 @@ object Falar extends App {
     adverb(tense) * pronouns * List(verb)
   }
 
-  val phrases = (verbPhraseTuples * Data.idiomas).map { case ((((tense, pronoun)), form), idioma) =>
-    tense + pronoun + form + idioma
+  val phrases = (verbPhraseTuples * Data.idiomas).map { case ((((tense, pronoun)), form), lang) =>
+    tense + pronoun + form + lang
   }
 
   for (_ <- 1 to 30) { println(Statement(phrases.sample.words).render) }
