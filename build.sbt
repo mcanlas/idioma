@@ -20,6 +20,7 @@ lazy val portuguese = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(jsonFramework))
+  .withCats
   .withTesting
 
 lazy val spanish = project

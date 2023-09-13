@@ -1,5 +1,6 @@
 package com.htmlism.idioma.portuguese
 
+import cats.syntax.all._
 import org.json4s._
 import org.json4s.native.JsonMethods._
 
@@ -27,7 +28,7 @@ object Data {
     (Plural, PessoaPrimeira)   -> List("nós"),
     (Plural, PessoaSegunda)    -> List("vós"),
     (Plural, PessoaTerceira)   -> List("vocês", "eles", "elas")
-  ).mapValues { s =>
+  ).fmap { s =>
     s.map { Phrase(_) }
   }
 
@@ -36,7 +37,7 @@ object Data {
     Perfeito   -> List("ontem"),
     Imperfeito -> List("antigamente", "no passado"),
     Futuro     -> List("amanhã")
-  ).mapValues { s =>
+  ).fmap { s =>
     s.map { Phrase(_) }
   }
 
