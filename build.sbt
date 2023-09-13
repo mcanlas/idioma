@@ -3,7 +3,11 @@ lazy val jsonFramework = "org.json4s" %% "json4s-native" % "4.0.6"
 lazy val yamlFramework = "org.yaml" % "snakeyaml" % "1.26"
 
 lazy val idioma = (project in file("."))
-  .aggregate(grammar, generator, portuguese, spanish, tagalog, arabic, japanese, german, korean, mandarin)
+  .aggregate(`data-loader`, grammar, generator, portuguese, spanish, tagalog, arabic, japanese, german, korean, mandarin)
+
+lazy val `data-loader` = project
+  .withEffectMonad
+  .withJsonParsing
 
 lazy val grammar = project
 
@@ -17,7 +21,7 @@ lazy val portuguese = project
   .withTesting
 
 lazy val spanish = project
-  .dependsOn(grammar, generator)
+  .dependsOn(grammar, generator, `data-loader`)
   .settings(libraryDependencies ++= Seq(jsonFramework))
   .withTesting
 
