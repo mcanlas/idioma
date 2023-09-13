@@ -33,7 +33,13 @@ package object resources {
   lazy val (firstConjugation, secondConjugation, thirdConjugation) = {
     val vowelLookup = getResourceLines("/conjugations.tsv")
       .map(_.split("\t"))
-      .map { case Array(name, vowel) => name -> vowel }
+      .map {
+        case Array(name, vowel) =>
+          name -> vowel
+
+        case _ =>
+          sys.error("can't parse conjugation")
+      }
       .toMap
 
     val conjugations = getResourceLines("/inflections.tsv")
@@ -44,11 +50,15 @@ package object resources {
       .map { case (conjugationName, inflectionRows) =>
         val vowel = vowelLookup(conjugationName)
 
-        val inflections = inflectionRows.map { case Array(_, tense, person, number, expression) =>
-          val interpolatedInflection =
-            interpretInflection(vowel, expression)
+        val inflections = inflectionRows.map {
+          case Array(_, tense, person, number, expression) =>
+            val interpolatedInflection =
+              interpretInflection(vowel, expression)
 
-          (Tempo(tense), Pessoa(person), Number(number)) -> interpolatedInflection
+            (Tempo(tense), Pessoa(person), Number(number)) -> interpolatedInflection
+
+          case _ =>
+            sys.error("can't parse inflection")
         }.toMap
 
         vowel -> inflections
