@@ -7,7 +7,7 @@ lazy val yamlFramework = "org.yaml" % "snakeyaml" % "1.26"
 
 lazy val idioma = (project in file("."))
   .settings(commonSettings: _*)
-  .aggregate(grammar, generator, portuguese, spanish, tagalog, arabic, japanese, german, mandarin)
+  .aggregate(grammar, generator, portuguese, spanish, tagalog, arabic, japanese, german, korean, mandarin)
 
 lazy val grammar = project
   .settings(commonSettings: _*)
@@ -51,6 +51,14 @@ lazy val german = project
   .settings(commonSettings: _*)
   .dependsOn(grammar, generator)
   .settings(libraryDependencies ++= Seq(jsonFramework))
+  .withTesting
+
+lazy val korean = project
+  .settings(commonSettings: _*)
+  .dependsOn(grammar, generator)
+  .withResolver("hangul")
+  .settings(libraryDependencies ++= Seq(jsonFramework))
+  .settings(libraryDependencies += "com.htmlism" %% "hangul-model" % "322-485a82b9")
   .withTesting
 
 lazy val mandarin = project
