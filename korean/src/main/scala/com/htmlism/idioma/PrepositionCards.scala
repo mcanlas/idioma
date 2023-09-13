@@ -9,7 +9,7 @@ object PrepositionCards extends TranslationCardIterator {
       .getLines()
 
     // skip the header
-    prepositions.next()
+    prepositions.next(): Unit
 
     prepositions
       .map { s =>

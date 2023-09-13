@@ -9,7 +9,7 @@ object MonthCards extends TranslationCardIterator {
       .getLines()
 
     // skip the header
-    months.next()
+    months.next(): Unit
 
     months
       .map { s =>

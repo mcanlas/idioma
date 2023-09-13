@@ -16,7 +16,7 @@ object GeneratePeriodicTables extends App {
         .fromInputStream(getClass.getResourceAsStream("/consonants.csv"))
         .getLines()
 
-      lines.next()
+      lines.next(): Unit
 
       lines.map { s =>
         val Array(n, hangul) = s.split(",")
@@ -85,7 +85,7 @@ object GeneratePeriodicTables extends App {
             .fromInputStream(getClass.getResourceAsStream("/periodic-vowels.tsv"))
             .getLines()
 
-          lines.next()
+          lines.next(): Unit
 
           lines
         }

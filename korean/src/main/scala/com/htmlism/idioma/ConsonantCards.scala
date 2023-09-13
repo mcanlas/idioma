@@ -11,7 +11,7 @@ object ConsonantCards {
       .getLines()
 
     // skip the header
-    consonants.next()
+    consonants.next(): Unit
 
     consonants
       .map { s =>

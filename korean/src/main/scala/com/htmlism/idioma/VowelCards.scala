@@ -11,7 +11,7 @@ object VowelCards {
       .getLines()
 
     // skip the header
-    vowels.next()
+    vowels.next(): Unit
 
     vowels
       .map { s =>
