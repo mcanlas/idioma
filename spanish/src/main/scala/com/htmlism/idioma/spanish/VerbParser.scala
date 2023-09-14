@@ -6,7 +6,7 @@ case class ParsedVerb(root: String, conjugation: VerbConjugation)
 
 object ParsedVerb:
   private val verbPattern =
-    """(.+)([aei]r)""".r
+    """(.+)([aei])r""".r
 
   def unapply(s: String): Option[ParsedVerb] =
     for {

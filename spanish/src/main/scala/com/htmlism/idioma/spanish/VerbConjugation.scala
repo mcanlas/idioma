@@ -2,15 +2,15 @@ package com.htmlism.idioma.spanish
 
 import cats.syntax.all._
 
-enum VerbConjugation:
-  case Ar
-  case Er
-  case Ir
+enum VerbConjugation(val vowel: String):
+  case Ar extends VerbConjugation("a")
+  case Er extends VerbConjugation("e")
+  case Ir extends VerbConjugation("i")
 
 object VerbConjugation:
   def unapply(s: String): Option[VerbConjugation] =
     s match
-      case "ar" => Ar.some
-      case "er" => Er.some
-      case "ir" => Ir.some
-      case _    => None
+      case "a" => Ar.some
+      case "e" => Er.some
+      case "i" => Ir.some
+      case _   => None
