@@ -33,3 +33,10 @@
 - infinitive: dar
   indicative-present-first-singular: doy
   indicative-present-second-plural: dais
+- infinitive: saber
+  indicative-present-first-singular: sé
+- infinitive: querer
+  indicative-present-first-singular: quiero
+  indicative-present-second-singular: quieres
+  indicative-present-third-singular: quiere
+  indicative-present-third-plural: quieren
