@@ -12,4 +12,8 @@
 - infinitive: decir
   past-participle: dicho
   gerund: diciendo
+  indicative-present-first-singular: digo
+  indicative-present-second-singular: dices
+  indicative-present-third-singular: dice
+  indicative-present-third-plural: dicen
 - infinitive: hablar
