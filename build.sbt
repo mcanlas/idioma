@@ -20,6 +20,7 @@ lazy val idioma = (project in file("."))
 lazy val `data-loader` = project
   .withEffectMonad
   .withJsonParsing
+  .withYaml
 
 lazy val grammar = project
 
