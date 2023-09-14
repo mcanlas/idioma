@@ -9,13 +9,13 @@ import com.htmlism.idioma.dataloader.DataLoader
 
 object PrintConjugation extends PrintConjugation[IO] with IOApp.Simple
 
-class PrintConjugation[F[_]: Sync: Console]:
+class PrintConjugation[F[_]: Sync](using out: Console[F]):
   val forms =
     NonEmptyList.of(
-      VerbalForm.Infinitive,
-      VerbalForm.PastParticiple,
-      VerbalForm.Gerund
-    ) ::: VerbalForm.personAndNumber.map((VerbalForm.PresentMood.apply _).tupled)
+      VerbalFormKey.Infinitive,
+      VerbalFormKey.PastParticiple,
+      VerbalFormKey.Gerund
+    ) ::: VerbalFormKey.personAndNumber.map((VerbalFormKey.PresentMood.apply _).tupled)
 
   def run: F[Unit] =
     for {
@@ -28,12 +28,14 @@ class PrintConjugation[F[_]: Sync: Console]:
               .unapply(xs("infinitive"))
               .liftTo[F](new NoSuchElementException("could not find infinitive"))
 
-            _ <- Console[F].println(verb)
+            _ <- out.println(verb)
+
+            _ <- out.println("https://www.linguasorb.com/spanish/verbs/conjugation/" + verb.infinitive)
 
             _ <- forms
-              .traverse(f => Console[F].println(VerbConjugator(verb, xs).getForm(f)))
+              .traverse(f => out.println(VerbConjugator.getForm(verb, xs, f)))
 
-            _ <- Console[F].println("")
+            _ <- out.println("")
           } yield ()
         }
     } yield ()

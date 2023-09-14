@@ -3,6 +3,11 @@
   indicative-present-second-singular: estás
   indicative-present-third-singular: está
   indicative-present-third-plural: están
+- infinitive: poder
+  indicative-present-first-singular: puedo
+  indicative-present-second-singular: puedes
+  indicative-present-third-singular: puede
+  indicative-present-third-plural: pueden
 - infinitive: tener
 - infinitive: decier
 - infinitive: hablar

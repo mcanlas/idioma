@@ -2,7 +2,9 @@ package com.htmlism.idioma.spanish
 
 import cats.syntax.all._
 
-case class ParsedVerb(root: String, conjugation: VerbConjugationGroup)
+case class ParsedVerb(root: String, conjugation: VerbConjugationGroup):
+  val infinitive: String =
+    root + conjugation.vowel + "r"
 
 object ParsedVerb:
   private val verbPattern =
