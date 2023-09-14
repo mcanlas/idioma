@@ -6,10 +6,10 @@ import org.json4s.native.JsonMethods._
 
 import com.htmlism.idioma._
 
-object Data {
+object Data:
   lazy val verbs = List("a", "e", "i").flatMap(parseVerbs)
 
-  lazy val idiomas: List[Phrase] = {
+  lazy val idiomas: List[Phrase] =
     val json = parse(getClass.getResourceAsStream("/nouns.languages.json"))
 
     json
@@ -17,7 +17,6 @@ object Data {
       .map(_ \ "noun")
       .map(_.toString)
       .map(Phrase(_))
-  }
 
   lazy val pronouns: Map[(Number, Pessoa), List[Phrase]] = Map(
     (Singular, PessoaPrimeira) -> List("eu"),
@@ -39,13 +38,10 @@ object Data {
     s.map { Phrase(_) }
   }
 
-  private def parseVerbs(letter: String) = {
+  private def parseVerbs(letter: String) =
     val json = parse(getClass.getResourceAsStream(s"/verbs.${letter}r.json"))
 
-    json match {
+    json match
       case JArray(jsonVerbs) =>
         for (json <- jsonVerbs) yield OldVerb(json)
       case _ => throw new IllegalArgumentException
-    }
-  }
-}

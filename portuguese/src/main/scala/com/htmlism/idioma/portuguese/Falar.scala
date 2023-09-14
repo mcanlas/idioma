@@ -6,7 +6,7 @@ import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 /**
   * Prints generated sample sentences about speaking a language
   */
-object Falar extends App {
+object Falar extends App:
   private val formasDeVerbos = Numeros * List(PessoaPrimeira, PessoaTerceira)
 
   val verb = Data
@@ -29,7 +29,7 @@ object Falar extends App {
     .head
 
   def conjugate(tense: Tense, number: Number, person: Pessoa) =
-    tense match {
+    tense match
       case Tense.Present   => Phrase(verb(Presente, person, number).word)
       case Tense.Perfect   => Phrase(verb(Perfeito, person, number).word)
       case Tense.Imperfect => Phrase(verb(Imperfeito, person, number).word)
@@ -39,17 +39,15 @@ object Falar extends App {
         Phrase(List(copula(Presente, person, number).word, verb.gerund))
       case Tense.PastProgressive =>
         Phrase(List(copula(Imperfeito, person, number).word, verb.gerund))
-    }
 
   def adverb(tense: Tense) =
-    tense match {
+    tense match
       case Tense.Present            => Data.timeHints(Presente)
       case Tense.Perfect            => Data.timeHints(Perfeito)
       case Tense.Imperfect          => Data.timeHints(Imperfeito)
       case Tense.Future             => Data.timeHints(Futuro)
       case Tense.PresentProgressive => List(Phrase.empty)
       case Tense.PastProgressive    => List(Phrase.empty)
-    }
 
   private val verbPhraseTuples = (Tense.all * formasDeVerbos).flatMap { case (tense, (number, person)) =>
     val verb     = conjugate(tense, number, person)
@@ -66,7 +64,7 @@ object Falar extends App {
 
   sealed trait Tense
 
-  object Tense {
+  object Tense:
     val all: List[Tense] =
       List(
         Present,
@@ -83,5 +81,3 @@ object Falar extends App {
     case object Future             extends Tense
     case object PresentProgressive extends Tense
     case object PastProgressive    extends Tense
-  }
-}

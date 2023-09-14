@@ -2,7 +2,7 @@ package com.htmlism.idioma.portuguese
 
 import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
-object Declension {
+object Declension:
   val substitutions = Map(
     "m" -> "ns",
     "r" -> "res",
@@ -13,17 +13,15 @@ object Declension {
     "i" -> "is",
     "l" -> "is"
   )
-}
 
-case class Declension(lemma: String, gender: Gênero, plural: Option[String] = None) {
+case class Declension(lemma: String, gender: Gênero, plural: Option[String] = None):
   def apply(number: Number) =
-    number match {
+    number match
       case Singular => lemma
       case Plural   => pluralForm
-    }
 
   def apply(number: Number, definiteness: Especificação) =
-    (gender, number, definiteness) match {
+    (gender, number, definiteness) match
       case (Masculino, Singular, Definitivo)   => s"o $lemma"
       case (Masculino, Singular, Indefinitivo) => s"um $lemma"
       case (Masculino, Plural, Definitivo)     => s"os $pluralForm"
@@ -33,20 +31,16 @@ case class Declension(lemma: String, gender: Gênero, plural: Option[String] = N
       case (Feminino, Plural, Definitivo)      => s"as $pluralForm"
       case (Feminino, Plural, Indefinitivo)    => s"umas $pluralForm"
       case _                                   => throw new NotImplementedError
-    }
 
   private def pluralForm =
-    plural match {
+    plural match
       case Some(form) => form
       case None =>
         val substitution = Declension.substitutions.find { case (ending, _) =>
           lemma.endsWith(ending)
         }
 
-        substitution match {
+        substitution match
           case Some((ending, replacement)) =>
             lemma.replaceFirst(s"$ending$$", replacement)
           case None => throw new RuntimeException
-        }
-    }
-}

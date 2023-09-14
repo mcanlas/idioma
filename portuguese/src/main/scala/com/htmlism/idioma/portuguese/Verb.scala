@@ -1,15 +1,13 @@
 package com.htmlism.idioma.portuguese
 
-import org.json4s.JsonAST.JNothing
-import org.json4s.JsonAST.JObject
-import org.json4s.JsonAST.JString
-import org.json4s.JsonAST.JValue
+import org.json4s.JsonAST._
+import org.json4s._
 
 import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 
-object OldVerb {
+object OldVerb:
   def apply(jv: JValue): OldVerb =
-    jv match {
+    jv match
       case JObject(fields) =>
         val map = fields.toMap
 
@@ -23,12 +21,11 @@ object OldVerb {
             Numeros.map { n =>
               val maybeIrregularForm = jv \ t.key \ (p.pessoa + n.número.capitalize)
 
-              val form = maybeIrregularForm match {
+              val form = maybeIrregularForm match
                 case JString(s) => IrregularForm(s)
                 case JNothing   => conjugation(root, (t, p, n))
                 case _ =>
                   throw new RuntimeException(s"unexpected jvalue instance $maybeIrregularForm")
-              }
 
               ((t, p, n), form)
             }
@@ -40,11 +37,8 @@ object OldVerb {
         new OldVerb(infinitive, gerund, forms.toMap)
       case _ =>
         throw new IllegalArgumentException("OldVerb constructor needs a jObject")
-    }
-}
 
 case class OldVerb(infinitive: String, gerund: String, private val forms: Map[(Tempo, Pessoa, Number), InflectedForm])
-    extends CanConjugate {
+    extends CanConjugate:
   def apply(tense: Tempo, person: Pessoa, number: Number): InflectedForm =
     forms((tense, person, number))
-}

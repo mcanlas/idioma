@@ -1,6 +1,6 @@
 package com.htmlism.idioma.portuguese
 
-package object resources {
+package object resources:
   val matchAlternation = """(\S+\|[\S|]+)""".r
 
   def interpretInflection(vowel: String, s: String): String =
@@ -9,7 +9,7 @@ package object resources {
 
   def expandUnderscore(s: String): String = s.replace("_", "first|second|third")
 
-  def expandAlternation(s: String): List[String] = {
+  def expandAlternation(s: String): List[String] =
     val alternationExpressions = matchAlternation.findAllIn(s)
 
     alternationExpressions.foldLeft(List(s)) { (acc, altExpr) =>
@@ -19,7 +19,6 @@ package object resources {
         for (e <- elements) yield cur.replace(altExpr, e)
       }
     }
-  }
 
   def getResourceLines(path: String): List[String] =
     scala
@@ -30,16 +29,15 @@ package object resources {
       .toList
       .tail
 
-  lazy val (firstConjugation, secondConjugation, thirdConjugation) = {
+  lazy val (firstConjugation, secondConjugation, thirdConjugation) =
     val vowelLookup = getResourceLines("/conjugations.tsv")
       .map(_.split("\t"))
-      .map {
+      .map:
         case Array(name, vowel) =>
           name -> vowel
 
         case _ =>
           sys.error("can't parse conjugation")
-      }
       .toMap
 
     val conjugations = getResourceLines("/inflections.tsv")
@@ -69,5 +67,3 @@ package object resources {
       new FunctionConjugation("e", conjugations("e")): Conjugation,
       new FunctionConjugation("i", conjugations("i")): Conjugation
     )
-  }
-}

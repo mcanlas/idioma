@@ -9,7 +9,7 @@ import cats.syntax.all._
 import io.circe.parser.decode
 
 object DataLoader:
-  def getJson[F[_], A : JsonDecoder](is: => InputStream)(using F: Sync[F]): F[A] =
+  def getJson[F[_], A: JsonDecoder](is: => InputStream)(using F: Sync[F]): F[A] =
     Resource
       .fromAutoCloseable(F.delay(is))
       .use { is =>

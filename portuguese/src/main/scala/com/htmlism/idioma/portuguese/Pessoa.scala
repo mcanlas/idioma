@@ -1,6 +1,6 @@
 package com.htmlism.idioma.portuguese
 
-object Pessoa {
+object Pessoa:
   lazy val lookup = CategoriasGramaticais
     .Pessoas
     .map { p =>
@@ -9,7 +9,6 @@ object Pessoa {
     .toMap
 
   def apply(s: String) = lookup(s)
-}
 
 sealed abstract class Pessoa(val pessoa: String)
 

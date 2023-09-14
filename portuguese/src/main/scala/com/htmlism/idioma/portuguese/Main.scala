@@ -6,21 +6,20 @@ import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 /**
   * Prints out combinations of verbal phrases
   */
-object Main extends App {
+object Main extends App:
   val verbalPhrases = Data.verbs.flatMap { verb =>
     List(Presente, Perfeito, Imperfeito).flatMap { t =>
-      val timePhrases = t match {
+      val timePhrases = t match
         case Presente   => Nil :: Nil
         case Perfeito   => List("ontem") :: Nil
         case Imperfeito => List("antigamente") :: List("no", "passado") :: Nil
         case _          => throw new UnsupportedOperationException
-      }
 
       val phrases = Pessoas.flatMap { p =>
         Numeros.flatMap { n =>
           val form = verb(t, p, n).word
 
-          (p, n) match {
+          (p, n) match
             case (PessoaPrimeira, Singular) =>
               List("eu", form) :: Nil
             case (PessoaTerceira, Singular) =>
@@ -37,7 +36,6 @@ object Main extends App {
                 List("elas", form) :: Nil
             case _ =>
               Nil
-          }
         }
       }
 
@@ -49,7 +47,7 @@ object Main extends App {
     }
   }
 
-  val progressivePhrases = {
+  val progressivePhrases =
     val copula = Data
       .verbs
       .filter { v =>
@@ -63,7 +61,7 @@ object Main extends App {
           Numeros.flatMap { n =>
             val form = copula(t, p, n).word
 
-            (p, n) match {
+            (p, n) match
               case (PessoaPrimeira, Singular) =>
                 List("eu", form) :: Nil
               case (PessoaTerceira, Singular) =>
@@ -80,7 +78,6 @@ object Main extends App {
                   List("elas", form) :: Nil
               case _ =>
                 Nil
-            }
           }
         }
       }
@@ -89,12 +86,9 @@ object Main extends App {
         p :+ verb.gerund
       }
     }
-  }
 
   val sentences = verbalPhrases ++ progressivePhrases
 
-  for (s <- sentences) {
+  for (s <- sentences)
     val sentence = Statement(s)
     println(sentence.render)
-  }
-}

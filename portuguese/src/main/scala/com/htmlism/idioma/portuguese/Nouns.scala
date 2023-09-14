@@ -8,31 +8,27 @@ import com.htmlism.idioma.portuguese.CategoriasGramaticais._
 /**
   * Demonstrates the ability to inflect nouns programmatically
   */
-object Nouns extends App {
+object Nouns extends App:
   val json = parse(getClass.getResourceAsStream("/nouns.json"))
 
-  val declensions = json match {
+  val declensions = json match
     case JArray(jsonLemmas) =>
-      for (jsonLemma <- jsonLemmas) yield {
+      for (jsonLemma <- jsonLemmas) yield
         val JString(lemma)        = jsonLemma \ "lemma"
         val JString(genderString) = jsonLemma \ "gender"
 
-        val plural = jsonLemma \ "plural" match {
+        val plural = jsonLemma \ "plural" match
           case JString(form) => Some(form)
           case JNothing      => None
           case _             => throw new NotImplementedError
-        }
 
-        val gender = genderString match {
+        val gender = genderString match
           case "m" => Masculino
           case "f" => Feminino
           case _   => throw new RuntimeException
-        }
 
         Declension(lemma, gender, plural)
-      }
     case _ => throw new IllegalArgumentException
-  }
 
   declensions.foreach { d =>
     println(d(Singular))
@@ -44,4 +40,3 @@ object Nouns extends App {
     println(d(Singular, Definitivo))
     println(d(Plural, Definitivo))
   }
-}

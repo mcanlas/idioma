@@ -1,6 +1,6 @@
 package com.htmlism.idioma.portuguese
 
-object CategoriasGramaticais {
+object CategoriasGramaticais:
   val Definitivo   = Especificação("definite", "d")
   val Indefinitivo = Especificação("indefinite", "i")
 
@@ -27,6 +27,5 @@ object CategoriasGramaticais {
     (Plural, PessoaSegunda)    -> List("vós"),
     (Plural, PessoaTerceira)   -> List("eles", "elas")
   )
-}
 
 case class Especificação(especificação: String, código: String)
