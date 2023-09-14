@@ -24,13 +24,13 @@ package object resources:
     scala
       .io
       .Source
-      .fromInputStream(getClass.getResourceAsStream(path))
+      .fromResource(path)
       .getLines()
       .toList
       .tail
 
   lazy val (firstConjugation, secondConjugation, thirdConjugation) =
-    val vowelLookup = getResourceLines("/conjugations.tsv")
+    val vowelLookup = getResourceLines("conjugations.tsv")
       .map(_.split("\t"))
       .map:
         case Array(name, vowel) =>
@@ -40,7 +40,7 @@ package object resources:
           sys.error("can't parse conjugation")
       .toMap
 
-    val conjugations = getResourceLines("/inflections.tsv")
+    val conjugations = getResourceLines("inflections.tsv")
       .map(expandUnderscore)
       .flatMap(expandAlternation)
       .map(_.split('\t'))

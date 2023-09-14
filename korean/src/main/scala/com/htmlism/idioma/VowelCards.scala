@@ -7,7 +7,7 @@ import com.htmlism.hangul.Hangul
 object VowelCards:
   val iterator: Iterator[AnkiCard] =
     val vowels = Source
-      .fromInputStream(getClass.getResourceAsStream("/vowels.csv"))
+      .fromResource("vowels.csv")
       .getLines()
       .toList
 

@@ -11,7 +11,7 @@ object GenerateAnkiCards:
     val out = new PrintWriter(args(0))
 
     val lines = Source
-      .fromInputStream(getClass.getResourceAsStream("/phrases.tsv"))
+      .fromResource("phrases.tsv")
       .getLines()
 
     for (l <- lines)

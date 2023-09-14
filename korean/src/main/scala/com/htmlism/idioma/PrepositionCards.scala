@@ -5,7 +5,7 @@ import scala.io.Source
 object PrepositionCards extends TranslationCardIterator:
   def partsIterator: Iterator[(String, String, String)] =
     val prepositions = Source
-      .fromInputStream(getClass.getResourceAsStream("/prepositions.tsv"))
+      .fromResource("prepositions.tsv")
       .getLines()
       .toList
 

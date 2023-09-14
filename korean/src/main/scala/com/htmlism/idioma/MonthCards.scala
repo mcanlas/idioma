@@ -5,7 +5,7 @@ import scala.io.Source
 object MonthCards extends TranslationCardIterator:
   def partsIterator: Iterator[(String, String, String)] =
     val months = Source
-      .fromInputStream(getClass.getResourceAsStream("/months.tsv"))
+      .fromResource("months.tsv")
       .getLines()
       .toList
 

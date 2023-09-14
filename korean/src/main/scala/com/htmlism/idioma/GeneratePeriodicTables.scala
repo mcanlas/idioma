@@ -13,7 +13,7 @@ object GeneratePeriodicTables extends App:
   private def printConsonants() =
     val consonants =
       val lines = Source
-        .fromInputStream(getClass.getResourceAsStream("/consonants.csv"))
+        .fromResource("consonants.csv")
         .getLines()
         .toList
 
@@ -28,7 +28,7 @@ object GeneratePeriodicTables extends App:
         .toMap
 
     val lines = Source
-      .fromInputStream(getClass.getResourceAsStream("/periodic-consonants.tsv"))
+      .fromResource("periodic-consonants.tsv")
       .getLines()
 
     val html =
@@ -77,7 +77,7 @@ object GeneratePeriodicTables extends App:
       val bodyRowsCellsHtml =
         val rows =
           val lines = Source
-            .fromInputStream(getClass.getResourceAsStream("/periodic-vowels.tsv"))
+            .fromResource("periodic-vowels.tsv")
             .getLines()
             .toList
 

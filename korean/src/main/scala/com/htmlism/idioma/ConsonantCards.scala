@@ -7,7 +7,7 @@ import com.htmlism.hangul.Hangul
 object ConsonantCards:
   val iterator: Iterator[AnkiCard] =
     val consonants = Source
-      .fromInputStream(getClass.getResourceAsStream("/consonants.csv"))
+      .fromResource("consonants.csv")
       .getLines()
       .toList
 
