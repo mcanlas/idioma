@@ -11,7 +11,8 @@ object Conjugate extends Conjugate[IO] with IOApp.Simple
 class Conjugate[F[_]: Sync: Console]:
   def run: F[Unit] =
     for {
-      _ <- DataLoader.getYaml[F, List[String]]("verbs.yaml")
+      xs <- DataLoader.getYaml[F, List[Map[String, String]]]("verbs.yaml")
 
-      _ <- Console[F].println("sup")
+      _ <- xs
+        .traverse(xs => Console[F].println(ParsedVerb.unapply(xs("infinitive"))))
     } yield ()

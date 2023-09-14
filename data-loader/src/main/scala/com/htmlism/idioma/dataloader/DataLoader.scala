@@ -28,4 +28,4 @@ object DataLoader:
       Source
         .fromResource(path)
         .getLines()
-        .mkString
+        .mkString("\n")
