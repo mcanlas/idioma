@@ -40,3 +40,9 @@
   indicative-present-second-singular: quieres
   indicative-present-third-singular: quiere
   indicative-present-third-plural: quieren
+- infinitive: haber
+  indicative-present-first-singular: he
+  indicative-present-second-singular: has
+  indicative-present-third-singular: ha
+  indicative-present-first-plural: hemos
+  indicative-present-third-plural: han
