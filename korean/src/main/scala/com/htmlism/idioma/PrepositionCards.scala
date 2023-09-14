@@ -7,11 +7,11 @@ object PrepositionCards extends TranslationCardIterator:
     val prepositions = Source
       .fromInputStream(getClass.getResourceAsStream("/prepositions.tsv"))
       .getLines()
-
-    // skip the header
-    prepositions.next(): Unit
+      .toList
 
     prepositions
+      .tail
+      .iterator
       .map { s =>
         val Array(english, korean) = s.split("\t")
 

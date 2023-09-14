@@ -7,11 +7,11 @@ object MonthCards extends TranslationCardIterator:
     val months = Source
       .fromInputStream(getClass.getResourceAsStream("/months.tsv"))
       .getLines()
-
-    // skip the header
-    months.next(): Unit
+      .toList
 
     months
+      .tail
+      .iterator
       .map { s =>
         val Array(english, korean) = s.split("\t")
 

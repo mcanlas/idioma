@@ -9,11 +9,11 @@ object ConsonantCards:
     val consonants = Source
       .fromInputStream(getClass.getResourceAsStream("/consonants.csv"))
       .getLines()
-
-    // skip the header
-    consonants.next(): Unit
+      .toList
 
     consonants
+      .tail
+      .iterator
       .map { s =>
         val Array(n, name) = s.split(",")
 

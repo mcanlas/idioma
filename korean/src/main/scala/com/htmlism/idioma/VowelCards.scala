@@ -9,11 +9,11 @@ object VowelCards:
     val vowels = Source
       .fromInputStream(getClass.getResourceAsStream("/vowels.csv"))
       .getLines()
-
-    // skip the header
-    vowels.next(): Unit
+      .toList
 
     vowels
+      .tail
+      .iterator
       .map { s =>
         val Array(n, pronunciation) = s.split(",")
 

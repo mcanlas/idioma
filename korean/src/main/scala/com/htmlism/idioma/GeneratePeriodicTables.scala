@@ -15,10 +15,9 @@ object GeneratePeriodicTables extends App:
       val lines = Source
         .fromInputStream(getClass.getResourceAsStream("/consonants.csv"))
         .getLines()
+        .toList
 
-      lines.next(): Unit
-
-      lines.map { s =>
+      lines.tail.iterator.map { s =>
         val Array(n, hangul) = s.split(",")
 
         n.toInt -> hangul
@@ -76,10 +75,9 @@ object GeneratePeriodicTables extends App:
           val lines = Source
             .fromInputStream(getClass.getResourceAsStream("/periodic-vowels.tsv"))
             .getLines()
+            .toList
 
-          lines.next(): Unit
-
-          lines
+          lines.tail.iterator
 
         val bodyCellsHtml = rows.map { row =>
           row
