@@ -5,6 +5,14 @@ import com.htmlism.idioma.spanish.GrammaticalPerson._
 
 object VerbConjugator:
   def getForm(verb: ParsedVerb, irregularForms: Map[String, String], formKey: VerbalFormKey): VerbalForm =
+    def getIrregularFormOrElse(key: String, default: String) =
+      irregularForms.get(key) match
+        case Some(s) =>
+          VerbalForm.Irregular(s)
+
+        case None =>
+          VerbalForm.Regular(default)
+
     val rootAndVowel =
       verb.root + verb.conjugation.vowel
 
@@ -13,10 +21,10 @@ object VerbConjugator:
         VerbalForm.Regular(rootAndVowel + "r")
 
       case VerbalFormKey.PastParticiple =>
-        VerbalForm.Regular(rootAndVowel + "do")
+        getIrregularFormOrElse("past-participle", rootAndVowel + "do")
 
       case VerbalFormKey.Gerund =>
-        VerbalForm.Regular(rootAndVowel + "ndo")
+        getIrregularFormOrElse("gerund", rootAndVowel + "ndo")
 
       case VerbalFormKey.PresentMood(person, number) =>
         val overrideKey =
@@ -38,9 +46,4 @@ object VerbConjugator:
               verb.root + suffix
             case (ThirdPerson, Plural) => rootAndVowel + "n"
 
-        irregularForms.get(overrideKey) match
-          case Some(s) =>
-            VerbalForm.Irregular(s)
-
-          case None =>
-            VerbalForm.Regular(defaultConjugation)
+        getIrregularFormOrElse(overrideKey, defaultConjugation)

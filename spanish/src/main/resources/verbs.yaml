@@ -9,5 +9,7 @@
   indicative-present-third-singular: puede
   indicative-present-third-plural: pueden
 - infinitive: tener
-- infinitive: decier
+- infinitive: decir
+  past-participle: dicho
+  gerund: diciendo
 - infinitive: hablar
