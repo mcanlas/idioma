@@ -53,7 +53,7 @@ lazy val german = project
   .withTesting
 
 lazy val korean = project
-  .dependsOn(grammar, generator)
+  .dependsOn(grammar, generator, `data-loader`)
   .withGitHubPackagesCredentials
   .withResolver("hangul")
   .settings(libraryDependencies ++= Seq(jsonFramework))

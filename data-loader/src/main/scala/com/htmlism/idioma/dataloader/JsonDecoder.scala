@@ -15,3 +15,9 @@ object JsonDecoder:
 
   given listJson[A](using json: JsonDecoder[A]): JsonDecoder[List[A]] =
     JsonDecoder(CirceDecoder.decodeList(using json.circeDecoder))
+
+  given mapJson[A](using json: JsonDecoder[A]): JsonDecoder[Map[String, A]] =
+    given CirceDecoder[A] =
+      json.circeDecoder
+
+    JsonDecoder(CirceDecoder.decodeMap[String, A])

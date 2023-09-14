@@ -17,11 +17,15 @@ object GeneratePeriodicTables extends App:
         .getLines()
         .toList
 
-      lines.tail.iterator.map { s =>
-        val Array(n, hangul) = s.split(",")
+      lines
+        .tail
+        .iterator
+        .map { s =>
+          val Array(n, hangul) = s.split(",")
 
-        n.toInt -> hangul
-      }.toMap
+          n.toInt -> hangul
+        }
+        .toMap
 
     val lines = Source
       .fromInputStream(getClass.getResourceAsStream("/periodic-consonants.tsv"))
