@@ -1,5 +1,8 @@
 package com.htmlism.idioma
 
+import io.circe.Decoder
+import io.circe.generic.semiauto.deriveDecoder
+
 import com.htmlism.idioma._
 import com.htmlism.idioma.dataloader._
 
@@ -16,5 +19,5 @@ object VerbCards extends TranslationCardIterator:
 case class Verb(korean: String)
 
 object Verb:
-  given JsonDecoder[Verb] =
-    JsonDecoder.derive
+  given Decoder[Verb] =
+    deriveDecoder

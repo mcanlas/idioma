@@ -1,5 +1,8 @@
 package com.htmlism.idioma
 
+import io.circe.Decoder
+import io.circe.generic.semiauto.deriveDecoder
+
 import com.htmlism.idioma._
 import com.htmlism.idioma.dataloader._
 
@@ -16,5 +19,5 @@ object NounCards extends TranslationCardIterator:
 case class Noun(hangul: String)
 
 object Noun:
-  given JsonDecoder[Noun] =
-    JsonDecoder.derive
+  given Decoder[Noun] =
+    deriveDecoder

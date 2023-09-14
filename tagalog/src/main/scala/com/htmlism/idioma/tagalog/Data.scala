@@ -1,5 +1,8 @@
 package com.htmlism.idioma.tagalog
 
+import io.circe.Decoder
+import io.circe.generic.semiauto.deriveDecoder
+
 import com.htmlism.idioma._
 import com.htmlism.idioma.dataloader._
 
@@ -11,5 +14,5 @@ object Data:
 case class Noun(lemma: String, gloss: String)
 
 object Noun:
-  given JsonDecoder[Noun] =
-    JsonDecoder.derive
+  given Decoder[Noun] =
+    deriveDecoder
