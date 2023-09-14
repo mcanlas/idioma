@@ -12,15 +12,15 @@ object DependenciesPlugin extends AutoPlugin {
       def withYaml: Project =
         p.settings(
           libraryDependencies ++= Seq(
-            "io.circe" %% "circe-generic" % circeVersion,
-            "io.circe" %% "circe-yaml"    % "0.14.2"
+            "io.circe" %% "circe-yaml" % "0.14.2"
           )
         )
 
       def withJsonParsing: Project =
         p.settings(
           libraryDependencies ++= Seq(
-            "io.circe" %% "circe-parser" % circeVersion
+            "io.circe" %% "circe-generic" % circeVersion,
+            "io.circe" %% "circe-parser"  % circeVersion
           )
         )
 

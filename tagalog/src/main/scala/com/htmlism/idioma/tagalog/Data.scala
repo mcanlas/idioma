@@ -1,18 +1,15 @@
 package com.htmlism.idioma.tagalog
 
-import org.json4s._
-import org.json4s.native.JsonMethods._
-
 import com.htmlism.idioma._
+import com.htmlism.idioma.dataloader._
 
 object Data:
-  lazy val periods =
-    val json = parse(getClass.getResourceAsStream("/nouns.json"))
+  lazy val periods: List[Phrase] =
+    DataLoader
+      .getJsonUnsafe[List[Noun]](getClass.getResourceAsStream("/nouns.json"))
+      .map(n => Phrase(List(n.lemma)))
+case class Noun(lemma: String, gloss: String)
 
-    val phrases: Seq[Phrase] = for {
-      JArray(objects)                 <- json
-      JObject(obj)                    <- objects
-      JField("lemma", JString(lemma)) <- obj
-    } yield Phrase(lemma :: Nil)
-
-    phrases
+object Noun:
+  given JsonDecoder[Noun] =
+    JsonDecoder.derive

@@ -15,7 +15,7 @@ lazy val generator = project
   .withTesting
 
 lazy val portuguese = project
-  .dependsOn(grammar, generator)
+  .dependsOn(grammar, generator, `data-loader`)
   .settings(libraryDependencies ++= Seq(jsonFramework))
   .withCats
   .withTesting
@@ -26,8 +26,7 @@ lazy val spanish = project
   .withTesting
 
 lazy val tagalog = project
-  .dependsOn(grammar, generator)
-  .settings(libraryDependencies ++= Seq(jsonFramework))
+  .dependsOn(grammar, generator, `data-loader`)
   .withTesting
 
 lazy val arabic = project
