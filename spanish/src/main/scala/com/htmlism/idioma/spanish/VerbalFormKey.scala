@@ -9,10 +9,16 @@ enum VerbalFormKey:
   case Infinitive
   case PastParticiple
   case Gerund
-  case PresentMood(person: GrammaticalPerson, number: GrammaticalNumber)
+  case PresentMood(tense: GrammaticalTense, number: GrammaticalNumber, person: GrammaticalPerson)
 
 object VerbalFormKey:
-  val personAndNumber: NonEmptyList[(GrammaticalPerson, GrammaticalNumber)] =
+  val matrix: NonEmptyList[(GrammaticalTense, GrammaticalNumber, GrammaticalPerson)] =
+    val tenses =
+      GrammaticalTense
+        .values
+        .toList
+        .pipe(NonEmptyList.fromListUnsafe)
+
     val persons =
       GrammaticalPerson
         .values
@@ -25,6 +31,4 @@ object VerbalFormKey:
         .toList
         .pipe(NonEmptyList.fromListUnsafe)
 
-    (numbers, persons)
-      .tupled
-      .map(_.swap)
+    (tenses, numbers, persons).tupled

@@ -17,7 +17,13 @@
   indicative-present-third-singular: dice
   indicative-present-third-plural: dicen
 - infinitive: hablar
+  comment: totally regular
 - infinitive: mirar
+  comment: totally regular
+- infinitive: vivir
+  comment: totally regular
+- infinitive: deber
+  comment: totally regular
 - infinitive: ir
   gerund: yendo
   indicative-present-first-singular: voy
