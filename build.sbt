@@ -22,7 +22,6 @@ lazy val portuguese = project
 
 lazy val spanish = project
   .dependsOn(grammar, generator, `data-loader`)
-  .settings(libraryDependencies ++= Seq(jsonFramework))
   .withTesting
 
 lazy val tagalog = project
@@ -31,28 +30,24 @@ lazy val tagalog = project
 
 lazy val arabic = project
   .dependsOn(grammar, generator)
-  .settings(libraryDependencies ++= Seq(jsonFramework))
   .withTesting
 
 lazy val japanese = project
   .dependsOn(grammar, generator)
-  .settings(libraryDependencies ++= Seq(jsonFramework))
   .withTesting
 
 lazy val german = project
   .dependsOn(grammar, generator)
-  .settings(libraryDependencies ++= Seq(jsonFramework))
   .withTesting
 
 lazy val korean = project
   .dependsOn(grammar, generator)
   .withGitHubPackagesCredentials
   .withResolver("hangul")
-  .settings(libraryDependencies ++= Seq(jsonFramework))
   .settings(libraryDependencies += "com.htmlism" %% "hangul-model" % "322-485a82b9")
   .withTesting
 
 lazy val mandarin = project
   .dependsOn(grammar, generator)
-  .settings(libraryDependencies ++= Seq(yamlFramework, jsonFramework))
+  .settings(libraryDependencies ++= Seq(yamlFramework))
   .withTesting
