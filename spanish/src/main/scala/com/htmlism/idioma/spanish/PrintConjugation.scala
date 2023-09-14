@@ -31,7 +31,9 @@ class PrintConjugation[F[_]: Sync: Console]:
             _ <- Console[F].println(verb)
 
             _ <- forms
-              .traverse(f => Console[F].println(VerbConjugator.getForm(verb, xs, f)))
+              .traverse(f => Console[F].println(VerbConjugator(verb, xs).getForm(f)))
+
+            _ <- Console[F].println("")
           } yield ()
         }
     } yield ()

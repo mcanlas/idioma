@@ -1,5 +1,5 @@
 package com.htmlism.idioma.spanish
 
-enum GrammaticalNumber:
-  case Singular
-  case Plural
+enum GrammaticalNumber(val s: String):
+  case Singular extends GrammaticalNumber("singular")
+  case Plural   extends GrammaticalNumber("plural")

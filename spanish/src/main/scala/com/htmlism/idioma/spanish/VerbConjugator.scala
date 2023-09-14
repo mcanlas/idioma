@@ -3,11 +3,12 @@ package com.htmlism.idioma.spanish
 import com.htmlism.idioma.spanish.GrammaticalNumber._
 import com.htmlism.idioma.spanish.GrammaticalPerson._
 
-object VerbConjugator:
-  def getForm(verb: ParsedVerb, irregularForms: Map[String, String], form: VerbalForm): String =
-    val rootAndVowel =
-      verb.root + verb.conjugation.vowel
+case class VerbConjugator(verb: ParsedVerb, irregularForms: Map[String, String]):
 
+  private val rootAndVowel =
+    verb.root + verb.conjugation.vowel
+
+  def getForm(form: VerbalForm): String =
     form match
       case VerbalForm.Infinitive =>
         rootAndVowel + "r"
@@ -19,16 +20,23 @@ object VerbConjugator:
         rootAndVowel + "ndo"
 
       case VerbalForm.PresentMood(person, number) =>
-        (person, number) match
-          case (FirstPerson, Singular)  => verb.root + "o"
-          case (SecondPerson, Singular) => rootAndVowel + "s"
-          case (ThirdPerson, Singular)  => rootAndVowel
-          case (FirstPerson, Plural)    => rootAndVowel + "mos"
-          case (SecondPerson, Plural) =>
-            val suffix = verb.conjugation match
-              case VerbConjugation.Ar => "áis"
-              case VerbConjugation.Er => "éis"
-              case VerbConjugation.Ir => "ís"
+        val overrideKey =
+          List("indicative", "present", person.s, number.s)
+            .mkString("-")
 
-            verb.root + suffix
-          case (ThirdPerson, Plural) => rootAndVowel + "n"
+        irregularForms.getOrElse(overrideKey, defaultConjugation(person, number))
+
+  def defaultConjugation(person: GrammaticalPerson, number: GrammaticalNumber) =
+    (person, number) match
+      case (FirstPerson, Singular)  => verb.root + "o"
+      case (SecondPerson, Singular) => rootAndVowel + "s"
+      case (ThirdPerson, Singular)  => rootAndVowel
+      case (FirstPerson, Plural)    => rootAndVowel + "mos"
+      case (SecondPerson, Plural) =>
+        val suffix = verb.conjugation match
+          case VerbConjugationGroup.Ar => "áis"
+          case VerbConjugationGroup.Er => "éis"
+          case VerbConjugationGroup.Ir => "ís"
+
+        verb.root + suffix
+      case (ThirdPerson, Plural) => rootAndVowel + "n"

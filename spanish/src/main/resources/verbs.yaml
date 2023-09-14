@@ -1,5 +1,8 @@
 - infinitive: estar
-  indicative-first-singular: estoy
+  indicative-present-first-singular: estoy
+  indicative-present-second-singular: estás
+  indicative-present-third-singular: está
+  indicative-present-third-plural: están
 - infinitive: tener
 - infinitive: decier
 - infinitive: hablar
