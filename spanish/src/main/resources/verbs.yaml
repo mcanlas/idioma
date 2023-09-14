@@ -17,3 +17,11 @@
   indicative-present-third-singular: dice
   indicative-present-third-plural: dicen
 - infinitive: hablar
+- infinitive: ir
+  gerund: yendo
+  indicative-present-first-singular: voy
+  indicative-present-second-singular: vas
+  indicative-present-third-singular: va
+  indicative-present-first-plural: vamos
+  indicative-present-second-plural: vais
+  indicative-present-third-plural: van

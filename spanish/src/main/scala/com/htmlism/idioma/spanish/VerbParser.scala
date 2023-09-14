@@ -7,8 +7,9 @@ case class ParsedVerb(root: String, conjugation: VerbConjugationGroup):
     root + conjugation.vowel + "r"
 
 object ParsedVerb:
+  // zero length capture for `ir`
   private val verbPattern =
-    """(.+)([aei])r""".r
+    """(.*)([aei])r""".r
 
   def unapply(s: String): Option[ParsedVerb] =
     for {
