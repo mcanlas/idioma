@@ -1,34 +1,19 @@
 package com.htmlism.idioma.portuguese
 
-import org.json4s._
-import org.json4s.native.JsonMethods._
+import io.circe.Decoder
+import io.circe.generic.semiauto.deriveDecoder
 
-import com.htmlism.idioma.portuguese.CategoriasGramaticais._
+import com.htmlism.idioma.dataloader._
+import com.htmlism.idioma.portuguese.CategoriasGramaticais.*
 
 /**
   * Demonstrates the ability to inflect nouns programmatically
   */
 object Nouns extends App:
-  val json = parse(getClass.getResourceAsStream("/nouns.json"))
-
-  val declensions = json match
-    case JArray(jsonLemmas) =>
-      for (jsonLemma <- jsonLemmas) yield
-        val JString(lemma)        = jsonLemma \ "lemma"
-        val JString(genderString) = jsonLemma \ "gender"
-
-        val plural = jsonLemma \ "plural" match
-          case JString(form) => Some(form)
-          case JNothing      => None
-          case _             => throw new NotImplementedError
-
-        val gender = genderString match
-          case "m" => Gender.Masculine
-          case "f" => Gender.Feminine
-          case _   => throw new RuntimeException
-
-        Declension(lemma, gender, plural)
-    case _ => throw new IllegalArgumentException
+  val declensions =
+    DataLoader
+      .getJsonUnsafe[List[Noun]](getClass.getResourceAsStream("/nouns.json"))
+      .map(n => Declension(n.lemma, n.gender, n.plural))
 
   declensions.foreach { d =>
     println(d(Singular))
@@ -40,3 +25,9 @@ object Nouns extends App:
     println(d(Singular, Definitivo))
     println(d(Plural, Definitivo))
   }
+
+case class Noun(lemma: String, gender: Gender, gloss: String, plural: Option[String])
+
+object Noun:
+  given Decoder[Noun] =
+    deriveDecoder
