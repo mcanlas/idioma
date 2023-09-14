@@ -6,10 +6,10 @@ import org.yaml.snakeyaml.Yaml
 
 object GenerateWordCards extends AnkiCardGenerator:
   def cards: Iterator[AnkiCard] =
-    ChineseWordProvider.iterator.map(ReadChinese) ++
-      ChineseWordProvider.iterator.map(PinyinToChinese) ++
-      ChineseWordProvider.iterator.map(EnglishToPinyin) ++
-      ChineseWordProvider.iterator.map(PinyinToEnglish)
+    ChineseWordProvider.iterator.map(ReadChinese.apply) ++
+      ChineseWordProvider.iterator.map(PinyinToChinese.apply) ++
+      ChineseWordProvider.iterator.map(EnglishToPinyin.apply) ++
+      ChineseWordProvider.iterator.map(PinyinToEnglish.apply)
 
 case class ChineseWord(pinyin: String, english: String, chinese: String)
 
