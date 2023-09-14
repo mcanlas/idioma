@@ -20,7 +20,7 @@ package object resources:
       }
     }
 
-  def getResourceLines(path: String): List[String] =
+  private def getResourceLines(path: String): List[String] =
     scala
       .io
       .Source
