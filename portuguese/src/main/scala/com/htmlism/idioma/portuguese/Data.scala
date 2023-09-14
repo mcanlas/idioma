@@ -9,12 +9,14 @@ import com.htmlism.idioma._
 object Data {
   lazy val verbs = List("a", "e", "i").flatMap(parseVerbs)
 
-  lazy val idiomas: List[String] = {
+  lazy val idiomas: List[Phrase] = {
     val json = parse(getClass.getResourceAsStream("/nouns.languages.json"))
 
     json
       .children
-      .map { jv => (jv \ ("noun")).toString }
+      .map(_ \ "noun")
+      .map(_.toString)
+      .map(Phrase(_))
   }
 
   lazy val pronouns: Map[(Number, Pessoa), List[Phrase]] = Map(
