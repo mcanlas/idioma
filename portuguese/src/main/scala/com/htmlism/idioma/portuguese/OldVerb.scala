@@ -11,6 +11,7 @@ object OldVerb:
       case JObject(fields) =>
         val map = fields.toMap
 
+        @unchecked
         val JString(infinitive) = map("infinitive")
 
         val (root, conjugation) = Conjugação(infinitive)
