@@ -17,7 +17,6 @@ object CategoriasGramaticais:
   )
   val Pessoas = List(PessoaPrimeira, PessoaSegunda, PessoaTerceira)
   val Numeros = List(Singular, Plural)
-  val Generos = List(Masculino, Feminino, Ambos)
 
   val Pronomes = Map(
     (Singular, PessoaPrimeira) -> List("eu"),

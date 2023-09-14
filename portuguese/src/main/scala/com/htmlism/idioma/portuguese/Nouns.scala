@@ -23,8 +23,8 @@ object Nouns extends App:
           case _             => throw new NotImplementedError
 
         val gender = genderString match
-          case "m" => Masculino
-          case "f" => Feminino
+          case "m" => Gender.Masculine
+          case "f" => Gender.Feminine
           case _   => throw new RuntimeException
 
         Declension(lemma, gender, plural)
