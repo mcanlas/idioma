@@ -12,7 +12,7 @@ import com.htmlism.idioma.portuguese.CategoriasGramaticais.*
 object Nouns extends App:
   val declensions =
     DataLoader
-      .getJsonUnsafe[List[Noun]](getClass.getResourceAsStream("/nouns.json"))
+      .getJsonUnsafe[List[Noun]]("nouns.json")
       .map(n => Declension(n.lemma, n.gender, n.plural))
 
   declensions.foreach { d =>

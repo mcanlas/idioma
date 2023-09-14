@@ -9,7 +9,7 @@ import com.htmlism.idioma.dataloader._
 object VerbCards extends TranslationCardIterator:
   def partsIterator: Iterator[(String, String, String)] =
     DataLoader
-      .getJsonUnsafe[Map[String, Verb]](getClass.getResourceAsStream("/verbs.json"))
+      .getJsonUnsafe[Map[String, Verb]]("verbs.json")
       .toList
       .map { case (eng, verb) =>
         (eng, "to " + eng, verb.korean)
