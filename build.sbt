@@ -7,6 +7,7 @@ lazy val idioma = (project in file("."))
     `data-loader`,
     grammar,
     generator,
+    iberia,
     portuguese,
     spanish,
     tagalog,
@@ -16,6 +17,9 @@ lazy val idioma = (project in file("."))
     korean,
     mandarin
   )
+
+lazy val iberia = project
+  .dependsOn(spanish, portuguese)
 
 lazy val `data-loader` = project
   .withEffectMonad
