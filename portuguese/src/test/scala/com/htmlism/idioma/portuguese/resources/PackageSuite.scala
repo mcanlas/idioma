@@ -1,6 +1,6 @@
 package com.htmlism.idioma.portuguese.resources
 
-import weaver._
+import weaver.*
 
 object PackageSuite extends FunSuite:
   test("interpret underscore"):

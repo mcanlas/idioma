@@ -12,14 +12,13 @@ class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Itera
   def hasNext = leftIterator.hasNext || rightIterator.hasNext
 
   def next() =
-    if (hasNext)
-      if (currentLeftElement == null)
-        currentLeftElement = leftIterator.next()
+    if hasNext then
+      if currentLeftElement == null then currentLeftElement = leftIterator.next()
 
       val leftElement  = currentLeftElement
       val rightElement = rightIterator.next()
 
-      if (!rightIterator.hasNext && leftIterator.hasNext)
+      if !rightIterator.hasNext && leftIterator.hasNext then
         currentLeftElement = leftIterator.next()
         rightIterator      = rightGenerator.iterator
 

@@ -3,8 +3,8 @@ package com.htmlism.idioma
 import io.circe.Decoder
 import io.circe.generic.semiauto.deriveDecoder
 
-import com.htmlism.idioma._
-import com.htmlism.idioma.dataloader._
+import com.htmlism.idioma.*
+import com.htmlism.idioma.dataloader.*
 
 object VerbCards extends TranslationCardIterator:
   def partsIterator: Iterator[(String, String, String)] =

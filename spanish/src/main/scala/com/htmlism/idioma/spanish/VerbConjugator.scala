@@ -1,8 +1,8 @@
 package com.htmlism.idioma.spanish
 
-import com.htmlism.idioma.spanish.GrammaticalNumber._
-import com.htmlism.idioma.spanish.GrammaticalPerson._
-import com.htmlism.idioma.spanish.GrammaticalTense._
+import com.htmlism.idioma.spanish.GrammaticalNumber.*
+import com.htmlism.idioma.spanish.GrammaticalPerson.*
+import com.htmlism.idioma.spanish.GrammaticalTense.*
 
 object VerbConjugator:
   def getForm(verb: ParsedVerb, irregularForms: Map[String, String], formKey: VerbalFormKey): VerbalForm =

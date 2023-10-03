@@ -10,7 +10,7 @@ object DumpRegularConjugations extends App:
     "assist" -> resources.thirdConjugation
   )
 
-  for ((root, conjugation) <- verbs)
+  for (root, conjugation) <- verbs do
     println()
 
     val columns = for (t <- List(Presente, Perfeito, Imperfeito)) yield

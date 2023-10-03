@@ -3,8 +3,8 @@ package com.htmlism.idioma.tagalog
 import io.circe.Decoder
 import io.circe.generic.semiauto.deriveDecoder
 
-import com.htmlism.idioma._
-import com.htmlism.idioma.dataloader._
+import com.htmlism.idioma.*
+import com.htmlism.idioma.dataloader.*
 
 object Data:
   lazy val periods: List[Phrase] =

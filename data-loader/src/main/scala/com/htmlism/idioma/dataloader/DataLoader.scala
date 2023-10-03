@@ -3,8 +3,8 @@ package com.htmlism.idioma.dataloader
 import scala.io.Source
 
 import cats.effect.*
-import cats.syntax.all._
-import io.circe._
+import cats.syntax.all.*
+import io.circe.*
 import io.circe.parser.decode
 
 object DataLoader:

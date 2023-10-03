@@ -1,6 +1,6 @@
 package com.htmlism.idioma
 
-import scala.jdk.CollectionConverters._
+import scala.jdk.CollectionConverters.*
 
 import org.yaml.snakeyaml.Yaml
 
@@ -16,7 +16,7 @@ case class ChineseWord(pinyin: String, english: String, chinese: String)
 object ChineseWordProvider extends Iterable[ChineseWord]:
   def asList[A](f: Any => A)(x: Any): List[A] =
     x match
-      case xs: java.util.ArrayList[_] =>
+      case xs: java.util.ArrayList[?] =>
         xs.asScala.toList.map { y =>
           f(y)
         }
@@ -26,7 +26,7 @@ object ChineseWordProvider extends Iterable[ChineseWord]:
 
   def asMap[A, B](f: Any => A, g: Any => B)(x: Any): Map[A, B] =
     x match
-      case xs: java.util.LinkedHashMap[_, _] =>
+      case xs: java.util.LinkedHashMap[?, ?] =>
         xs.asScala.iterator.map { case (a, b) => f(a) -> g(b) }.toMap
 
       case _ =>

@@ -1,6 +1,6 @@
 package com.htmlism.idioma.spanish
 
-import cats.syntax.all._
+import cats.syntax.all.*
 
 enum VerbConjugationGroup(val vowel: String):
   case Ar extends VerbConjugationGroup("a")

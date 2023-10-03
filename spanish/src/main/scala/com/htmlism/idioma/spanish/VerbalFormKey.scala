@@ -1,9 +1,9 @@
 package com.htmlism.idioma.spanish
 
-import scala.util.chaining._
+import scala.util.chaining.*
 
-import cats.data._
-import cats.syntax.all._
+import cats.data.*
+import cats.syntax.all.*
 
 enum VerbalFormKey:
   case Infinitive

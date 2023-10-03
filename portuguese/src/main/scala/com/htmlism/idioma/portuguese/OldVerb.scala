@@ -1,9 +1,9 @@
 package com.htmlism.idioma.portuguese
 
-import org.json4s.JsonAST._
-import org.json4s._
+import org.json4s.JsonAST.*
+import org.json4s.*
 
-import com.htmlism.idioma.portuguese.CategoriasGramaticais._
+import com.htmlism.idioma.portuguese.CategoriasGramaticais.*
 
 object OldVerb:
   def apply(jv: JValue): OldVerb =

@@ -1,6 +1,6 @@
 package com.htmlism.idioma
 
-import weaver._
+import weaver.*
 
 object CompoundGeneratorSuite extends FunSuite:
   val elements = List("earth", "fire", "wind", "water")

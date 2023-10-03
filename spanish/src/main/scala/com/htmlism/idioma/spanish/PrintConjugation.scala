@@ -1,9 +1,9 @@
 package com.htmlism.idioma.spanish
 
-import cats.data._
+import cats.data.*
 import cats.effect.*
 import cats.effect.std.Console
-import cats.syntax.all._
+import cats.syntax.all.*
 
 import com.htmlism.idioma.dataloader.DataLoader
 

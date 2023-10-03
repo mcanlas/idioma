@@ -1,7 +1,7 @@
 package com.htmlism.idioma.portuguese
 
-import com.htmlism.idioma._
-import com.htmlism.idioma.portuguese.CategoriasGramaticais._
+import com.htmlism.idioma.*
+import com.htmlism.idioma.portuguese.CategoriasGramaticais.*
 
 /**
   * Prints generated sample sentences about speaking a language
@@ -60,7 +60,7 @@ object Falar extends App:
     tense + pronoun + form + lang
   }
 
-  for (_ <- 1 to 30) { println(Statement(phrases.sample.words).render) }
+  for _ <- 1 to 30 do { println(Statement(phrases.sample.words).render) }
 
   sealed trait Tense
 

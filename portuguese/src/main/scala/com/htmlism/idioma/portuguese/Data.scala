@@ -1,10 +1,10 @@
 package com.htmlism.idioma.portuguese
 
-import cats.syntax.all._
-import org.json4s._
-import org.json4s.native.JsonMethods._
+import cats.syntax.all.*
+import org.json4s.*
+import org.json4s.native.JsonMethods.*
 
-import com.htmlism.idioma._
+import com.htmlism.idioma.*
 
 object Data:
   lazy val verbs = List("a", "e", "i").flatMap(parseVerbs)

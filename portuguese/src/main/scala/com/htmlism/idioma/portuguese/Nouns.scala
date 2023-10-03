@@ -3,7 +3,7 @@ package com.htmlism.idioma.portuguese
 import io.circe.Decoder
 import io.circe.generic.semiauto.deriveDecoder
 
-import com.htmlism.idioma.dataloader._
+import com.htmlism.idioma.dataloader.*
 import com.htmlism.idioma.portuguese.CategoriasGramaticais.*
 
 /**

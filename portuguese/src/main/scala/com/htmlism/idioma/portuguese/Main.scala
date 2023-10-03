@@ -1,7 +1,7 @@
 package com.htmlism.idioma.portuguese
 
-import com.htmlism.idioma._
-import com.htmlism.idioma.portuguese.CategoriasGramaticais._
+import com.htmlism.idioma.*
+import com.htmlism.idioma.portuguese.CategoriasGramaticais.*
 
 /**
   * Prints out combinations of verbal phrases
@@ -89,6 +89,6 @@ object Main extends App:
 
   val sentences = verbalPhrases ++ progressivePhrases
 
-  for (s <- sentences)
+  for s <- sentences do
     val sentence = Statement(s)
     println(sentence.render)

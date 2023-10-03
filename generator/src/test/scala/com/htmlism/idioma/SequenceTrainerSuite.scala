@@ -1,8 +1,8 @@
 package com.htmlism.idioma
 
-import scala.util._
+import scala.util.*
 
-import weaver._
+import weaver.*
 
 object SequenceTrainerSuite extends FunSuite:
   test("bomb on short sequences"):

@@ -1,5 +1,5 @@
-import sbt.Keys._
-import sbt._
+import sbt.Keys.*
+import sbt.*
 
 /**
   * Automatically enriches projects with the following settings (despite the word "override").
@@ -11,11 +11,11 @@ object Scala3Plugin extends AutoPlugin {
     */
   override def trigger: PluginTrigger = AllRequirements
 
-  override val buildSettings: Seq[Setting[_]] = Seq(
+  override val buildSettings: Seq[Setting[?]] = Seq(
     scalaVersion := "3.3.1"
   )
 
-  override val projectSettings: Seq[Setting[_]] = Seq(
+  override val projectSettings: Seq[Setting[?]] = Seq(
     scalacOptions ++= Seq("-indent", "-rewrite")
   )
 }

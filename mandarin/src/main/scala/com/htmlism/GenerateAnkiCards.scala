@@ -14,8 +14,7 @@ object GenerateAnkiCards:
       .fromResource("phrases.tsv")
       .getLines()
 
-    for (l <- lines)
-      out.println(lineToAnki(l))
+    for l <- lines do out.println(lineToAnki(l))
 
     out.close()
 
@@ -26,10 +25,8 @@ object GenerateAnkiCards:
 
     val chineseText = parts(0).capitalize
     val english =
-      if (parts.length > 1)
-        parts(1)
-      else
-        ""
+      if parts.length > 1 then parts(1)
+      else ""
 
     List(id, wrap(chineseText), wrap(english), tag).mkString("\t")
 
