@@ -18,12 +18,12 @@ class PrintConjugation[F[_]: Sync](using out: Console[F]):
     ) ::: VerbalFormKey.matrix.map((VerbalFormKey.PresentMood.apply _).tupled)
 
   def run: F[Unit] =
-    for {
+    for
       xs <- DataLoader.getYaml[F, List[Map[String, String]]]("verbs.yaml")
 
       _ <- xs
         .traverse { xs =>
-          for {
+          for
             verb <- ParsedVerb
               .unapply(xs("infinitive"))
               .liftTo[F](new NoSuchElementException("could not find infinitive"))
@@ -36,6 +36,6 @@ class PrintConjugation[F[_]: Sync](using out: Console[F]):
               .traverse(f => out.println(VerbConjugator.getForm(verb, xs, f)))
 
             _ <- out.println("")
-          } yield ()
+          yield ()
         }
-    } yield ()
+    yield ()

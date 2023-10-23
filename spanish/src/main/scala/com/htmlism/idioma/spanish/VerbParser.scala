@@ -12,10 +12,10 @@ object ParsedVerb:
     """(.*)([aei])r""".r
 
   def unapply(s: String): Option[ParsedVerb] =
-    for {
+    for
       rootAndEnding <- parseParts(s)
       conjugation   <- VerbConjugationGroup.unapply(rootAndEnding._2)
-    } yield ParsedVerb(rootAndEnding._1, conjugation)
+    yield ParsedVerb(rootAndEnding._1, conjugation)
 
   private def parseParts(s: String) =
     s match

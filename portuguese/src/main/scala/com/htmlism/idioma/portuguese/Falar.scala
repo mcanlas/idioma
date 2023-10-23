@@ -60,7 +60,7 @@ object Falar extends App:
     tense + pronoun + form + lang
   }
 
-  for _ <- 1 to 30 do { println(Statement(phrases.sample.words).render) }
+  for _ <- 1 to 30 do println(Statement(phrases.sample.words).render)
 
   sealed trait Tense
 
