@@ -15,7 +15,7 @@ class PrintConjugation[F[_]: Sync](using out: Console[F]):
       VerbalFormKey.Infinitive,
       VerbalFormKey.PastParticiple,
       VerbalFormKey.Gerund
-    ) ::: VerbalFormKey.matrix.map((VerbalFormKey.PresentMood.apply _).tupled)
+    ) ::: VerbalFormKey.matrix.map(VerbalFormKey.PresentMood.apply.tupled)
 
   def run: F[Unit] =
     for
