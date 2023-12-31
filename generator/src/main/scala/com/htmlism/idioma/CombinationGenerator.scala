@@ -1,12 +1,14 @@
 package com.htmlism.idioma
 
+import scala.compiletime.uninitialized
+
 class CombinationGenerator[A, B](left: Iterable[A], right: Iterable[B]) extends Iterable[(A, B)] with CanSample[(A, B)]:
   def iterator = new CombinationIterator(left.iterator, right)
 
   def sample = (left.sample, right.sample)
 
 class CombinationIterator[A, B](leftIterator: Iterator[A], rightGenerator: Iterable[B]) extends Iterator[(A, B)]:
-  private var currentLeftElement: A = _
+  private var currentLeftElement: A = uninitialized
   private var rightIterator         = rightGenerator.iterator
 
   def hasNext = leftIterator.hasNext || rightIterator.hasNext
