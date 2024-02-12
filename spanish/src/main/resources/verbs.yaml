@@ -9,6 +9,10 @@
   indicative-present-third-singular: puede
   indicative-present-third-plural: pueden
 - infinitive: tener
+  indicative-present-first-singular: tengo
+  indicative-present-second-singular: tienes
+  indicative-present-third-singular: tiene
+  indicative-present-third-plural: tienen
 - infinitive: decir
   past-participle: dicho
   gerund: diciendo
