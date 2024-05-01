@@ -7,12 +7,12 @@ object DependenciesPlugin extends AutoPlugin {
   object autoImport {
     implicit class DependencyOps(p: Project) {
       val circeVersion =
-        "0.14.6"
+        "0.14.7"
 
       def withYaml: Project =
         p.settings(
           libraryDependencies ++= Seq(
-            "io.circe" %% "circe-yaml" % "0.14.2"
+            "io.circe" %% "circe-yaml" % "0.15.1"
           )
         )
 
