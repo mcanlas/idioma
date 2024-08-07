@@ -4,7 +4,7 @@ trait Sentence:
   protected def words: List[String]
   protected def punctuation: String
 
-  lazy val nonEmptyWords = words.toSeq.filter { _.nonEmpty }
+  lazy val nonEmptyWords = words.toSeq.filter(_.nonEmpty)
 
   def render =
     (nonEmptyWords.head.capitalize +: nonEmptyWords.tail)

@@ -26,7 +26,7 @@ object Data:
     (Plural, PessoaSegunda)    -> List("vós"),
     (Plural, PessoaTerceira)   -> List("vocês", "eles", "elas")
   ).fmap { s =>
-    s.map { Phrase(_) }
+    s.map(Phrase(_))
   }
 
   lazy val timeHints: Map[Tempo, List[Phrase]] = Map(
@@ -35,7 +35,7 @@ object Data:
     Imperfeito -> List("antigamente", "no passado"),
     Futuro     -> List("amanhã")
   ).fmap { s =>
-    s.map { Phrase(_) }
+    s.map(Phrase(_))
   }
 
   private def parseVerbs(letter: String) =
