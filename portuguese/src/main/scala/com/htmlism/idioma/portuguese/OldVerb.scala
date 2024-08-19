@@ -1,7 +1,6 @@
 package com.htmlism.idioma.portuguese
 
 import org.json4s.*
-import org.json4s.JsonAST.*
 
 import com.htmlism.idioma.portuguese.CategoriasGramaticais.*
 
