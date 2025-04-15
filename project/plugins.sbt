@@ -1,6 +1,6 @@
 addSbtPlugin("org.scalameta"    % "sbt-scalafmt"              % "2.5.4")
 addSbtPlugin("org.scoverage"    % "sbt-scoverage"             % "2.3.1")
 addSbtPlugin("org.typelevel"    % "sbt-tpolecat"              % "0.5.2")
-addSbtPlugin("org.wartremover"  % "sbt-wartremover"           % "3.3.1")
+addSbtPlugin("org.wartremover"  % "sbt-wartremover"           % "3.3.2")
 addSbtPlugin("ch.epfl.scala"    % "sbt-scalafix"              % "0.14.0+4-d8b6d8ed+20250314-1956-SNAPSHOT")
 addSbtPlugin("com.github.cb372" % "sbt-explicit-dependencies" % "0.3.1")
