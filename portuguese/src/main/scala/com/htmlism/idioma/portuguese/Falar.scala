@@ -33,7 +33,7 @@ object Falar extends App:
       case Tense.Present   => Phrase(verb(Presente, person, number).word)
       case Tense.Perfect   => Phrase(verb(Perfeito, person, number).word)
       case Tense.Imperfect => Phrase(verb(Imperfeito, person, number).word)
-      case Tense.Future =>
+      case Tense.Future    =>
         Phrase(List(auxiliary(Presente, person, number).word, verb.infinitive))
       case Tense.PresentProgressive =>
         Phrase(List(copula(Presente, person, number).word, verb.gerund))

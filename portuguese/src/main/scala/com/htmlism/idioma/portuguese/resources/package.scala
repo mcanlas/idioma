@@ -16,7 +16,7 @@ package object resources:
       val elements = altExpr.split('|')
 
       acc.flatMap { cur =>
-        for (e <- elements) yield cur.replace(altExpr, e)
+        for e <- elements yield cur.replace(altExpr, e)
       }
     }
 

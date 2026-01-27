@@ -40,7 +40,7 @@ object VerbConjugator:
                 case (SecondPerson, Singular) => rootAndVowel + "s"
                 case (ThirdPerson, Singular)  => rootAndVowel
                 case (FirstPerson, Plural)    => rootAndVowel + "mos"
-                case (SecondPerson, Plural) =>
+                case (SecondPerson, Plural)   =>
                   val suffix = verb.conjugation match
                     case VerbConjugationGroup.Ar => "áis"
                     case VerbConjugationGroup.Er => "éis"
@@ -54,37 +54,31 @@ object VerbConjugator:
                 case (FirstPerson, Singular) =>
                   verb.root + (verb.conjugation match
                     case VerbConjugationGroup.Ar                           => "é"
-                    case VerbConjugationGroup.Er | VerbConjugationGroup.Ir => "í"
-                  )
+                    case VerbConjugationGroup.Er | VerbConjugationGroup.Ir => "í")
 
                 case (SecondPerson, Singular) =>
                   verb.root + (verb.conjugation match
                     case VerbConjugationGroup.Ar                           => "aste"
-                    case VerbConjugationGroup.Er | VerbConjugationGroup.Ir => "iste"
-                  )
+                    case VerbConjugationGroup.Er | VerbConjugationGroup.Ir => "iste")
 
                 case (ThirdPerson, Singular) =>
                   verb.root + (verb.conjugation match
                     case VerbConjugationGroup.Ar                           => "ó"
-                    case VerbConjugationGroup.Er | VerbConjugationGroup.Ir => "ió"
-                  )
+                    case VerbConjugationGroup.Er | VerbConjugationGroup.Ir => "ió")
 
                 case (FirstPerson, Plural) =>
                   verb.root + (verb.conjugation match
                     case VerbConjugationGroup.Ar                           => "amos"
-                    case VerbConjugationGroup.Er | VerbConjugationGroup.Ir => "imos"
-                  )
+                    case VerbConjugationGroup.Er | VerbConjugationGroup.Ir => "imos")
 
                 case (SecondPerson, Plural) =>
                   verb.root + (verb.conjugation match
                     case VerbConjugationGroup.Ar                           => "asteis"
-                    case VerbConjugationGroup.Er | VerbConjugationGroup.Ir => "isteis"
-                  )
+                    case VerbConjugationGroup.Er | VerbConjugationGroup.Ir => "isteis")
 
                 case (ThirdPerson, Plural) =>
                   verb.root + (verb.conjugation match
                     case VerbConjugationGroup.Ar                           => "aron"
-                    case VerbConjugationGroup.Er | VerbConjugationGroup.Ir => "ieron"
-                  )
+                    case VerbConjugationGroup.Er | VerbConjugationGroup.Ir => "ieron")
 
         getIrregularFormOrElse(overrideKey, defaultConjugation)

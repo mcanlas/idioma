@@ -46,7 +46,7 @@ object GeneratePeriodicTables extends App:
           row
             .split("\t", -1) // negative means keep trailing empty cells
             .map:
-              case "" => """<td class="consonant-empty"></td>"""
+              case ""   => """<td class="consonant-empty"></td>"""
               case nStr =>
                 val n = nStr.toInt
 
@@ -60,7 +60,7 @@ object GeneratePeriodicTables extends App:
                   """</div></td>"""
         }.toSeq
 
-        for (i <- bodyCellsHtml.indices) yield s"""<th>${romanNumerals(i)}</th>""" +: bodyCellsHtml(i)
+        for i <- bodyCellsHtml.indices yield s"""<th>${romanNumerals(i)}</th>""" +: bodyCellsHtml(i)
 
       (firstRowCellsHtml +: bodyRowsCellsHtml)
         .map(r => r.mkString("\n"))
@@ -87,7 +87,7 @@ object GeneratePeriodicTables extends App:
           row
             .split("\t", -1) // negative means keep trailing empty cells
             .map:
-              case "" => """<td class="vowel-empty"></td>"""
+              case ""   => """<td class="vowel-empty"></td>"""
               case nStr =>
                 val n = nStr.toInt
 
@@ -100,7 +100,7 @@ object GeneratePeriodicTables extends App:
             .toSeq
         }.toSeq
 
-        for (i <- bodyCellsHtml.indices) yield s"""<th>${romanNumerals(i)}</th>""" +: bodyCellsHtml(i)
+        for i <- bodyCellsHtml.indices yield s"""<th>${romanNumerals(i)}</th>""" +: bodyCellsHtml(i)
 
       (firstRowCellsHtml +: bodyRowsCellsHtml)
         .map(r => r.mkString("\n"))

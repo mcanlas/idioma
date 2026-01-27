@@ -1,7 +1,5 @@
 package com.htmlism.idioma.spanish
 
-import cats.syntax.all.*
-
 case class ParsedVerb(root: String, conjugation: VerbConjugationGroup):
   val infinitive: String =
     root + conjugation.vowel + "r"

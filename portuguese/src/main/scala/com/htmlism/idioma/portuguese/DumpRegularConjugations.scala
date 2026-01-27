@@ -13,13 +13,12 @@ object DumpRegularConjugations extends App:
   for (root, conjugation) <- verbs do
     println()
 
-    val columns = for (t <- List(Presente, Perfeito, Imperfeito)) yield
+    val columns = for t <- List(Presente, Perfeito, Imperfeito) yield
       val inflections =
-        for (
+        for
           n <- CategoriasGramaticais.Numeros;
           p <- CategoriasGramaticais.Pessoas
-        )
-          yield conjugation(root, (t, p, n)).word
+        yield conjugation(root, (t, p, n)).word
 
       t.key +: inflections
 

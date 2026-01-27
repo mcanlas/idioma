@@ -43,5 +43,5 @@ object Data:
 
     json match
       case JArray(jsonVerbs) =>
-        for (json <- jsonVerbs) yield OldVerb(json)
+        for json <- jsonVerbs yield OldVerb(json)
       case _ => throw new IllegalArgumentException
