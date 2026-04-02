@@ -48,5 +48,6 @@ object ChineseWordProvider extends Iterable[ChineseWord]:
         ChineseWord(pinyin, english, chinese)
       }
 
-object Tester extends App:
-  ChineseWordProvider.toList.foreach(println)
+object Tester:
+  def main(args: Array[String]): Unit =
+    ChineseWordProvider.toList.foreach(println)

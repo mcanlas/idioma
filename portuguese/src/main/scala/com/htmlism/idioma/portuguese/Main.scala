@@ -6,7 +6,7 @@ import com.htmlism.idioma.portuguese.CategoriasGramaticais.*
 /**
   * Prints out combinations of verbal phrases
   */
-object Main extends App:
+object Main:
   val verbalPhrases = Data.verbs.flatMap { verb =>
     List(Presente, Perfeito, Imperfeito).flatMap { t =>
       val timePhrases = t match
@@ -89,6 +89,7 @@ object Main extends App:
 
   val sentences = verbalPhrases ++ progressivePhrases
 
-  for s <- sentences do
-    val sentence = Statement(s)
-    println(sentence.render)
+  def main(args: Array[String]): Unit =
+    for s <- sentences do
+      val sentence = Statement(s)
+      println(sentence.render)

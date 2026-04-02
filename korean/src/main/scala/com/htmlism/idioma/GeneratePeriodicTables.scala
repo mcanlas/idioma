@@ -4,11 +4,12 @@ import scala.io.Source
 
 import com.htmlism.hangul.Hangul
 
-object GeneratePeriodicTables extends App:
+object GeneratePeriodicTables:
   val romanNumerals = List("I", "II", "III", "IV", "V", "VI")
 
-  printConsonants()
-  printVowels()
+  def main(args: Array[String]): Unit =
+    printConsonants()
+    printVowels()
 
   private def printConsonants() =
     val consonants =

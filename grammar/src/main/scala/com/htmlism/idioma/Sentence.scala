@@ -7,7 +7,8 @@ trait Sentence:
   def render: String =
     (words match
       case head :: tail => (head.capitalize +: tail).mkString(" ")
-      case Nil => "") + punctuation
+      case Nil          => ""
+    ) + punctuation
 
 case class Statement(words: List[String]) extends Sentence:
   protected val punctuation = "."
