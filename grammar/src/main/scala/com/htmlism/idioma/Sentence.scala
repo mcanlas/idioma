@@ -4,11 +4,10 @@ trait Sentence:
   protected def words: List[String]
   protected def punctuation: String
 
-  lazy val nonEmptyWords = words.toSeq.filter(_.nonEmpty)
-
-  def render =
-    (nonEmptyWords.head.capitalize +: nonEmptyWords.tail)
-      .mkString(" ") + punctuation
+  def render: String =
+    (words match
+      case head :: tail => (head.capitalize +: tail).mkString(" ")
+      case Nil => "") + punctuation
 
 case class Statement(words: List[String]) extends Sentence:
   protected val punctuation = "."
