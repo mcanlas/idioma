@@ -1,6 +1,8 @@
 import sbt.Keys.*
 import sbt.*
 
+import Versions.*
+
 object DependenciesPlugin extends AutoPlugin {
   override def trigger = allRequirements
 
@@ -33,7 +35,7 @@ object DependenciesPlugin extends AutoPlugin {
 
       def withEffectMonad: Project =
         p
-          .settings(libraryDependencies += "org.typelevel" %% "cats-effect" % "3.7.0")
+          .settings(libraryDependencies += "org.typelevel" %% "cats-effect" % catsEffect)
 
       def withTesting: Project = {
         val weaverVersion =
